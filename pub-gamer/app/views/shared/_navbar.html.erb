@@ -1,21 +1,12 @@
-<ul>
-  <li class="name"><%= link_to "Home", root_path %></li>
-<% if current_user %>
-  <li class="name"><%= link_to current_user.full_name, user_path(current_user) %></li>
-  <li class="name"><%= link_to "Logout", logout_path, method: :delete %></li>
-<% else %>
-  <li class="name"><%= link_to "Log In", login_path %></li>
-  <li class="name"><%= link_to "Register", new_user_path %></li>
-<%end%>
-</ul>
-    </div>
-    </nav>
-
-    <div class="small-5 columns">
-        <%= form_for Survey.new do |f| %>
-        <%= f.hidden_field :latitude %>
-        <%= f.hidden_field :longitude %>
-        <%= f.submit "Calculate" "Your Carbon Footprint", class:"button nav-button" %>
-    <% end %>
-  </div>
-</div>
+<nav>
+  <ul>
+    <li class="name"><%= link_to "Home", root_path %></li>
+  <% if current_user %>
+    <li class="name"><%= link_to current_user.full_name, user_path(current_user) %></li>
+    <li class="name"><%= link_to "Logout", logout_path, method: :delete %></li>
+  <% else %>
+    <li class="name"><%= link_to "Log In", login_path %></li>
+    <li class="name"><%= link_to "Register", new_user_path %></li>
+  <%end%>
+  </ul>
+</nav>
