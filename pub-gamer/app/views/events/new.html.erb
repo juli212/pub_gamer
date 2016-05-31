@@ -1,0 +1,18 @@
+<h2>Create New Event</h2>
+
+  <%= form_for @event do |f| %>
+
+    <%= f.label :title %>:
+  	<%= f.text_field :title %>
+
+    <strong>Date: </strong><input type='date' name= 'date' />
+    <strong>Time: </strong><input type='time' name= 'time' />
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+
+    <%= f.label "max guests" %>
+    <%= f.number_field :limit %>
+
+    <%= f.button :submit %>
+  <% end %>
