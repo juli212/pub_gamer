@@ -12,11 +12,11 @@ class EventsController < ApplicationController
   end
 
   def create
+    @event = Event.new(event_params)
   	binding.pry
-  	@event = Event.new(event_params)
   	@event.user_id = current_user.id
   	if @event.save
-	  redirect_to event_path(@event)
+      redirect_to event_path(@event)
   	else
   	  @errors = @event.errors.full_messages
       render 'new'
@@ -43,6 +43,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:appointment).permit(:title, :date, :time, :description, :limit)
+    params.require(:event).permit(:title, :event_date, :event_time, :description, :limit)
   end
 end

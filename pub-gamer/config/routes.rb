@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   resources :events
+  resources :venues
+  
   
   get "register" => "users#new", as: "register"
   get "login" => "sessions#new", as: "login"
