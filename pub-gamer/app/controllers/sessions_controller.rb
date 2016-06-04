@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     if request.xhr?
-      render partial: 'sessions/login_form'
+      render partial: 'login_form'
     end
   end
 
