@@ -13,3 +13,221 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-color: #696969;
+  width: 1000px;
+  margin: 0 auto;
+
+}
+body ul{
+  list-style-type: none;
+}
+
+body a {
+  text-decoration: none;
+}
+
+body ul li {
+  display: inline-block;
+  padding: 0px 10px;
+  margin: 0px -3.5px
+;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+}
+
+body ul a {
+  text-decoration: none;
+  color: white;
+}
+
+nav {
+  margin-left: -12px;
+}
+
+#yield {
+  margin-left: 25px;
+  padding-left: 30px;
+  border-left: 1px solid white;
+}
+
+#homepage {
+  width: 1200px;
+  height: 600px;
+  /*background-image: url("../imgs/Pool_background.jpg");*/
+  margin: 0 auto;
+}
+
+#login-register form {
+  font-size: 30px;
+  text-decoration: none;
+  float: left;
+}
+
+#form-header {
+  margin-left: 50px;
+  position: relative;
+
+}
+
+#login-register input {
+  background-color: black;
+  width: 150px;
+  height: 80px;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+h1 {
+  text-align: center;
+  font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+  font-size: 50px;
+}
+
+#login {
+  font-size: 46px;
+  position: relative;
+  /*bottom: 62%;*/
+  /*left: 1.3%;*/
+  float: left;
+  margin-top: 140px;
+  margin-left: 120px;
+}
+
+#register {
+  position: relative;
+  bottom: 62.7%;
+  /*top: -375px;*/
+  right: -10px;
+  font-size: 46px;
+  float: right;
+  margin-top: 140px;
+  margin-right: 105px;
+  color: #faebd7;
+}
+#login a {
+  text-decoration: none;
+  color: #faebd7;
+  font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+#login a:visited {
+  text-decoration: none;
+  color: #faebd7;
+}
+
+#login a:hover {
+  background-color: #696969;
+  border-radius: 6px;
+  transition: background-color .5s linear;
+}
+
+#login-header {
+  text-align: center;
+  font-size: 30px;
+  position: relative;
+  top: 75px;
+  z-index: 7;
+}
+
+#register a:visited {
+  text-decoration: none;
+  color: #faebd7;
+}
+
+
+#register a {
+  text-decoration: none;
+  font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: #faebd7;
+}
+
+#register a:hover {
+  background-color: #696969;
+  border-radius: 6px;
+  transition: background-color .5s linear;
+}
+
+#form-container {
+  margin: 0 auto;
+  width: 255px;
+  height: 375px;
+}
+
+#new-session {
+  text-align: center;
+  padding: 6px 0px 0px;
+  background-color: black;
+  opacity: .9;
+  border-radius: 9px;
+}
+
+#new-user-form {
+  text-align: center;
+  padding: 6px 0px 0px;
+  background-color: black;
+  opacity: .9;
+  border-radius: 9px;
+}
+
+#register-title {
+  margin-bottom: 15px;
+}
+
+
+
+#new-user-form input {
+  background-color: #faebd7;
+  width: 190px;
+  height: 30.5px;
+  margin: 15px 30px;
+  border-radius: 5.1px;
+  opacity: 1;
+}
+
+#new-session h1 {
+  /*padding: 0px;*/
+  margin: 14px;
+}
+
+#new-session input {
+  background-color: #faebd7;
+  width: 190px;
+  height: 30.5px;
+  margin: 20px 30px;
+  border-radius: 5.1px;
+  opacity: 1;
+}
+#new-session #login-button {
+  width: 190px;
+  height: 35px;
+  opacity: 1;
+  background-color: #faebd7;
+}
+
+#right {
+float: right;
+  width: 300px;
+  display: inline-block;
+  margin-right: 200px;
+}
+
+#left {
+  margin-left: 20px;
+  position: relative;
+  width: 400px;
+  display: inline-block;
+  top: 0px;
+}
+
+#line {
+  width: 300px;
+  margin-left: -15px;
+}

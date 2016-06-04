@@ -1,0 +1,13 @@
+body {
+   background-image: url("Pool_background.jpg");
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   margin-top: 0px;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+  font-size: 50px;
+}
