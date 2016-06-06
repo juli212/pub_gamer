@@ -10,10 +10,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to events_path
+      redirect_to user_path(user)
     else
       @errors = ['Invalid Email or Password']
-      render 'new'
+      redirect root_path
     end
   end
 
