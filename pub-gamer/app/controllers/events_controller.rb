@@ -15,7 +15,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
   	binding.pry
   	@event.user_id = current_user.id
-  	if @event.save
+  	if @event.save 
       redirect_to event_path(@event)
   	else
   	  @errors = @event.errors.full_messages
@@ -23,20 +23,20 @@ class EventsController < ApplicationController
   	end
   end
 
-  def edit
-  	# if !logged_in?
-  	  redirect_to events_path
-  	# else
-  	  @user = User.find_by(id: session[:user_id])
-  	  @event = Event.find_by(id: params[:id])
-  		if @user.id == @event.user_id
-  		end
-  	# end
-  end
+  # def edit
+  # 	# if !logged_in?
+  # 	  redirect_to events_path
+  # 	# else
+  # 	  @user = User.find_by(id: session[:user_id])
+  # 	  @event = Event.find_by(id: params[:id])
+  # 		if @user.id == @event.user_id
+  # 		end
+  # 	# end
+  # end
 
-  def update
+  # def update
 
-  end
+  # end
 
   def destroy
 
