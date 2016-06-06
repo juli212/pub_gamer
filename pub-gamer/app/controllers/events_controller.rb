@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  def index
+  def 
+    binding.pry
   	@events = Event.all
   end
 
@@ -14,8 +15,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-  	binding.pry
-  	@event.user_id = current_user.id
+    @event.user_id = current_user.id
   	if @event.save 
       redirect_to event_path(@event)
   	else
@@ -44,6 +44,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :event_date, :event_time, :description, :limit)
+    params.require(:event).permit(:title, :event_date, :event_time, :description, :limit, :location)
   end
 end

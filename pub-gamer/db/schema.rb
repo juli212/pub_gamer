@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160604205545) do
     t.date     "event_date",  null: false
     t.time     "event_time",  null: false
     t.integer  "limit",       null: false
-    t.integer  "venue_id",    null: false
+    t.integer  "location",    null: false
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
