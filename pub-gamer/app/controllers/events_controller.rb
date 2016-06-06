@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   def
-    binding.pry
   	@events = Event.all
   end
 
