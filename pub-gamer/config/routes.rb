@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :events
   resources :venues
+  resources :reviews
   resources :users, only: [:show, :new, :create , :edit, :update]
 
 end
