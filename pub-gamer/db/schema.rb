@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(version: 20160606214055) do
   create_table "reviews", force: :cascade do |t|
     t.string   "title",        null: false
     t.string   "content",      null: false
-    t.string   "vide",         null: false
+    t.string   "vibe",         null: false
     t.time     "time_visited", null: false
-    t.boolean  "recommended",  null: false
+    t.boolean  "recommended"
     t.integer  "venue_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

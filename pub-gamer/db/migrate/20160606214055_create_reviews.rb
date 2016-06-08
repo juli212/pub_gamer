@@ -3,9 +3,9 @@ class CreateReviews < ActiveRecord::Migration
     create_table :reviews do |t|
       t.string :title, null: false
       t.string :content, null: false
-      t.string :vide, null: false
+      t.string :vibe, null: false
       t.time :time_visited, null: false
-      t.boolean :recommended, null: false
+      t.boolean :recommended
       t.references :venue
 
       t.timestamps null: false

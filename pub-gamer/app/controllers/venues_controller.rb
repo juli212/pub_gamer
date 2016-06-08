@@ -20,10 +20,14 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find_by(id: params[:id])
+    @review = Review.new
     render 'show'
   end
+
+private
 
   def venue_params
     params.require(:venue).permit(:name, :description, :address, :neighborhood)
   end
+
 end
