@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< 2761505f4c226faa38da85553420e04e63289930
-ActiveRecord::Schema.define(version: 20160606212047) do
-=======
 ActiveRecord::Schema.define(version: 20160606214055) do
->>>>>>> clean up CSS and add reviews migration and model
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +19,13 @@ ActiveRecord::Schema.define(version: 20160606214055) do
     t.text     "body",       null: false
     t.integer  "event_id",   null: false
     t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_games", force: :cascade do |t|
+    t.integer  "game_id",    null: false
+    t.integer  "event_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
