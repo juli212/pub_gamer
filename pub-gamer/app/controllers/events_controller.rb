@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  def
+
+  def index
   	@events = Event.all
   end
 
@@ -11,11 +12,14 @@ class EventsController < ApplicationController
 
   def new
 	  @event = Event.new
+    @games = Game.all
   end
 
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
+    games = params[:games]
+    @event.games << Game.find(games)
   	if @event.save
       redirect_to event_path(@event)
   	else
@@ -46,4 +50,5 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :event_date, :event_time, :description, :limit, :location)
   end
+
 end

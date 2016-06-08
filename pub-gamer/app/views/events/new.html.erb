@@ -17,6 +17,14 @@
     <%= f.label :description %>:
     <%= f.text_area :description %>
 
+    <% if @games && @games.length > 0 %>
+      Games:
+      <% @games.each do |game| %>
+      <%= check_box_tag "games[]", game.id %>
+      <%= game.name %>
+      <% end %>
+    <% end %>
+
     <%= f.label "max guests" %>:
     <%= f.number_field :limit %>
 

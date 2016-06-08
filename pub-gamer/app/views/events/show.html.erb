@@ -9,3 +9,7 @@
 <%= @event.description %>
 
 Max Guests: <%= @event.limit %>
+
+<% @event.games.each do |game| %>
+	<%= game.name %>
+	<% end %>
