@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< 2761505f4c226faa38da85553420e04e63289930
 ActiveRecord::Schema.define(version: 20160606212047) do
+=======
+ActiveRecord::Schema.define(version: 20160606214055) do
+>>>>>>> clean up CSS and add reviews migration and model
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +49,17 @@ ActiveRecord::Schema.define(version: 20160606212047) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string   "title",        null: false
+    t.string   "content",      null: false
+    t.string   "vide",         null: false
+    t.time     "time_visited", null: false
+    t.boolean  "recommended",  null: false
+    t.integer  "venue_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "user_name",       null: false
     t.string   "password_digest", null: false
@@ -61,12 +76,13 @@ ActiveRecord::Schema.define(version: 20160606212047) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "name",         null: false
     t.text     "description"
-    t.string   "address",     null: false
+    t.string   "neighborhood", null: false
+    t.string   "address",      null: false
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
