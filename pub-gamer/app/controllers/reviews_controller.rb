@@ -8,5 +8,4 @@ private
   def review_params
     params.require(:review).permit(:content, :vibe, :time_visited, :recommended)
   end
-
 end
