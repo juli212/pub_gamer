@@ -9,6 +9,6 @@ class Event < ActiveRecord::Base
 	has_many :guests, through: :user_events, source: :user
 
 	def full?
-		
+		self.guests.length >= self.limit
 	end
 end
