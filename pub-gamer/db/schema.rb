@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609034136) do
+
+ActiveRecord::Schema.define(version: 20160608212927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,10 +54,15 @@ ActiveRecord::Schema.define(version: 20160609034136) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string   "title",        null: false
     t.string   "content",      null: false
+<<<<<<< 6dce920f56e6822eeba94975e389ff689b574f30
     t.time     "time_visited", null: false
     t.boolean  "recommended",  null: false
+=======
+    t.string   "vibe",         null: false
+    t.time     "time_visited"
+    t.boolean  "recommended"
+>>>>>>> add games upon creation of venues
     t.integer  "venue_id"
     t.integer  "false_id"
     t.datetime "created_at",   null: false

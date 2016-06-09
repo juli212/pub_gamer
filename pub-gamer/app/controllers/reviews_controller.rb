@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
 private
   def review_params
-    params.require(:venue).permit(:name, :description, :address, :neighborhood)
+    params.require(:review).permit(:content, :vibe, :time_visited, :recommended)
   end
 
 end
