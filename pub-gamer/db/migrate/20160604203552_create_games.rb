@@ -4,7 +4,6 @@ class CreateGames < ActiveRecord::Migration
       t.string :name, null: false
       t.text :description
       t.integer :quantity
-      t.integer :user_id, null: false
 
       t.timestamps null: false
     end
