@@ -1,2 +1,7 @@
 <nav>
+	<%= link_to "logout", logout_path, method: :delete %>
+	<%= link_to "Events", events_path %>
+	<%= link_to "Venues", venues_path %>
+	<%= link_to "profile", user_path(current_user) %>
+
 </nav>
