@@ -46,9 +46,11 @@ class EventsController < ApplicationController
     redirect_to event_path(@event)
   end
 
-  # def destroy
-
-  # end
+  def destroy
+    @event = Event.find_by(id: params[:id])
+    @event.guests.delete(current_user)
+    redirect_to event_path(@event)
+  end
 
   def event_params
     params.require(:event).permit(:title, :event_date, :event_time, :description, :limit, :location, :games)
