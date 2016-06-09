@@ -13,8 +13,19 @@
     <%= f.label :address %>
     <%= f.text_field :address %>
   </div>
+  <div>
     <%= f.label :description %>
     <%= f.text_area :description %>
+  </div>
+  <div>
+    Games:
+    <% if @games && @games.length > 0 %>
+      <% @games.each do |game| %>
+        <%= check_box_tag "games[]", game.id %>
+        <%= game.name %>
+      <% end %>
+    <% end %>
+  </div>
   <div>
     <%= f.button :submit %>
   </div>

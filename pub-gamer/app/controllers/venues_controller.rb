@@ -6,11 +6,14 @@ class VenuesController < ApplicationController
 
   def new
     @venue = Venue.new
+    @games = Game.all
   end
 
   def create
-    @venue = Venue.new(venue_params)
-    if @venue.save
+    venue = Venue.new(venue_params)
+    games = params[:games]
+    venue.games << Game.find(games)
+    if venue.save
       redirect_to venues_path
     else
       @errors = @venue.errors.full_messages
