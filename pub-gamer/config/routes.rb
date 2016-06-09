@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   get "login" => "sessions#new", as: "login"
   post "login" => "sessions#create", as: "new_login"
 
-  resources :events
+  resources :events do
+    resources :comments, only: [:new, :create]
+  end
   resources :venues
-  resources :reviews
+  resources :reviews 
   resources :users, only: [:show, :new, :create , :edit, :update]
 
 end

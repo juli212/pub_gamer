@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   def show
   	@event = Event.find_by(id: params[:id])
     @comments = @event.comments
+    @comment = Comment.new
     render 'show'
   end
 
@@ -39,16 +40,18 @@ class EventsController < ApplicationController
   # 	# end
   # end
 
-  # def update
+  def update
+    @event = Event.find_by(id: params[:id])
+    @event.guests << current_user unless @event.full?
+    redirect_to event_path(@event)
+  end
+
+  # def destroy
 
   # end
 
-  def destroy
-
-  end
-
   def event_params
-    params.require(:event).permit(:title, :event_date, :event_time, :description, :limit, :location)
+    params.require(:event).permit(:title, :event_date, :event_time, :description, :limit, :location, :games)
   end
 
 end
