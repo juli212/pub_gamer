@@ -23,6 +23,23 @@ $(document).ready(function() {
         $('#form-container').html(response).hide().fadeIn(300);
     })
   })
+
+  function checkDOMChange() {
+    setTimeout( checkDOMChange, 100 );
+    $targetDiv = $("div").filter(function() {
+      return $(this).css('left') == "1px" && $(this).css('top') == "1px" && $(this).css('width') == '231px';
+      });
+    if ($targetDiv.html() == "hello"){}
+    else {
+      $("div").filter(function() {
+      return $(this).css('left') == "1px" && $(this).css('top') == "1px" && $(this).css('width') == '231px';
+      }).append(
+         "<form action=/venues method=POST><input type=submit value=Save Post></form>"
+      );
+      }
+
+  }
+  checkDOMChange();
 });
 
  function initAutocomplete() {
@@ -31,6 +48,12 @@ $(document).ready(function() {
           zoom: 13,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
+
+
+  // google.maps.places.event.addListener(map, 'click', function(event) {
+  //   $target = $(event.target)
+  //   debugger;
+  // })
 
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
@@ -86,4 +109,6 @@ $(document).ready(function() {
           });
           map.fitBounds(bounds);
         });
+
+
       }
