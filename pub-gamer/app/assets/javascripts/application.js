@@ -24,19 +24,19 @@ $(document).ready(function() {
     })
   })
 
-
   function checkDOMChange() {
     setTimeout( checkDOMChange, 100 );
     $targetDiv = $("div").filter(function() {
       return $(this).css('left') == "1px" && $(this).css('top') == "1px" && $(this).css('width') == '231px';
       });
-    if ($targetDiv.html() == "hello"){}
+    if (document.getElementById("createVenue") == null)
+      { $("div").filter(function() {
+        return $(this).css('left') == "1px" && $(this).css('top') == "1px" && $(this).css('width') == '231px';
+        }).append(venueForm);
+        $venueAddress = $(document.getElementsByClassName("address-line full-width")).first().html()
+      }
     else {
-      $("div").filter(function() {
-      return $(this).css('left') == "1px" && $(this).css('top') == "1px" && $(this).css('width') == '231px';
-      }).append(
-         "<form action=/venues method=POST><input type=submit value=Save Post></form>"
-      );
+
       }
 
   }
