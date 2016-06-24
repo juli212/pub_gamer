@@ -84,11 +84,13 @@ ActiveRecord::Schema.define(version: 20160609034136) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "address",    null: false
+    t.string   "name",        null: false
+    t.string   "address",     null: false
+    t.text     "description"
+    t.string   "place"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
