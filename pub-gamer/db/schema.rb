@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20160609034136) do
     t.string   "vibe",         null: false
     t.time     "time_visited"
     t.boolean  "recommended"
-    t.integer  "venue_id"
+    t.integer  "venue_id",     null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

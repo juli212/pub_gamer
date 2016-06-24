@@ -24,19 +24,32 @@ $(document).ready(function() {
     })
   })
 
+  $('body').on('click', '#createVenue',function(event){
+    // alert('blah')
+    event.preventDefault();
+    $venueName = $(document.getElementsByClassName("title full-width")).first().html()
+    $venueStreet = $(document.getElementsByClassName("address-line full-width")).first().html()
+    $venueCity = $(document.getElementsByClassName("address-line full-width")).last().html()
+    document.getElementById('venue_name').value = $venueName;
+    document.getElementById('venue_address').value = $venueStreet + ", " + $venueCity;
+  })
+
+  $authToken = $('meta[name="csrf-token"]').attr('content')
 
   function checkDOMChange() {
     setTimeout( checkDOMChange, 100 );
     $targetDiv = $("div").filter(function() {
       return $(this).css('left') == "1px" && $(this).css('top') == "1px" && $(this).css('width') == '231px';
       });
-    if ($targetDiv.html() == "hello"){}
+    if (document.getElementById("createVenue") == null)
+        // debugger;
+      { $("div").filter(function() {
+            $venueAddress = $(document.getElementsByClassName("address-line full-width")).first().html()
+        return $(this).css('left') == "1px" && $(this).css('top') == "1px" && $(this).css('width') == '231px';
+        }).append("<button id=createVenue type=button>Select Venue!</button>");
+      }
     else {
-      $("div").filter(function() {
-      return $(this).css('left') == "1px" && $(this).css('top') == "1px" && $(this).css('width') == '231px';
-      }).append(
-         "<form action=/venues method=POST><input type=submit value=Save Post></form>"
-      );
+        // do nothing
       }
 
   }
