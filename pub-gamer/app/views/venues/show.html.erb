@@ -1,31 +1,11 @@
 <h3><%=@venue.name%></h3>
-<div>Description: <%=@venue.description%></div>
-<div>Address: <%=@venue.address%></div>
-<div>Neighborhood: <%=@venue.address%></div>
 
+<%= render partial: 'venue' %>
+
+<% if @venue.reviews.length > 0 %>
+  <%= render partial: 'reviews/index', locals: { reviews: @venue.reviews } %>
+<% end %>
 
   <h2>Add a review!</h2>
 
-  <%= form_for @review do |f| %>
-  <div>
-    <%= f.label :title %>:
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :content %>:
-    <%= f.text_field :content %>
-  </div>
-  <div>
-    <%= f.label :time_visited %>:
-    <%= f.text_field :time_visited %>
-  </div>
-  <div>
-    <%= f.label :vibe %>
-    <%= f.text_field :vibe %>
-  </div>
-    <%= f.label :recommended %>
-    <%= f.text_area :recommended %>
-  <div>
-    <%= f.button :submit %>
-  </div>
-  <% end %>
+<%= render partial: 'reviews/new' %>
