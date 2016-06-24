@@ -2,10 +2,20 @@
 
 <%= render partial: 'venue' %>
 
+<h2>Reviews</h2>
+
+<div id="reviews">
 <% if @venue.reviews.length > 0 %>
   <%= render partial: 'reviews/index', locals: { reviews: @venue.reviews } %>
 <% end %>
+</div>
 
   <h2>Add a review!</h2>
+
+<% if @errors %>
+	<% @errors.each do |messageerror| %>
+		<p><%= message %></p>
+	<% end %>
+<% end %>
 
 <%= render partial: 'reviews/new' %>

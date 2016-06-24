@@ -14,8 +14,8 @@
       <%= f.text_field :vibe %>
     </div>
       <%= f.label :recommended? %>:
-      <%= check_box_tag :recommended %>
-    <div>
+      <%= check_box_tag :recommended, "yes" %>
+    <div id="submit-review">
       <%= f.button :submit %>
     </div>
   <% end %>
