@@ -1,0 +1,21 @@
+
+  <%= form_for @review do |f| %>
+    <div>
+      <%= f.label :content %>:
+      <br>
+      <%= f.text_area :content %>
+    </div>
+    <div>
+      <%= f.label :time_visited %>:
+      <%= f.text_field :time_visited %>
+    </div>
+    <div>
+      <%= f.label :vibe %>:
+      <%= f.text_field :vibe %>
+    </div>
+      <%= f.label :recommended? %>:
+      <%= check_box_tag :recommended %>
+    <div>
+      <%= f.button :submit %>
+    </div>
+  <% end %>

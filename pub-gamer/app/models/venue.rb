@@ -4,4 +4,18 @@ class Venue < ActiveRecord::Base
   	has_many :reviews
 	has_many :venue_games
 	has_many :games, through: :venue_games
+
+	def game
+		
+	end
+
+	def make_new(game_name)
+		if !Game.find_by(name: game_name)
+			new_game = Game.create(name: game_name)
+			self.games << new_game
+		else
+			self.games << Game.find_by(name: game_name)
+		end
+	end
+
 end
