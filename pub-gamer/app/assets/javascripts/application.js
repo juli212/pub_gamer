@@ -24,6 +24,7 @@ $(document).ready(function() {
     })
   })
 
+
   function checkDOMChange() {
     setTimeout( checkDOMChange, 100 );
     $targetDiv = $("div").filter(function() {
@@ -48,12 +49,6 @@ $(document).ready(function() {
           zoom: 13,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
-
-
-  // google.maps.places.event.addListener(map, 'click', function(event) {
-  //   $target = $(event.target)
-  //   debugger;
-  // })
 
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
