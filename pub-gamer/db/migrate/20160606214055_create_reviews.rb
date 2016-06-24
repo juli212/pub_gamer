@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration
       t.string :vibe, null: false
       t.time :time_visited
       t.boolean :recommended
-      t.references :venue
+      t.integer :venue_id, null: false
 
       t.timestamps null: false
     end
