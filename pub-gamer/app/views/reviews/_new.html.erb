@@ -1,5 +1,5 @@
 
-  <%= form_for @review do |f| %>
+  <%= form_for [ @venue, @review ] do |f| %>
     <div>
       <%= f.label :content %>:
       <br>
