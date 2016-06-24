@@ -6,13 +6,18 @@ class VenuesController < ApplicationController
 
   def new
     @venue = Venue.new
+    @game = Game.new
     @games = Game.all
   end
 
   def create
+    binding.pry
     venue = Venue.new(venue_params)
-    games = params[:games]
-    venue.games << Game.find(games)
+    if params[:games]
+      venue.games << Game.find(params[:games])
+    end
+    new_game = params[:venue][:game]
+    params[:other] && new_game.length > 3 ? venue.make_new(new_game) : venue
     if venue.save
       redirect_to venues_path
     else
@@ -30,7 +35,7 @@ class VenuesController < ApplicationController
 private
 
   def venue_params
-    params.require(:venue).permit(:name, :address)
+    params.require(:venue).permit(:name, :address, :description, :place, :other)
   end
 
 end
