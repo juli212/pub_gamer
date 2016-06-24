@@ -24,19 +24,24 @@ $(document).ready(function() {
     })
   })
 
+  $authToken = $('meta[name="csrf-token"]').attr('content')
+
   function checkDOMChange() {
     setTimeout( checkDOMChange, 100 );
     $targetDiv = $("div").filter(function() {
       return $(this).css('left') == "1px" && $(this).css('top') == "1px" && $(this).css('width') == '231px';
       });
     if (document.getElementById("createVenue") == null)
+        // debugger;
       { $("div").filter(function() {
+            $venueAddress = $(document.getElementsByClassName("address-line full-width")).first().html()
         return $(this).css('left') == "1px" && $(this).css('top') == "1px" && $(this).css('width') == '231px';
-        }).append(venueForm);
-        $venueAddress = $(document.getElementsByClassName("address-line full-width")).first().html()
+        }).append("<form id=createVenue action=/venues method=POST><input type=hidden name=authenticity_token value="+$authToken+"><input type=submit value=Save><input type=hidden name=address value="+$venueAddress+"></form>");
+          // debugger;
+        // $venueAddress = $(document.getElementsByClassName("address-line full-width")).first().html()
       }
     else {
-
+        // do nothing
       }
 
   }

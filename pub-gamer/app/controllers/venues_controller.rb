@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-
+# skip_before_action :verify_authenticity_token, only: [:create]
   def index
     @venues = Venue.all
   end
