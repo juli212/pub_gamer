@@ -8,3 +8,5 @@
 
 
 games = Game.create([{ name: 'pool'}, {name: 'fooseball'}, {name: 'shuffleboard'}, {name: 'darts'}, {name: 'skeeball'}])
+
+User.create(user_name: "julia", password: "password", email: "julia@julia.com")
