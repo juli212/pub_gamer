@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "login" => "sessions#create", as: "new_login"
   delete "logout" => "sessions#destroy", as: "logout" 
 
+
   resources :events do
     resources :comments, only: [:create]
   end

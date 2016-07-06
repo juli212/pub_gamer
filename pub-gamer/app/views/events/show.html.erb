@@ -18,6 +18,9 @@ Max Guests: <%= @event.limit %>
 <% if @event.guests.include?(current_user) %>
 	<p>You are already going!</p>
 	<%= link_to "Cannot make it", event_path(@event), method: :delete %>
+	<% @event.guests.each do |guest| %>
+		<%= guest.user_name %>
+	<% end %>
 <% elsif @event.full? %>
 	<p>Event is full :( you cannot join...</p>
 <% else %>
@@ -26,9 +29,6 @@ Max Guests: <%= @event.limit %>
 
 <br>
 
-<% @event.guests.each do |guest| %>
-	<%= guest.user_name %>
-<% end %>
 
 	<br><hr><br>
 
