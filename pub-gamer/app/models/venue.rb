@@ -18,4 +18,12 @@ class Venue < ActiveRecord::Base
 		end
 	end
 
+	def has_reviews?
+		self.reviews.length > 0
+	end
+
+	def recent_reviews
+		self.reviews.last(10)
+	end
+
 end

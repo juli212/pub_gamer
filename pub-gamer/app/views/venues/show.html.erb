@@ -5,8 +5,8 @@
 <h2>Reviews</h2>
 
 <div id="reviews">
-<% if @venue.reviews.length > 0 %>
-  <%= render partial: 'reviews/index', locals: { reviews: @venue.reviews } %>
+<% if @venue.has_reviews? %>
+  <%= render partial: 'reviews/index', locals: { reviews: @venue.recent_reviews } %>
 <% end %>
 </div>
 

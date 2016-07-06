@@ -2,7 +2,6 @@ $(document).ready(function() {
   $('#new_review').on('submit', function(event){
     event.preventDefault();
     $target = $(event.target)
-    // debugger;
     $.ajax({
       url: $target.attr('action'),
       method: $target.attr('method'),
