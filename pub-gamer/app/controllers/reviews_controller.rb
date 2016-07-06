@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
 			@review.recommended = true
 		end
 		if @review.save && request.xhr?
-			render partial: 'reviews/show', locals: { reviews: venue.reviews }
+			render partial: 'reviews/show', locals: { review: @review }
 		elsif @review.save
 			redirect_to venue_path(venue)
 		else
@@ -20,6 +20,6 @@ class ReviewsController < ApplicationController
 
 	private
 	def review_params
-		params.require(:review).permit(:content, :vibe, :time_visited, :recommended)
+		params.require(:review).permit(:content, :vibe, :time_visited, :venue_id)
 	end
 end

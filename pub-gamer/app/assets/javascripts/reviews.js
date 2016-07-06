@@ -1,18 +1,14 @@
 $(document).ready(function() {
-
   $('#new_review').on('submit', function(event){
     event.preventDefault();
-    // alert('wee')
     $target = $(event.target)
-    debugger;
+    // debugger;
     $.ajax({
       url: $target.attr('action'),
       method: $target.attr('method'),
-      data: $target.serialize
+      data: $target.serialize()
     }).done(function(response){
         $('#reviews').prepend(response);
     })
   })
-
-
 });
