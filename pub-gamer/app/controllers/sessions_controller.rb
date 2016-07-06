@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(user)
     else
       @errors = ['Invalid Email or Password']
-      redirect root_path
+      redirect_to root_path
     end
   end
 

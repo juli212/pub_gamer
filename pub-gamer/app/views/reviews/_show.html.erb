@@ -1,0 +1,11 @@
+<p>VIBE: <%= review.vibe %>,
+
+<% if review.recommended %>
+	Highly Recommended!</p>
+<% else %>
+	Not Recommended</p>
+<% end %>
+<p><%= review.content %></p>
+
+<%= review.review_date %>
+<hr>

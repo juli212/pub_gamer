@@ -1,9 +1,9 @@
 <h1>Venues</h1>
 
-<%=link_to("Add Venue!", new_venue_path)%>
+<%=link_to("Add Venue!", new_venue_path) %>
+
+<h2>Listed Venues:</h2>
 
 <% @venues.each do |venue| %>
-  <%=link_to(venue.name, venue_path(venue))%>
-  Description: <%=venue.description%>
-  Address: <%=venue.address%>
+  <%= render partial: 'venue_display', locals: { venue: venue } %>
 <% end %>

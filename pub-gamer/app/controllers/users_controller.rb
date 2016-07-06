@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def new
     if request.xhr?
+      # binding.pry
       @user = User.new
       render partial: 'registration_form'
     end
