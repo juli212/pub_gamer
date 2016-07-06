@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments, only: [:new, :create]
   end
-  resources :venues
-  resources :reviews 
+
+  resources :venues do
+    resources :reviews, only: [:create]
+  end
+  
   resources :users, only: [:show, :new, :create , :edit, :update]
 
 end
