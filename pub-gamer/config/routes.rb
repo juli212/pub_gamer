@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   get "register" => "users#new", as: "register"
   get "login" => "sessions#new", as: "login"
   post "login" => "sessions#create", as: "new_login"
+  delete "logout" => "sessions#destroy", as: "logout" 
 
   resources :events do
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:create]
   end
 
   resources :venues do
