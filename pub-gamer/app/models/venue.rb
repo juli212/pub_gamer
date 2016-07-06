@@ -23,7 +23,7 @@ class Venue < ActiveRecord::Base
 	end
 
 	def recent_reviews
-		self.reviews.last(10)
+		self.reviews.last(10).reverse
 	end
 
 end
