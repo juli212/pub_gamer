@@ -8,7 +8,6 @@ $(document).ready(function() {
       data: $target.serialize()
     }).done(function(response){
       $('#reviews').prepend(response);
-      // debugger;
       $('#new_review').each(function(){
         this.reset();
       });
