@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609034136) do
+ActiveRecord::Schema.define(version: 20160708204100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,18 +52,24 @@ ActiveRecord::Schema.define(version: 20160609034136) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string   "content",      null: false
-    t.string   "vibe",         null: false
-    t.time     "time_visited"
+    t.string   "content",     null: false
+    t.string   "vibe",        null: false
     t.boolean  "recommended"
-    t.integer  "venue_id",     null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "venue_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "user_events", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "event_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_venues", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
