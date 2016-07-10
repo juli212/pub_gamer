@@ -7,7 +7,10 @@ $(document).ready(function() {
       method: $target.attr('method'),
       data: $target.serialize()
     }).done(function(response){
-        $('#reviews').prepend(response);
+      $('#reviews').prepend(response);
+      $('#new_review').each(function(){
+        this.reset();
+      });
     })
   })
 });
