@@ -11,7 +11,7 @@ class VenuesController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     venue = Venue.new(venue_params)
     if params[:games]
       venue.games << Game.find(params[:games])
@@ -30,6 +30,13 @@ class VenuesController < ApplicationController
     @venue = Venue.find_by(id: params[:id])
     @review = Review.new
     render 'show'
+  end
+
+  def search
+    # binding.pry
+    @query ="%#{params[:query]}%"
+    @venues = Venue.where("name ilike ? or address ilike ? or description ilike ?", @query, @query, @query)
+    render 'index'
   end
 
 private
