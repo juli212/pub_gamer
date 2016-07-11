@@ -1,5 +1,9 @@
 <h1>Venues</h1>
 
+<%=form_tag search_venues_path do %>
+  <input id="venue_search" name="query" placeholder="Search venues" type="text" autocomplete="on">
+<% end %>
+
 <%=link_to("Add Venue!", new_venue_path) %>
 
 <h2>Listed Venues:</h2>

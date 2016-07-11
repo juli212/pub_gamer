@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 20160708204100) do
     t.string   "name",        null: false
     t.string   "address",     null: false
     t.text     "description"
-    t.string   "place"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
