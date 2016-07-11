@@ -14,7 +14,7 @@
     Games:
     <% if @games && @games.length > 0 %>
       <% @games.each do |game| %>
-        <%= check_box_tag "games[]", game.id %>
+        <%= check_box_tag "venue[games][]", game.id %>
         <%= game.name %>
       <% end %>
     <% end %>
