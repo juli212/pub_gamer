@@ -7,12 +7,7 @@
       <%= f.label :recommended? %>:
       <%= check_box_tag :recommended, "yes" %>
     </div>
-    <div>
-      <%= image_tag("angryFace.gif", height: '32', width: '32') %>
-      <%= image_tag("sadFace.gif", height: '32', width: '32') %>
-      <%= image_tag("starFace.gif", height: '32', width: '32') %>
-      <%= image_tag("happyFace.gif", height: '32', width: '32') %>
-    </div>
+      <%= render 'reviews/faces' %>
     <div>
       <%= f.text_area :content, cols: 40, rows: 10, placeholder: "Review here!" %>
     </div>
