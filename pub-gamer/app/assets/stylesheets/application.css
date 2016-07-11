@@ -251,3 +251,15 @@ float: right;
   display: inline-block;
   top: 0px;
 }
+
+.face img {
+  opacity: 0.4;
+}
+
+.selected img {
+  opacity: 1;
+}
+
+.selected {
+  background-color: white;
+}
