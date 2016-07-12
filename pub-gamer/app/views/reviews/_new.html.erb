@@ -2,7 +2,7 @@
   <%= form_for [ @venue, @review ] do |f| %>
     <div>  
       <%= f.label :recommended? %>:
-      <%= check_box_tag :recommended, "yes" %>
+      <%= check_box_tag "review[recommended]", true %>
     </div>
       <%= render 'reviews/faces' %>
     <div>
