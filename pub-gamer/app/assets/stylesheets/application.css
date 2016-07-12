@@ -270,3 +270,7 @@ float: right;
 .selected {
   background-color: white;
 }
+
+.vibe-button {
+  visibility: hidden;
+}
