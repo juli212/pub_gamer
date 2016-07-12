@@ -1,9 +1,6 @@
 
   <%= form_for [ @venue, @review ] do |f| %>
-    <div>
-
-      <%= f.text_field :vibe, placeholder: "What's the vibe?" %>
-
+    <div>  
       <%= f.label :recommended? %>:
       <%= check_box_tag :recommended, "yes" %>
     </div>
