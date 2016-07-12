@@ -3,7 +3,6 @@ $(document).ready(function() {
     target = event.target
     // debugger;
     $('.selected').removeClass('selected')
-    $(target).addClass('selected');
-    // alert('yup')
+    $(target).parent().addClass('selected');
   })
 });
