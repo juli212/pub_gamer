@@ -17,13 +17,17 @@ class EventsController < ApplicationController
   end
 
   def create
+    binding.pry
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     games = params[:games]
-    @event.games << Game.find(games)
   	if @event.save
+    # binding.pry
+      @event.games << Game.find(games)
+    binding.pry
       redirect_to event_path(@event)
   	else
+      @games = Game.all
   	  @errors = @event.errors.full_messages
       render 'new'
   	end
@@ -53,7 +57,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :event_date, :event_time, :description, :limit, :location, :games)
+    params.require(:event).permit(:title, :event_date, :event_time, :description, :limit, :location, :games => [])
   end
 
 end
