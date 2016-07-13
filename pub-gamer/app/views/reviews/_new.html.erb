@@ -4,6 +4,7 @@
       <%= f.label :recommended? %>:
       <%= check_box_tag "review[recommended]", true %>
     </div>
+      <%= render 'reviews/rating' %>
       <%= render 'reviews/faces' %>
     <div>
       <%= f.text_area :content, cols: 40, rows: 10, placeholder: "Review here!" %>
