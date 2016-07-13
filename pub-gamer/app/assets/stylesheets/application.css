@@ -258,10 +258,20 @@ float: right;
   display: inline-block;
 }
 
+.face:hover {
+  background-color: white;
+}
+
+
 .face img {
   padding: 5px;
   opacity: 0.4;
 }
+
+.face img:hover {
+  opacity: 1;
+}
+
 
 .selected img {
   opacity: 1;
@@ -273,4 +283,23 @@ float: right;
 
 .vibe-button {
   visibility: hidden;
+}
+
+.octopus {
+  width: 60;
+  height: 80;
+  display: inline-block;
+}
+
+.octopus img {
+  padding: 10px;
+  opacity: 0.3;
+}
+
+.rated img {
+  opacity: 1;
+}
+
+.rated {
+  background-color: white;
 }
