@@ -6,10 +6,8 @@ class ReviewsController < ApplicationController
 		@review.venue_id = params[:venue_id]
 		venue = Venue.find_by(id: params[:venue_id])
 		@review.user_id = current_user.id
-		# binding.pry
 		if @review.save && request.xhr?
 			render partial: 'reviews/show', locals: { review: @review }
-			# binding.pry
 			@review = Review.new(review_params)
 		elsif @review.save
 			redirect_to venue_path(venue)

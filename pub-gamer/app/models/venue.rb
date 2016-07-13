@@ -41,7 +41,6 @@ class Venue < ActiveRecord::Base
 
 	def avg_rating
 		rated_reviews = self.reviews.where(rating: 1..5)
-		binding.pry
 		avg_rating = self.sum_reviews/rated_reviews.length.to_f
 		avg_rating.round(2)
 	end
