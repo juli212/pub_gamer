@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160708204100) do
     t.string   "content",     null: false
     t.string   "vibe",        null: false
     t.boolean  "recommended"
+    t.integer  "rating"
     t.integer  "venue_id",    null: false
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
