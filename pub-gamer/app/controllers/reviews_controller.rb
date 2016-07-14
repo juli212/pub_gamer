@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
 
 	def create
-		# binding.pry
 		@review = Review.new(review_params)
 		@review.venue_id = params[:venue_id]
 		venue = Venue.find_by(id: params[:venue_id])
@@ -9,6 +8,7 @@ class ReviewsController < ApplicationController
 		if @review.save && request.xhr?
 			render partial: 'reviews/show', locals: { review: @review }
 			@review = Review.new(review_params)
+			@current_rating = venue.avg_rating
 		elsif @review.save
 			redirect_to venue_path(venue)
 		else

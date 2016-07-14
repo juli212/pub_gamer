@@ -3,7 +3,7 @@
 <%= render partial: 'venue' %>
 
 <h2>Reviews</h2>
-Rating: <%= @venue.avg_rating %>
+
 <div id="reviews">
 <% if @venue.has_reviews? %>
   <%= render partial: 'reviews/index', locals: { reviews: @venue.recent_reviews } %>

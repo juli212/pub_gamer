@@ -8,6 +8,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if request.xhr?
+      binding.pry
+    end
+  end
+
   def show
     @user = User.find_by(id: params[:id])
   end

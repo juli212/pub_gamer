@@ -7,6 +7,7 @@ $(document).ready(function() {
       method: $target.attr('method'),
       data: $target.serialize()
     }).done(function(response){
+      debugger;
       $('.rated').removeClass('rated')
       $('#reviews').prepend(response);
       $('.selected').removeClass('selected')
