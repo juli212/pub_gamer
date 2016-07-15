@@ -1,5 +1,5 @@
 
-<h2>Add a venue!</h2>
+<h2 <h1 style="text-align:center;": "center">Add a venue!</h2>
 
   <%= form_for @venue, :html => {:id => "venue-create-form"} do |f| %>
   <div id="venue-name-field">
@@ -20,12 +20,11 @@
     <% end %>
   </div>
   <div id="new-game">
-    <%= f.label :other %>:
-    <%= check_box_tag :other, 1 %>
-    <%= f.text_field "game" %>
+    Other: <%= check_box_tag :other, 1 %>
+    <%= f.text_field "game", id: "other-text-field" %>
   </div>
   <div>
-    <%= f.button :submit %>
+    <%= f.button :Submit, class: "button", id: "venue-create-submit-button" %>
   </div>
   <% end %>
     <% if @errors %>

@@ -42,7 +42,6 @@ function initMap() {
 // debugger;
   document.getElementById('venue_name').value = place.name;
   document.getElementById('venue_address').value = place.formatted_address;
-  document.getElementById('venue_place').value = place.place_id
 
     var phone = place.formatted_phone_number || "No Phone Number"
 
@@ -51,3 +50,5 @@ function initMap() {
     infowindow.open(map, marker);
   });
 }
+
+

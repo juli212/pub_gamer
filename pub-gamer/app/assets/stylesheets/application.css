@@ -19,6 +19,7 @@
 /*form that auto-populates with venue data*/
 #venue-create-form {
   margin-left: 300px;
+  display: none
 }
 
 #venue-name-field {
@@ -26,7 +27,18 @@
 }
 #venue-address-field {
   display: inline-block;
-  margin-left: 100px;
+  margin-left: 43px;
+}
+
+
+#other-text-field {
+  width: 185px;
+  display: inline-block;
+}
+
+#venue-create-submit-button {
+  margin-left: 270px;
+  margin-top: -81px;
 }
 
 #google-map {
