@@ -1,8 +1,14 @@
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require_tree .
 
 $(document).ready(function() {
+
+$('#venue_address').on('change', function() {
+    debugger;
+});
+
 
   $('#login a').on('click', function(event){
     event.preventDefault();
@@ -120,3 +126,4 @@ $(document).ready(function() {
 
 
       }
+$(function(){ $(document).foundation(); });
