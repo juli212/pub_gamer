@@ -44,18 +44,18 @@ ActiveRecord::Schema.define(version: 20160708204100) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.text     "description"
-    t.integer  "quantity"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string   "content",     null: false
     t.string   "vibe",        null: false
     t.boolean  "recommended"
+    t.integer  "rating"
     t.integer  "venue_id",    null: false
+    t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20160708204100) do
   end
 
   create_table "user_venues", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "venue_id"
+    t.integer  "user_id",    null: false
+    t.integer  "venue_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

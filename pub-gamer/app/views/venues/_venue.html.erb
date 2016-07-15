@@ -1,3 +1,15 @@
 <div>Description: <%=@venue.description%></div>
 <div>Address: <%=@venue.address%></div>
 <div>Neighborhood: <%=@venue.address%></div>
+
+<% if current_user %>
+	<%= link_to "add favorite!", user_path(current_user), method: :put, id: "fav" %>
+<% end %>
+
+<div id="avg-rating">
+	<% if @venue.has_reviews? %>
+		<%= render partial: 'venue_rating', locals: { current_rating: @current_rating } %>
+		<% else %>
+		<p>No Ratings</p>
+	<% end %>
+</div>

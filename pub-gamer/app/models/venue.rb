@@ -29,4 +29,20 @@ class Venue < ActiveRecord::Base
 		self.reviews.last(10).reverse
 	end
 
+	def sum_reviews
+		rating = 0
+		self.reviews.each do |review|
+			if review.rating
+				rating += review.rating
+			end
+		end
+		rating
+	end
+
+	def avg_rating
+		rated_reviews = self.reviews.where(rating: 1..5)
+		avg_rating = self.sum_reviews/rated_reviews.length.to_f
+		avg_rating.round(2)
+	end
+
 end

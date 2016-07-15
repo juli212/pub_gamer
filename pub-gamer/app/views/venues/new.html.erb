@@ -32,6 +32,11 @@
     <%= f.button :submit %>
   </div>
   <% end %>
+    <% if @errors %>
+      <% @errors.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
 
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
