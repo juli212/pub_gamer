@@ -12,7 +12,30 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+/*form that auto-populates with venue data*/
+#venue-create-form {
+  margin-left: 300px;
+}
+
+#venue-name-field {
+  display: inline-block;
+}
+#venue-address-field {
+  display: inline-block;
+  margin-left: 100px;
+}
+
+#google-map {
+  margin-left: 150px;
+
+}
+
+
+/*button that appears from map venue click*/
 #createVenue {
   color: red;
   position: absolute;

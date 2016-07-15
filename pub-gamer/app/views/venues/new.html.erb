@@ -1,13 +1,13 @@
 
 <h2>Add a venue!</h2>
 
-  <%= form_for @venue do |f| %>
-  <div>
-    <%= f.label :name %>:
+  <%= form_for @venue, :html => {:id => "venue-create-form"} do |f| %>
+  <div id="venue-name-field">
+    <!-- <%= f.label :name %>: -->
     <%= f.text_field :name %>
   </div>
-  <div>
-    <%= f.label :address %>:
+  <div id="venue-address-field">
+    <!-- <%= f.label :address %>: -->
     <%= f.text_field :address %>
   </div>
   <div>
@@ -25,10 +25,6 @@
     <%= f.text_field "game" %>
   </div>
   <div>
-    <%= f.label :description %>:<br>
-    <%= f.text_area :description, size: "40x5" %>
-  </div>
-  <div>
     <%= f.button :submit %>
   </div>
   <% end %>
@@ -38,7 +34,9 @@
       <% end %>
     <% end %>
 
+<div id="google-map">
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKbw_KdUjv9tX0YJFvT1AOe3nI82-Osvw&libraries=places&callback=initMap"
          async defer></script>
+<div>
