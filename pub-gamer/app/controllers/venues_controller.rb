@@ -26,6 +26,14 @@ class VenuesController < ApplicationController
     end
   end
 
+  def update
+    if request.xhr?
+    venue = Venue.find_by(id: params[:id])
+    @current_rating = venue.avg_rating
+      render partial: '/venues/venue_rating', locals: { current_rating: @current_rating }
+    end
+  end
+
   def show
     @venue = Venue.find_by(id: params[:id])
     @review = Review.new
