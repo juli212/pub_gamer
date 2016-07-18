@@ -2,11 +2,13 @@
 <div>Address: <%=@venue.address%></div>
 <div>Neighborhood: <%=@venue.address%></div>
 
+<div id="favorite">
 <% if current_user && current_user.has_favorited?(@venue) %>
 	<h4>One of your Favs</h4>
 <% elsif current_user %>
 	<%= button_to "add favorite!", user_path(current_user), method: :put, id: "fav", params: { venue: @venue } %>
 <% end %>
+</div>
 
 <div id="avg-rating">
 	<% if @venue.has_reviews? %>

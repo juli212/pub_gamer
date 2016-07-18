@@ -9,11 +9,14 @@ class UsersController < ApplicationController
   end
 
   def update
-      @venue = Venue.find_by(id: params[:venue])
-      @user = current_user
-      @user.favorites << @venue
-      redirect_to venue_path(@venue)
+    binding.pry
+    @venue = Venue.find_by(id: params[:venue])
+    @user = current_user
+    @user.favorites << @venue
     if request.xhr?
+      render partial: 'users/favorited'
+    else
+      redirect_to venue_path(@venue)
     end
   end
 
@@ -35,6 +38,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-      params.require(:user).permit(:user_name,:email,:password)
+      params.require(:user).permit(:user_name,:email,:password, :venue)
   end
 end
