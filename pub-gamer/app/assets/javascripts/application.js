@@ -5,12 +5,6 @@
 
 $(document).ready(function() {
 
-  $('#createVenue').on('click', function(event){
-
-
-  })
-
-
   $('#login a').on('click', function(event){
     event.preventDefault();
     $target = $(event.target)
@@ -59,7 +53,6 @@ $(document).ready(function() {
     else {
         // do nothing
       }
-
   }
   checkDOMChange();
 });

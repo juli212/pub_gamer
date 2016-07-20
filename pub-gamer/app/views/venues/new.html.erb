@@ -1,16 +1,29 @@
 
 <h2 <h1 style="text-align:center;": "center">Add a venue!</h2>
 
+
+<div id="map-wrapper">
+
+<div id="google-map">
+<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKbw_KdUjv9tX0YJFvT1AOe3nI82-Osvw&libraries=places&callback=initMap"
+         async defer></script>
+</div>
+
+<div id="venue-create-form-container">
+
   <%= form_for @venue, :html => {:id => "venue-create-form"} do |f| %>
+
   <div id="venue-name-field">
-    <!-- <%= f.label :name %>: -->
     <%= f.text_field :name %>
   </div>
+
   <div id="venue-address-field">
-    <!-- <%= f.label :address %>: -->
     <%= f.text_field :address %>
   </div>
-  <div>
+
+  <div id="venue-games-field">
     Games:
     <% if @games && @games.length > 0 %>
       <% @games.each do |game| %>
@@ -19,18 +32,18 @@
       <% end %>
     <% end %>
   </div>
+
   <div id="new-game">
     Other: <%= check_box_tag :other, 1 %>
     <%= f.text_field "game", id: "other-text-field" %>
   </div>
+
   <div>
     <%= f.button :Submit, class: "button", id: "venue-create-submit-button" %>
   </div>
   <% end %>
 
-<div id="google-map">
-<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKbw_KdUjv9tX0YJFvT1AOe3nI82-Osvw&libraries=places&callback=initMap"
-         async defer></script>
-<div>
+<!-- end form container -->
+</div>
+<!-- end map wrapper -->
+</div>
