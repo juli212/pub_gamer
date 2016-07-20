@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
 
   validates :user_name, :email, :password, presence: true
   validates :email, uniqueness: true
+
+  def has_favorited?(venue)
+  	self.favorites.include?(venue)
+  end
 end
