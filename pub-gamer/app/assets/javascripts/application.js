@@ -5,9 +5,10 @@
 
 $(document).ready(function() {
 
-$('#venue_address').on('change', function() {
-    debugger;
-});
+  $('#createVenue').on('click', function(event){
+
+
+  })
 
 
   $('#login a').on('click', function(event){
@@ -31,13 +32,14 @@ $('#venue_address').on('change', function() {
   })
 
   $('body').on('click', '#createVenue',function(event){
-    // alert('blah')
     event.preventDefault();
     $venueName = $(document.getElementsByClassName("title full-width")).first().html()
     $venueStreet = $(document.getElementsByClassName("address-line full-width")).first().html()
     $venueCity = $(document.getElementsByClassName("address-line full-width")).last().html()
     document.getElementById('venue_name').value = $venueName;
     document.getElementById('venue_address').value = $venueStreet + ", " + $venueCity;
+      $('#venue-create-form').show()
+
   })
 
   $authToken = $('meta[name="csrf-token"]').attr('content')
