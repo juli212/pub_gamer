@@ -2,3 +2,17 @@
 
 <div><%=link_to("Venues", venues_path)%></div>
 <div><%=link_to("Events", events_path)%></div>
+
+<h4>Favorites<h4>
+<% if @user.has_favorites? %>
+	<% @favorites.each do |favorite| %>
+		<%= link_to(favorite.name, venue_path(favorite)) %>
+	<% end %>
+<% end %>
+
+<h4>Upcoming Events</h4>
+<% if @user.has_upcoming_events? %>
+	<% @upcoming_events.each do |event| %>
+		<%= link_to(event.name, event_path(event)) %>
+	<% end %>
+<% end %>
