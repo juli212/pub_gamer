@@ -32,7 +32,7 @@ $(document).ready(function() {
     $venueCity = $(document.getElementsByClassName("address-line full-width")).last().html()
     document.getElementById('venue_name').value = $venueName;
     document.getElementById('venue_address').value = $venueStreet + ", " + $venueCity;
-      $('#venue-create-form').fadeIn(300)
+      $('#venue-create-form').hide().fadeIn(300)
 
   })
 

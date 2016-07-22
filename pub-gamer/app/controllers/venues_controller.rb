@@ -42,7 +42,6 @@ class VenuesController < ApplicationController
   end
 
   def search
-    # binding.pry
     @query ="%#{params[:query]}%"
     @venues = Venue.where("name ilike ? or address ilike ? or description ilike ?", @query, @query, @query)
     render 'index'
