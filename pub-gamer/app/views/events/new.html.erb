@@ -1,23 +1,29 @@
 <h2>Create New Event</h2>
 
+  <% if @errors %>
+    <% @errors.each do |error| %>
+      <%= error %>
+    <%end %>
+  <% end %>
+
   <%= form_for @event do |f| %>
 
-    <%= f.label :title %>:
-  	<%= f.text_field :title %>
+    <%= f.label :title %>
+  	<%= f.text_field :title, placeholder: "Title" %>
 
-    <%= f.label :location %>:
-    <%= f.text_field :location %>
+    <%= f.label :location %>
+    <%= f.text_field :location, placeholder: "Location" %>
 
-    <%= f.label :date %>:
+    <%= f.label :date %>
     <%= f.date_field :event_date %>
 
-    <%= f.label :time %>:
+    <%= f.label :time %>
     <%= f.time_field :event_time, { :ampm => true } %>
 
-    <%= f.label :description %>:
-    <%= f.text_area :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: "Description" %>
 
-    <% if @games && @games.length > 0 %>
+    <% if @games && !@games.empty? %>
       Games:
       <% @games.each do |game| %>
       <%= check_box_tag "games[]", game.id %>
@@ -26,8 +32,8 @@
     <% end %>
 
 
-    <%= f.label "max guests" %>:
-    <%= f.number_field :limit %>
+    <%= f.label "max guests" %>
+    <%= f.number_field :limit, min: "0", max: "100", placeholder: "limit" %>
 
     <%= f.button :submit %>
 
