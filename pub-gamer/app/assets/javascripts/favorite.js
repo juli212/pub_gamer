@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#fav').on('submit', function(event){
+  $('#fav').on('click', function(event){
     event.preventDefault();
     debugger;
     $target = $(event.target).parent()
