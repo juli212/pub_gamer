@@ -9,12 +9,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
+    # binding.pry
     @venue = Venue.find_by(id: params[:venue])
     @user = current_user
-    @user.favorites << @venue
-    if request.xhr?
-      render partial: 'users/favorited'
+    prev_num_of_favs = @user.favorites.length
+    @user.update_favorites(@venue)
+    if request.xhr? && @user.favorite_added?(prev_num_of_favs)
+      render partial: 'users/favorite_added'
+    elsif request.xhr? && @user.favorite_removed?(prev_num_of_favs)
+      render partial: 'users/favorite_removed'
     else
       redirect_to venue_path(@venue)
     end
@@ -23,8 +26,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @favorites = @user.favorites
-    @events_created = Event.find_by(user_id: @user.id)
-    @events_attending = @user.events
+    @created_events = @user.created_events
+    @upcoming_events = @user.events
   end
 
   def create
