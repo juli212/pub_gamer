@@ -5,12 +5,6 @@
 
 $(document).ready(function() {
 
-  $('#createVenue').on('click', function(event){
-
-
-  })
-
-
   $('#login a').on('click', function(event){
     event.preventDefault();
     $target = $(event.target)
@@ -38,7 +32,7 @@ $(document).ready(function() {
     $venueCity = $(document.getElementsByClassName("address-line full-width")).last().html()
     document.getElementById('venue_name').value = $venueName;
     document.getElementById('venue_address').value = $venueStreet + ", " + $venueCity;
-      $('#venue-create-form').show()
+      $('#venue-create-form').hide().fadeIn(300)
 
   })
 
@@ -59,7 +53,6 @@ $(document).ready(function() {
     else {
         // do nothing
       }
-
   }
   checkDOMChange();
 });

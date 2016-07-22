@@ -43,7 +43,7 @@ function initMap() {
   document.getElementById('venue_name').value = place.name;
   document.getElementById('venue_address').value = place.formatted_address;
 
-  $('#venue-create-form').show()
+  $('#venue-create-form').fadeIn(300)
 
     var phone = place.formatted_phone_number || "No Phone Number"
 
