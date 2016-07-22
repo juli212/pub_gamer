@@ -354,7 +354,7 @@ float: right;
   width: 60;
   height: 80;
   display: inline-block;
-  margin: -2px;
+  margin: -2px -3px;
 }
 
 .octopus img {
@@ -371,7 +371,7 @@ float: right;
 }
 
 .rate img {
-  opacity: 2;
+  opacity: 1;
 }
 
 .rate {
@@ -380,4 +380,8 @@ float: right;
 
 .rating-button {
   visibility: hidden;
+}
+
+#rating {
+  display: inline-block;
 }
