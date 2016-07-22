@@ -18,17 +18,14 @@
 
 /*form that auto-populates with venue data*/
 
-#venue-create-form-container {
-  background-color: red;
-  border: 1px;
-}
-
 #venue-create-form {
-  position: absolute; bottom: 109px; left: -150px; z-index: 99;
-  background-color: red;
+  position: absolute; bottom: 123px; left: -35px; z-index: 99;
+  /*background-color: red;*/
+  background: rgba(45, 117, 40,0.9);
   border: 1px;
   width: 650px;
   height: 150px;
+  border-top-right-radius: 0.6em;
 }
 
 #venue-create-form {
