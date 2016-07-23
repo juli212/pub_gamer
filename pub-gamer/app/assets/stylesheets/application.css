@@ -33,6 +33,11 @@ body {
 
 /*form that auto-populates with venue data*/
 
+#map-wrapper {
+  position: relative;
+  margin: 0 auto;
+}
+
 #venue-create-form {
   position: relative; bottom: 150px; left: 155px; z-index: 99;
   display: none;
