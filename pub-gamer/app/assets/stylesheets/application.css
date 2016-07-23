@@ -16,12 +16,27 @@
 
  */
 
+
+body {
+  background-color: #816687;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#welcome-body {
+  background: url(Pool_background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 /*form that auto-populates with venue data*/
 
 #venue-create-form {
   position: relative; bottom: 150px; left: 155px; z-index: 99;
   display: none;
-  background: rgba(45, 117, 40,0.9);
+  background: rgba(73, 115, 77,0.9);
   border: 1px;
   width: 650px;
   height: 150px;
@@ -149,19 +164,7 @@ html, body {
   width: 700px;
   height: 500px;
 }
-body {
-  background-color: #696969;
-  width: 1000px;
-  margin: 0 auto;
-}
 
-#welcome-body {
-  background: url(Pool_background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 
 h1 {
   color: white;
