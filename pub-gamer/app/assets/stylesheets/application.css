@@ -19,7 +19,7 @@
 /*form that auto-populates with venue data*/
 
 #venue-create-form {
-  position: relative; bottom: 67px; left: 155px; z-index: 99;
+  position: relative; bottom: 150px; left: 155px; z-index: 99;
   display: none;
   background: rgba(45, 117, 40,0.9);
   border: 1px;
