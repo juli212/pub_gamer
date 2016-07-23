@@ -7,7 +7,7 @@ class VenuesController < ApplicationController
   def new
     @venue = Venue.new
     @game = Game.new
-    @games = Game.all
+    @games = Game.all[0..4]
   end
 
   def create

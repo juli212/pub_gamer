@@ -28,6 +28,7 @@
   <div id="venue-games-field">
     Games:
     <% if @games && @games.length > 0 %>
+
       <% @games.each do |game| %>
         <%= check_box_tag "venue[games][]", game.id %>
         <%= game.name %>
