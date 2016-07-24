@@ -7,7 +7,7 @@ class VenuesController < ApplicationController
   def new
     @venue = Venue.new
     @game = Game.new
-    @games = Game.all
+    @games = Game.all[0..4]
   end
 
   def create
@@ -16,8 +16,14 @@ class VenuesController < ApplicationController
       if params[:venue][:games]
         @venue.games << Game.find(params[:venue][:games])
       end
-      new_game = params[:venue][:game]
-      params[:other] && new_game.length > 0 ? @venue.make_new(new_game) : @venue
+      new_game_array = params[:venue][:game].split(',')
+      new_game_array = new_game_array.map(&:lstrip)
+      if new_game_array.length > 0
+        new_game_array.each do |game|
+          game_obj = Game.find_or_create_by(name: game)
+          @venue.games << game_obj
+        end
+      end
       redirect_to venues_path
     else
       @games = Game.all

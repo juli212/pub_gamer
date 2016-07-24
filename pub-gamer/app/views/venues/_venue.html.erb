@@ -5,6 +5,7 @@
 <div id="favorite">
 <% if current_user && current_user.has_favorited?(@venue) %>
 	<h4>One of your Favs</h4>
+	<%= button_to "Remove from favorites", user_path(current_user), method: :put, id: "fav", params: { venue: @venue } %>
 <% elsif current_user %>
 	<%= button_to "add favorite!", user_path(current_user), method: :put, id: "fav", params: { venue: @venue } %>
 <% end %>

@@ -1,4 +1,6 @@
 
+<div>
+
 <h2 <h1 style="text-align:center;": "center">Add a venue!</h2>
 
 <p style="text-align:center;": "center">Use the search box or naviagate the map to locate the venue you wish to add.</p>
@@ -28,6 +30,7 @@
   <div id="venue-games-field">
     Games:
     <% if @games && @games.length > 0 %>
+
       <% @games.each do |game| %>
         <%= check_box_tag "venue[games][]", game.id %>
         <%= game.name %>
@@ -36,8 +39,7 @@
   </div>
 
   <div id="other-game-field">
-    Other: <%= check_box_tag :other, 1 %>
-    <%= f.text_field "game", id: "other-text-field" %>
+    Other: <%= f.text_field "game", placeholder: "game1, game2, game3", id: "other-text-field" %>
   </div>
 
   <div>
@@ -48,4 +50,6 @@
 <!-- end form container -->
 </div>
 <!-- end map wrapper -->
+</div>
+<!-- end master container -->
 </div>
