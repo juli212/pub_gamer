@@ -7,9 +7,9 @@ class Venue < ActiveRecord::Base
 	has_many :user_venues
 
 	validates :name, :address, presence: true
-
+	validates :address, uniqueness: true
 	def game
-		
+
 	end
 
 	def make_new(game_name)

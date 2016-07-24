@@ -16,12 +16,32 @@
 
  */
 
+
+body {
+  background-color: #816687;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#welcome-body {
+  background: url(Pool_background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 /*form that auto-populates with venue data*/
 
+#map-wrapper {
+  position: relative;
+  margin: 0 auto;
+}
+
 #venue-create-form {
-  position: absolute; bottom: 67px; left: 155px; z-index: 99;
+  position: relative; bottom: 150px; left: 155px; z-index: 99;
   display: none;
-  background: rgba(45, 117, 40,0.9);
+  background: rgba(73, 115, 77,0.9);
   border: 1px;
   width: 650px;
   height: 150px;
@@ -29,7 +49,7 @@
   border-top-left-radius: 0.6em;
 }
 
-@media  screen and (max-device-width: 480px) (max-width: 1000px) {
+/*@media  screen and (max-device-width: 480px) (max-width: 1000px) {
     #venue-create-form {
       position: absolute; bottom: 109px; left: 150px; z-index: 99;
       display: none;
@@ -40,10 +60,9 @@
       border-top-right-radius: 0.6em;
       border-top-left-radius: 0.6em;
     }
-}
+}*/
 
 #venue_name {
-  /*display: inline-block;*/
   float: left;
   margin-left: 5px;
   margin-top: 7px;
@@ -52,7 +71,13 @@
 }
 
 #venue_address {
+  width: 315px;
+}
+
+#venue-address-wrapper {
+  float: right;
   margin-top: 7px;
+  margin-right: 5px;
   width: 315px;
 }
 
@@ -144,19 +169,7 @@ html, body {
   width: 700px;
   height: 500px;
 }
-body {
-  background-color: #696969;
-  width: 1000px;
-  margin: 0 auto;
-}
 
-#welcome-body {
-  background: url(Pool_background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 
 h1 {
   color: white;
