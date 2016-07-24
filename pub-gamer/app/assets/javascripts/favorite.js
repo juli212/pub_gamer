@@ -1,7 +1,6 @@
 $(document).ready(function() {
-  $('#fav').on('submit', function(event){
+  $('#favorite').on('click', function(event){
     event.preventDefault();
-    debugger;
     $target = $(event.target).parent()
     $.ajax({
     	url: $target.attr('action'),

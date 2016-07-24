@@ -1,6 +1,5 @@
-<div id="rating" action="/venues/<%= @venue.id %>" >
-  <h4>Rating?</h4>
-
+<h4>Rating?</h4>
+  <div id="rating" action="/venues/<%= @venue.id %>" >
   <div class="octopus" id="octopus1">
     <%= image_tag("octopus.jpg", height: '60', width: '40') %>
     <%= radio_button_tag "review[rating]", 1, false, class: "rating-button" %>
