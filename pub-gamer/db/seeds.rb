@@ -12,4 +12,4 @@ games = Game.create([{ name: 'pool'}, {name: 'fooseball'}, {name: 'shuffleboard'
 User.create(user_name: "julia", password: "password", email: "julia@julia.com")
 
 venues = Venue.create([{name: "Slainte Bar and Lounge",
-  address: "304 Bowery, New York, NY 10012, USA"},])
+  address: "304 Bowery, New York, NY 10012, USA"}, {name: "The Iron Horse NYC", address: "32 Cliff St, New York, NY 10038, USA"}])
