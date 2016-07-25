@@ -1,20 +1,15 @@
 <div id="faces">
   <h4>Vibe?</h4>
 
-  <div class="face" id="face1">
-    <%= image_tag("angryFace.gif", size: '30') %>
-    <%= radio_button_tag "review[vibe]", "chill", false, class: "vibe-button" %>
-  </div>
-  <div class="face" id="face2">
-    <%= image_tag("sadFace.gif", size: '30') %>
-    <%= radio_button_tag "review[vibe]", "expensive", false, class: "vibe-button" %>
-  </div>
-  <div class="face" id="face3">
-    <%= image_tag("starFace.gif", size: '30') %>
-    <%= radio_button_tag "review[vibe]", "grungy", false, class: "vibe-button" %>
-  </div>
-  <div class="face" id="face4">
-    <%= image_tag("happyFace.gif", size: '30') %>
-    <%= radio_button_tag "review[vibe]", "clean", false, class: "vibe-button" %>
-  </div>
+  <% @vibes.each do |vibe| %>
+    <div class="face" >
+      <%= image_tag("#{vibe.pic}", size: '30') %>
+      <%= check_box_tag "review[vibes][]", "#{vibe.id}", false, class: "vibe-button" %>
+    </div>
+  <% end %>
+
 </div>
+
+  
+
+
