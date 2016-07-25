@@ -11,5 +11,23 @@ games = Game.create([{ name: 'pool'}, {name: 'fooseball'}, {name: 'shuffleboard'
 
 User.create(user_name: "julia", password: "password", email: "julia@julia.com")
 
-venues = Venue.create([{name: "Slainte Bar and Lounge",
-  address: "304 Bowery, New York, NY 10012, USA"}, {name: "The Iron Horse NYC", address: "32 Cliff St, New York, NY 10038, USA"}])
+venues = Venue.create([
+	{name: "Slainte Bar and Lounge",
+		address: "304 Bowery, New York, NY 10012, USA"}, 
+	{name: "The Iron Horse NYC", 
+		address: "32 Cliff St, New York, NY 10038, USA"},
+	{name: "Welcome To The Johnsons",
+  	address: "123 Rivington St, New York, NY 10002, USA" },
+  {name: "Parkside Lounge",
+  	address: "317 E Houston St, New York, NY 10002, USA"},
+  {name: "Bar Nine",
+  	address: "807 9th Ave, New York, NY 10019, USA"},
+  {name: "Iona",
+  	address: "180 Grand St, Brooklyn, NY 11211, USA"},
+	{name: "Banter Bar",
+  	address: "132 Havemeyer St, Brooklyn, NY 11211, USA"},
+  {name: "The Edge",
+  	address: "95 E 3rd St, New York, NY 10003, USA"},
+  {name: "The Irish American Pub",
+  	address: "17 John St, New York, NY 10038, USA"}
+])
