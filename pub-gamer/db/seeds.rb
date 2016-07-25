@@ -9,7 +9,7 @@
 
 games = Game.create([{ name: 'pool'}, {name: 'fooseball'}, {name: 'shuffleboard'}, {name: 'darts'}, {name: 'skeeball'}])
 
-User.create(user_name: "julia", password: "password", email: "julia@julia.com")
+users = User.create([{user_name: "julia", password: "password", email: "julia@julia.com"}, {user_name: "alex", password: "password", email: "alex@alex.com"}])
 
 venues = Venue.create([
 	{name: "Slainte Bar and Lounge",
