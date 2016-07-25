@@ -32,4 +32,14 @@ venues = Venue.create([
   	address: "17 John St, New York, NY 10038, USA"}
 ])
 
-vibes = Vibe.create([{ name: 'serious'}, {name: 'loud'}, {name: 'chill'}, {name: 'pretentious'}, {name: 'expensive'}, {name: 'douchey'}, {name: 'fun'}, {name: 'divey'}], {name: 'sophisticated'}, {name: 'preppy'})
+vibes = Vibe.create([
+  {name: 'serious', pic: 'angryFace.gif'}, 
+  {name: 'loud', pic: 'happyFace.gif'}, 
+  {name: 'chill', pic: 'sadFace.gif'}, 
+  {name: 'pretentious', pic: 'angryFace.gif'}, 
+  {name: 'expensive', pic: 'happyFace.gif'}, 
+  {name: 'douchey', pic: 'starFace.gif'}, 
+  {name: 'fun', pic: 'happyFace.gif'}, 
+  {name: 'divey', pic: 'starFace.gif'}], 
+  {name: 'sophisticated', pic: 'happyFace.gif'}, 
+  {name: 'preppy',pic: 'sadFace.gif'})
