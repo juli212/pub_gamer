@@ -34,11 +34,15 @@ class ReviewsController < ApplicationController
 
 	private
 	def review_params
+<<<<<<< fc8d36877e7ca25c71eac23d13260c133b5bd259
 <<<<<<< 3840b2dad8094564896057fa0c404bce8e59b2eb
 		params.require(:review).permit(:content, :rating, :week, :venue_id)
 =======
 		params.require(:review).permit(:content, :rating, :venue_id, vibes: [])
 >>>>>>> update review vibes to select multiple vibes
+=======
+		params.require(:review).permit(:content, :rating, :week, :venue_id)
+>>>>>>> add week field to review table
 	end
 
 end
