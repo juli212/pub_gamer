@@ -31,7 +31,34 @@ body {
   background-size: cover;
 }
 
-/*form that auto-populates with venue data*/
+
+/*event create styling*/
+
+#event_title {
+  width: 31%;
+}
+
+#event_location {
+  width: 31%;
+}
+
+#event_event_date {
+  width: 31%;
+}
+
+#event_event_time {
+  width: 31%;
+}
+
+#event_description {
+  width: 31%;
+}
+
+#event_limit {
+  width: 31%;
+}
+
+/*venue create styling*/
 
 #map-wrapper {
   position: relative;
