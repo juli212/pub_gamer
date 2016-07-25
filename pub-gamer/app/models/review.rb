@@ -4,7 +4,7 @@ class Review < ActiveRecord::Base
   has_many :review_vibes
   has_many :vibes, through: :review_vibes
 
-  validates :content, :vibe, :venue_id, :user_id, presence: true
+  validates :content, :venue_id, :user_id, presence: true
 
   def review_date
   	date = self.created_at.strftime("%a, %B %d, %Y")
