@@ -58,11 +58,18 @@ ActiveRecord::Schema.define(version: 20160725021641) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "content",    null: false
+<<<<<<< 3840b2dad8094564896057fa0c404bce8e59b2eb
 <<<<<<< HEAD
     t.string   "week"
 =======
     t.string   "vibe",       null: false
 >>>>>>> master
+=======
+<<<<<<< fb44f0bff9a9a6998933f1fb0f35428768ee6ba9
+    t.string   "vibe",       null: false
+=======
+>>>>>>> update review vibes to select multiple vibes
+>>>>>>> update review vibes to select multiple vibes
     t.integer  "rating"
     t.integer  "venue_id",   null: false
     t.integer  "user_id",    null: false
