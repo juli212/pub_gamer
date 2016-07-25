@@ -31,3 +31,5 @@ venues = Venue.create([
   {name: "The Irish American Pub",
   	address: "17 John St, New York, NY 10038, USA"}
 ])
+
+vibes = Vibe.create([{ name: 'serious'}, {name: 'loud'}, {name: 'chill'}, {name: 'pretentious'}, {name: 'expensive'}, {name: 'douchey'}, {name: 'fun'}, {name: 'divey'}], {name: 'sophisticated'}, {name: 'preppy'})
