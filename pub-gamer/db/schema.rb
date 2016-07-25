@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160725021641) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "content",    null: false
+    t.string   "week"
     t.integer  "rating"
     t.integer  "venue_id",   null: false
     t.integer  "user_id",    null: false
