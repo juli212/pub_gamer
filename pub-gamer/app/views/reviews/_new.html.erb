@@ -1,7 +1,7 @@
 
   <%= form_for [ @venue, @review ] do |f| %>
       <%= render 'reviews/rating' %>
-      <%= render 'reviews/faces' %>
+      <%= render 'reviews/vibe' %>
     <div>
       <%= f.text_area :content, cols: 40, rows: 10, placeholder: "Review here!" %>
     </div>
