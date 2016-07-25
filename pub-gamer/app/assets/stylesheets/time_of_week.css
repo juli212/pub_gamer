@@ -1,0 +1,22 @@
+.week {
+  display: inline-block;
+  border: 2px solid white;
+}
+
+.week:hover{
+  background-color: white;
+}
+
+.week-label {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.week-selector {
+  position: fixed;
+  opacity: 0;
+}
+
+.time-of-week {
+  background-color: yellow;
+}
