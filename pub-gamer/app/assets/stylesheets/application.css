@@ -34,29 +34,56 @@ body {
 
 /*event create styling*/
 
+#event-create-container {
+  border: 1px solid black;
+  margin-right: 34%;
+  margin-left: 34%;
+  text-align: center;
+}
+
+
 #event_title {
-  width: 31%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 #event_location {
-  width: 31%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 #event_event_date {
-  width: 31%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 #event_event_time {
-  width: 31%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 #event_description {
-  width: 31%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 #event_limit {
-  width: 31%;
+  width: 19%;
+  margin-left: 33%;
+  margin-top: -46px;
+  }
+
+#event-create-submit-button {
+  margin-left: 50%;
+  margin-top: -80px;
+  width: 80px;
 }
+
+/*#max-guest-container {
+  margin-right: 34%;
+  margin-left: 34%;
+  border: 1px solid black;
+}*/
 
 /*venue create styling*/
 
@@ -128,7 +155,6 @@ body {
 
 #google-map {
   margin-left: 150px;
-
 }
 
 /*button that appears from map venue click*/
@@ -139,6 +165,7 @@ body {
   /*top: 75px;*/
   bottom: -8px;
 }
+
 html, body {
     height: 100%;
     margin: 0;

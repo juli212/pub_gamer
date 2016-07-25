@@ -1,4 +1,6 @@
-<h2>Create New Event</h2>
+<div id="event-create-container">
+
+  <h4>Create New Event</h4>
 
   <% if @errors %>
     <% @errors.each do |error| %>
@@ -6,7 +8,7 @@
     <%end %>
   <% end %>
 
-  <%= form_for @event do |f| %>
+  <%= form_for @event, :html => {:id => "event-create-form"} do |f| %>
       <%= f.label :title %>
     	<%= f.text_field :title, placeholder: "Title" %>
 
@@ -29,11 +31,11 @@
       <%= game.name %>
       <% end %>
     <% end %>
-
-
-    <%= f.label "max guests" %>
-    <%= f.number_field :limit, min: "0", max: "100", placeholder: "limit" %>
-
-    <%= f.button :submit %>
-
+    <div id="max-guest-container">
+      <p style="text-align: left">Max Guests:</p>
+      <%= f.number_field :limit, min: "0", max: "100" %>
+    </div>
+    <%= f.button :submit, class: "button", id: "event-create-submit-button" %>
   <% end %>
+
+</div>
