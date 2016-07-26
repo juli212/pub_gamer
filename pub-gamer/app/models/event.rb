@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
 	has_many :user_events
 	has_many :guests, through: :user_events, source: :user
 
-	validates :title, :description, :event_date, :event_time, :limit, :location, :user_id, presence: true
+	validates :title, :description, :date, :time, :limit, :location, :user_id, presence: true
 
 	def full?
 		self.guests.length >= self.limit
