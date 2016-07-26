@@ -1,6 +1,25 @@
+<div class="row" >
+	<div class="small-4 columns">
+		<div class="review-rating">
+			Rating <%= review.rating %>
+		</div>
+		<div class="review-vibes">
+			Vibes:
+			<% review.vibes.each do |vibe| %>
+				<%= image_tag("#{vibe.pic}", size: '15') %>
+			<% end %>
+		</div>
+		<div class="review-week">
+			Visited: <%= review.week %>
+		</div>
+	</div>
+	<div class="small-8 columns">
+		<p><%= review.content %></p>
+	</div>
+</div>
 
-<p><%= review.content %></p>
-<%= review.week %>
-<%= review.rating %>
-<%= review.review_date %>
-<hr>
+<div class="row" >
+	<div class="small-12 columns">
+		<p class="review-date text-center"><%= review.review_date %></p>
+	</div>
+</div>
