@@ -3,8 +3,8 @@
 <% @events.each do |event| %>
 <div id="posted-event">
   <h3><%= link_to event.title, event_path(event) %></h3>
+  <p><%= event.location %></p>
   <p><%= truncate event.description,  length: 30 %></p>
   <br>
 </div>
 <% end %>
-
