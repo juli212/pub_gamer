@@ -6,9 +6,14 @@
 <% @events.each do |event| %>
 <div class="posted-event">
   <p class="event-index-title"><%= link_to event.title, event_path(event) %></p>
-  <p class="event-index-location">Location: <%= event.location %></p>
-  <p class="event-index-date">Date: <%= event.date.strftime("%m/%d/%Y") %></p>
-  <p class="event-index-time">Time: <%= event.time.localtime.strftime('%I:%M %p') %></p>
-  <p class="event-index-limit">Max Participants: <%= event.limit %></p>
+  <p class="event-index-location"><b>Location:</b> <%= event.location %></p>
+  <p class="event-index-games"><b>Games:</b>
+    <% event.games.each do |game|%>
+      <%=game.name%>
+    <%end%>
+  </p>
+  <p class="event-index-date"><b>Date:</b> <%= event.date.strftime("%m/%d/%Y") %></p>
+  <p class="event-index-time"><b>Time:</b> <%= event.time.strftime('%I:%M%p') %></p>
+  <p class="event-index-limit"><b>Max Participants:</b> <%= event.limit %></p>
 </div>
 <% end %>
