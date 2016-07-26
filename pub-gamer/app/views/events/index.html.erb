@@ -4,10 +4,11 @@
 </div>
 
 <% @events.each do |event| %>
-<div id="posted-event">
-  <h3><%= link_to event.title, event_path(event) %></h3>
-  <p><%= event.location %></p>
-  <p><%= truncate event.description,  length: 30 %></p>
-  <!-- <br> -->
+<div class="posted-event">
+  <p class="event-index-title"><%= link_to event.title, event_path(event) %></p>
+  <p class="event-index-location">Location: <%= event.location %></p>
+  <p class="event-index-date">Date: <%= event.date %></p>
+   <p class="event-index-time">Time: <%= event.time %></p>
+  <p class="event-index-description">Description: <%= truncate event.description,  length: 30 %></p>
 </div>
 <% end %>

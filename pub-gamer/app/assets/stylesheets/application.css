@@ -15,17 +15,7 @@
  *= require foundation_and_overrides
 
  */
-#test {
-  border: 1px solid black;
-}
 
-#posted-event {
-  border: 1px solid black;
-  width: 80%;
-  height: 175px;
-  margin-right: auto;
-  margin-left: auto;
-}
 
 body {
   background-color: #816687;
@@ -38,6 +28,41 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+/*event index styling*/
+
+.posted-event {
+  border: 1px solid black;
+  width: 70%;
+  height: 175px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.event-index-title {
+  margin-left: 215px;
+  font-size: 20px
+}
+
+.event-index-location {
+  margin-left: 215px;
+  margin-top: -15px;
+}
+
+.event-index-date {
+  margin-left: 215px;
+  margin-top: -15px;
+}
+
+.event-index-time {
+  margin-left: 215px;
+  margin-top: -15px;
+}
+
+.event-index-description {
+  margin-left: 215px;
+  margin-top: -15px;
 }
 
 
