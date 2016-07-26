@@ -5,7 +5,7 @@
 
 <% @events.each do |event| %>
 
-<div class="posted-event">
+<div class="posted-event-container">
   <p class="event-index-title"><%= link_to event.title, event_path(event) %></p>
 
   <p class="event-index-location"><b>Location:</b> <%= event.location %></p>
@@ -16,9 +16,9 @@
     <%end%>
   </p>
 
-  <p class="event-index-date"><b>Date:</b> <%= event.date.strftime("%m/%d/%Y") %></p>
+  <p class="event-index-date"><b>Date:</b> <%= event.date.strftime("%B #{event.date.day.ordinalize}") %></p>
 
-  <p class="event-index-time"><b>Time:</b> <%= event.time.strftime('%I:%M%p') %></p>
+  <p class="event-index-time"><b>Time:</b> <%= event.time.strftime('%-I:%M%p') %></p>
 
   <p class="event-index-limit"><b>Max Participants:</b> <%= event.limit %></p>
 

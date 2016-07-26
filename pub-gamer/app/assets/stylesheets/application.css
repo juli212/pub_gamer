@@ -32,47 +32,48 @@ body {
 
 /*event index styling*/
 
-.posted-event {
+.posted-event-container {
   border: 1px solid black;
-  width: 70%;
+  width: 60%;
   height: 175px;
   margin-right: auto;
   margin-left: auto;
 }
 
 .event-index-title {
-  margin-left: 215px;
-  font-size: 20px
+  margin-left: 187px;
+  margin-bottom: 10px;
+  font-size: 25px
 }
 
 .event-index-location {
-  margin-left: 215px;
+  margin-left: 187px;
   margin-top: -16px;
 }
 
 .event-index-games {
-  margin-left: 215px;
+  margin-left: 187px;
   margin-top: -16px;
 }
 
 .event-index-date {
-  margin-left: 215px;
+  margin-left: 187px;
   margin-top: -16px;
 }
 
 .event-index-time {
-  margin-left: 215px;
+  margin-left: 187px;
   margin-top: -16px;
 }
 
 
 .event-index-limit {
-  margin-left: 215px;
+  margin-left: 187px;
   margin-top: -16px;
 }
 
 .event-index-user {
-  margin-left: 400px;
+  margin-left: 385px;
   margin-top: -147px;
 }
 
