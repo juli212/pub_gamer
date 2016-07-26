@@ -21,6 +21,10 @@
 
 #posted-event {
   border: 1px solid black;
+  width: 80%;
+  height: 175px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 body {
