@@ -19,6 +19,10 @@
 
 body {
   background-color: #816687;
+<<<<<<< 5ef1ef06d176a8e0e1ce933c5955b6ddee8d35c9
+=======
+  min-width: 600px;
+>>>>>>> add styling for review and venue show partials and
   margin: 0 auto;
 }
 
@@ -201,9 +205,13 @@ body {
 }
 
 #google-map {
+<<<<<<< 5ef1ef06d176a8e0e1ce933c5955b6ddee8d35c9
   width: 702px;
   margin-left: auto;
   margin-right: auto;
+=======
+  margin-left: 150px;
+>>>>>>> add styling for review and venue show partials and
 }
 
 /*button that appears from map venue click*/

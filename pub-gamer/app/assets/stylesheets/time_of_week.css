@@ -1,6 +1,12 @@
+#week {
+	margin: 0 auto;	
+}
+
 .week {
-  display: inline-block;
+  display: block;
   border: 2px solid white;
+  width: 100px;
+  /*margin: 5px -3px;*/
 }
 
 .week:hover{
@@ -9,7 +15,8 @@
 
 .week-label {
   font-size: 20px;
-  padding: 10px;
+  padding: 0px 5px;
+  color: white;
 }
 
 .week-selector {
