@@ -92,13 +92,10 @@ body {
 
 /*venue create styling*/
 
-#map-wrapper {
-  position: relative;
-  margin: 0 auto;
-}
+
 
 #venue-create-form {
-  position: relative; bottom: 150px; left: 155px; z-index: 99;
+  position: relative; bottom: 150px; left: 216px; z-index: 99;
   display: none;
   background: rgba(73, 115, 77,0.9);
   border: 1px;
@@ -159,7 +156,9 @@ body {
 }
 
 #google-map {
-  margin-left: 150px;
+  width: 702px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*button that appears from map venue click*/
