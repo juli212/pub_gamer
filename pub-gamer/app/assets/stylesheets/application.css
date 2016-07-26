@@ -16,6 +16,9 @@
 
  */
 
+#posted-event {
+  border: 1px solid black;
+}
 
 body {
   background-color: #816687;
