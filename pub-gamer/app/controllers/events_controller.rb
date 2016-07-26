@@ -14,6 +14,9 @@ class EventsController < ApplicationController
   def new
 	  @event = Event.new
     @games = Game.all
+    if request.xhr?
+      render partial: '/events/event_create', locals: { current_rating: @current_rating }
+    end
   end
 
   def create
