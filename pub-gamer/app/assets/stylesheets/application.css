@@ -47,28 +47,33 @@ body {
 
 .event-index-location {
   margin-left: 215px;
-  margin-top: -15px;
+  margin-top: -16px;
 }
 
 .event-index-games {
   margin-left: 215px;
-  margin-top: -15px;
+  margin-top: -16px;
 }
 
 .event-index-date {
   margin-left: 215px;
-  margin-top: -15px;
+  margin-top: -16px;
 }
 
 .event-index-time {
   margin-left: 215px;
-  margin-top: -15px;
+  margin-top: -16px;
 }
 
 
 .event-index-limit {
   margin-left: 215px;
-  margin-top: -15px;
+  margin-top: -16px;
+}
+
+.event-index-user {
+  margin-left: 400px;
+  margin-top: -147px;
 }
 
 /*event create styling*/
