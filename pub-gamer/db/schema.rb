@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725021641) do
+ActiveRecord::Schema.define(version: 20160708204100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20160725021641) do
   create_table "events", force: :cascade do |t|
     t.string   "title",       null: false
     t.text     "description", null: false
-    t.date     "event_date",  null: false
-    t.time     "event_time",  null: false
+    t.date     "date",        null: false
+    t.time     "time",        null: false
+    t.string   "location",    null: false
     t.integer  "limit",       null: false
-    t.integer  "location",    null: false
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -49,22 +49,14 @@ ActiveRecord::Schema.define(version: 20160725021641) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "review_vibes", force: :cascade do |t|
-    t.integer  "review_id",  null: false
-    t.integer  "vibe_id",    null: false
+  create_table "reviews", force: :cascade do |t|
+    t.string   "content",    null: false
+    t.string   "vibe",       null: false
+    t.integer  "rating"
+    t.integer  "venue_id",   null: false
+    t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string   "content",     null: false
-    t.string   "vibe",        null: false
-    t.boolean  "recommended"
-    t.integer  "rating"
-    t.integer  "venue_id",    null: false
-    t.integer  "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "user_events", force: :cascade do |t|
@@ -103,13 +95,6 @@ ActiveRecord::Schema.define(version: 20160725021641) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "vibes", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "pic"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
