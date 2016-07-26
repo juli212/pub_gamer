@@ -1,14 +1,12 @@
 class ReviewsController < ApplicationController
 
 	def create
-		binding.pry
 		@review = Review.new(review_params)
 		binding.pry
 		@review.venue_id = params[:venue_id]
 		venue = Venue.find_by(id: params[:venue_id])
 		@review.user_id = current_user.id
 		vibes = Vibe.find(params[:review][:vibes]) if params[:review][:vibes]
-		binding.pry
 		if @review.save && request.xhr?
 <<<<<<< 3840b2dad8094564896057fa0c404bce8e59b2eb
 			@review.vibes = vibes if vibes
