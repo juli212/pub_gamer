@@ -41,3 +41,12 @@
 #venue-header {
 	padding-bottom: 20px;
 }
+
+.venue-game {
+	display: inline-block;
+	color: white;
+	border: 1px solid white;
+	padding: 2px 5px;
+	min-width: 60px;
+	height: 25px;
+}
