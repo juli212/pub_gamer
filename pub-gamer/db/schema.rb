@@ -58,28 +58,7 @@ ActiveRecord::Schema.define(version: 20160725021641) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "content",    null: false
-<<<<<<< fc8d36877e7ca25c71eac23d13260c133b5bd259
-<<<<<<< 3840b2dad8094564896057fa0c404bce8e59b2eb
-<<<<<<< HEAD
     t.string   "week"
-=======
-    t.string   "vibe",       null: false
->>>>>>> master
-=======
-=======
-<<<<<<< 9beed83288d17e6de4d457af9829ae392018d87d
->>>>>>> add week field to review table
-<<<<<<< fb44f0bff9a9a6998933f1fb0f35428768ee6ba9
-    t.string   "vibe",       null: false
-=======
->>>>>>> update review vibes to select multiple vibes
-<<<<<<< fc8d36877e7ca25c71eac23d13260c133b5bd259
->>>>>>> update review vibes to select multiple vibes
-=======
-=======
-    t.string   "week"
->>>>>>> add week field to review table
->>>>>>> add week field to review table
     t.integer  "rating"
     t.integer  "venue_id",   null: false
     t.integer  "user_id",    null: false

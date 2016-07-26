@@ -10,16 +10,11 @@
 // We include everything by default.  To slim your CSS, remove components you don't use.
 
 @include foundation-global-styles;
-<<<<<<< 5ef1ef06d176a8e0e1ce933c5955b6ddee8d35c9
-@include foundation-flex-classes;
-@include foundation-flex-grid;
-=======
 
 // @include foundation-grid;
 @include foundation-flex-classes;
 @include foundation-flex-grid;
 
->>>>>>> add styling for review and venue show partials and
 @include foundation-typography;
 @include foundation-button;
 @include foundation-forms;
