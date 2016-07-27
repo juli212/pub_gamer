@@ -77,6 +77,11 @@ body {
   margin-top: -147px;
 }
 
+.event-index-join {
+  margin-left: 460px;
+  margin-top: 60px;
+}
+
 /*event create styling*/
 
 #event-create-container {
