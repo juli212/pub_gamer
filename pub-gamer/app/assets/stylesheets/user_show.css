@@ -13,11 +13,12 @@
 
 #reviews {
 	border-left: 2px solid white;
+	padding-left: 10px;
 }
 
 #review-index {
 	/*border-left: 2px solid white;*/
-	padding: 5px 0px 15px 10px;
+	padding: 5px 0px 15px 0px;
 	margin-bottom: 30px;
 }
 
