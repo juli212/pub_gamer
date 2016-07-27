@@ -10,4 +10,9 @@ class Review < ActiveRecord::Base
   	date = self.created_at.strftime("%a, %B %d, %Y")
   	"Reviewed: " + date
   end
+
+  def author
+  	user = User.find_by(id: self.user_id)
+  	user.user_name
+  end
 end
