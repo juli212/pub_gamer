@@ -1,8 +1,10 @@
+
+<h2 id="event-show-title"><%= @event.title %></h3>
+
 <div class="row">
 
 	<div class="small-6 columns" id="event-show-content">
 
-		<h3><%= @event.title %></h3>
 
 		WHERE: <%= @event.location %>
 
@@ -43,22 +45,20 @@
 			<% @comments.each do |comment| %>
 				<%= comment.body %>
 				<h6>
-				<%= comment.username %>
+				-<%= comment.username %>
 				</h6>
-				<br>
 				~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				<br>
 
 			<% end %>
 
-			New Comment:
 
 
 			<%= form_for [@event, @comment] do |f| %>
 
-				<%= f.text_area :body %>
+				<%= f.text_area :body  %>
 
-				<%= f.button :submit %>
+				<%= f.button :submit, class: "button", placeholder: "Comment!", id: "comment-button" %>
 			<% end %>
 		<% end %>
 

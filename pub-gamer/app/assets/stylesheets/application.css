@@ -138,16 +138,34 @@ body {
 
 /*Event show styling*/
 
+#event-show-title {
+  text-align: center;
+  /*border: 1px solid black;*/
+}
+
 #event-show-content {
   /*clear: both;*/
-  border: 1px solid black;
+  border-right: 1px solid black;
 }
 
 #comment-div {
   /*float: right;*/
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 
 }
+
+#comment_body {
+  width: 400px;
+}
+
+#comment-button {
+  float: right;
+  margin-right: 14%;
+  margin-top: -63px;
+  height: 45px;
+}
+
+
 /*venue create styling*/
 
 
