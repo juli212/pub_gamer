@@ -15,11 +15,20 @@
  *= require foundation_and_overrides
 
  */
+#test {
+  border: 1px solid black;
+}
 
+#posted-event {
+  border: 1px solid black;
+  width: 80%;
+  height: 175px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 body {
   background-color: #816687;
-  width: 1000px;
   margin: 0 auto;
 }
 
@@ -31,15 +40,66 @@ body {
   background-size: cover;
 }
 
-/*form that auto-populates with venue data*/
 
-#map-wrapper {
-  position: relative;
+/*event create styling*/
+
+#event-create-container {
+  border: 1px solid black;
+  margin-right: 34%;
+  margin-left: 34%;
+  text-align: center;
+}
+
+
+#event_title {
+  width: 90%;
   margin: 0 auto;
 }
 
+#event_location {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#event_date {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#event_time {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#event_description {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#event_limit {
+  width: 19%;
+  margin-left: 33%;
+  margin-top: -46px;
+  }
+
+#event-create-submit-button {
+  margin-left: 50%;
+  margin-top: -80px;
+  width: 80px;
+}
+
+/*#max-guest-container {
+  margin-right: 34%;
+  margin-left: 34%;
+  border: 1px solid black;
+}*/
+
+/*venue create styling*/
+
+
+
 #venue-create-form {
-  position: relative; bottom: 150px; left: 155px; z-index: 99;
+  position: relative; bottom: 150px; left: 216px; z-index: 99;
   display: none;
   background: rgba(73, 115, 77,0.9);
   border: 1px;
@@ -100,8 +160,9 @@ body {
 }
 
 #google-map {
-  margin-left: 150px;
-
+  width: 702px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*button that appears from map venue click*/
@@ -112,6 +173,7 @@ body {
   /*top: 75px;*/
   bottom: -8px;
 }
+
 html, body {
     height: 100%;
     margin: 0;

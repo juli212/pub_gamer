@@ -1,6 +1,5 @@
 <div id="event-create-container">
 
-  <h4>Create New Event</h4>
 
   <% if @errors %>
     <% @errors.each do |error| %>
@@ -10,16 +9,16 @@
 
   <%= form_for @event, :html => {:id => "event-create-form"} do |f| %>
       <%= f.label :title %>
-    	<%= f.text_field :title, placeholder: "Title" %>
+      <%= f.text_field :title, placeholder: "Title" %>
 
     <%= f.label :location %>
     <%= f.text_field :location, placeholder: "Location" %>
 
     <%= f.label :date %>
-    <%= f.date_field :date %>
+    <%= f.date_field :event_date %>
 
     <%= f.label :time %>
-    <%= f.time_field :time, { :ampm => true } %>
+    <%= f.time_field :event_time, { :ampm => true } %>
 
     <%= f.label :description %>
     <%= f.text_area :description, placeholder: "Description" %>

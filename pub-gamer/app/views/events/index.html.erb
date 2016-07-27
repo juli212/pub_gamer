@@ -1,7 +1,13 @@
-<%= link_to "create new event", new_event_path %>
+<%= link_to "create new event", new_event_path,id: "event-create-link"  %>
+
+<div id="event-create-ajax-div">
+</div>
 
 <% @events.each do |event| %>
-	<h3><%= link_to event.title, event_path(event) %></h3>
-	<p><%= truncate event.description,	length: 30 %></p>
-	<br>
+<div id="posted-event">
+  <h3><%= link_to event.title, event_path(event) %></h3>
+  <p><%= event.location %></p>
+  <p><%= truncate event.description,  length: 30 %></p>
+  <!-- <br> -->
+</div>
 <% end %>
