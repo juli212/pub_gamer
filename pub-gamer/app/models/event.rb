@@ -13,4 +13,10 @@ class Event < ActiveRecord::Base
 	def full?
 		self.guests.length >= self.limit
 	end
+
+	def in_future?
+		self.date > Date.today ||
+		(self.date == Date.today && self.time.strftime('%-I').to_i > Time.now.strftime('%-I').to_i) ||
+		(self.date == Date.today && self.time.strftime('%-I').to_i == Time.now.strftime('%-I').to_i && self.time.strftime('%-M').to_i > Time.now.strftime('%-M').to_i)
+	end
 end

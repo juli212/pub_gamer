@@ -23,10 +23,13 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     games = params[:games]
-    if !(games == nil) && @event.save
+    if !(games == nil) && @event.in_future?
+      # binding.pry
+      @event.save
       @event.games << Game.find(games)
       redirect_to event_path(@event)
-    elsif @event.save
+    elsif @event.in_future?
+      @event.save
       redirect_to event_path(@event)
   	else
       @event = @event
