@@ -5,20 +5,26 @@
 
 	<div class="small-6 columns" id="event-show-content">
 
-
-		WHERE: <%= @event.location %>
-
-		WHEN:<%= @event.date %>
-
-		<%= @event.time %>
-
-		<%= @event.description %>
-
-		Max Guests: <%= @event.limit %>
-
-		<% @event.games.each do |game| %>
-			<%= game.name %>
-		<% end %>
+		<div class="row">
+			Location: <%= @event.location %>
+		</div>
+		<div class="row">
+			Date: <%= @event.date.strftime("%B #{@event.date.day.ordinalize}") %>
+		</div>
+		<div class="row">
+			Time: <%= @event.time.strftime('%-I:%M%p') %>
+		</div>
+		<div class="row">
+			Description: <%= @event.description %>
+		</div>
+		<div class="row">
+			Max Guests: <%= @event.limit %>
+		</div>
+		<div class="row">
+			Games: <% @event.games.each do |game| %>
+				<%= game.name %>
+			<% end %>
+		</div>
 		<br>
 
 		<% if @event.guests.include?(current_user) %>
