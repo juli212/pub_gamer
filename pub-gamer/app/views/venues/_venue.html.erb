@@ -20,9 +20,9 @@
 	<div class="small-3 columns" %>
 		<div id="favorite">
 		<% if current_user && current_user.has_favorited?(@venue) %>
-			<%= button_to "Remove From My Venues", user_path(current_user), method: :put, id: "fav", params: { venue: @venue } %>
+			<%= render partial: 'users/favorite_added' %>
 		<% elsif current_user %>
-			<%= button_to "Add To My Venues", user_path(current_user), method: :put, id: "fav", params: { venue: @venue } %>
+			<%= render partial: 'users/favorite_removed' %>
 		<% end %>
 		</div>
 	</div>
