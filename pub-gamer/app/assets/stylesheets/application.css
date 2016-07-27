@@ -15,17 +15,7 @@
  *= require foundation_and_overrides
 
  */
-#test {
-  border: 1px solid black;
-}
 
-#posted-event {
-  border: 1px solid black;
-  width: 80%;
-  height: 175px;
-  margin-right: auto;
-  margin-left: auto;
-}
 
 body {
   background-color: #816687;
@@ -40,6 +30,57 @@ body {
   background-size: cover;
 }
 
+/*event index styling*/
+
+.posted-event-container {
+  border: 1px solid black;
+  width: 60%;
+  height: 175px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.event-index-title {
+  margin-left: 187px;
+  margin-bottom: 10px;
+  font-size: 25px
+}
+
+.event-index-location {
+  margin-left: 187px;
+  margin-top: -16px;
+}
+
+.event-index-games {
+  margin-left: 187px;
+  margin-top: -16px;
+}
+
+.event-index-date {
+  margin-left: 187px;
+  margin-top: -16px;
+}
+
+.event-index-time {
+  margin-left: 187px;
+  margin-top: -16px;
+}
+
+
+.event-index-limit {
+  margin-left: 187px;
+  margin-top: -16px;
+}
+
+.event-index-user {
+  margin-left: 385px;
+  margin-top: -147px;
+}
+
+.event-index-join {
+  margin-left: 460px;
+  margin-top: 60px;
+}
 
 /*event create styling*/
 

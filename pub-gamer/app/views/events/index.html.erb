@@ -4,10 +4,27 @@
 </div>
 
 <% @events.each do |event| %>
-<div id="posted-event">
-  <h3><%= link_to event.title, event_path(event) %></h3>
-  <p><%= event.location %></p>
-  <p><%= truncate event.description,  length: 30 %></p>
-  <!-- <br> -->
+
+<div class="posted-event-container">
+  <p class="event-index-title"><%= link_to event.title, event_path(event) %></p>
+
+  <p class="event-index-location"><b>Location:</b> <%= event.location %></p>
+
+  <p class="event-index-games"><b>Games:</b>
+    <% event.games.each do |game|%>
+      <%=game.name%>
+    <%end%>
+  </p>
+
+  <p class="event-index-date"><b>Date:</b> <%= event.date.strftime("%B #{event.date.day.ordinalize}") %></p>
+
+  <p class="event-index-time"><b>Time:</b> <%= event.time.strftime('%-I:%M%p') %></p>
+
+  <p class="event-index-limit"><b>Max Participants:</b> <%= event.limit %></p>
+
+  <p class="event-index-user"><b>Created by:</b> <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
+
+  <div class="event-index-join"><%= link_to "Join Event!", event_path(event), method: :put, class: "button" %></div>
 </div>
+
 <% end %>
