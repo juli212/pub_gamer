@@ -136,6 +136,18 @@ body {
   border: 1px solid black;
 }*/
 
+/*Event show styling*/
+
+#event-show-content {
+  /*clear: both;*/
+  border: 1px solid black;
+}
+
+#comment-div {
+  /*float: right;*/
+    border: 1px solid black;
+
+}
 /*venue create styling*/
 
 
