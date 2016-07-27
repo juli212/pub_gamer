@@ -48,13 +48,19 @@
 	padding-bottom: 20px;
 }
 
+#venue-games {
+	padding-bottom: 40px;
+	margin-bottom: 60px;
+	border-bottom: 3px solid white;
+}
+
 .venue-game {
 	display: inline-block;
 	color: white;
 	border: 1px solid white;
 	padding: 2px 5px;
 	min-width: 60px;
-	height: 25px;
+	height: 30px;
 }
 
 .review-content {
@@ -62,5 +68,4 @@
 }
 
 .venue-show-left {
-/*	border-left: 2px solid white;*/
 }

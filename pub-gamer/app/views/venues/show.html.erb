@@ -15,9 +15,10 @@
 	</div>
 
 	<div class="small-5 columns text-center" >
-		<h2>Games</h2>
-		<%= render partial: 'games' %>
-
+		<div id="venue-games">
+			<h2>Games</h2>
+			<%= render partial: 'games' %>
+		</div>
 	  <h2>Add Review</h2>
 		<% if @errors %>
 			<% @errors.each do |message| %>
