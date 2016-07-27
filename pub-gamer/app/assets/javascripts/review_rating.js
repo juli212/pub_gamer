@@ -1,10 +1,11 @@
 $(document).ready(function() {
   $('.octopus').on('click', function(event){
-    if (event.target.nodeName == "DIV"){
-      selected_div = event.target;
-    } else if (event.target.nodeName == "IMG"){
-      selected_div = event.target.parentElement;
-    }
+    // if (event.target.nodeName == "DIV"){
+    //   selected_div = event.target;
+    // } else if (event.target.nodeName == "IMG"){
+    //   selected_div = event.target.parentElement;
+    // }
+    selected_div = event.target.closest('.octopus')
     rating_value = $(selected_div).children('input').attr('value')
     $('.rated').removeClass('rated')
     $(selected_div).addClass('rated')

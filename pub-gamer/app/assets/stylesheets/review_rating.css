@@ -1,0 +1,36 @@
+.octopus {
+  width: 60;
+  height: 80;
+  display: inline-block;
+  margin: -2px -3px;
+}
+
+.octopus img {
+  padding: 10px;
+  opacity: 0.3;
+}
+
+.rated img {
+  opacity: 1;
+}
+
+.rated {
+  background-color: white;
+}
+
+.rate img {
+  opacity: 1;
+}
+
+.rate {
+  background-color: yellow;
+}
+
+.rating-button {
+  position: fixed;
+  opacity: 0;
+}
+
+#rating {
+  display: inline-block;
+}

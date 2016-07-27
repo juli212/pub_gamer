@@ -1,8 +1,12 @@
 $(document).ready(function() {
-  $('.face img').on('click', function(event){
-    selected_div = event.target.parentNode;
-    $('.selected').removeClass('selected')
-    $(selected_div).addClass('selected')
-    $(selected_div).find('input').prop('checked', true)
+  $('.face').on('click', function(event){
+  	// if (event.target.nodeName == "DIV"){
+  	// 	selected_div = event.target;
+  	// } else if (event.target.nodeName == "IMG"){
+   //  	selected_div = event.target.parentElement;
+  	// }
+  	selected_div = event.target.closest('.face')
+   $(selected_div).toggleClass('selected');
+   $(selected_div).find('input').prop('checked', !$(selected_div).find('input').prop('checked'));
   })
 });

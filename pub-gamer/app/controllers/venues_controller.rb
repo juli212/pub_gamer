@@ -43,6 +43,7 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find_by(id: params[:id])
     @review = Review.new
+    @vibes = Vibe.all
     @current_rating = @venue.avg_rating
     render 'show'
   end

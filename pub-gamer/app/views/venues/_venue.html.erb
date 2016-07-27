@@ -1,6 +1,23 @@
-<div>Description: <%=@venue.description%></div>
-<div>Address: <%=@venue.address%></div>
-<div>Neighborhood: <%=@venue.address%></div>
+<div class="row" >
+	<div class="small-2 columns" >
+	</div>
+	<div class="small-8 small-centered columns" >
+		<h2><%=@venue.name%></h2>
+	</div>
+	<div class="small-2 columns" >
+	</div>
+</div>
+
+<div class="row" >
+	<div class="small-2 small-centered columns">
+	</div>
+	<div class="small-8 small-centered columns">
+		<div id="venue-address">Address: <%=@venue.address%>
+		</div>
+	</div>
+	<div class="small-2 small-centered columns">
+	</div>
+</div>
 
 <div id="favorite">
 <% if current_user && current_user.has_favorited?(@venue) %>
