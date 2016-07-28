@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
 		venue = Venue.find_by(id: params[:venue_id])
 		@review.user_id = current_user.id
 		vibes = Vibe.find(params[:review][:vibes]) if params[:review][:vibes]
+		binding.pry
 		if @review.save && request.xhr?
 			@review.vibes = vibes if vibes
 			render partial: 'reviews/show', locals: { review: @review }
