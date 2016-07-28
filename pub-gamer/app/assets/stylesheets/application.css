@@ -145,36 +145,40 @@ body {
 
 #event-show-location {
   font-size: 30px;
-  margin-left: 50px;
+  margin-left: 250px;
 }
 
 #event-show-games {
   font-size: 30px;
-    margin-left: 50px;
+    margin-left: 250px;
 
 }
 
 #event-show-date {
   font-size: 30px;
-    margin-left: 50px;
+    margin-left: 250px;
 }
 
 #event-show-time {
   font-size: 30px;
-    margin-left: 50px;
+    margin-left: 250px;
 
 }
 
 #event-show-max {
   font-size: 30px;
-    margin-left: 50px;
+    margin-left: 250px;
 
 }
 
 #event-show-description {
   font-size: 30px;
-    margin-left: 50px;
+    margin-left: 250px;
 
+}
+
+#event-show-details {
+  margin-left: 250px;
 }
 
 #event-show-content {
