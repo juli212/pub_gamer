@@ -13,6 +13,10 @@ class Review < ActiveRecord::Base
     self.created_at.localtime.ctime
   end
 
+  def split_content
+    self.content.split("\r\n")
+  end
+
   def author
   	user = User.find_by(id: self.user_id)
   	user.user_name
