@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
 			@errors = @review.errors.full_messages
 			@venue = venue
 			@vibes = Vibe.all
-			render partial: 'reviews/new'
+			render partial: 'reviews/errors'
 		end
 	end
 

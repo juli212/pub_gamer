@@ -8,7 +8,6 @@ $(document).ready(function() {
       method: $target.attr('method'),
       data: $target.serialize()
     }).done(function(response){
-      debugger;
       if ($(response).hasClass('venue-show-left')) {
         $('.rated').removeClass('rated')
         $('#reviews').prepend(response);
@@ -19,8 +18,6 @@ $(document).ready(function() {
       } else {
         $('#new-review-form').html(response);
       }
-      // }debugger;
-    }).fail(function(response){
     })
     $.ajax({
       url: $target.children('#rating').attr('action'),
