@@ -51,7 +51,7 @@
 
 #venue-games {
 	padding-bottom: 40px;
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 	border-bottom: 3px solid white;
 }
 
@@ -68,5 +68,9 @@
 	border-left: 1px solid rgba(255, 255,255, .3);
 }
 
-.venue-show-left {
+#submit-review {
+	font-weight: bold;
+	background-color: white;
+	padding: 15px 0px;
+	border-radius: 10px;
 }

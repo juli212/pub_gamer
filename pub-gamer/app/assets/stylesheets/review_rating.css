@@ -23,8 +23,8 @@
 }
 
 .rate {
-  background-color: yellow;
-  opacity: 0.3;
+  background-color: white;
+  /*opacity: 0.3;*/
 }
 
 .rating-button {
@@ -35,4 +35,5 @@
 #rating {
   display: inline-block;
   border-bottom: 1px solid white;
+  padding: 10px 0px;
 }
