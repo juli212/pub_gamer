@@ -1,30 +1,39 @@
-<%= link_to "create new event", new_event_path,id: "event-create-link"  %>
+<div class="row">
 
-<div id="event-create-ajax-div">
+  <div class="small-3 columns" id="event-index-sidebar">
+    <%= link_to "+  Create an Event", new_event_path,id: "event-create-link"  %>
+  </div>
+
+  <div id="event-create-ajax-div">
+  </div>
+
+  <div class="small-9 columns" class="posted-event-container">
+
+    <% @events.each do |event| %>
+
+    <div class="posted-event-container">
+      <p class="event-index-title"><%= link_to event.title, event_path(event) %></p>
+
+      <p class="event-index-location"><b>Location:</b> <%= event.location %></p>
+
+      <p class="event-index-games"><b>Games:</b>
+        <% event.games.each do |game|%>
+          <%=game.name%>
+        <%end%>
+      </p>
+
+      <p class="event-index-date"><b>Date:</b> <%= event.date.strftime("%B #{event.date.day.ordinalize}") %></p>
+
+      <p class="event-index-time"><b>Time:</b> <%= event.time.strftime('%-I:%M%p') %></p>
+
+      <p class="event-index-limit"><b>Max Participants:</b> <%= event.limit %></p>
+
+      <p class="event-index-user"><b>Created by:</b> <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
+
+      <div class="event-index-join"><%= link_to "Join Event!", event_path(event), method: :put, class: "button" %></div>
+    </div>
+
+    <% end %>
+  </div>
+
 </div>
-
-<% @events.each do |event| %>
-
-<div class="posted-event-container">
-  <p class="event-index-title"><%= link_to event.title, event_path(event) %></p>
-
-  <p class="event-index-location"><b>Location:</b> <%= event.location %></p>
-
-  <p class="event-index-games"><b>Games:</b>
-    <% event.games.each do |game|%>
-      <%=game.name%>
-    <%end%>
-  </p>
-
-  <p class="event-index-date"><b>Date:</b> <%= event.date.strftime("%B #{event.date.day.ordinalize}") %></p>
-
-  <p class="event-index-time"><b>Time:</b> <%= event.time.strftime('%-I:%M%p') %></p>
-
-  <p class="event-index-limit"><b>Max Participants:</b> <%= event.limit %></p>
-
-  <p class="event-index-user"><b>Created by:</b> <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
-
-  <div class="event-index-join"><%= link_to "Join Event!", event_path(event), method: :put, class: "button" %></div>
-</div>
-
-<% end %>

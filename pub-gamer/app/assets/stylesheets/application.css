@@ -21,6 +21,7 @@ body {
   background-color: #816687;
   min-width: 900px;
   margin: 0 auto;
+  min-width: 965px;
 }
 
 #welcome-body {
@@ -35,10 +36,19 @@ body {
 
 .posted-event-container {
   border: 1px solid black;
-  width: 60%;
+  width: 700px;
   height: 175px;
-  margin-right: auto;
-  margin-left: auto;
+}
+
+#event-index-sidebar {
+  border: 1px solid black;
+}
+
+#event-create-link {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 0px 45px 4px 40px;
+  margin-left: 10px;
 }
 
 .event-index-title {
