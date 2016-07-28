@@ -17,7 +17,9 @@
 		</div>
 	</div>
 	<div class="small-8 columns review-content">
-		<p><%= review.content %></p>
+		<% review.split_content.each do |line| %>
+			<p class="formatted-review"><%= line %></p>
+		<% end %>
 	</div>
 	<div class="small-1 columns">
 	</div>
