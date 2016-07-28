@@ -21,6 +21,10 @@ class Venue < ActiveRecord::Base
 		end
 	end
 
+	def has_games?
+		self.games.length > 0
+	end
+
 	def has_reviews?
 		self.reviews.length > 0
 	end

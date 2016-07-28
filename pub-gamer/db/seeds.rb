@@ -40,6 +40,6 @@ vibes = Vibe.create([
   {name: 'expensive', pic: 'happyFace.gif'}, 
   {name: 'douchey', pic: 'starFace.gif'}, 
   {name: 'fun', pic: 'happyFace.gif'}, 
-  {name: 'divey', pic: 'starFace.gif'}], 
+  {name: 'divey', pic: 'starFace.gif'}, 
   {name: 'sophisticated', pic: 'happyFace.gif'}, 
-  {name: 'preppy',pic: 'sadFace.gif'})
+  {name: 'preppy',pic: 'sadFace.gif'}])

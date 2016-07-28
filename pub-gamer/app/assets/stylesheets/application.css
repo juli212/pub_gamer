@@ -19,6 +19,7 @@
 
 body {
   background-color: #816687;
+  min-width: 900px;
   margin: 0 auto;
 }
 

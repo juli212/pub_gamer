@@ -1,11 +1,28 @@
 <%= form_for [ @venue, @review ] do |f| %>
-    <%= render 'reviews/rating' %>
-    <%= render 'reviews/vibe' %>
-    <%= render 'reviews/week' %>
-  <div>
-    <%= f.text_area :content, cols: 40, rows: 10, placeholder: "Review here!" %>
+  <div class="row align-center">
+  	<div class="small-7 colums" >
+    	<%= render 'reviews/rating' %>
+    	<%= render 'reviews/vibe' %>
+    </div>
+    <div class="small-4 columns" >
+    	<%= render 'reviews/week' %>
+    </div>
   </div>
-  <div id="submit-review">
-    <%= f.button :submit %>
+
+  <div class="row" >
+    <div class="small-12 columns" >
+      <div id="new-review-errors">
+        <% if @errors %>
+          <%= render 'reviews/errors' %>
+        <% end %>
+      </div>
+      <%= f.text_area :content, cols: 40, rows: 10, placeholder: "Review here!" %>
+    </div>
+  </div>
+
+  <div class="row align-center">
+    <div class="small-2 columns" id="submit-review">
+      <%= f.button :submit, class: "button" %>
+    </div>
   </div>
 <% end %>

@@ -1,3 +1,7 @@
+#faces {
+  padding: 10px 0px 0px;
+}
+
 .face {
   width: 40px;
   height: 40px;
@@ -5,7 +9,7 @@
 }
 
 .face:hover {
-  background-color: yellow;
+  background-color: white;
 }
 
 .face img {
@@ -28,4 +32,15 @@
 .vibe-button {
   position: fixed;
   opacity: 0;
+}
+
+.vibe-name {
+  color: white;
+  font-size: 12px;
+  /*position: fixed;*/
+  opacity: 0;
+}
+
+.show-vibe {
+  opacity: 1;
 }

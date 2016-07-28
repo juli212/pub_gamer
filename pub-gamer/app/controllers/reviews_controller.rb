@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
 
 	def create
-		binding.pry
 		@review = Review.new(review_params)
 		@review.venue_id = params[:venue_id]
 		venue = Venue.find_by(id: params[:venue_id])
@@ -18,7 +17,9 @@ class ReviewsController < ApplicationController
 			redirect_to venue_path(venue)
 		else
 			@errors = @review.errors.full_messages
-			render partial: 'reviews/new'
+			@venue = venue
+			@vibes = Vibe.all
+			render partial: 'reviews/errors'
 		end
 	end
 

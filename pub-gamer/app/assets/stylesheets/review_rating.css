@@ -1,6 +1,6 @@
 .octopus {
   width: 60;
-  height: 80;
+  height: 60;
   display: inline-block;
   margin: -2px -3px;
 }
@@ -23,7 +23,8 @@
 }
 
 .rate {
-  background-color: yellow;
+  background-color: white;
+  /*opacity: 0.3;*/
 }
 
 .rating-button {
@@ -33,4 +34,6 @@
 
 #rating {
   display: inline-block;
+  border-bottom: 1px solid white;
+  padding: 10px 0px;
 }

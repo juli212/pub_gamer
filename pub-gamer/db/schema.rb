@@ -58,11 +58,7 @@ ActiveRecord::Schema.define(version: 20160725021641) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "content",    null: false
-<<<<<<< HEAD
     t.string   "week"
-=======
-    t.string   "vibe",       null: false
->>>>>>> master
     t.integer  "rating"
     t.integer  "venue_id",   null: false
     t.integer  "user_id",    null: false

@@ -1,10 +1,30 @@
-<div class="row" >
-	<div class="small-2 columns" >
+<div class="row align-center" id="venue-header" >
+	<div class="small-2 columns">
+		<div id="avg-rating">
+			<% if @venue.has_reviews? %>
+				<%= render partial: 'venue_rating', locals: { current_rating: @current_rating } %>
+				<% else %>
+				<p>Not Yet Rated</p>
+			<% end %>
+		</div>
 	</div>
-	<div class="small-8 small-centered columns" >
-		<h2><%=@venue.name%></h2>
+	<div class="small-6 columns">
+		<h2 class="text-right"><%= @venue.name %></h2>
+		<div class="row align-center" >
+			<div class="small-2 columns" ></div>
+			<div class="small-10 columns" >
+				<p class="text-center"><%= @venue.address %></p>
+			</div>
+		</div>
 	</div>
-	<div class="small-2 columns" >
+	<div class="small-3 columns" %>
+		<div id="favorite">
+		<% if current_user && current_user.has_favorited?(@venue) %>
+			<%= render partial: 'users/favorite_added' %>
+		<% elsif current_user %>
+			<%= render partial: 'users/favorite_removed' %>
+		<% end %>
+		</div>
 	</div>
 </div>
 
@@ -12,26 +32,8 @@
 	<div class="small-2 small-centered columns">
 	</div>
 	<div class="small-8 small-centered columns">
-		<div id="venue-address">Address: <%=@venue.address%>
-		</div>
 	</div>
 	<div class="small-2 small-centered columns">
 	</div>
 </div>
 
-<div id="favorite">
-<% if current_user && current_user.has_favorited?(@venue) %>
-	<h4>One of your Favs</h4>
-	<%= button_to "Remove from favorites", user_path(current_user), method: :put, id: "fav", params: { venue: @venue } %>
-<% elsif current_user %>
-	<%= button_to "add favorite!", user_path(current_user), method: :put, id: "fav", params: { venue: @venue } %>
-<% end %>
-</div>
-
-<div id="avg-rating">
-	<% if @venue.has_reviews? %>
-		<%= render partial: 'venue_rating', locals: { current_rating: @current_rating } %>
-		<% else %>
-		<p>No Ratings</p>
-	<% end %>
-</div>

@@ -1,2 +1,1 @@
-<h4>Removed from favorites :(</h4>
-<%= button_to "add favorite!", user_path(current_user), method: :put, params: { venue: @venue } %>
+<%= button_to "Add To My Venues", user_path(current_user), method: :put, id: "fav", params: { venue: @venue } %>

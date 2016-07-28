@@ -1,20 +1,34 @@
 
+<div id="venue-show">
 <%= render partial: 'venue' %>
 
-<h2>Reviews</h2>
+<div class="row" >
+	<div class="small-7 columns" >
+		<h2 class="text-center">Reviews</h2>
+		<div id="reviews">
+			<% if @venue.has_reviews? %>
+				<div id="review-index">
+	  			<%= render partial: 'reviews/index', locals: { reviews: @venue.recent_reviews } %>
+	  		</div>
+	  	<% else %>
+	  		<%= render partial: 'no_reviews' %>
+			<% end %>
+		</div>
+	</div>
 
-<div id="reviews">
-<% if @venue.has_reviews? %>
-  <%= render partial: 'reviews/index', locals: { reviews: @venue.recent_reviews } %>
-<% end %>
+	<div class="small-5 columns text-center" >
+		<div id="venue-games">
+			<h2>Games</h2>
+			<% if @venue.has_games? %>
+				<%= render partial: 'games' %>
+			<% else %>
+				<%= render partial: 'no_games' %>
+			<% end %>
+		</div>
+	  <h2>Add Review</h2>
+	  <div id="new-review-form" >
+			<%= render partial: 'reviews/new'%>
+		</div>
+	</div>
 </div>
-
-  <h2>Add a review!</h2>
-
-<% if @errors %>
-	<% @errors.each do |messageerror| %>
-		<p><%= message %></p>
-	<% end %>
-<% end %>
-
-<%= render partial: 'reviews/new' %>
+</div>
