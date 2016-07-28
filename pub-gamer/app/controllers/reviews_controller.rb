@@ -16,6 +16,8 @@ class ReviewsController < ApplicationController
 			redirect_to venue_path(venue)
 		else
 			@errors = @review.errors.full_messages
+			@venue = venue
+			@vibes = Vibe.all
 			render partial: 'reviews/new'
 		end
 	end
