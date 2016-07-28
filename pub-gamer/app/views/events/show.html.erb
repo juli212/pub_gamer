@@ -5,25 +5,25 @@
 
 	<div class="small-6 columns" id="event-show-content">
 
-		<div class="row">
-			Location: <%= @event.location %>
+		<div class="row" id="event-show-location">
+			 <b>Location:  </b><%= @event.location %>
 		</div>
-		<div class="row">
-			Date: <%= @event.date.strftime("%B #{@event.date.day.ordinalize}") %>
-		</div>
-		<div class="row">
-			Time: <%= @event.time.strftime('%-I:%M%p') %>
-		</div>
-		<div class="row">
-			Description: <%= @event.description %>
-		</div>
-		<div class="row">
-			Max Guests: <%= @event.limit %>
-		</div>
-		<div class="row">
-			Games: <% @event.games.each do |game| %>
+		<div class="row" id="event-show-games">
+			<b>Games:</b> <% @event.games.each do |game| %>
 				<%= game.name %>
 			<% end %>
+		</div>
+		<div class="row" id="event-show-date">
+			<b>Date:</b> <%= @event.date.strftime("%B #{@event.date.day.ordinalize}") %>
+		</div>
+		<div class="row" id="event-show-time">
+			<b>Time:</b> <%= @event.time.strftime('%-I:%M%p') %>
+		</div>
+		<div class="row" id="event-show-max">
+			<b>Max Guests:</b> <%= @event.limit %>
+		</div>
+		<div class="row" id="event-show-description">
+			<b>Description:</b> <%= @event.description %>
 		</div>
 		<br>
 

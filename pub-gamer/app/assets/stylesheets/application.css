@@ -143,8 +143,31 @@ body {
   /*border: 1px solid black;*/
 }
 
+#event-show-location {
+  font-size: 30px;
+}
+
+#event-show-games {
+  font-size: 30px;
+}
+
+#event-show-date {
+  font-size: 30px;
+}
+
+#event-show-time {
+  font-size: 30px;
+}
+
+#event-show-max {
+  font-size: 30px;
+}
+
+#event-show-description {
+  font-size: 30px;
+}
+
 #event-show-content {
-  /*clear: both;*/
   border-right: 1px solid black;
 }
 
