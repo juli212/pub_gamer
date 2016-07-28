@@ -7,9 +7,10 @@ class Review < ActiveRecord::Base
   validates :content, :venue_id, :user_id, presence: true
 
   def review_date
-  	date = self.created_at.strftime("%a, %B %d, %Y")
-    time = self.created_at.strftime("%l:%M %p")
-  	"Reviewed: " + date + " | " + time
+  	# date = self.created_at.strftime("%a, %B %d, %Y")
+   #  time = self.created_at.localtime("%l:%M %p")
+  	# "Reviewed: " + date + " | " + time
+    self.created_at.localtime.ctime
   end
 
   def author
