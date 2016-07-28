@@ -24,4 +24,8 @@ class Event < ActiveRecord::Base
 		# method to sort by time
 	end
 
+	def attending_event?
+		#
+	end
+
 end
