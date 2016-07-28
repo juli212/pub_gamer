@@ -12,11 +12,13 @@ $(document).ready(function() {
         $('.rated').removeClass('rated')
         $('#reviews').prepend(response);
         $('.selected').removeClass('selected')
+        $('.time-of-week').removeClass('time-of-week');
+        $('#new-review-errors').html("");
         $('#new_review').each(function(){
           this.reset();
         });
       } else {
-        $('#new-review-form').html(response);
+        $('#new-review-errors').html(response);
       }
     })
     $.ajax({

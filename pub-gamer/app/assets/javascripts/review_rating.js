@@ -24,5 +24,5 @@ $(document).ready(function() {
   })
   $('#rating').on('mouseout', function(event){
     $('.rate').removeClass('rate')
-  })
+  });
 });
