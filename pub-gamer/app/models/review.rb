@@ -8,7 +8,8 @@ class Review < ActiveRecord::Base
 
   def review_date
   	date = self.created_at.strftime("%a, %B %d, %Y")
-  	"Reviewed: " + date
+    time = self.created_at.strftime("%l:%M %p")
+  	"Reviewed: " + date + " | " + time
   end
 
   def author
