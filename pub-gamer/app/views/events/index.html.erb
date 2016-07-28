@@ -7,7 +7,10 @@
     <% @created_events.each do |event| %>
       <%= event.title %>
     <% end %>
-
+    Events you are attending:
+    <% @attended_events.each do |event| %>
+      <%= event.title %>
+    <% end %>
   </div>
 
   <div id="event-create-ajax-div">

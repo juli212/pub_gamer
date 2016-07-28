@@ -3,11 +3,11 @@ class EventsController < ApplicationController
   def index
   	@events = Event.all
     @created_events = Event.where("user_id = #{current_user.id}")
-    # binding.pry
     @attended_events = []
     @events.each do |event|
-      @attended_events << event.guests.where("user_id == current_user.id")
+      @attended_events << event.guests.where("user_id == #{current_user.id}")
     end
+      binding.pry
   end
 
   def show
