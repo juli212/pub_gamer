@@ -1,9 +1,10 @@
 <div id="faces">
-  Vibe?
+  <div>Vibe?</div>
   <% @vibes.each do |vibe| %>
-    <div data-tooltip class="face has-tooltip" >
-      <%= image_tag("#{vibe.pic}", size: '30') %>
-      <%= check_box_tag "review[vibes][]", "#{vibe.id}", false, class: "vibe-button" %>
+    <div class="face" >
+      <%= image_tag("#{vibe.pic}", size: '40') %>
+ 	    <%= check_box_tag "review[vibes][]", "#{vibe.id}", false, class: "vibe-button" %>
+ 	    <span class="vibe-name"><%= vibe.name %></span>
     </div>
   <% end %>
 </div>
