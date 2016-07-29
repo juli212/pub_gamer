@@ -1,6 +1,5 @@
 <div class="venue-index-venue" >
 	<div class="row" >
-<<<<<<< 79f8cb86ac8e36b602a4495c97720b82be3faa73
   	<div class="small=3 columns align-middle" >
   		<div class="venue-index-pic-container">
   		<p class="text-center">No Photo Added</p>
@@ -28,28 +27,4 @@
 	  	</div>
 	  </div>
   </div>
-=======
-		<div class="small-12 columns" >
-			<h3 class="text-center"><%=link_to(venue.name, venue_path(venue))%></h3>
-		</div>
-	</div>
-	<div class="row">
-  	<div class="small-6 columns" >
-		  <p class="text-right"><%= venue.address %></p>
-		  <% if current_user.has_favorited?(venue) %>
-			  <p> fav </p>
-			<% else %>
-			  <%= button_to "Add To My Venues", user_path(current_user), method: :put, id: "fav", params: { venue: venue }, class: "button" %>
-  		<% end %>
-  	</div>
-
-  	<div class="small-6 columns" >
-  		<% if venue.has_games? %>
-				<%= render partial: 'games', locals: { venue: venue } %>
-			<% else %>
-				<%= render partial: 'no_games' %>
-			<% end %>
-    </div>
-   </div>
->>>>>>> add formatting to venue information on index
 </div>
