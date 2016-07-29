@@ -2,19 +2,19 @@ class UsersController < ApplicationController
 
   def new
     if request.xhr?
-      # binding.pry
       @user = User.new
       render partial: 'registration_form'
     end
   end
 
   def update
-    # binding.pry
     @venue = Venue.find_by(id: params[:venue])
     @user = current_user
     prev_num_of_favs = @user.favorites.length
     @user.update_favorites(@venue)
-    if request.xhr? && @user.favorite_added?(prev_num_of_favs)
+    if params[:from] == "venue-index" && request.xhr? && @user.favorite_added?(prev_num_of_favs)
+      render partial: 'venues/favorite_display', locals: { favorite: @venue }
+    elsif request.xhr? && @user.favorite_added?(prev_num_of_favs)
       render partial: 'users/favorite_added'
     elsif request.xhr? && @user.favorite_removed?(prev_num_of_favs)
       render partial: 'users/favorite_removed'
