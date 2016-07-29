@@ -8,12 +8,16 @@
 	border: 1px solid white;
 	margin: 10px 0px;
 	min-width: 753px;
+
 }
 
 .venue-index-venue h3 {
 	margin: 0px;
 }
 
+.venue-index-fav {
+	border-right: 1px solid white;
+}
 
 .favorited-venue {
 	border-bottom: 2px solid white;
@@ -39,4 +43,3 @@
 .venue-index-pic-container p {
 	padding: 45px 40px;
 	opacity: 0.5;
-}
