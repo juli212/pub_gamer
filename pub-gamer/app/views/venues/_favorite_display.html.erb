@@ -1,6 +1,6 @@
 <div class="favorited-venue">
 	<h4 class="text-center"><%=link_to(favorite.name, venue_path(favorite))%></h4>
 	<% if favorite.has_games? %>
-		<%= render partial: 'games', locals: { venue: favorite } %>
+		<%= render partial: 'venues/games', locals: { venue: favorite } %>
 	<% end %>
 </div>
