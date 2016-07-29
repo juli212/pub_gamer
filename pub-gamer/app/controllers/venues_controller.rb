@@ -2,6 +2,7 @@ class VenuesController < ApplicationController
 # skip_before_action :verify_authenticity_token, only: [:create]
   def index
     @venues = Venue.all
+    @favorites = current_user.favorites
   end
 
   def new
