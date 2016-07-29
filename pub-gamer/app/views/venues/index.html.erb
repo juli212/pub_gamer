@@ -1,14 +1,34 @@
-<h1>Venues</h1>
+<div class="row align-center" >
+	<div class="small-4 columns" >
+		<h2 class="text-center">Venues</h2>
+	</div>
+</div>
 
-<%=form_tag search_venues_path do %>
-  <input id="venue_search" name="query" placeholder="Search venues" type="text" autocomplete="on">
-<%= submit_tag 'Search' %>
-<% end %>
+<div class="row align-spaced" >
+	<div class="small-2 columns" >
+		<%=link_to("Add New Venue!", new_venue_path, class: "button venue-index-head") %>
+	</div>
+	<div class="small-4 columns" >
+		<%=form_tag search_venues_path do %>
+		  <input id="venue_search" name="query" placeholder="Search venues" type="text" autocomplete="on" class="venue-index-head">
+	</div>
+	<div class="small-4 columns align-self-center" >
+			<%= submit_tag 'Search', class: "button venue-index-head" %>
+		<% end %>
+	</div>
+</div>
 
-<%=link_to("Add Venue!", new_venue_path) %>
+<div class="row" >
+	<div class="small-3 columns venue-index-fav" >
+		<h2 class="text-center">My Venues</h2>
+			<% @favorites.each do |fav| %>
+				<%= render partial: 'favorite_display', locals: { favorite: fav } %>
+			<% end %>
+	</div>
 
-<h2>Listed Venues:</h2>
-
-<% @venues.each do |venue| %>
-  <%= render partial: 'venue_display', locals: { venue: venue } %>
-<% end %>
+	<div class="small-8 columns" >
+		<% @venues.each do |venue| %>
+  		<%= render partial: 'venue_display', locals: { venue: venue } %>
+		<% end %>
+	</div	>
+</div>
