@@ -1,12 +1,13 @@
 .octopus {
-  width: 60;
-  height: 60;
+  width: 50px;
+  height: 50px;
   display: inline-block;
   margin: -2px -3px;
 }
 
 .octopus img {
-  padding: 10px;
+  /*width: 60px;*/
+  padding: 0px;
   opacity: 0.3;
 }
 
@@ -15,7 +16,8 @@
 }
 
 .rated {
-  background-color: white;
+  /*background-color: white;*/
+  /*border: 1px solid black;*/
 }
 
 .rate img {
@@ -23,7 +25,8 @@
 }
 
 .rate {
-  background-color: white;
+/*  border: none;*/
+  /*background-color: white;*/
   /*opacity: 0.3;*/
 }
 

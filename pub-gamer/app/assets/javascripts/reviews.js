@@ -26,6 +26,7 @@ $(document).ready(function() {
       method: 'put',
       data: $rating
     }).done(function(response){
+      UpdateOctopusRating();
       $('#avg-rating').html(response);
     })
   })
