@@ -11,7 +11,6 @@ class EventsController < ApplicationController
     end
   end
 
-
   def show
   	@event = Event.find_by(id: params[:id])
     @comments = @event.comments
