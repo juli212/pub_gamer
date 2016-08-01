@@ -1,8 +1,37 @@
 <div class="venue-index-venue" >
 	<div class="row" >
+<<<<<<< 6440b202f7aebafdecb182c8e5e71c274071736c
   	<div class="small=3 columns align-middle" >
   		<div class="venue-index-pic-container">
   			<p class="text-center">No Photo Added</p>
+=======
+		<div class="small-12 columns" >
+			<h3 class="text-center"><%=link_to(venue.name, venue_path(venue))%></h3>
+		</div>
+	</div>
+	<div class="row">
+  	<div class="small-6 columns" >
+		  <p class="text-right"><%= venue.address %></p>
+		  <% if current_user.has_favorited?(venue) %>
+			  <div class="fav-button-div">
+				  <p>One of My Venues!</p>
+				</div>
+			<% else %>
+				<div class="fav-button-div">
+			  	<%= button_to "Add To My Venues", user_path(current_user), method: :put, params: { venue: venue, from: "venue-index" }, class: "button venue-index-fav-button" %>
+			  </div>
+  		<% end %>
+  	</div>
+
+  	<div class="small-6 columns" >
+  		<% if venue.has_games? %>
+				<%= render partial: 'games', locals: { venue: venue } %>
+			<% else %>
+				<%= render partial: 'no_games' %>
+			<% end %>
+			<div class="text-center">
+				<%= link_to "Add Games!", edit_venue_path(venue), remote: true, class: "add-games button" %>
+>>>>>>> fix ids and classes so only add venue to favorite button triggers ajax
   		</div>
   	</div>
 		<div class="small-9 columns text-center align-stretch" >

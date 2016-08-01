@@ -1,8 +1,7 @@
 $(document).ready(function() {
-  $('.venue-index-fav').on('click', function(event){
+  $('.venue-index-fav-button').on('click', function(event){
     event.preventDefault();
     $target = $(event.target).closest('form')
-    // debugger;
     $.ajax({
       url: $target.attr('action'),
       method: $target.children('input').first().attr('value'),
