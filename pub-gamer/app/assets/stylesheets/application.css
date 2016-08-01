@@ -34,12 +34,6 @@ body {
 
 /*event index styling*/
 
-.posted-event-container {
-  border: 1px solid black;
-  width: 700px;
-  height: 175px;
-  margin-bottom: 10px;
-}
 
 #event-index-sidebar {
   border: 1px solid black;
@@ -88,35 +82,52 @@ body {
   margin-top: -20px;
 }
 
+
+.posted-event-container {
+  border: 1px solid black;
+  width: 700px;
+  height: 175px;
+  margin-bottom: 13px;
+}
+
+.event-index-picture {
+  border: 1px solid black;
+  height: 155px;
+  width: 155px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
 .event-index-title {
   margin-left: 187px;
+  margin-top: -160px;
   margin-bottom: 10px;
   font-size: 25px
 }
 
 .event-index-location {
-  margin-left: 187px;
+  margin-left: 189px;
   margin-top: -16px;
 }
 
 .event-index-games {
-  margin-left: 187px;
+  margin-left: 189px;
   margin-top: -16px;
 }
 
 .event-index-date {
-  margin-left: 187px;
+  margin-left: 189px;
   margin-top: -16px;
 }
 
 .event-index-time {
-  margin-left: 187px;
+  margin-left: 189px;
   margin-top: -16px;
 }
 
 
 .event-index-limit {
-  margin-left: 187px;
+  margin-left: 189px;
   margin-top: -16px;
 }
 

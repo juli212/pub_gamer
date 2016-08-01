@@ -40,6 +40,8 @@
 
   </div>
 
+<!-- end sidebar -->
+
   <div id="event-create-ajax-div">
   </div>
 
@@ -48,6 +50,7 @@
     <% @events.each do |event| %>
 
     <div class="posted-event-container">
+      <div class="event-index-picture"></div>
       <p class="event-index-title"><%= link_to event.title, event_path(event) %></p>
 
       <p class="event-index-location"><b>Location:</b> <%= event.location %></p>
