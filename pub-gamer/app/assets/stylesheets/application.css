@@ -90,10 +90,16 @@ body {
 
 /*venue create styling*/
 
+#venue-create-form-container {
 
-
+}
 #venue-create-form {
-  position: relative; bottom: 150px; left: 216px; z-index: 99;
+
+  position: relative; bottom: 150px; left: -20px; z-index: 99;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -100px;
+  /*border: 1px solid black;*/
   display: none;
   background: rgba(73, 115, 77,0.9);
   border: 1px;
