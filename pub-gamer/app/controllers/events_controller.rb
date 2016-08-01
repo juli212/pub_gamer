@@ -5,10 +5,16 @@ class EventsController < ApplicationController
     @created_events = Event.where("user_id = #{current_user.id}")
     @attended_events = []
     @events.each do |event|
-      @attended_events << event.guests.where("user_id == #{current_user.id}")
+      event.guests.each do |guest|
+        if guest.id == current_user.id
+          @attended_events << event
+        end
+      end
     end
-      binding.pry
+      # binding.pry
   end
+
+  # che
 
   def show
   	@event = Event.find_by(id: params[:id])
