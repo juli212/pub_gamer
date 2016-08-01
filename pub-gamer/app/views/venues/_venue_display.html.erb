@@ -1,9 +1,30 @@
-  <%=link_to(venue.name, venue_path(venue))%>
-  <br>
-  Address: <%= venue.address %>
-  <br>
-  Game(s):
-      <% venue.games.each do |game|%>
-        <%=game.name%>
-      <%end%>
-  <hr>
+<div class="venue-index-venue" >
+	<div class="row" >
+  	<div class="small=3 columns align-middle" >
+  		<div class="venue-index-pic-container">
+  		<p class="text-center">No Photo Added</p>
+  		</div>
+  	</div>
+		<div class="small-9 columns text-center align-stretch" >
+			<h3 class="text-left"><%=link_to(venue.name, venue_path(venue))%></h3>
+			<p class="text-left"><%= venue.address %></p>
+  		
+  		<div class="row">
+	  		<div class="small-8 columns">
+  				<% if venue.has_games? %>
+						<%= render partial: 'games', locals: { venue: venue } %>
+					<% else %>
+						<%= render partial: 'no_games' %>
+					<% end %>
+				</div>
+		  	<div class="small-4 columns fav-button-div">
+				  <% if current_user.has_favorited?(venue) %>
+					  <p>One of My Venues!</p>
+					<% else %>
+				  	<%= button_to "Add To My Venues", user_path(current_user), method: :put, params: { venue: venue, from: "venue-index" }, class: "button venue-index-fav-button" %>
+	  			<% end %>
+				</div>
+	  	</div>
+	  </div>
+  </div>
+</div>
