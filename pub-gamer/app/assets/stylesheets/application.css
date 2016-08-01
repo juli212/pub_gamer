@@ -38,6 +38,7 @@ body {
   border: 1px solid black;
   width: 700px;
   height: 175px;
+  margin-bottom: 10px;
 }
 
 #event-index-sidebar {
