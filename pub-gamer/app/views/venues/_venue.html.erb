@@ -14,7 +14,15 @@
 		<div class="row align-center" >
 			<div class="small-2 columns" ></div>
 			<div class="small-10 columns" >
-				<p class="text-center"><%= @venue.address %></p>
+				<p class="text-left"><%= @venue.address %></p>
+				<div id="venue-games">
+					<h2 class="text-left">Games</h2>
+					<% if @venue.has_games? %>
+						<%= render partial: 'games' %>
+					<% else %>
+						<%= render partial: 'no_games' %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -29,5 +37,10 @@
 	</div>
 </div>
 
+<div class="row align-center">
+	<div class="small-6 columns text-center" >
+		
+	</div>
+</div>
 
 
