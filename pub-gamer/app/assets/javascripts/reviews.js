@@ -10,6 +10,9 @@ $(document).ready(function() {
     }).done(function(response){
       if ($(response).hasClass('venue-show-left')) {
         $('.rated').removeClass('rated')
+        if ($('#no-reviews')) {
+          $('#no-reviews').remove()
+        }
         $('#reviews').prepend(response);
         $('.selected').removeClass('selected')
         $('.time-of-week').removeClass('time-of-week');
