@@ -8,6 +8,7 @@
 	border: 1px solid white;
 	margin: 10px 0px;
 	min-width: 753px;
+
 }
 
 .venue-index-venue h3 {
@@ -25,6 +26,7 @@
 	border-radius: 10px;
 	margin-top: 15px;
 }
+
 
 .venue-index-pic-container {
 	font-weight: bold;

@@ -11,11 +11,12 @@
 		  			<%= render partial: 'reviews/index', locals: { reviews: @venue.recent_reviews } %>
 		  		</div>
 		  	<% else %>
-		  		<%= render partial: 'no_reviews' %>
+		  		<div id="no-reviews">
+		  			<%= render partial: 'no_reviews' %>
+					</div>
 				<% end %>
 			</div>
 		</div>
-
 		<div class="small-5 columns text-center" >
 		  <h2>Add Review</h2>
 		  <div id="new-review-form" >

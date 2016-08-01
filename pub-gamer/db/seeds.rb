@@ -43,3 +43,20 @@ vibes = Vibe.create([
   {name: 'divey', pic: 'starFace.gif'}, 
   {name: 'sophisticated', pic: 'happyFace.gif'}, 
   {name: 'preppy',pic: 'sadFace.gif'}])
+
+VenueGame.create([
+  {game_id: 1, venue_id: 1},
+  {game_id: 3, venue_id: 1},
+  {game_id: 1, venue_id: 2},
+  {game_id: 1, venue_id: 3},
+  {game_id: 1, venue_id: 4},
+  {game_id: 2, venue_id: 4},
+  {game_id: 4, venue_id: 4},
+  {game_id: 1, venue_id: 5},
+  {game_id: 4, venue_id: 5},
+  {game_id: 5, venue_id: 5},
+  {game_id: 6, venue_id: 6},
+  {game_id: 2, venue_id: 7},
+  {game_id: 4, venue_id: 7},
+  {game_id: 1, venue_id: 8},
+  {game_id: 1, venue_id: 9}])
