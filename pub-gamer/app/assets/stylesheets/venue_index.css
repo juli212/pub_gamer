@@ -1,0 +1,42 @@
+.venue-index-head {
+	
+}
+
+.venue-index-venue {
+	min-height: 200px;
+	padding: 10px;
+	border: 1px solid white;
+	margin: 10px 0px;
+	min-width: 753px;
+}
+
+.venue-index-venue h3 {
+	margin: 0px;
+}
+
+
+.favorited-venue {
+	border-bottom: 2px solid white;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+}
+
+.add-games {
+	border-radius: 10px;
+	margin-top: 15px;
+}
+
+.venue-index-pic-container {
+	font-weight: bold;
+	color: white;
+	width: 160px;
+	height: 160px;
+	border: 1px solid white;
+	background-image: url("octopus0.3opacity.png");
+	background-size: 100%;
+}
+
+.venue-index-pic-container p {
+	padding: 45px 40px;
+	opacity: 0.5;
+}
