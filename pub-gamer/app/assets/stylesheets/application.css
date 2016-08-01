@@ -21,6 +21,7 @@ body {
   background-color: #816687;
   min-width: 900px;
   margin: 0 auto;
+  min-width: 965px;
 }
 
 #welcome-body {
@@ -35,10 +36,22 @@ body {
 
 .posted-event-container {
   border: 1px solid black;
-  width: 60%;
+  width: 700px;
   height: 175px;
-  margin-right: auto;
-  margin-left: auto;
+}
+
+#event-index-sidebar {
+  border: 1px solid black;
+}
+
+#event-create-link {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 0px 45px 4px 40px;
+  margin-left: 10px;
+  background: rgba(73, 115, 77, 1);
+  border-radius: 5px;
+
 }
 
 .event-index-title {
@@ -90,6 +103,7 @@ body {
   margin-right: 34%;
   margin-left: 34%;
   text-align: center;
+  width: 350px;
 }
 
 
@@ -135,6 +149,73 @@ body {
   margin-left: 34%;
   border: 1px solid black;
 }*/
+
+/*Event show styling*/
+
+#event-show-title {
+  text-align: center;
+  /*border: 1px solid black;*/
+}
+
+#event-show-location {
+  font-size: 30px;
+  margin-left: 250px;
+}
+
+#event-show-games {
+  font-size: 30px;
+    margin-left: 250px;
+
+}
+
+#event-show-date {
+  font-size: 30px;
+    margin-left: 250px;
+}
+
+#event-show-time {
+  font-size: 30px;
+    margin-left: 250px;
+
+}
+
+#event-show-max {
+  font-size: 30px;
+    margin-left: 250px;
+
+}
+
+#event-show-description {
+  font-size: 30px;
+    margin-left: 250px;
+
+}
+
+#event-show-details {
+  margin-left: 250px;
+}
+
+#event-show-content {
+  border-right: 1px solid black;
+}
+
+#comment-div {
+  /*float: right;*/
+    /*border: 1px solid black;*/
+
+}
+
+#comment_body {
+  width: 400px;
+}
+
+#comment-button {
+  float: right;
+  margin-right: 14%;
+  margin-top: -63px;
+  height: 45px;
+}
+
 
 /*venue create styling*/
 

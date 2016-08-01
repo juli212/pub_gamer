@@ -19,4 +19,23 @@ class Event < ActiveRecord::Base
 		(self.date == Date.today && self.time.strftime('%-I').to_i > Time.now.strftime('%-I').to_i) ||
 		(self.date == Date.today && self.time.strftime('%-I').to_i == Time.now.strftime('%-I').to_i && self.time.strftime('%-M').to_i > Time.now.strftime('%-M').to_i)
 	end
+
+	def sort_events_by_time
+		# method to sort by time
+	end
+
+
+  def attending_event?(current_user)
+    if self.guests.length == 0
+      return false
+    end
+    self.guests.each do |guest|
+      if guest.id == current_user.id
+        return true
+      end
+    end
+    return false
+  end
+
+
 end

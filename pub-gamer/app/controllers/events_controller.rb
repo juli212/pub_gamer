@@ -2,7 +2,15 @@ class EventsController < ApplicationController
 
   def index
   	@events = Event.all
+    @created_events = Event.where("user_id = #{current_user.id}")
+    @attended_events = []
+    @events.each do |event|
+      if event.attending_event?(current_user)
+        @attended_events << event
+      end
+    end
   end
+
 
   def show
   	@event = Event.find_by(id: params[:id])

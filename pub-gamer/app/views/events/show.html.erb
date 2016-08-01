@@ -1,56 +1,75 @@
-<h3><%= @event.title %></h3>
 
-<%= @event.location %>
+<h2 id="event-show-title"><%= @event.title %></h3>
 
-<%= @event.date %>
+<div class="row">
 
-<%= @event.time %>
+	<div class="small-6 columns" id="event-show-content">
 
-<%= @event.description %>
-
-Max Guests: <%= @event.limit %>
-
-<% @event.games.each do |game| %>
-	<%= game.name %>
-<% end %>
-<br>
-
-<% if @event.guests.include?(current_user) %>
-	<p>You are already going!</p>
-	<%= link_to "Cannot make it", event_path(@event), method: :delete %>
-	<% @event.guests.each do |guest| %>
-		<%= guest.user_name %>
-	<% end %>
-<% elsif @event.full? %>
-	<p>Event is full :( you cannot join...</p>
-<% else %>
-	<%= link_to "Join Event!", event_path(@event), method: :put %>
-<% end %>
-
-<br>
-
-
-	<br><hr><br>
-
-<% if @event.guests.include?(current_user) %>
-	<% @comments.each do |comment| %>
-		<%= comment.body %>
-		<h6>
-		<%= comment.username %>
-		</h6>
-		<br>
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		<div class="row" id="event-show-location">
+			 <b>Location:&nbsp</b><%= @event.location %>
+		</div>
+		<div class="row" id="event-show-games">
+			<b>Games:&nbsp</b> <% @event.games.each do |game| %>
+				<%= game.name %>
+			<% end %>
+		</div>
+		<div class="row" id="event-show-date">
+			<b>Date:&nbsp</b> <%= @event.date.strftime("%B #{@event.date.day.ordinalize}") %>
+		</div>
+		<div class="row" id="event-show-time">
+			<b>Time:&nbsp</b> <%= @event.time.strftime('%-I:%M%p') %>
+		</div>
+		<div class="row" id="event-show-max">
+			<b>Max Guests:&nbsp</b> <%= @event.limit %>
+		</div>
+		<div class="row" id="event-show-description">
+			<b>Description:&nbsp</b> <%= @event.description %>
+		</div>
 		<br>
 
-	<% end %>
+		<div id="event-show-details">
+			<% if @event.guests.include?(current_user) %>
+				<p>You are already going!</p>
+				<%= link_to "Cannot make it", event_path(@event), method: :delete %>
+				<% @event.guests.each do |guest| %>
+					<%= guest.user_name %>
+				<% end %>
+			<% elsif @event.full? %>
+				<p>Event is full :( you cannot join...</p>
+			<% else %>
+				<%= link_to "Join Event!", event_path(@event), method: :put %>
+			<% end %>
+		</div>
 
-	New Comment:
+	</div>
+	<br>
 
 
-	<%= form_for [@event, @comment] do |f| %>
 
-		<%= f.text_area :body %>
 
-		<%= f.button :submit %>
-	<% end %>
-<% end %>
+	<div class="small-6 columns" id="comment-div">
+
+		<% if @event.guests.include?(current_user) %>
+			<% @comments.each do |comment| %>
+				<%= comment.body %>
+				<h6>
+				-<%= comment.username %>
+				</h6>
+				~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				<br>
+
+			<% end %>
+
+
+
+			<%= form_for [@event, @comment] do |f| %>
+
+				<%= f.text_area :body  %>
+
+				<%= f.button :submit, class: "button", placeholder: "Comment!", id: "comment-button" %>
+			<% end %>
+		<% end %>
+
+	</div>
+
+</div>
