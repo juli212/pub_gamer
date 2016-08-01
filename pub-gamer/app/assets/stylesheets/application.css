@@ -21,7 +21,7 @@ body {
   background-color: #816687;
   min-width: 900px;
   margin: 0 auto;
-  min-width: 965px;
+  min-width: 1013px;
 }
 
 #welcome-body {
@@ -46,12 +46,45 @@ body {
 
 #event-create-link {
   border: 1px solid black;
-  font-size: 20px;
-  padding: 0px 45px 4px 40px;
-  margin-left: 10px;
+  font-size: 18px;
+  padding: 0px 35px 4px 30px;
+  margin-left: 0px;
   background: rgba(73, 115, 77, 1);
   border-radius: 5px;
+}
 
+.created-event-index-sidebar-div{
+  margin-top: 8px;
+  margin-left: 20px;
+  /*border: 1px solid black;*/
+}
+
+.sidebar-break {
+  color: black;
+}
+
+.side-bar-linebreak{
+    display:block;
+    border:none;
+    color:white;
+    height:1px;
+    background:black;
+    opacity: .6;
+    margin-bottom: 9px;
+}
+
+.attending-event-index-sidebar-div{
+  margin-top: -6px;
+  margin-left: 20px;
+  /*border: 1px solid black;*/
+}
+
+.time-event-index-sidebar{
+ margin-top: -20px;
+}
+
+.games-event-index-sidebar{
+  margin-top: -20px;
 }
 
 .event-index-title {
