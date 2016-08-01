@@ -51,6 +51,7 @@ class VenuesController < ApplicationController
 
   def search
     @query ="%#{params[:query]}%"
+    @favorites = current_user.favorites
     @venues = Venue.where("name ilike ? or address ilike ? or description ilike ?", @query, @query, @query)
     render 'index'
   end
