@@ -1,60 +1,9 @@
 <div class="venue-index-venue" >
 	<div class="row" >
-<<<<<<< 9849aeb8411e14b66e1be06ffd9162549e029943
-<<<<<<< 6440b202f7aebafdecb182c8e5e71c274071736c
   	<div class="small=3 columns align-middle" >
   		<div class="venue-index-pic-container">
   			<p class="text-center">No Photo Added</p>
-=======
-		<div class="small-12 columns" >
-			<h3 class="text-center"><%=link_to(venue.name, venue_path(venue))%></h3>
-		</div>
-	</div>
-	<div class="row">
-  	<div class="small-6 columns" >
-		  <p class="text-right"><%= venue.address %></p>
-		  <% if current_user.has_favorited?(venue) %>
-			  <div class="fav-button-div">
-				  <p>One of My Venues!</p>
-				</div>
-			<% else %>
-				<div class="fav-button-div">
-			  	<%= button_to "Add To My Venues", user_path(current_user), method: :put, params: { venue: venue, from: "venue-index" }, class: "button venue-index-fav-button" %>
-			  </div>
-  		<% end %>
-=======
-  	<div class="small=3 columns" >
-  		<%= image_tag("octopus.png", size: '200', class: "venue-index-pic") %>
->>>>>>> add styling and remove quick-add games to venues
-  	</div>
-		<div class="small-9 columns text-center align-stretch" >
-			<h3 class="text-left"><%=link_to(venue.name, venue_path(venue))%></h3>
-			<p class="text-left"><%= venue.address %></p>
-  		
-  		<div class="row">
-	  		<div class="small-8 columns">
-  				<% if venue.has_games? %>
-						<%= render partial: 'games', locals: { venue: venue } %>
-					<% else %>
-						<%= render partial: 'no_games' %>
-					<% end %>
-				</div>
-		  	<div class="small-4 columns fav-button-div">
-				  <% if current_user.has_favorited?(venue) %>
-					  <p>One of My Venues!</p>
-					<% else %>
-				  	<%= button_to "Add To My Venues", user_path(current_user), method: :put, params: { venue: venue, from: "venue-index" }, class: "button venue-index-fav-button" %>
-	  			<% end %>
-				</div>
-	  	</div>
-	  </div>
-
-<!--   	<div class="small-6 columns" >
-			<div class="text-center">
-				<%= link_to "Add Games!", edit_venue_path(venue), remote: true, class: "add-games button" %>
->>>>>>> fix ids and classes so only add venue to favorite button triggers ajax
   		</div>
-<<<<<<< 9849aeb8411e14b66e1be06ffd9162549e029943
   	</div>
 		<div class="small-9 columns text-center align-stretch" >
 			<h3 class="text-left"><%=link_to(venue.name, venue_path(venue))%></h3>
@@ -77,8 +26,5 @@
 				</div>
 	  	</div>
 	  </div>
-=======
-    </div> -->
->>>>>>> add styling and remove quick-add games to venues
   </div>
 </div>
