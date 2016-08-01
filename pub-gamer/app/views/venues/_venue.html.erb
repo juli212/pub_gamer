@@ -18,7 +18,7 @@
 				<div id="venue-games">
 					<h2 class="text-left">Games</h2>
 					<% if @venue.has_games? %>
-						<%= render partial: 'games' %>
+						<%= render partial: 'games', locals: { venue: @venue} %>
 					<% else %>
 						<%= render partial: 'no_games' %>
 					<% end %>

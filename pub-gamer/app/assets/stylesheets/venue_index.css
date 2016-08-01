@@ -42,12 +42,3 @@
 	padding: 45px 40px;
 	opacity: 0.5;
 }
-
-.venue-index-pic-container {
-	width: 160px;
-	height: 160px;
-	border: 1px solid white;
-	background-image: url("octopus.png");
-	background-size: 100%;
-}
-
