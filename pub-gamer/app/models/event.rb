@@ -24,8 +24,16 @@ class Event < ActiveRecord::Base
 		# method to sort by time
 	end
 
-	def attending_event?
-		#
-	end
-
+  def attending_event?(current_user)
+    if self.guests.length == 0
+      return false
+    end
+    self.guests.each do |guest|
+      if guest.id == current_user.id
+        return true
+      else
+        return false
+      end
+    end
+  end
 end
