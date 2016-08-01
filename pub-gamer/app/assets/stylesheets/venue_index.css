@@ -15,10 +15,6 @@
 	margin: 0px;
 }
 
-.venue-index-fav {
-	border-right: 1px solid white;
-	border-left: 1px solid white;
-}
 
 .favorited-venue {
 	border-bottom: 2px solid white;
@@ -31,6 +27,7 @@
 	margin-top: 15px;
 }
 
+<<<<<<< 9849aeb8411e14b66e1be06ffd9162549e029943
 .venue-index-pic-container {
 	font-weight: bold;
 	color: white;
@@ -45,3 +42,9 @@
 	padding: 45px 40px;
 	opacity: 0.5;
 }
+=======
+.venue-index-pic {
+	border: 1px solid white;
+	opacity: 0.2;
+}
+>>>>>>> add styling and remove quick-add games to venues
