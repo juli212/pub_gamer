@@ -65,6 +65,8 @@
 	padding: 2px 5px;
 	min-width: 60px;
 	height: 30px;
+	float: left;
+	margin-right: 10px;
 }
 
 .review-content {
