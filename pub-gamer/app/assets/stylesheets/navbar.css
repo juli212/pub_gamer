@@ -1,0 +1,29 @@
+.top-bar {
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	width: 100%;
+	background-color: #816687;
+	margin-bottom: 50px;
+}
+
+.top-bar ul {
+	width: 80%;
+	margin: 0 auto;
+}
+.top-bar li {
+  display:block;
+  float:left;
+  width: 16.6%;
+  text-align: center;
+/*  border-right: 1px solid black;
+  border-left: 1px solid black;*/
+  border: none;
+}
+
+.top-bar li:hover {
+	background-color: green;
+}
+
+.top-bar a {
+	color: black;
+}
