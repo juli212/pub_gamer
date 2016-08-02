@@ -68,6 +68,20 @@ class EventsController < ApplicationController
     redirect_to event_path(@event)
   end
 
+  def search_events
+    @query ="%#{params[:query]}%"
+    @favorites = current_user.favorites
+    @events = Event.where("title ilike ? or location ilike ? or description ilike ?", @query, @query, @query)
+    @created_events = Event.where("user_id = #{current_user.id}")
+    @attended_events = []
+    @events.each do |event|
+      if event.attending_event?(current_user)
+        @attended_events << event
+      end
+    end
+    render 'index'
+  end
+
   def event_params
     params.require(:event).permit(:title, :date, :time, :description, :limit, :location, :games => [])
   end
