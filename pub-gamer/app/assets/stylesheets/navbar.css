@@ -11,19 +11,23 @@
 	margin: 0 auto;
 }
 .top-bar li {
-  display:block;
   float:left;
   width: 16.6%;
   text-align: center;
-/*  border-right: 1px solid black;
-  border-left: 1px solid black;*/
   border: none;
+  font-size: 17px;
 }
 
-.top-bar li:hover {
-	background-color: green;
+.top-bar li a:hover {
+	color: #2199e8;
 }
 
 .top-bar a {
 	color: black;
+    -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  /* ...and now for the proper property */
+  transition:.5s;
 }
