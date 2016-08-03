@@ -53,6 +53,7 @@
 
 .posted-event-container {
   border: 1px solid black;
+  border-radius: 7px;
   width: 700px;
   height: 175px;
   margin-bottom: 13px;
