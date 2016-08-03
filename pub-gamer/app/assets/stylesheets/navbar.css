@@ -19,7 +19,7 @@
 }
 
 .top-bar li a:hover {
-	color: #2199e8;
+  color: white;
 }
 
 .top-bar a {
@@ -29,5 +29,5 @@
   -moz-transition:.5s;
   -webkit-transition:.5s;
   /* ...and now for the proper property */
-  transition:.5s;
+  transition:.3s;
 }
