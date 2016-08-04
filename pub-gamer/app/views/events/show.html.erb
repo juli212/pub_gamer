@@ -11,52 +11,60 @@
 	<div>
   </div>
 
-	<div class="small-9 columns" id="event-show-content">
+	<div class="small-9 columns" id="event-show-content-container">
 
 		<div class="row" id="event-show-picture">
 		</div>
 
-		<div class="row" id="event-show-location">
-			 <b>Location:&nbsp</b><%= @event.location %>
+		<div class="row">
+			<div class="small-6 columns" id="event-show-details">
+
+				<div class="row" id="event-show-location">
+					 <b>Location:&nbsp</b><%= @event.location %>
+				</div>
+
+				<div class="row" id="event-show-games">
+					<b>Games:&nbsp</b> <% @event.games.each do |game| %>
+						<%= game.name %>
+					<% end %>
+				</div>
+
+				<div class="row" id="event-show-date">
+					<b>Date:&nbsp</b> <%= @event.date.strftime("%B #{@event.date.day.ordinalize}") %>
+				</div>
+
+				<div class="row" id="event-show-time">
+					<b>Time:&nbsp</b> <%= @event.time.strftime('%-I:%M%p') %>
+				</div>
+
+				<div class="row" id="event-show-max">
+					<b>Max Guests:&nbsp</b> <%= @event.limit %>
+				</div>
+
+				<div class ="row">
+					<% if @event.guests.include?(current_user) %>
+						<p>You are already going!</p>
+						<%= link_to "Cannot make it", event_path(@event), method: :delete %>
+						<% @event.guests.each do |guest| %>
+							<%= guest.user_name %>
+						<% end %>
+					<% elsif @event.full? %>
+						<p>Event is full :( you cannot join...</p>
+					<% else %>
+						<%= link_to "Join Event!", event_path(@event), method: :put %>
+					<% end %>
+				</div>
+
+			</div>
+
+			<div class="small-6 columns">
+				<div class="row" id="event-show-description">
+					<b>Description:&nbsp</b> <%= @event.description %>
+				</div>
+			</div>
 		</div>
 
-		<div class="row" id="event-show-games">
-			<b>Games:&nbsp</b> <% @event.games.each do |game| %>
-				<%= game.name %>
-			<% end %>
-		</div>
 
-		<div class="row" id="event-show-date">
-			<b>Date:&nbsp</b> <%= @event.date.strftime("%B #{@event.date.day.ordinalize}") %>
-		</div>
-
-		<div class="row" id="event-show-time">
-			<b>Time:&nbsp</b> <%= @event.time.strftime('%-I:%M%p') %>
-		</div>
-
-		<div class="row" id="event-show-max">
-			<b>Max Guests:&nbsp</b> <%= @event.limit %>
-		</div>
-
-		<div class="row" id="event-show-description">
-			<b>Description:&nbsp</b> <%= @event.description %>
-		</div>
-
-		<br>
-
-		<div class="row"id="event-show-details">
-			<% if @event.guests.include?(current_user) %>
-				<p>You are already going!</p>
-				<%= link_to "Cannot make it", event_path(@event), method: :delete %>
-				<% @event.guests.each do |guest| %>
-					<%= guest.user_name %>
-				<% end %>
-			<% elsif @event.full? %>
-				<p>Event is full :( you cannot join...</p>
-			<% else %>
-				<%= link_to "Join Event!", event_path(@event), method: :put %>
-			<% end %>
-		</div>
 
 		<div class="row" id="event-show-comment-container">
 			<% if @event.guests.include?(current_user) %>

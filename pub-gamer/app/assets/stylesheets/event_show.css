@@ -8,11 +8,11 @@
   /*margin-left: 50px;*/
 }
 
-#event-show-content {
+#event-show-content-container {
   border: 1px solid black;
   border-radius: 7px;
   width: 600px;
-  height: 675px;
+  height: 600px;
   margin-bottom: 13px;
 }
 
@@ -27,36 +27,36 @@
 
 #event-show-location {
   font-size: 30px;
-  margin-left: 250px;
+  margin-left: 10px;
 }
 
 #event-show-games {
   font-size: 30px;
-  margin-left: 250px;
+  margin-left: 10px;
 }
 
 #event-show-date {
   font-size: 30px;
-  margin-left: 250px;
+  margin-left: 10px;
 }
 
 #event-show-time {
   font-size: 30px;
-    margin-left: 250px;
+    margin-left: 10px;
 }
 
 #event-show-max {
   font-size: 30px;
-    margin-left: 250px;
+    margin-left: 10px;
 }
 
 #event-show-description {
   font-size: 30px;
-    margin-left: 250px;
+  margin-left: 10px;
 }
 
 #event-show-details {
-  margin-left: 250px;
+  border-right: 1px solid black;
 }
 
 #event-show-comment-container {
