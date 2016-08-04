@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   get "login" => "sessions#new", as: "login"
   post "login" => "sessions#create", as: "new_login"
   delete "logout" => "sessions#destroy", as: "logout"
+
 # search
-  post "search" => "venues#search", as: "search_venues"
+  post "search_venues" => "venues#search_venues"
+  post "search_events" => "events#search_events"
 
   resources :events do
     resources :comments, only: [:create]
