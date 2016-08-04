@@ -58,8 +58,11 @@
 			</div>
 
 			<div class="small-6 columns">
-				<div class="row" id="event-show-description">
-					<b>Description:&nbsp</b> <%= @event.description %>
+				<div class="row" id="event-show-description-header">
+					<b style="font-size: 30px">Description:&nbsp</b>
+				</div>
+				<div class="row" id="event-show-description-content">
+					<%= @event.description %>
 				</div>
 			</div>
 		</div>

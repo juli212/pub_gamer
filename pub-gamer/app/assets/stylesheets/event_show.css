@@ -50,8 +50,12 @@
     margin-left: 10px;
 }
 
-#event-show-description {
-  font-size: 30px;
+#event-show-description-header {
+  margin-left: 10px;
+}
+
+#event-show-description-content {
+  font-size: 18px;
   margin-left: 10px;
 }
 
