@@ -33,6 +33,11 @@ body {
   background-size: cover;
 }
 
+/*.columns {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}*/
+
 
 #event-create-container {
   border: 1px solid black;

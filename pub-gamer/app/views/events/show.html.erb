@@ -4,12 +4,15 @@
 <h2 id="event-show-title"><%= @event.title %></h3>
 
 <div class="row">
+
 	<div class="small-3 columns" id="event-show-guest-list">
 		People Attending:
+			<%@event.guests.each do |guest| %>
+				<div class="event-attendee-container">
+				<%= link_to guest.user_name, user_path(guest)%>
+				</div>
+			<% end %>
 	</div>
-
-	<div>
-  </div>
 
 	<div class="small-9 columns" id="event-show-content-container">
 
@@ -54,8 +57,9 @@
 						<%= link_to "Join Event!", event_path(@event), method: :put %>
 					<% end %>
 				</div>
-
+			<!-- end left box below picture -->
 			</div>
+
 
 			<div class="small-6 columns">
 				<div class="row" id="event-show-description-header">
@@ -65,13 +69,12 @@
 					<%= @event.description %>
 				</div>
 			</div>
+
+			<!-- end small 9 -->
 		</div>
-
+		<!-- end nested row below picture -->
 	</div>
-
-	<br>
-
-
+	<!-- end outside row -->
 </div>
 
 		<div class="row" id="event-show-comment-container">
