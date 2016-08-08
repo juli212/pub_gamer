@@ -1,9 +1,10 @@
-
-
-
 #event-show-guest-list {
   border: 1px solid black;
   /*padding-right: 30px;*/
+}
+
+.event-attendee-container {
+  margin-left: 10px;
 }
 
 #event-show-picture {

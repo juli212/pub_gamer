@@ -6,9 +6,9 @@
 <div class="row">
 
 	<div class="small-3 columns" id="event-show-guest-list">
-		People Attending:
+		<h5><b>People Attending:</b></h5>
 			<%@event.guests.each do |guest| %>
-				<div class="event-attendee-container">
+				<div style="font-size: 22px" class="event-attendee-container">
 				<%= link_to guest.user_name, user_path(guest)%>
 				</div>
 			<% end %>
