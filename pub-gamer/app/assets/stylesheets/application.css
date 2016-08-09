@@ -18,6 +18,7 @@
 
 
 body {
+  /*background-color: #9a849f;*/
   background-color: #816687;
   min-width: 900px;
   margin: 0 auto;
@@ -31,6 +32,11 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
+
+/*.columns {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}*/
 
 
 #event-create-container {

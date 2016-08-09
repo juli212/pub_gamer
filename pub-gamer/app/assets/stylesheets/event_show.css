@@ -1,3 +1,28 @@
+#event-show-guest-list {
+  border: 1px solid black;
+  /*padding-right: 30px;*/
+}
+
+.event-attendee-container {
+  margin-left: 10px;
+}
+
+#event-show-picture {
+  border: 1px solid black;
+  height: 300px;
+  width: 900px;
+  background-image: url("octopus0.3opacity.png");
+  background-size: 35%;
+}
+
+#event-show-content-container {
+  border: 1px solid black;
+  /*border-radius: 7px;*/
+  width: 600px;
+  height: 600px;
+  margin-bottom: 13px;
+  padding-left: 30px;
+}
 
 #event-show-title {
   text-align: center;
@@ -6,49 +31,44 @@
 
 #event-show-location {
   font-size: 30px;
-  margin-left: 250px;
+  margin-left: 10px;
+  /*padding-left: 30px;*/
 }
 
 #event-show-games {
   font-size: 30px;
-    margin-left: 250px;
-
+  margin-left: 10px;
 }
 
 #event-show-date {
   font-size: 30px;
-    margin-left: 250px;
+  margin-left: 10px;
 }
 
 #event-show-time {
   font-size: 30px;
-    margin-left: 250px;
-
+    margin-left: 10px;
 }
 
 #event-show-max {
   font-size: 30px;
-    margin-left: 250px;
-
+    margin-left: 10px;
 }
 
-#event-show-description {
-  font-size: 30px;
-    margin-left: 250px;
+#event-show-description-header {
+  margin-left: 10px;
+}
 
+#event-show-description-content {
+  font-size: 18px;
+  margin-left: 10px;
 }
 
 #event-show-details {
-  margin-left: 250px;
-}
-
-#event-show-content {
   border-right: 1px solid black;
 }
 
-#comment-div {
-  /*float: right;*/
-    /*border: 1px solid black;*/
+#event-show-comment-container {
 
 }
 
@@ -58,7 +78,8 @@
 
 #comment-button {
   float: right;
-  margin-right: 14%;
+  margin-right: -35px;
   margin-top: -63px;
-  height: 45px;
+  height: 44px;
+  width: 96px;
 }
