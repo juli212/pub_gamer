@@ -28,8 +28,11 @@
 }
 
 .top-bar h3 {
-  margin-left: 10px;
+  margin-left: 22px;
+  margin-top: 10px;
   color: white;
+  font-size: 43px;
+  line-height: 100%
 }
 
 

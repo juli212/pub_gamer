@@ -1,10 +1,6 @@
-/*#event-header{
-  margin-left: 10px;
-  margin-top: 10px;
-  border: 1px solid black;
-  width: 100%;
+#event-header{
 }
-*/
+
 
 #event-index-sidebar {
   border: 1px solid black;
@@ -19,7 +15,9 @@
 }
 
 #event-search-button{
-
+  position: absolute;
+  margin-top: 85px;
+  right: 25px;
 }
 
 #event-create-link {
