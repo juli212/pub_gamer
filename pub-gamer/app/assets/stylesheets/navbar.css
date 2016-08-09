@@ -1,5 +1,5 @@
 .top-bar {
-  width: 150px;
+  width: 215px;
   float: left;
   display: inline;
   margin: 0;
@@ -17,6 +17,19 @@
 
 .top-bar li {
   border: none;
+  display: block;
+
+}
+
+.top-bar li a{
+    color: #827aa4;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.top-bar h3 {
+  margin-left: 10px;
+  color: white;
 }
 
 

@@ -1,9 +1,25 @@
-#event-header{
-  margin-top: -30px;
+/*#event-header{
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 1px solid black;
+  width: 100%;
 }
+*/
 
 #event-index-sidebar {
   border: 1px solid black;
+}
+
+#event-index-search {
+  border: medium none;
+  position: absolute;
+  width: 400px;
+  margin-left: 200px;
+  margin-top: 85px;
+}
+
+#event-search-button{
+
 }
 
 #event-create-link {
@@ -29,10 +45,12 @@
     display:block;
     border:none;
     color:white;
-    height:1px;
+    height:3px;
     background:black;
     opacity: .6;
-    margin-bottom: 9px;
+    margin-top: 75px;
+    margin-bottom: 20px;
+    margin-left: 215px;
 }
 
 .attending-event-index-sidebar-div{
