@@ -2,6 +2,10 @@
   margin-top: 50px;
 }
 
+#event-row{
+  background-color: #EDD0AF;
+}
+
 #event-index-sidebar {
   border: 1px solid black;
 }
@@ -20,14 +24,16 @@
 }
 
 #side-bar-linebreak{
-    display:block;
-    border:none;
-    color:white;
-    height:3px;
-    background:black;
+    display: block;
+    border: none;
+    color: white;
+    height: 3px;
+    background: black;
     opacity: .6;
-    margin-top: -5px;
+    margin-top: -2px;
     margin-bottom: 20px;
+    margin-left: -15px;
+    width: 1290px;
 }
 
 #event-create-link {
