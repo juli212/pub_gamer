@@ -1,16 +1,23 @@
 <div class="row" >
-  <div class="small-4 columns" id="event-header">
-    <h2>Events</h2>
+  <div class="small-4 columns">
+    <h2 id="event-header">Events</h2>
   </div>
 
-  <div class="small-8 columns" >
+  <div class="small-8 columns">
     <%=form_tag search_events_path do %>
         <input id="event-index-search" name="query" placeholder="Search events" type="text" autocomplete="on">
+
     <%= submit_tag 'Search', class: "button", id: "event-search-button" %>
     <%end%>
   </div>
 </div>
-  <span class="side-bar-linebreak"></span>
+
+<div class="row">
+  <div class="small-12 columns">
+  <span id="side-bar-linebreak"></span>
+  </div>
+</div>
+
 
 
 <div class="row">
