@@ -1,25 +1,27 @@
-<div class="row align-center" >
-  <div class="small-4 columns" >
-    <h2 class="text-center" id="event-header">Events</h2>
+<div class="row" id="event-row" >
+  <div class="small-4 columns">
+    <h2 id="event-header">Events</h2>
   </div>
-</div>
 
-<div class="row align-spaced" >
-  <div class="small-2 columns" >
-  </div>
-  <div class="small-4 columns" >
-      <%=form_tag search_events_path do %>
-        <input id="event-search" name="query" placeholder="Search events" type="text" autocomplete="on">
-  </div>
-  <div class="small-4 columns align-self-center" >
+  <div class="small-8 columns">
+    <%=form_tag search_events_path do %>
+        <input id="event-index-search" name="query" placeholder="Search events" type="text" autocomplete="on">
+
     <%= submit_tag 'Search', class: "button", id: "event-search-button" %>
     <%end%>
   </div>
 </div>
 
+<div class="row">
+  <div class="small-12 columns">
+  <span id="side-bar-linebreak"></span>
+  </div>
+</div>
+
+
 
 <div class="row">
-
+<!--
   <div class="small-3 columns" id="event-index-sidebar">
     <h5><b>Events I'm Organizing:</b></h3>
     <div class="created-events-index-sidebar-div">
@@ -54,7 +56,7 @@
         <span class="side-bar-linebreak"></span>
       <% end %>
 
-  </div>
+  </div> -->
 
 <!-- end sidebar -->
 

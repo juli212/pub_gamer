@@ -1,4 +1,40 @@
 .top-bar {
+  width: 215px;
+  float: left;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #2B2936;
+}
+
+.top-bar ul {
+    background-color: #2B2936;
+    border: none;
+}
+
+.top-bar li {
+  border: none;
+  display: block;
+
+}
+
+.top-bar li a{
+    color: #827aa4;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.top-bar h3 {
+  margin-left: 22px;
+  margin-top: 10px;
+  color: white;
+  font-size: 43px;
+  line-height: 100%
+}
+
+
+/*.top-bar {
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
 	width: 100%;
@@ -29,5 +65,5 @@
   -moz-transition:.5s;
   -webkit-transition:.5s;
   /* ...and now for the proper property */
-  transition:.3s;
-}
+ /* transition:.3s;
+}*/
