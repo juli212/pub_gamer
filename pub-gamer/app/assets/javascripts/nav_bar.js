@@ -9,7 +9,6 @@ function getPageName(url) {
 
   $(function(){
      var currentPageName = getPageName(window.location.pathname);
-     debugger;
      $('#' + currentPageName).css('color', '#EDD0AF');
      $('#' + currentPageName).parent().css('background-color', '#635A8E')
   });
