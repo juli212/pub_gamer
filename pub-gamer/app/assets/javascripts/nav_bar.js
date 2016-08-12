@@ -1,8 +1,16 @@
 $(document).ready(function() {
-  $('.top-bar li a').on('click', function(event){
-    alert("hello");
-  })
 
+function getPageName(url) {
+    var index = url.lastIndexOf("/") + 1;
+    var filenameWithExtension = url.substr(index);
+    var filename = filenameWithExtension.split(".")[0];
+    return filename;
+}
 
+  $(function(){
+     var currentPageName = getPageName(window.location.pathname);
+     debugger;
+     $('#' + currentPageName).addClass('active');
+  });
 
 });

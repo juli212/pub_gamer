@@ -25,6 +25,9 @@
     font-weight: 500;
 }
 
+.selected {
+  color: #EDD0AF;
+}
 .top-bar h3 {
   margin-left: 22px;
   margin-top: 10px;
@@ -32,6 +35,7 @@
   font-size: 43px;
   line-height: 100%
 }
+
 
 
 /*.top-bar {
