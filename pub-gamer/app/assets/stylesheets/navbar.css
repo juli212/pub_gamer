@@ -16,14 +16,22 @@
 .top-bar li {
   border: none;
   display: block;
+  width: 115%;
+  margin-left: -30px;
+  padding-left: 40px;
 
+}
+
+.active {
+  color: #EDD0AF;
 }
 
 .top-bar li a{
-    color: #827aa4;
-    font-size: 20px;
-    font-weight: 500;
+  color: #827aa4;
+  font-size: 20px;
+  font-weight: 500;
 }
+
 
 .top-bar h3 {
   margin-left: 22px;
@@ -32,7 +40,6 @@
   font-size: 43px;
   line-height: 100%
 }
-
 
 /*.top-bar {
 	border-top: 2px solid black;
