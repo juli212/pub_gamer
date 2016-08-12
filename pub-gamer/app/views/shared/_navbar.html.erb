@@ -3,8 +3,8 @@
 <h3>Pub Gamer</h3>
 	<ul>
 		<li><%= link_to "About Us" %></li>
-		<li><%= link_to "Events", events_path %></li>
-		<li><%= link_to "Venues", venues_path %></li>
+		<li><%= link_to "Events", events_path, id: "events" %></li>
+		<li><%= link_to "Venues", venues_path, id: "venues" %></li>
 			<% if current_user %></li>
 				<li><%= link_to "#{current_user.user_name}", user_path(current_user) %></li>
 				<li><%= link_to "Logout", logout_path, method: :delete %></li>
