@@ -6,7 +6,7 @@
 		<li><%= link_to "Events", events_path, id: "events" %></li>
 		<li><%= link_to "Venues", venues_path, id: "venues" %></li>
 			<% if current_user %></li>
-				<li><%= link_to "#{current_user.user_name}", user_path(current_user) %></li>
+				<li><%= link_to "#{current_user.user_name}", user_path(current_user), id: "#{current_user.id}" %></li>
 				<li><%= link_to "Logout", logout_path, method: :delete %></li>
 			<% else %>
 				<li><%= link_to "login", root_path %></li>
