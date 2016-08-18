@@ -6,7 +6,7 @@
 
 <div class="row align-spaced" >
 	<div class="small-2 columns">
-		<%=link_to("Add New Venue!", new_venue_path, class: "button venue-index-head") %>
+<!-- 		<%=link_to("Add New Venue!", new_venue_path, class: "button venue-index-head") %>
 	</div>
 	<div class="small-4 columns" >
 		<%=form_tag search_venues_path do %>
@@ -14,9 +14,20 @@
 	</div>
 	<div class="small-4 columns align-self-center" >
 			<%= submit_tag 'Search', class: "button venue-index-head" %>
-		<% end %>
+		<% end %> -->
+		<div class="venues-search">
+			<input id="venues-search-txt" autofocus autocomplete="on">
+			<div class="results" id="venues-search-results"></div>
+		</div>
 	</div>
 </div>
+
+
+<script type="text/javascript" charset="utf-8">
+  $('#venues-search-txt').bind('railsAutocomplete.select', function(event, data){
+  // $('#search-form').submit()
+  });
+</script>
 
 <div class="row" >
 	<div class="small-3 columns" id="venue-index-fav">
