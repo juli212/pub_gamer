@@ -8,8 +8,12 @@ class Venue < ActiveRecord::Base
 
 	validates :name, :address, presence: true
 	validates :address, uniqueness: true
-	def game
 
+	def game
+	end
+
+	def self.search(term)
+		where("name ILIKE :term OR address ILIKE :term", term: "%#{term.downcase}%")
 	end
 
 	def make_new(game_name)
