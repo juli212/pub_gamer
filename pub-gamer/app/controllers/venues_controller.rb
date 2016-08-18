@@ -5,6 +5,18 @@ class VenuesController < ApplicationController
     @favorites = current_user.favorites
   end
 
+  def search
+    # binding.pry
+    # @venues = Venue.search(params[:term])
+    # @favorites = current_user.favorites
+    # binding.pry
+    # render 'index'
+    respond_to do |format|
+      format.html
+      format.json { @venues = Venue.search(params[:term]) }
+    end
+  end
+
   def new
     @venue = Venue.new
     @game = Game.new
