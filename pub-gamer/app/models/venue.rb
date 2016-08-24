@@ -13,7 +13,16 @@ class Venue < ActiveRecord::Base
 	end
 
 	def self.search(term)
+		venues = Venue.venue_search(term) + Venue.game_search(term)
+		venues.uniq
+	end
+
+	def self.venue_search(term)
 		where("name ILIKE :term OR address ILIKE :term", term: "%#{term.downcase}%")
+	end
+
+	def self.game_search(term)
+		joins(:games).where("games.name ILIKE :term", term: "%#{term.downcase}%").uniq
 	end
 
 	def make_new(game_name)
