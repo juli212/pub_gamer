@@ -47,7 +47,6 @@ $(document).ready(function() {
   $('#venues-search-form').on('submit', function(event) {
   	event.preventDefault();
     $target = $(event.target)
-    debugger;
     $.ajax({
       url: $target.attr('href'),
       data: $target.serialize()
