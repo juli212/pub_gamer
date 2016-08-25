@@ -11,7 +11,7 @@
 
 
 	<div class="small-4 columns">
-		<form>
+		<form id="venues-search-form">
 			<div class="venues-search">
 
 				<input id="venues-search-txt" class="venue-index-head" name="query" placeholder="game, address, name" autofocus autocomplete="on">
@@ -20,7 +20,7 @@
 			</div>
 	</div>
 	<div class="small-2 columns" >
-			<%= submit_tag 'Search', class: "button venue-index-head", id: "venue-search-button" %>
+			<%= submit_tag 'Search', class: "button venue-index-head", id: "venue-search-button", action: "/venues" %>
 		</form>
 	</div>
 </div>
@@ -36,7 +36,7 @@
 		</div>
 	</div>
 
-	<div class="small-8 columns" >
+	<div class="small-8 columns" id="venue-index-main">
 		<% if @venues && @venues.length > 0 %>
   		<%= render partial: 'index_main', locals: { venues: @venues } %>
   	<% else %>

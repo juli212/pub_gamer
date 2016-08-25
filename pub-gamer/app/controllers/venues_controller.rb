@@ -2,15 +2,33 @@ class VenuesController < ApplicationController
 # skip_before_action :verify_authenticity_token, only: [:create]
   # autocomplete: :venue, :name
 
+  # def index
+  #   binding.pry
+  #   @favorites = current_user.favorites
+  #   if params[:query]
+  #     @venues = Venue.search(params[:query])
+  #     if @venues.length == 1 && @venues.first.name == params[:query]
+  #       redirect_to venue_path(@venues.first)
+  #     elsif request.xhr?
+  #       render partial: 'index_main', locals: { venues: @venues }
+  #     end
+  #   else
+  #     @venues = Venue.all
+  #     if request.xhr?
+  #       render partial: 'index_main', locals: { venues: @venues }
+  #     end
+  #   end
+  # end
+
   def index
     @favorites = current_user.favorites
-    if params[:commit] == "Search"
-        @venues = Venue.search(params[:query])
-        if @venues.length == 1 && @venues.first.name == params[:query]
-          redirect_to venue_path(@venues.first)
-        end
+    if params[:query]
+      @venues = Venue.search(params[:query])
     else
       @venues = Venue.all
+    end
+    if request.xhr?
+        render partial: 'index_main', locals: { venues: @venues }
     end
   end
 

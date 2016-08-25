@@ -44,4 +44,16 @@ $(document).ready(function() {
 		// event.preventDefault();
 		// alert('click!');
 	// })
+  $('#venues-search-form').on('submit', function(event) {
+  	event.preventDefault();
+    $target = $(event.target)
+    debugger;
+    $.ajax({
+      url: $target.attr('href'),
+      data: $target.serialize()
+    }).done(function(response){
+    	console.log(response);
+      $('#venue-index-main').html(response);
+    })
+  })
 });
