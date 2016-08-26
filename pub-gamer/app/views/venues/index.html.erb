@@ -1,33 +1,9 @@
-<div class="row align-center" >
-	<div class="small-4 columns" >
-		<h2 class="text-center">Venues</h2>
-	</div>
-</div>
-
-<div class="row align-spaced" >
-	<div class="small-2 columns">
-		<%=link_to("Add New Venue!", new_venue_path, class: "button venue-index-head") %>
-	</div>
-
-
-	<div class="small-4 columns">
-		<form id="venues-search-form">
-			<div class="venues-search">
-
-				<input id="venues-search-txt" class="venue-index-head" name="query" placeholder="game, address, name" autofocus autocomplete="on">
-
-				<div class="results" id="venues-search-results"></div>
-			</div>
-	</div>
-	<div class="small-2 columns" >
-			<%= submit_tag 'Search', class: "button venue-index-head", id: "venue-search-button", action: "/venues" %>
-		</form>
-	</div>
-</div>
-
 
 <div class="row" >
 	<div class="small-3 columns" id="venue-index-fav">
+		<div>
+			<%=link_to("Add New Venue!", new_venue_path, class: "button venue-index-head") %>
+		</div>
 		<h2 class="text-center">My Venues</h2>
 		<div id="venue-fav-sidebar">
 			<% @favorites.each do |fav| %>
@@ -36,7 +12,7 @@
 		</div>
 	</div>
 
-	<div class="small-8 columns" id="venue-index-main">
+	<div class="small-8 columns index-main">
 		<% if @venues && @venues.length > 0 %>
   		<%= render partial: 'index_main', locals: { venues: @venues } %>
   	<% else %>
