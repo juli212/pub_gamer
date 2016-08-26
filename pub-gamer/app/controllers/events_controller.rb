@@ -11,6 +11,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def search
+    binding.pry
+    # respond_to do |format|
+    #   format.html
+    #   format.json { @results = Venue.search(params[:term]) + Game.game_search(params[:term]) }
+    # end
+  end
+
   def show
   	@event = Event.find_by(id: params[:id])
     @comments = @event.comments
