@@ -13,14 +13,21 @@ Rails.application.routes.draw do
 # search
   post "search_venues" => "venues#search_venues"
   post "search_events" => "events#search_events"
+  # get "venues_search" => 'venues#search'
+
+  # get 'venues/autocomplete_venue_name'
 
   resources :events do
     resources :comments, only: [:create]
   end
 
   resources :venues do
+    get :search, :on => :collection
     resources :reviews, only: [:create]
   end
+
+  # resources :venues do
+  # end
 
   resources :users, only: [:show, :new, :create , :edit, :update]
 

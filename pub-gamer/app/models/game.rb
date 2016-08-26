@@ -6,4 +6,9 @@ class Game < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :name, uniqueness: true
+
+	def self.game_search(term)
+		where("name ILIKE :term", term: "%#{term.downcase}%")
+	end
+
 end
