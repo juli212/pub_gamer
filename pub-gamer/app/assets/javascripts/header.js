@@ -9,6 +9,9 @@ $(document).ready(function() {
 	} else if (window.location.pathname.includes("user")){
 		$header.text("Profile");
 	}
+		else if (window.location.pathname == "/" ) {
+		$('.header-row').remove();
+	}
 });
 
 // div id: header-search-container (SAME)
