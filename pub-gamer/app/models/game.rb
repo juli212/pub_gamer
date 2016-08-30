@@ -11,4 +11,12 @@ class Game < ActiveRecord::Base
 		where("name ILIKE :term", term: "%#{term.downcase}%")
 	end
 
+	def search_address
+		""
+	end
+
+	def search_location
+		""
+	end
+
 end
