@@ -25,6 +25,10 @@ class Venue < ActiveRecord::Base
 		joins(:games).where("games.name ILIKE :term", term: "%#{term.downcase}%").uniq
 	end
 
+	def search_address
+		" - " + self.address
+	end
+
 	def make_new(game_name)
 		if !Game.find_by(name: game_name)
 			new_game = Game.create(name: game_name)
