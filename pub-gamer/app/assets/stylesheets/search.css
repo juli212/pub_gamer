@@ -52,3 +52,7 @@ border-collapse:collapse;
   position: absolute;
   margin-top: 55px;
 }
+
+.ui-helper-hidden-accessible {
+	visibility: hidden;
+}
