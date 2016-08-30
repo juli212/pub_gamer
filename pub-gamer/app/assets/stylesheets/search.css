@@ -22,7 +22,9 @@ border-collapse:collapse;
 #search-results {
 	position: absolute;
 	border: none;
+	z-index: 7;
 }
+
 #search-results ul {
 	width: 400px;
 }
