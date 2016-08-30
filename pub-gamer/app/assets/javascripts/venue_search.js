@@ -35,13 +35,13 @@ $(document).ready(function() {
 	})
   // $('#search-form').on('submit', function(event) {
   // 	event.preventDefault();
-  // 	// debugger;
   //   $target = $(event.target)
   //   $.ajax({
   //     url: $target.attr('href'),
   //     data: $target.serialize()
   //   }).done(function(response){
-  //   	console.log(response);
+  //   	// console.log(response);
+  // 	debugger;
   //     $('.index-main').html(response);
   //   })
   // })
