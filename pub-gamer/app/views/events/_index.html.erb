@@ -4,6 +4,10 @@
 </div>
 <div class="row">
 	<div class="small-9 columns index-main">
-  	<%= render partial: 'index_main', locals: { events: @events } %>
+		<% if @events && @events.length > 0 %>
+	  	<%= render partial: 'index_main', locals: { events: @events } %>
+		<% else %>
+			<p>No Events</p>
+		<% end %>
 	</div>
 </div>
