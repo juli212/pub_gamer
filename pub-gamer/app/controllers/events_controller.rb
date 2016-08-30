@@ -1,22 +1,30 @@
 class EventsController < ApplicationController
 
   def index
-  	@events = Event.all
+    # binding.pry
     @created_events = Event.where("user_id = #{current_user.id}")
+    # if params[:query]
+    #   @events = Event.search(params[:query])
+    # else
+    # end
+      @events = Event.all
     @attended_events = []
     @events.each do |event|
       if event.attending_event?(current_user)
         @attended_events << event
       end
     end
+    # if request.xhr?
+    #   render partial: 'index_main', locals: { events: @events }
+    # end
   end
 
   def search
-    binding.pry
-    # respond_to do |format|
-    #   format.html
-    #   format.json { @results = Venue.search(params[:term]) + Game.game_search(params[:term]) }
-    # end
+    # binding.pry
+    respond_to do |format|
+      format.html { @events = Event.search(params[:term]) }
+      format.json { @results = Event.search(params[:term]) + Game.game_search(params[:term]) }
+    end
   end
 
   def show
