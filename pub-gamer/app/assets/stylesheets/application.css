@@ -395,3 +395,7 @@ float: right;
   display: inline-block;
   top: 0px;
 }
+
+.pagination > * {
+  float: left;
+}
