@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class VenuesController < ApplicationController
 # skip_before_action :verify_authenticity_token, only: [:create]
   # autocomplete: :venue, :name
@@ -23,7 +24,9 @@ class VenuesController < ApplicationController
   def index
     # binding.pry
     @favorites = current_user.favorites
-    @venues = Venue.all
+    # @venues = Venue.all
+    @venues = Venue.paginate(:page => params[:page], :per_page => 5)
+
     # if params[:query]
     #   @venues = Venue.search(params[:query])
     # else
@@ -37,7 +40,7 @@ class VenuesController < ApplicationController
   def search
     @favorites = current_user.favorites
     respond_to do |format|
-      format.html { @venues = Venue.search(params[:term]) }
+      format.html { @venues = Venue.search(params[:term]).paginate(:page => params[:page], :per_page => 5) }
       format.json { @results = Venue.search(params[:term]) + Game.game_search(params[:term]) }
     end
   end

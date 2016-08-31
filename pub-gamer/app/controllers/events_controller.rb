@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     #   @events = Event.search(params[:query])
     # else
     # end
-      @events = Event.all
+      @events = Event.paginate(:page => params[:page], :per_page => 5)
     @attended_events = []
     @events.each do |event|
       if event.attending_event?(current_user)
@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   def search
     # binding.pry
     respond_to do |format|
-      format.html { @events = Event.search(params[:term]) }
+      format.html { @events = Event.search(params[:term]).paginate(:page => params[:page], :per_page => 5) }
       format.json { @results = Event.search(params[:term]) + Game.game_search(params[:term]) }
     end
   end
