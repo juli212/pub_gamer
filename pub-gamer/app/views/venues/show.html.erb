@@ -8,7 +8,8 @@
 			<div id="reviews">
 				<% if @venue.has_reviews? %>
 					<div id="review-index">
-		  			<%= render partial: 'reviews/index', locals: { reviews: @venue.recent_reviews } %>
+		  			<%= render partial: 'reviews/index', locals: { reviews: @reviews } %>
+		  			<%= will_paginate @reviews %>
 		  		</div>
 		  	<% else %>
 		  		<div id="no-reviews">

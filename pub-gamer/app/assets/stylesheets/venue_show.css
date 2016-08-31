@@ -1,5 +1,5 @@
 #venue-show h2{
-	color: white;
+	/*color: white;*/
 }
 
 #fav {
@@ -12,7 +12,7 @@
 }
 
 #reviews {
-	border-left: 2px solid white;
+	border-left: 2px solid;
 	padding-left: 10px;
 }
 
@@ -24,9 +24,8 @@
 .review-date {
 	font-size: 13px;
 	font-weight: bold;
-	color: white;
 	margin: 0px;
-	border-bottom: 1px solid rgba(255, 255,255, .3);
+	border-bottom: 1px solid;
 	margin-right: 30px;
 }
 
@@ -36,13 +35,12 @@
 
 #avg-rating {
 	font-size: 20px;
-	color: white;
 	width: 260px;
 	height: 170px;
 }
 
 #rate-avg-rating {
-	border: 3px solid white;
+	border: 3px solid;
 	width: 100px;
 	min-height: 100px;
 	margin-top: 30px;
@@ -55,13 +53,13 @@
 #venue-games {
 	padding-bottom: 40px;
 	margin-bottom: 40px;
-	border-bottom: 3px solid white;
+	border-bottom: 3px solid;
 }
 
 .venue-game {
 	display: inline-block;
-	color: white;
-	border: 1px solid white;
+	color: black;
+	border: 1px solid;
 	padding: 2px 5px;
 	min-width: 60px;
 	height: 30px;
