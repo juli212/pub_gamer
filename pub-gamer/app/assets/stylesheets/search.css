@@ -22,7 +22,9 @@ border-collapse:collapse;
 #search-results {
 	position: absolute;
 	border: none;
+	z-index: 7;
 }
+
 #search-results ul {
 	width: 400px;
 }
@@ -51,4 +53,8 @@ border-collapse:collapse;
   height: 37px;
   position: absolute;
   margin-top: 55px;
+}
+
+.ui-helper-hidden-accessible {
+	visibility: hidden;
 }

@@ -11,13 +11,14 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy", as: "logout"
 
 # search
-  post "search_venues" => "venues#search_venues"
-  post "search_events" => "events#search_events"
+  # post "search_venues" => "venues#search_venues"
+  # post "search_events" => "events#search_events"
   # get "venues_search" => 'venues#search'
 
   # get 'venues/autocomplete_venue_name'
 
   resources :events do
+    get :search, :on => :collection
     resources :comments, only: [:create]
   end
 

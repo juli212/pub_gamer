@@ -21,20 +21,23 @@ class VenuesController < ApplicationController
   # end
 
   def index
+    # binding.pry
     @favorites = current_user.favorites
-    if params[:query]
-      @venues = Venue.search(params[:query])
-    else
-      @venues = Venue.all
-    end
-    if request.xhr?
-        render partial: 'index_main', locals: { venues: @venues }
-    end
+    @venues = Venue.all
+    # if params[:query]
+    #   @venues = Venue.search(params[:query])
+    # else
+    #   @venues = Venue.all
+    # end
+    # if request.xhr?
+    #   render partial: 'index_main', locals: { venues: @venues }
+    # end
   end
 
   def search
+    @favorites = current_user.favorites
     respond_to do |format|
-      format.html
+      format.html { @venues = Venue.search(params[:term]) }
       format.json { @results = Venue.search(params[:term]) + Game.game_search(params[:term]) }
     end
   end

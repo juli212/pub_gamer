@@ -10,6 +10,27 @@ class Event < ActiveRecord::Base
 
 	validates :title, :description, :date, :time, :limit, :location, :user_id, presence: true
 
+	def name
+		self.title
+	end
+
+	def search_location
+		" - " + self.location
+	end
+
+	def self.search(term)
+		events = Event.event_search(term) + Event.game_search(term)
+		events.uniq
+	end
+
+	def self.event_search(term)
+		where("title ILIKE :term OR description ILIKE :term OR location ILIKE :term", term: "%#{term.downcase}%")
+	end
+
+	def self.game_search(term)
+		joins(:games).where("games.name ILIKE :term", term: "%#{term.downcase}%").uniq
+	end
+
 	def full?
 		self.guests.length >= self.limit
 	end

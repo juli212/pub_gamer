@@ -13,7 +13,7 @@ $(document).ready(function() {
 	        response($.map(data, function(item) {
 	          // console.log(data)
 	          return {
-	            label: item.name,
+	            label: item.name + item.address,
 	            value: item.name,
 	            id: item.id
 	          };
@@ -33,15 +33,16 @@ $(document).ready(function() {
 	  	$('.ui-state-focus').css('color', "white");
     }
 	})
-  $('#search-form').on('submit', function(event) {
-  	event.preventDefault();
-    $target = $(event.target)
-    $.ajax({
-      url: $target.attr('href'),
-      data: $target.serialize()
-    }).done(function(response){
-    	// console.log(response);
-      $('.index-main').html(response);
-    })
-  })
+  // $('#search-form').on('submit', function(event) {
+  // 	event.preventDefault();
+  //   $target = $(event.target)
+  //   $.ajax({
+  //     url: $target.attr('href'),
+  //     data: $target.serialize()
+  //   }).done(function(response){
+  //   	// console.log(response);
+  // 	debugger;
+  //     $('.index-main').html(response);
+  //   })
+  // })
 });
