@@ -51,11 +51,7 @@ class Venue < ActiveRecord::Base
 	end
 
 	def sorted_reviews
-		self.reviews.order(:created_at)
-	end
-
-	def display_sorted_reviews
-		self.sorted_reviews.reverse
+		self.reviews.order(:created_at).reverse
 	end
 
 	def sum_reviews
