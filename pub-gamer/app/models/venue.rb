@@ -50,6 +50,14 @@ class Venue < ActiveRecord::Base
 		self.reviews.last(10).reverse
 	end
 
+	def sorted_reviews
+		self.reviews.order(:created_at)
+	end
+
+	def display_sorted_reviews
+		self.sorted_reviews.reverse
+	end
+
 	def sum_reviews
 		rating = 0
 		self.reviews.each do |review|
