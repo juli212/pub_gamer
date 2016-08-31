@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     #   @events = Event.search(params[:query])
     # else
     # end
-      @events = Event.paginate(:page => params[:page], :per_page => 5)
+      @events = Event.paginate(:page => params[:page], :per_page => 8)
     @attended_events = []
     @events.each do |event|
       if event.attending_event?(current_user)

@@ -40,7 +40,7 @@ class VenuesController < ApplicationController
   def search
     @favorites = current_user.favorites
     respond_to do |format|
-      format.html { @venues = Venue.search(params[:term]).paginate(:page => params[:page], :per_page => 5) }
+      format.html { @venues = Venue.search(params[:term]).paginate(:page => params[:page], :per_page => 8) }
       format.json { @results = Venue.search(params[:term]) + Game.game_search(params[:term]) }
     end
   end
