@@ -1,0 +1,101 @@
+/*#welcome-body {
+  background: url(Pool_background.jpg) no-repeat center center fixed;
+
+  background-color: red;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#homepage {
+  width: 1200px;
+  height: 600px;
+  margin: 0 auto;
+}
+*/
+.welcome-button-box {
+	border-radius: 20px;
+	background-color: #2B2936;
+	margin: 200px 20%;
+	text-align: center;
+}
+.welcome-column a {
+	padding: 10px 0px;
+	color: #EDD0AF;
+	font-size: 46px;
+	display: block;
+}
+
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #2B2936;
+	opacity: 0.7;
+}
+
+.ui-front {
+	z-index: 100;
+}
+
+#form-box {
+	width: 20%;
+	min-width: 180px;
+	margin: 0px 40%;
+	position: fixed;
+	top: 10%;
+	text-align: center;
+}
+
+#login-box, #register-box {
+	min-width: 150px;
+	margin: 0 auto;
+	padding: 10px 0px;
+	background-color: #2B2936;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+#login-box h4, #register-box h4 {
+	color: #FFFFF0;
+}
+
+#login-box form, #register-box form {
+	padding: 30px;
+	font-size: 30px;
+}
+
+#login-box input, #register-box input {
+	height: 35px;
+	border-radius: 10px;
+	background-color: #FFFFF0;
+}
+
+#login-button, #register-button {
+	padding: 10px;
+	margin: 15px 0px 0px;
+	background-color: #FFFFF0;
+	color: #2B2936;
+}
+
+.ui-dialog-titlebar {
+	min-height: 30px;
+	background-color: #2B2936;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.ui-dialog-titlebar > * {
+	position: absolute;
+	right: 10px;
+	top: 7px;
+	color: white;
+	height: 15px;
+	margin: 0 auto;
+}
+
+.ui-dialog-titlebar > *:hover {
+	background-color: transparent;
+}
