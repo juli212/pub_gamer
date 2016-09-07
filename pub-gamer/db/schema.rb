@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160725021641) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body",       null: false
+    t.boolean  "deleted"
     t.integer  "event_id",   null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160725021641) do
     t.time     "time",        null: false
     t.string   "location",    null: false
     t.integer  "limit",       null: false
+    t.boolean  "deleted"
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160725021641) do
     t.string   "content",    null: false
     t.string   "week"
     t.integer  "rating"
+    t.boolean  "deleted"
     t.integer  "venue_id",   null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
@@ -96,12 +99,14 @@ ActiveRecord::Schema.define(version: 20160725021641) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "address",     null: false
-    t.text     "description"
+    t.string   "name",         null: false
+    t.string   "address",      null: false
+    t.string   "place"
+    t.string   "neighborhood"
+    t.boolean  "deleted"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "vibes", force: :cascade do |t|
