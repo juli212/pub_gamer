@@ -5,7 +5,7 @@ class CreateVenues < ActiveRecord::Migration
       t.string :address, null: false, unique: true
       t.string :place
       t.string :neighborhood
-      t.boolean :deleted
+      t.boolean :deleted, null: false, default: false
       t.integer :user_id
 
       t.timestamps null: false
