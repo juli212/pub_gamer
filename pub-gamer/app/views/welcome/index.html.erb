@@ -1,11 +1,14 @@
+<div class="row" id="welcome-box">
+	<div class="small-6 columns welcome-column">
+    <div class="welcome-button-box"><a id="login" href="/login">Login</a></div>
+    <%= render partial: '/sessions/login_form' %>
+  </div>
+  <div class="small-6 columns welcome-column">
+    <div class="welcome-button-box"><a id="register" href="/users/new">Register</a></div>
+    <%= render partial: '/users/registration_form' %>
+  </div>
+</div>
 
-<body id="welcome-body">
-  <div id="login">
-    <a href="/login">Login</a>
-  </div>
-  <div id="form-container">
-  </div>
-  <div id="register">
-    <a href="/users/new">Register</a>
-  </div>
-</body>
+<div id="form-box">
+</div>
+
