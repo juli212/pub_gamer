@@ -3,7 +3,8 @@ class CreateVenues < ActiveRecord::Migration
     create_table :venues do |t|
       t.string :name, null: false
       t.string :address, null: false, unique: true
-      t.text :neighborhood
+      t.string :place
+      t.string :neighborhood
       t.boolean :deleted
       t.integer :user_id
 
