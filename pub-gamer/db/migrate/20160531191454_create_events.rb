@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.time :time, null: false
       t.string :location, null: false
       t.integer :limit, null: false
+      t.boolean :deleted
       t.integer :user_id, null: false
 
       t.timestamps null: false

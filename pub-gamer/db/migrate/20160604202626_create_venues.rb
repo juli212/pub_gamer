@@ -4,6 +4,7 @@ class CreateVenues < ActiveRecord::Migration
       t.string :name, null: false
       t.string :address, null: false, unique: true
       t.text :description
+      t.boolean :deleted
       t.integer :user_id
 
       t.timestamps null: false
