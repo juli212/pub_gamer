@@ -1,19 +1,10 @@
-<div id="register-form" class="small-12 small-centered text-center columns">
-  <div class="login-register" class="medium-3 medium-centered text-center columns">
-    <%=form_for @user do |f| %>
-      <p>
-
-        <%= f.text_field :user_name, placeholder: "User Name" %>
-      </p>
-      <p>
-        <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"%>
-      </p>
-      <p>
-        <%= f.password_field :password, placeholder: "Password" %>
-      </p>
-      <p>
-        <%= f.submit "Register", class: 'button' %>
-      </p>
-  </div>
-<% end %>
+<div id="register-box">
+  <h4>Register</h4>
+  <%=form_for @user, id: 'register-form' do |f| %>
+    <%= f.text_field :user_name, placeholder: "User Name" %>
+    <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"%>
+    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.submit "Register", class: 'button large', id: "register-button" %>
+  <% end %>
 </div>
+
