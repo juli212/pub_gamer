@@ -22,8 +22,12 @@
 		</div>
 	</div>
 	<div class="small-8 columns review-content">
-		<% review.split_content.each do |line| %>
-			<p class="formatted-review"><%= line %></p>
+		<% if review.deleted? %>
+			<%= render partial: 'reviews/deleted' %>
+		<% else %>
+			<% review.split_content.each do |line| %>
+				<p class="formatted-review"><%= line %></p>
+			<% end %>
 		<% end %>
 	</div>
 
