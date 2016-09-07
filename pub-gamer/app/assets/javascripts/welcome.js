@@ -1,22 +1,71 @@
-$(document).ready(function() {
+// $(document).ready(function() {
 
-  $('#login a').on('click', function(event){
-    event.preventDefault();
-    $target = $(event.target)
-    $.ajax({
-      url: $target.attr('href')
-    }).done(function(response){
-        $('#form-container').html(response).hide().fadeIn(300);
-    })
+//   $('#login a').on('click', function(event){
+//     event.preventDefault();
+//     $target = $(event.target)
+//     $.ajax({
+//       url: $target.attr('href')
+//     }).done(function(response){
+//         $('#form-container').html(response).hide().fadeIn(300);
+//     })
+//   })
+
+//   $('#register a').on('click', function(event){
+//     event.preventDefault();
+//     $target = $(event.target)
+//     $.ajax({
+//       url: $target.attr('href')
+//     }).done(function(response){
+//         $('#form-container').html(response).hide().fadeIn(300);
+//     })
+//   })
+// });
+
+
+$(document).ready(function() {
+	$("#login-box").dialog({
+    modal: true,
+    autoOpen: false,
+    minHeight: 200,
+    width: 200,
+    appendTo: "#form-box",
+    position: ({ my: "top", at: "center top", of: "#form-box" }),
+    show: {
+        effect: "blind",
+        duration: 1000
+    },
+    hide: {
+        effect: "explode",
+        duration: 1000
+    }
+	});
+
+  $('#login').on('click', function(event){
+		event.preventDefault()
+		$form = $(event.target).next()
+  	$('#login-box').dialog('open');
   })
 
-  $('#register a').on('click', function(event){
-    event.preventDefault();
-    $target = $(event.target)
-    $.ajax({
-      url: $target.attr('href')
-    }).done(function(response){
-        $('#form-container').html(response).hide().fadeIn(300);
-    })
+  $("#register-box").dialog({
+    modal: true,
+    autoOpen: false,
+    minHeight: 200,
+    width: 200,
+    appendTo: "#form-box",
+    position: ({ my: "top", at: "center top", of: "#form-box" }),
+    // show: {
+    //     effect: "blind",
+    //     duration: 1000
+    // },
+    hide: {
+        effect: "explode",
+        duration: 1000
+    }
+	});
+
+  $('#register').on('click', function(event){
+		event.preventDefault()
+		$form = $(event.target).next()
+  	$('#register-box').dialog('open');
   })
 });
