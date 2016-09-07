@@ -33,16 +33,12 @@ venues = Venue.create([
 ])
 
 vibes = Vibe.create([
-  {name: 'serious', pic: 'angryFace.gif'}, 
-  {name: 'loud', pic: 'happyFace.gif'}, 
-  {name: 'chill', pic: 'sadFace.gif'}, 
+  {name: 'serious', pic: 'sadFace.gif'},  
+  {name: 'chill', pic: 'chillVibe.png'}, 
   {name: 'pretentious', pic: 'angryFace.gif'}, 
-  {name: 'expensive', pic: 'happyFace.gif'}, 
-  {name: 'douchey', pic: 'starFace.gif'}, 
-  {name: 'fun', pic: 'happyFace.gif'}, 
+  {name: 'expensive', pic: 'expensiveVibe.png'},  
   {name: 'divey', pic: 'starFace.gif'}, 
-  {name: 'sophisticated', pic: 'happyFace.gif'}, 
-  {name: 'preppy',pic: 'sadFace.gif'}])
+  {name: 'sophisticated', pic: 'happyFace.gif'}])
 
 VenueGame.create([
   {game_id: 1, venue_id: 1},
