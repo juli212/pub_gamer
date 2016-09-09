@@ -8,6 +8,10 @@
   background-color: #2B2936;
 }
 
+.top-bar a {
+  color: #EDD0AF;
+}
+
 .top-bar ul {
     background-color: #2B2936;
     border: none;
