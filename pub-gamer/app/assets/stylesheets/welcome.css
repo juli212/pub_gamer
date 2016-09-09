@@ -1,19 +1,8 @@
-/*#welcome-body {
-  background: url(Pool_background.jpg) no-repeat center center fixed;
-
-  background-color: red;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+#under-header {
+	color: #edd0af;	
+	margin-top: -212px;
 }
 
-#homepage {
-  width: 1200px;
-  height: 600px;
-  margin: 0 auto;
-}
-*/
 .welcome-button-box {
 	border-radius: 20px;
 	background-color: #2B2936;
