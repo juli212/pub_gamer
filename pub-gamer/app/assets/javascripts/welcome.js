@@ -29,11 +29,11 @@ $(document).ready(function() {
     minHeight: 200,
     width: 200,
     appendTo: "#form-box",
-    position: ({ my: "top", at: "center top", of: "#form-box" }),
-    show: {
-        effect: "blind",
-        duration: 1000
-    },
+    position: ({ my: "bottom", at: "center top", of: "#form-box" }),
+    // show: {
+    //     effect: "blind",
+    //     duration: 1000
+    // },
     hide: {
         effect: "explode",
         duration: 1000
@@ -52,7 +52,7 @@ $(document).ready(function() {
     minHeight: 200,
     width: 200,
     appendTo: "#form-box",
-    position: ({ my: "top", at: "center top", of: "#form-box" }),
+    position: ({ my: "bottom", at: "center top", of: "#form-box" }),
     // show: {
     //     effect: "blind",
     //     duration: 1000
