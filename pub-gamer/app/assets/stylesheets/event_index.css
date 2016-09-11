@@ -3,23 +3,21 @@
   padding: 20px;
   font-size: 25px;
   border-radius: 20px;
-  color: #EDD0AF;
   display: block;
-  font-weight: bold;
-  background-color: #2B2936;
   text-align: center;
 }
 
 .posted-event-container {
-  border: 1px solid black;
+  border: 1px solid #2B2936;
   border-radius: 7px;
   width: 700px;
   height: 175px;
   margin-bottom: 13px;
+  color: #2B2936;
 }
 
 .event-index-picture {
-  border: 1px solid black;
+  border: 1px solid #2B2936;
   height: 155px;
   width: 155px;
   margin-left: 10px;
