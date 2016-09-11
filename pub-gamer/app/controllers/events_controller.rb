@@ -2,6 +2,8 @@ class EventsController < ApplicationController
 
   def index
     # binding.pry
+    @event = Event.new
+    @games = Game.all
     @created_events = Event.where("user_id = #{current_user.id}")
     # if params[:query]
     #   @events = Event.search(params[:query])
