@@ -1,40 +1,14 @@
 
-#event-index-sidebar {
-  border: 1px solid black;
-}
-
-
 #event-create-link {
-  border: 1px solid black;
-  font-size: 18px;
-  padding: 0px 35px 4px 30px;
-  margin-left: 3%;
-  background: rgba(73, 115, 77, 1);
-  border-radius: 5px;
+  padding: 20px;
+  font-size: 25px;
+  border-radius: 20px;
+  color: #EDD0AF;
+  display: block;
+  font-weight: bold;
+  background-color: #2B2936;
+  text-align: center;
 }
-
-.created-event-index-sidebar-div{
-  margin-top: 8px;
-  margin-left: 20px;
-  /*border: 1px solid black;*/
-}
-
-
-.attending-event-index-sidebar-div{
-  margin-top: -6px;
-  margin-left: 20px;
-  /*border: 1px solid black;*/
-}
-
-.time-event-index-sidebar{
- margin-top: -20px;
-}
-
-.games-event-index-sidebar{
-  margin-top: -20px;
-}
-
-/*end sidebar*/
 
 .posted-event-container {
   border: 1px solid black;
@@ -95,4 +69,58 @@
 .event-index-join {
   margin-left: 460px;
   margin-top: 60px;
+}
+
+#event-create-form {
+  padding: 6%;
+  background-color: #2B2936;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+  font-size: 30px;
+  color: #FFFFF0;
+}
+
+#event-create-form label {
+  color: #FFFFF0;
+}
+
+#event-create-form input, #event-create-form textarea {
+  height: 35px;
+  border-radius: 10px;
+  background-color: #FFFFF0;
+  text-align: center;
+}
+
+#event-create-form textarea {
+  height: 120px;
+}
+
+.event-game {
+  border-right: 2px solid #FFFFF0;
+  float: left;
+  width: 25%;
+}
+
+.event-game input {
+  height: 15px;
+}
+
+.event-game label {
+  margin: 0px;
+  padding: 0px;
+  margin-top: -25px;
+}
+
+#event-create-button-div {
+  padding-top: 15px;
+  clear: left;
+}
+
+#event-create-submit-button {
+  background-color: #FFFFF0;
+  color: #2B2936;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 20px;
 }
