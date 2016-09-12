@@ -1,10 +1,12 @@
 <div id="faces">
-  <div>Vibe?</div>
+  <h5>Vibe?</h5>
+  <div id="face-background">
   <% @vibes.each do |vibe| %>
     <div class="face" >
-      <%= image_tag("#{vibe.pic}", size: '40') %>
+      <%= image_tag("#{vibe.pic}") %>
  	    <%= check_box_tag "review[vibes][]", "#{vibe.id}", false, class: "vibe-button" %>
  	    <span class="vibe-name"><%= vibe.name %></span>
     </div>
   <% end %>
+  </div>
 </div>
