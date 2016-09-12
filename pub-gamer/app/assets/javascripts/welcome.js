@@ -23,22 +23,22 @@
 
 
 $(document).ready(function() {
-	$("#login-box").dialog({
+  $("#login-box").dialog({
     modal: true,
     autoOpen: false,
     minHeight: 200,
     width: 200,
     appendTo: "#form-box",
     position: ({ my: "bottom", at: "center top", of: "#form-box" }),
-    // show: {
-    //     effect: "blind",
-    //     duration: 1000
-    // },
+    show: {
+        effect: "bounce",
+        duration: 1500
+    },
     hide: {
         effect: "explode",
-        duration: 1000
+        duration: 2000
     }
-	});
+  });
 
   $('#login').on('click', function(event){
 		event.preventDefault()
@@ -53,13 +53,13 @@ $(document).ready(function() {
     width: 200,
     appendTo: "#form-box",
     position: ({ my: "bottom", at: "center top", of: "#form-box" }),
-    // show: {
-    //     effect: "blind",
-    //     duration: 1000
-    // },
+    show: {
+        effect: "bounce",
+        duration: 1500
+    },
     hide: {
         effect: "explode",
-        duration: 1000
+        duration: 2000
     }
 	});
 
