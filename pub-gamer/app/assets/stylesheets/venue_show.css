@@ -2,6 +2,14 @@
 	/*color: white;*/
 }
 
+#new-review-button {
+	padding: 20px;
+	font-size: 25px;
+	border-radius: 20px;
+	display: block;
+	text-align: center;
+}
+
 #fav {
 	width: 100px;
 	height: 60px;

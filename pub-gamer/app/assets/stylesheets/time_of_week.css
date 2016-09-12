@@ -4,18 +4,21 @@
 
 .week {
   display: block;
-  border: 2px solid white;
+  /*border: 2px solid white;*/
   width: 100px;
+  background-color: #EDD0AF;
+  border-radius: 50%/40%;
   /*margin: 5px -3px;*/
 }
 
 .week:hover{
-  background-color: white;
+  background-color: #FFFFF0;
 }
 
 .week-label {
   font-size: 20px;
   padding: 0px 5px;
+  color: #2b2936;
 }
 
 .week-selector {
@@ -24,5 +27,5 @@
 }
 
 .time-of-week {
-  background-color: white;
+  background-color: #FFFFF0;
 }
