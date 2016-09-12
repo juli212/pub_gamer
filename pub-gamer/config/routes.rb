@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :venues do
     get :search, :on => :collection
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:new, :create]
   end
 
   # resources :venues do
