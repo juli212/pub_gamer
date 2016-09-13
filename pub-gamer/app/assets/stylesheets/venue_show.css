@@ -59,18 +59,21 @@
 }
 
 #venue-games {
-	padding-bottom: 40px;
-	margin-bottom: 40px;
-	border-bottom: 3px solid;
+	padding-bottom: 30px;
+	/*margin-bottom: 40px;*/
+	border-bottom: 5px solid #EDD0AF;
 }
 
 .venue-game {
 	display: inline-block;
-	color: black;
+	font-weight: bold;
+	color: #FFFFF0;
+	background-color: #827AA4;
+	border-radius: 30%;
 	border: 1px solid;
-	padding: 2px 5px;
+	padding: 4px 8px;
 	min-width: 60px;
-	height: 30px;
+	height: 35px;
 	margin-right: 10px;
 }
 
