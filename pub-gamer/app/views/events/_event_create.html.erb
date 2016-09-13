@@ -7,11 +7,12 @@
   <% end %>
   <%= form_for @event, :html => {:id => "event-create-form"} do |f| %>
     <h4>Create Event</h4>
-      
-    <%= f.text_field :title, placeholder: "Title" %>
-
-   
-    <%= f.text_field :location, placeholder: "Location" %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.text_field :title, placeholder: "Title" %>
+        <%= f.text_field :location, placeholder: "Location" %>
+      </div>
+    </div>
 
     <div class="row">
       <div class="small-5 columns">
@@ -28,22 +29,25 @@
       </div>
     </div>
 
-    <%= f.text_area :description, placeholder: "Description" %>
-    <% if @games && !@games.empty? %>
-      <%= f.label "Games" %>
-      <div id="event-create-games">
-        <% @games.each do |game| %>
-          <div class="event-game">
-            <%= check_box_tag "games[]", game.id %>
-            <br>
-            <label><%= game.name %></label>
-          </div> 
-        <% end %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.text_area :description, placeholder: "Description" %>
+        <% if @games && !@games.empty? %>
+          <%= f.label "Games" %>
+          <div id="event-create-games">
+          <% @games.each do |game| %>
+            <div class="event-game">
+              <%= check_box_tag "games[]", game.id %>
+              <br>
+              <label><%= game.name %></label>
+            </div> 
+          <% end %>
+        </div>
+      <% end %>
+      <div id="event-create-button-div">
+        <%= f.button :submit, class: "button", id: "event-create-submit-button" %>
       </div>
-    <% end %>
-    <div id="event-create-button-div">
-      <%= f.button :submit, class: "button", id: "event-create-submit-button" %>
+      </div>
     </div>
   <% end %>
-
 </div>

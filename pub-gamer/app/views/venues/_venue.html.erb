@@ -20,13 +20,12 @@
 		
 	</div>
 	<div class="small-6 columns">
-		<h3 class="text-left"><%= @venue.name %></h3>
+		<h3 class="text-left" id="venue-name"><%= @venue.name %></h3>
 		<div class="row align-center" >
-			<div class="small-1 columns" ></div>
-			<div class="small-11 columns" >
+			<!-- <div class="small-1 columns" ></div> -->
+			<div class="small-12 columns" >
 				<p class="text-left"><%= @venue.address %></p>
 				<div id="venue-games">
-					<h2 class="text-left">Games</h2>
 					<% if @venue.has_games? %>
 						<%= render partial: 'games', locals: { venue: @venue} %>
 					<% else %>
@@ -44,6 +43,8 @@
 			<%= render partial: 'users/favorite_removed' %>
 		<% end %>
 		</div>
+		<%= link_to "+  Create an Event", new_event_path, class: "button", id: "event-create-link"  %>
+		<%= render partial: 'events/event_create' %>
 	</div>
 </div>
 
