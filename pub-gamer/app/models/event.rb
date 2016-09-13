@@ -8,28 +8,41 @@ class Event < ActiveRecord::Base
 	has_many :user_events
 	has_many :guests, through: :user_events, source: :user
 
-	validates :title, :description, :date, :time, :limit, :location, :user_id, presence: true
+	validates :title, :description, :date, :time, :limit, :venue_id, :user_id, presence: true
 
 	def name
 		self.title
 	end
 
+	def location
+
+	end
+
+	def address
+
+	end
+
 	def search_location
-		" - " + self.location
+		" - " + self.venue.name
 	end
 
 	def self.search(term)
-		events = Event.event_search(term) + Event.game_search(term)
+		events = Event.event_search(term) + Event.event_venue_search(term) + Event.game_search(term)
 		events.uniq
 	end
 
-	def self.event_search(term)
-		where("title ILIKE :term OR description ILIKE :term OR location ILIKE :term", term: "%#{term.downcase}%")
+	def self.event_venue_search(term)
+		joins(:venue).where("venues.name ILIKE :term", term: "%#{term.downcase}%").uniq
 	end
-
+	
 	def self.game_search(term)
 		joins(:games).where("games.name ILIKE :term", term: "%#{term.downcase}%").uniq
 	end
+
+	def self.event_search(term)
+		where("title ILIKE :term OR description ILIKE :term", term: "%#{term.downcase}%")
+	end
+
 
 	def full?
 		self.guests.length >= self.limit
