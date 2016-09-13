@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
+  before_filter :require_login
 
   def index
-    # binding.pry
     @event = Event.new
     @games = Game.all
     @created_events = Event.where("user_id = #{current_user.id}")
@@ -100,8 +100,14 @@ class EventsController < ApplicationController
     render 'index'
   end
 
+  private
+
   def event_params
     params.require(:event).permit(:title, :date, :time, :description, :limit, :location, :games => [])
+  end
+
+  def require_login
+    redirect_to(root_path) and return unless session[:user_id]
   end
 
 end

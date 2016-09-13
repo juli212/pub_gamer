@@ -1,5 +1,6 @@
 require 'will_paginate/array'
 class VenuesController < ApplicationController
+  before_filter :require_login
 # skip_before_action :verify_authenticity_token, only: [:create]
   # autocomplete: :venue, :name
 
@@ -100,6 +101,10 @@ class VenuesController < ApplicationController
   end
 
 private
+
+  def require_login
+    redirect_to(root_path) and return unless session[:user_id]
+  end
 
   def venue_params
     params.require(:venue).permit(:name, :address, :neighborhood, :place, :other, :games)
