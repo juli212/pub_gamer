@@ -5,12 +5,14 @@
       <%= error %>
     <%end %>
   <% end %>
+
   <%= form_for @event, :html => {:id => "event-create-form"} do |f| %>
     <h4>Create Event</h4>
     <div class="row">
       <div class="small-12 columns">
         <%= f.text_field :title, placeholder: "Title" %>
         <%= f.text_field :location, placeholder: "Location" %>
+        <%= f.text_field :address, placeholder: "Address" %>
       </div>
     </div>
 
@@ -28,26 +30,28 @@
         <%= f.number_field :limit, min: "0", max: "100", placeholder: "Guests" %>
       </div>
     </div>
-
+      <% if @venue %>
+        <%= hidden_field "event", :venue_id, value: @venue.id %>
+      <% end %>
     <div class="row">
       <div class="small-12 columns">
         <%= f.text_area :description, placeholder: "Description" %>
         <% if @games && !@games.empty? %>
           <%= f.label "Games" %>
           <div id="event-create-games">
-          <% @games.each do |game| %>
-            <div class="event-game">
-              <%= check_box_tag "games[]", game.id %>
-              <br>
-              <label><%= game.name %></label>
-            </div> 
-          <% end %>
+            <% @games.each do |game| %>
+              <div class="event-game">
+                <%= check_box_tag "games[]", game.id %>
+                <br>
+                <label><%= game.name %></label>
+              </div> 
+            <% end %>
+          </div>
+        <% end %>
+        <div id="event-create-button-div">
+          <%= f.button :submit, class: "button", id: "event-create-submit-button" %>
         </div>
-      <% end %>
-      <div id="event-create-button-div">
-        <%= f.button :submit, class: "button", id: "event-create-submit-button" %>
       </div>
-      </div>
-      </div>
+    </div>
   <% end %>
 </div>
