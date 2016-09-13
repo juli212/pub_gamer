@@ -16,8 +16,8 @@ $(document).ready(function() {
     autoOpen: false,
     minHeight: 800,
     width: 500,
-    appendTo: '#event-create-ajax-div',
-    position: ({ my: "left top", at: "left top", of: "#event-create-ajax-div" }),
+    // appendTo: '#event-create-ajax-div',
+    position: ({ my:"top", at: "middle", of: "#page-header-bottom"}),
     show: {
         effect: "blind",
         duration: 1000
@@ -29,7 +29,13 @@ $(document).ready(function() {
 	});
 
   $('#event-create-link').on('click', function(event){
-		event.preventDefault()
+	event.preventDefault()
+        // debugger;
+    if (window.location.pathname.includes("venue") ) {
+      barName = $('#venue-name').text()
+      $('#event_location').val(barName);
+      $('#event_location').prop('readonly', true);
+    }
 		// $form = $(event.target).next()
   	$("#event-create-container").dialog('open');
   })
