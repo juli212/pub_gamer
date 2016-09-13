@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20160725021641) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.text     "body",       null: false
-    t.boolean  "deleted"
-    t.integer  "event_id",   null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "body",                       null: false
+    t.boolean  "deleted",    default: false, null: false
+    t.integer  "event_id",                   null: false
+    t.integer  "user_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "event_games", force: :cascade do |t|
@@ -33,16 +33,16 @@ ActiveRecord::Schema.define(version: 20160725021641) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.text     "description", null: false
-    t.date     "date",        null: false
-    t.time     "time",        null: false
-    t.string   "location",    null: false
-    t.integer  "limit",       null: false
-    t.boolean  "deleted"
-    t.integer  "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "title",                       null: false
+    t.text     "description",                 null: false
+    t.date     "date",                        null: false
+    t.time     "time",                        null: false
+    t.string   "location",                    null: false
+    t.integer  "limit",                       null: false
+    t.boolean  "deleted",     default: false, null: false
+    t.integer  "user_id",                     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "games", force: :cascade do |t|
@@ -59,14 +59,14 @@ ActiveRecord::Schema.define(version: 20160725021641) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string   "content",    null: false
+    t.string   "content",                    null: false
     t.string   "week"
     t.integer  "rating"
-    t.boolean  "deleted"
-    t.integer  "venue_id",   null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "deleted",    default: false, null: false
+    t.integer  "venue_id",                   null: false
+    t.integer  "user_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "user_events", force: :cascade do |t|
@@ -99,14 +99,14 @@ ActiveRecord::Schema.define(version: 20160725021641) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string   "name",         null: false
-    t.string   "address",      null: false
+    t.string   "name",                         null: false
+    t.string   "address",                      null: false
     t.string   "place"
     t.string   "neighborhood"
-    t.boolean  "deleted"
+    t.boolean  "deleted",      default: false, null: false
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "vibes", force: :cascade do |t|
