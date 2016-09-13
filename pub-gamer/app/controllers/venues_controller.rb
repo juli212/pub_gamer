@@ -85,6 +85,8 @@ class VenuesController < ApplicationController
     @venue = Venue.find_by(id: params[:id])
     @reviews = @venue.sorted_reviews.paginate(:page => params[:page], :per_page => 4)
     @review = Review.new
+    @games = Game.all
+    @event = Event.new
     @vibes = Vibe.all
     @current_rating = @venue.avg_rating
     render 'show'
