@@ -106,8 +106,8 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :date, :time, :description, :limit, :location, :games => [])
   end
 
-  def require_login
-    redirect_to(root_path) and return unless session[:user_id]
-  end
+  # def require_login
+  #   redirect_to(root_path) and return unless session[:user_id]
+  # end
 
 end
