@@ -37,6 +37,7 @@ vibes = Vibe.create([
   {name: 'expensive', pic: 'expensiveVibePurple.png'},
   {name: 'divey', pic: 'diveyVibePurple.png'}])
 
+
 VenueGame.create([
   {game_id: 1, venue_id: 1},
   {game_id: 3, venue_id: 1},
