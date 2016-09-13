@@ -48,8 +48,10 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     games = params[:games]
+    binding.pry
     if !(games == nil) && @event.in_future?
       @event.save
+      binding.pry
       @event.games << Game.find(games)
       redirect_to event_path(@event)
     elsif @event.in_future?
@@ -103,11 +105,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :date, :time, :description, :limit, :location, :games => [])
+    params.require(:event).permit(:title, :date, :time, :description, :limit, :venue_id, :games => [])
   end
-
-  # def require_login
-  #   redirect_to(root_path) and return unless session[:user_id]
-  # end
 
 end
