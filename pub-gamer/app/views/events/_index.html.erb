@@ -23,7 +23,7 @@
 <div class="small-1 columns"></div>
 	<div class="small-9 columns index-main">
 		<% if @events && @events.length > 0 %>
-	  	<%= render partial: 'new_index_main', locals: { events: @events } %>
+	  	<%= render partial: 'index_main', locals: { events: @events } %>
 		<% else %>
 			<p>No Events</p>
 		<% end %>
