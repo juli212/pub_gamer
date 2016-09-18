@@ -10,16 +10,19 @@
     <h4>Create Event</h4>
     <div class="row">
       <div class="small-12 columns">
-        <%= f.text_field :title, placeholder: "Title" %>
-        <%= f.text_field :location, placeholder: "Location" %>
-        <%= f.text_field :address, placeholder: "Address" %>
+        <%= f.text_field :title, placeholder: "Title", required: true, title: "Title" %>
+        <%= f.text_field :location, placeholder: "Location", required: true, title: "Location" %>
+        <div class="results" id="event-venue-results">
+          
+        </div>
+        <%= f.text_field :address, placeholder: "Address", required: true, title: "Address" %>
       </div>
     </div>
 
     <div class="row">
       <div class="small-5 columns">
         <%= f.label "Date" %>
-        <%= f.date_field :date %>
+        <%= f.date_field :date, required: true, title: "Date" %>
       </div>
       <div class="small-4 columns">
         <%= f.label "Time" %>
@@ -27,23 +30,25 @@
       </div>
       <div class="small-3 columns">
         <%= f.label "Max Guests" %>
-        <%= f.number_field :limit, min: "0", max: "100", placeholder: "Guests" %>
+        <%= f.number_field :limit, min: "0", max: "100", placeholder: "Guests", required: true, title: "Number of Guests" %>
       </div>
     </div>
+    <div id="event-venue_id">
       <% if @venue %>
         <%= hidden_field "event", :venue_id, value: @venue.id %>
       <% end %>
+    </div>
     <div class="row">
       <div class="small-12 columns">
-        <%= f.text_area :description, placeholder: "Description" %>
+        <%= f.text_area :description, placeholder: "Description", required: true, title: "Description" %>
         <% if @games && !@games.empty? %>
           <%= f.label "Games" %>
           <div id="event-create-games">
             <% @games.each do |game| %>
-              <div class="event-game">
-                <%= check_box_tag "games[]", game.id %>
+              <div class="event-game", title="Games">
+                <%= check_box_tag "games[]", game.id, false, class: "game-button" %>
                 <br>
-                <label><%= game.name %></label>
+                <label class="event-game-label"><%= game.name %></label>
               </div> 
             <% end %>
           </div>
