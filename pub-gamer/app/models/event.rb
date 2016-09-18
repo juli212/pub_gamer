@@ -15,11 +15,11 @@ class Event < ActiveRecord::Base
 	end
 
 	def location
-
+		# self.venue.name
 	end
 
 	def address
-
+		# self.venue.address
 	end
 
 	def search_location
