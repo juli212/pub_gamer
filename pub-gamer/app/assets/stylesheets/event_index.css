@@ -7,6 +7,15 @@
   text-align: center;
 }
 
+.event-index-box {
+  color: #2B2936;
+  border: 2px solid #2B2936;
+  border-radius: 7px;
+  min-width: 700px;
+  min-height: 175px;
+  margin-bottom: 13px;
+}
+/*
 .posted-event-container {
   border: 1px solid #2B2936;
   border-radius: 7px;
@@ -14,9 +23,19 @@
   height: 175px;
   margin-bottom: 13px;
   color: #2B2936;
+}*/
+
+.event-index-pic {
+  border: 1px solid #2B2936;
+  border-radius: 5px;
+  height: 155px;
+  width: 155px;
+  margin-top: 10px;
+  background-image: url("octopus0.3opacity.png");
+  background-size: 100%;
 }
 
-.event-index-picture {
+/*.event-index-picture {
   border: 1px solid #2B2936;
   height: 155px;
   width: 155px;
@@ -24,7 +43,7 @@
   margin-top: 10px;
   background-image: url("octopus0.3opacity.png");
   background-size: 100%;
-}
+}*/
 
 .event-index-title {
   margin-left: 187px;
@@ -65,12 +84,10 @@
 }
 
 .event-index-join {
-  margin-left: 460px;
-  margin-top: 60px;
+
 }
 
 #event-create-form {
-  /*padding: 3%;*/
   background-color: #2B2936;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -80,7 +97,8 @@
 }
 
 #event-create-form label {
-  color: #FFFFF0;
+  color: #EDD0AF;
+  font-weight: bold;
 }
 
 #event-create-form input, #event-create-form textarea {
@@ -94,16 +112,19 @@
   height: 120px;
 }
 
-.small-inputs {
-  /*width: 110%;*/
-  /*padding: 0px;*/
-  /*margin: 0px; */
+.game-button {
+  position: fixed;
+  opacity: 0;
 }
 
 .event-game {
-  border-right: 2px solid #FFFFF0;
-  float: left;
-  width: 25%;
+  border: 2px solid #2B2936;
+  float: center;
+  min-width: 24%;
+  display: inline-block;
+  border-radius: 40%/45%;
+  padding: 0px 0px 20px;
+  margin: 2px 1px;
 }
 
 .event-game input {
@@ -111,12 +132,23 @@
 }
 
 
-.event-game label {
+.event-game-label {
   margin: 0px;
   padding: 0px;
   margin-top: -25px;
+  background-color: blue
+  color: green;
 }
 
+.event-game:hover {
+  border: 2px solid #FFFFF0;
+  background-color: #827AA4;
+}
+
+.select-game {
+  color: green;
+  background-color: #827AA4;
+}
 #event-create-button-div {
   padding-top: 15px;
   clear: left;
