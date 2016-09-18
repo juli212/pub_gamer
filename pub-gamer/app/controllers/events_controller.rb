@@ -22,10 +22,15 @@ class EventsController < ApplicationController
   end
 
   def search
-    # binding.pry
     respond_to do |format|
       format.html { @events = Event.search(params[:term]).paginate(:page => params[:page], :per_page => 5) }
       format.json { @results = Event.search(params[:term]) + Game.game_search(params[:term]) }
+    end
+  end
+
+  def add_venue
+    respond_to do |format|
+      format.json { @results = Venue.venue_name_search(params[:term]) }
     end
   end
 
@@ -48,10 +53,8 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     games = params[:games]
-    binding.pry
     if !(games == nil) && @event.in_future?
       @event.save
-      binding.pry
       @event.games << Game.find(games)
       redirect_to event_path(@event)
     elsif @event.in_future?
