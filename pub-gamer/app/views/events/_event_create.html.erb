@@ -6,57 +6,7 @@
     <%end %>
   <% end %>
 
-  <%= form_for @event, :html => {:id => "event-create-form"} do |f| %>
-    <h4>Create Event</h4>
-    <div class="row">
-      <div class="small-12 columns">
-        <%= f.text_field :title, placeholder: "Title", required: true, title: "Title" %>
-        <%= f.text_field :location, placeholder: "Location", required: true, title: "Location" %>
-        <div class="results" id="event-venue-results">
-          
-        </div>
-        <%= f.text_field :address, placeholder: "Address", required: true, title: "Address" %>
-      </div>
-    </div>
+  <%= render partial: 'event_create_form' %>
 
-    <div class="row">
-      <div class="small-5 columns">
-        <%= f.label "Date" %>
-        <%= f.date_field :date, required: true, title: "Date" %>
-      </div>
-      <div class="small-4 columns">
-        <%= f.label "Time" %>
-        <%= f.time_field :time, { :ampm => true } %>
-      </div>
-      <div class="small-3 columns">
-        <%= f.label "Max Guests" %>
-        <%= f.number_field :limit, min: "0", max: "100", placeholder: "Guests", required: true, title: "Number of Guests" %>
-      </div>
-    </div>
-    <div id="event-venue_id">
-      <% if @venue %>
-        <%= hidden_field "event", :venue_id, value: @venue.id %>
-      <% end %>
-    </div>
-    <div class="row">
-      <div class="small-12 columns">
-        <%= f.text_area :description, placeholder: "Description", required: true, title: "Description" %>
-        <% if @games && !@games.empty? %>
-          <%= f.label "Games" %>
-          <div id="event-create-games">
-            <% @games.each do |game| %>
-              <div class="event-game", title="Games">
-                <%= check_box_tag "games[]", game.id, false, class: "game-button" %>
-                <br>
-                <label class="event-game-label"><%= game.name %></label>
-              </div> 
-            <% end %>
-          </div>
-        <% end %>
-        <div id="event-create-button-div">
-          <%= f.button :submit, class: "button", id: "event-create-submit-button" %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+ 
 </div>
