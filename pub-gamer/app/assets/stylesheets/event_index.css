@@ -15,15 +15,6 @@
   min-height: 175px;
   margin-bottom: 13px;
 }
-/*
-.posted-event-container {
-  border: 1px solid #2B2936;
-  border-radius: 7px;
-  width: 700px;
-  height: 175px;
-  margin-bottom: 13px;
-  color: #2B2936;
-}*/
 
 .event-index-pic {
   border: 1px solid #2B2936;
@@ -35,16 +26,6 @@
   background-size: 100%;
 }
 
-/*.event-index-picture {
-  border: 1px solid #2B2936;
-  height: 155px;
-  width: 155px;
-  margin-left: 10px;
-  margin-top: 10px;
-  background-image: url("octopus0.3opacity.png");
-  background-size: 100%;
-}*/
-
 .event-index-title {
   margin-left: 187px;
   margin-top: -160px;
@@ -52,39 +33,15 @@
   font-size: 25px
 }
 
-.event-index-location {
-  margin-left: 189px;
-  margin-top: -16px;
+#event-create-box {
+  visibility: hidden;
+  position: fixed;
 }
 
-.event-index-games {
-  margin-left: 189px;
-  margin-top: -16px;
-}
-
-.event-index-date {
-  margin-left: 189px;
-  margin-top: -16px;
-}
-
-.event-index-time {
-  margin-left: 189px;
-  margin-top: -16px;
-}
-
-
-.event-index-limit {
-  margin-left: 189px;
-  margin-top: -16px;
-}
-
-.event-index-user {
-  margin-left: 385px;
-  margin-top: -147px;
-}
-
-.event-index-join {
-
+#event-new-box form {
+  padding: 3%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 #event-create-form {
@@ -94,6 +51,7 @@
   text-align: center;
   font-size: 30px;
   color: #FFFFF0;
+  max-width: 500px;
 }
 
 #event-create-form label {
