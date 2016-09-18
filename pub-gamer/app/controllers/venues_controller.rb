@@ -23,19 +23,8 @@ class VenuesController < ApplicationController
   # end
 
   def index
-    # binding.pry
     @favorites = current_user.favorites
-    # @venues = Venue.all
     @venues = Venue.paginate(:page => params[:page], :per_page => 5)
-
-    # if params[:query]
-    #   @venues = Venue.search(params[:query])
-    # else
-    #   @venues = Venue.all
-    # end
-    # if request.xhr?
-    #   render partial: 'index_main', locals: { venues: @venues }
-    # end
   end
 
   def search
