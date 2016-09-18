@@ -41,6 +41,7 @@
 
 #login-box h4, #register-box h4 {
 	color: #FFFFF0;
+	text-align: center;
 }
 
 #login-box form, #register-box form {

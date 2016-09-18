@@ -28,8 +28,8 @@ $(document).ready(function() {
     autoOpen: false,
     minHeight: 200,
     width: 200,
-    appendTo: "#form-box",
-    position: ({ my: "bottom", at: "center top", of: "#form-box" }),
+    // appendTo: "#form-box",
+    position: ({ my: "top", at: "center bottom", of: "#under-header" }),
     show: {
         effect: "bounce",
         duration: 1500

@@ -1,9 +1,9 @@
 <div id="register-box">
   <h4>Register</h4>
   <%=form_for @user, id: 'register-form' do |f| %>
-    <%= f.text_field :user_name, placeholder: "User Name" %>
-    <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"%>
-    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.text_field :user_name, placeholder: "User Name", required: true, title: "User Name" %>
+    <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$", required: true, title: "Email"%>
+    <%= f.password_field :password, placeholder: "Password", required: true, title: "Password" %>
     <%= f.submit "Register", class: 'button large', id: "register-button" %>
   <% end %>
 </div>
