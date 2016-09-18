@@ -1,49 +1,42 @@
+<div class="row align-center">
+	<div class="small-8 columns">
+		<h2 id="event-show-title"><%= @event.title %></h2>
+	</div>
+</div>
 
+<div class="row align-center">
+	<div class="small-10 columns">
+		<h5><%= @event.venue.address %> | <%= @event.date.strftime("%B #{@event.date.day.ordinalize}") %> | <%= @event.time.strftime('%-I:%M%p') %></h5>
+	</div>
+</div>
 
+<div class="row align-center">
+	<div class="small-1 columns"></div>
+	<div class="small-3 columns" id="event-show-guest-list">
+		<p>Guests: <%= @event.limit %></p>
+		<h5><%= @event.guests.length %> People Attending:</h5>
+		<%@event.guests.each do |guest| %>
+			<div class="event-attendee-container">
+			<%= link_to guest.user_name, user_path(guest)%>
+			</div>
+		<% end %>
+	</div>
+	<div class="small-1 columns"></div>
+	<div class="small-7 columns">
+		<div id="venue-games">
+			<% if @event.games %>
+				<%= render partial: 'shared/games', locals: { games: @event.games } %>
+			<% else %>
+				<%= render partial: 'no_games' %>
+			<% end %>
+		</div>
+		<p><%= @event.description %></p>
+	</div>
+</div>
 
-<h2 id="event-show-title"><%= @event.title %></h3>
 
 <div class="row">
-
-	<div class="small-3 columns" id="event-show-guest-list">
-		<h5><b>People Attending:</b></h5>
-			<%@event.guests.each do |guest| %>
-				<div style="font-size: 22px" class="event-attendee-container">
-				<%= link_to guest.user_name, user_path(guest)%>
-				</div>
-			<% end %>
-	</div>
-
-	<div class="small-9 columns" id="event-show-content-container">
-
-		<div class="row" id="event-show-picture">
-		</div>
-
-		<div class="row">
-			<div class="small-6 columns" id="event-show-details">
-
-				<div class="row" id="event-show-location">
-					 <b>Location:&nbsp</b><%= @event.location %>
-				</div>
-
-				<div class="row" id="event-show-games">
-					<b>Games:&nbsp</b> <% @event.games.each do |game| %>
-						<%= game.name %>
-					<% end %>
-				</div>
-
-				<div class="row" id="event-show-date">
-					<b>Date:&nbsp</b> <%= @event.date.strftime("%B #{@event.date.day.ordinalize}") %>
-				</div>
-
-				<div class="row" id="event-show-time">
-					<b>Time:&nbsp</b> <%= @event.time.strftime('%-I:%M%p') %>
-				</div>
-
-				<div class="row" id="event-show-max">
-					<b>Max Guests:&nbsp</b> <%= @event.limit %>
-				</div>
-
+	
 				<div class ="row">
 					<% if @event.guests.include?(current_user) %>
 						<p>You are already going!</p>
@@ -60,15 +53,6 @@
 			<!-- end left box below picture -->
 			</div>
 
-
-			<div class="small-6 columns">
-				<div class="row" id="event-show-description-header">
-					<b style="font-size: 30px">Description:&nbsp</b>
-				</div>
-				<div class="row" id="event-show-description-content">
-					<%= @event.description %>
-				</div>
-			</div>
 
 			<!-- end small 9 -->
 		</div>

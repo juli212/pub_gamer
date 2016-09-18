@@ -7,10 +7,23 @@
   </div>
 </div>
 
-<div class="row">
-	<div class="small-9 columns index-main">
+<!-- <div class="row">
+<div class="small-1 columns"></div>
+	<div class="small-10 columns index-main">
 		<% if @events && @events.length > 0 %>
 	  	<%= render partial: 'index_main', locals: { events: @events } %>
+		<% else %>
+			<p>No Events</p>
+		<% end %>
+		<%= will_paginate @events %>
+	</div>
+</div> -->
+
+<div class="row">
+<div class="small-1 columns"></div>
+	<div class="small-9 columns index-main">
+		<% if @events && @events.length > 0 %>
+	  	<%= render partial: 'new_index_main', locals: { events: @events } %>
 		<% else %>
 			<p>No Events</p>
 		<% end %>

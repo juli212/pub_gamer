@@ -18,11 +18,11 @@
   <%= form_for @venue, :html => {:id => "venue-create-form"} do |f| %>
 
   <div id="venue-name-field">
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </div>
 
   <div id="venue-address-wrapper">
-    <%= f.text_field :address %>
+    <%= f.text_field :address, required: true %>
   </div>
 
   <div id="venue-games-field">
