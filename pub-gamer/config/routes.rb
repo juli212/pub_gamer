@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :events do
     get :search, :on => :collection
+    get :add_venue, :on => :collection
     resources :comments, only: [:create]
   end
 
