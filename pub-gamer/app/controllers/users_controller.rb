@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def new
+    @user = User.new
     if request.xhr?
-      @user = User.new
       render partial: 'registration_form'
     end
   end
