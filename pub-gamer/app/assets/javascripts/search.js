@@ -45,4 +45,40 @@ $(document).ready(function() {
   //     $('.index-main').html(response);
   //   })
   // })
+  $( "#event_location" ).autocomplete({
+		minLength: 2,
+		appendTo: "#event-venue-results",
+		source: function(request, response) {
+  	  $.ajax({
+        url: "/events/add_venue",
+        dataType: "json",
+        data: {
+            term: request.term
+        },
+        success: function(data) {
+	        response($.map(data, function(item) {
+	          // console.log(data)
+	          return {
+	            label: item.name,
+	            value: item.name,
+	            address: item.address,
+	            id: item.id
+	          };
+	        }))
+	    	}
+			})   
+	  },
+	  select: function(event, ui) {
+	  	$target = $(event.target)
+	  	$('#event_address').val(ui.item.address);
+	  	$('#event-venue_id').html("<input type='hidden' id='event_venue_id' name='event[venue_id]'>");
+	  	$('#event_venue_id').val(ui.item.id);
+	  },
+	  focus: function(event, ui) {
+	  	$('.ui-menu-item').css('background-color', "white");
+	  	$('.ui-menu-item').css('color', "green");
+	  	$('.ui-state-focus').css('background-color', "green");
+	  	$('.ui-state-focus').css('color', "white");
+    }
+	})
 });
