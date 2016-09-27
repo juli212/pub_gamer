@@ -1,0 +1,29 @@
+
+.venue-index-avg-rating {
+	width: 200px;
+	height: 40px;
+	margin: 15px 0px 0px 0px;
+}
+
+.dimmed, .opaque {
+  width: 200px;
+  height: 40px;
+  position: relative;
+}
+
+.dimmed {
+  opacity: .3;
+  background: url("octopus.png") right;
+  background-size: 40px 40px;
+  width: 200px;
+  height: 40px;
+  float: right;
+}
+
+.opaque {
+  background: url("octopus.png") left;
+  background-size: 40px 40px;
+  width: 0px;
+  height: 40;
+  float: left;
+}
