@@ -1,18 +1,18 @@
 
 <div class="row" >
-	<div class="small-3 columns" id="venue-index-fav">
-		<div>
-			<%=link_to("Add New Venue!", new_venue_path, class: "button venue-index-head") %>
-		</div>
-		<h2 class="text-center">My Venues</h2>
-		<div id="venue-fav-sidebar">
-			<% @favorites.each do |fav| %>
-				<%= render partial: 'favorite_display', locals: { favorite: fav } %>
-			<% end %>
-		</div>
+	<div class="small-1 columns">
+	</div>
+	<div class="small-4 columns">
+			<%=link_to("Add New Venue!", new_venue_path, class: "button", id: "venue-create-link") %>
+	</div>
+	<div class="small-7 columns">
 	</div>
 
-	<div class="small-8 columns index-main">
+</div>
+<div class="row">
+	<div class="small-1 columns">
+	</div>
+	<div class="small-9 columns index-main">
 		<% if @venues && @venues.length > 0 %>
   		<%= render partial: 'index_main', locals: { venues: @venues } %>
   	<% else %>
