@@ -30,16 +30,21 @@ border-collapse:collapse;
 }
 
 #search-results ul li {
-	background-color: white;
-	color: green;
+	background-color: #FFFFF0;
+	color: #2B2936;
+	font-weight: bold;
+	padding-left: 7px;
 	display: inline-block;
-	border: 1px solid black;
+	border: 2px solid #EDD0AF;
 	width: 100%;
 	height: 30px;
 	border-top: none;
+	overflow: hidden;
 }
 
 #search-txt {
+	color: #2B2936;
+	font-weight: bold;
 	padding-left: 7px;
   border: medium none;
   width: 400px;
