@@ -42,6 +42,8 @@ function initMap() {
 // debugger;
   document.getElementById('venue_name').value = place.name;
   document.getElementById('venue_address').value = place.formatted_address;
+  document.getElementById('venue_neighborhood').value = place.address_components[2].long_name;
+  document.getElementById('venue_place').value = place.place_id;
 
   $('#venue-create-form').fadeIn(300)
 
