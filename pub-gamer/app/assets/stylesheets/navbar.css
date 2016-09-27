@@ -5,6 +5,7 @@
   padding: 0;
   height: 100%;
   background-color: #2B2936;
+  position:fixed;
 }
 
 .top-bar a {
@@ -47,21 +48,7 @@
   line-height: 100%
 }
 
+nav {
+  margin-left: -12px;
+}
 
-/*.nav-highlight {
-  background-color: #635A8E;
-  color: green;
-}*/
-/*.nav-highlight a {*/
-  /*color: green;*/
-  /*background-color: orange;*/
-/*}*/
-
-/*.nav-highlight:hover a {
-  color: #827aa4;
-}*/
-/*.top-bar .nav-highlight:hover > * {
-  background-color: orange;
-  color: green;
-  text-decoration-color: green;
-}*/
