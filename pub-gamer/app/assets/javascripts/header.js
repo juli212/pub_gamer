@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	$header = $('#page-header')
 	$path = window.location.pathname
-	if ($path == "/" ) {
-		$('.header-row').remove();
+	if ($path == "/" || $path == "") {
+		$('#header-row').remove();
 	}	else if ($path.includes("event")) {
 		$('#events').css('color','#EDD0AF');
 		$('#events').css('background-color', '#635A8E');
