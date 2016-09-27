@@ -39,7 +39,7 @@ $(document).ready(function() {
     minHeight: 500,
     width: 500,
     // appendTo: ,
-    position: ({ my:"top", at: "middle", of: "#page-header-bottom"}),
+    position: ({ my:"top", at: "bottom", of: "#header-row"}),
     show: {
       effect: "bounce",
       duration: 1500
