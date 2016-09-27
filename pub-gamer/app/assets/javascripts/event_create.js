@@ -37,6 +37,18 @@ $(document).ready(function() {
     $("#event-create-container").dialog('open');
   })
 
+  $('#venue-event-create-link').on('click', function(event){
+    event.preventDefault()
+    if (window.location.pathname.includes("venue") ) {
+      barName = $('#venue-name').text()
+      barAddress = $('#venue-address').text()
+      $('#event_location').val(barName);
+      $('#event_location').prop('readonly', true);
+      $('#event_address').val(barAddress);
+      $('#event_address').prop('readonly', true);
+    }
+    $("#event-create-container").dialog('open');
+  })
   // $('#event-create-form').on('submit', function(event){
   //   $target = $(event.target)
   //   $.ajax({
