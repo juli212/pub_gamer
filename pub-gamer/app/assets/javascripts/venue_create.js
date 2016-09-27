@@ -4,23 +4,23 @@ $(document).ready(function() {
     $(clicked_div).toggleClass('select-venue-game');
     $(clicked_div).find('input').prop('checked', !$(clicked_div).find('input').prop('checked'));
   })
+  $("#venue-create-form-container").dialog({
+    modal: true,
+    autoOpen: false,
+    minHeight: 250,
+    width: 650,
+    // appendTo: '#event-create-ajax-div',
+    position: ({ my:"center", at: "center", of: "#map-wrapper"}),
+    show: {
+        effect: "blind",
+        duration: 1000
+    },
+    hide: {
+        effect: "explode",
+        duration: 1000
+    }
+  });
 });
-  // $("#event-create-container").dialog({
-  //   modal: true,
-  //   autoOpen: false,
-  //   minHeight: 500,
-  //   width: 500,
-  //   // appendTo: '#event-create-ajax-div',
-  //   position: ({ my:"top", at: "bottom", of: "#header-row"}),
-  //   show: {
-  //       effect: "blind",
-  //       duration: 1000
-  //   },
-  //   hide: {
-  //       effect: "explode",
-  //       duration: 1000
-  //   }
-  // });
 
   // $('#event-create-link').on('click', function(event){
     // event.preventDefault()
@@ -32,5 +32,5 @@ $(document).ready(function() {
     //   $('#event_address').val(barAddress);
     //   $('#event_address').prop('readonly', true);
     // }
-    // $("#event-create-container").dialog('open');
+    // $("#venue-create-form-container").dialog('open');
   // })

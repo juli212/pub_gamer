@@ -41,12 +41,14 @@ function initMap() {
     marker.setVisible(true);
 // debugger;
   document.getElementById('venue_name').value = place.name;
+  $('#venue_name').prop('readonly', true);
   document.getElementById('venue_address').value = place.formatted_address;
+  $('#venue_address').prop('readonly', true);
   document.getElementById('venue_neighborhood').value = place.address_components[2].long_name;
   document.getElementById('venue_place').value = place.place_id;
 
-  $('#venue-create-form').fadeIn(300)
-
+    $("#venue-create-form-container").dialog('open');
+  // $('#venue-create-form').fadeIn(300)
     var phone = place.formatted_phone_number || "No Phone Number"
 
     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
