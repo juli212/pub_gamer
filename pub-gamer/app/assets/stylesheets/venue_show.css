@@ -10,6 +10,21 @@
 	text-align: center;
 }
 
+#venue-event-create-link {
+	margin-top: 15px;
+  padding: 20px;
+  font-size: 25px;
+  border-radius: 20px;
+  display: block;
+  text-align: center;
+  width: 70%;
+}
+
+#venue-event-create-link:hover, #new-review-button:hover {
+  color: #FFFFF0;
+  background-color: #827AA4;
+}
+
 #fav {
 	width: 100px;
 	height: 60px;
@@ -65,16 +80,18 @@
 }
 
 .display-game {
+	/*text-align: center;*/
 	display: inline-block;
 	font-weight: bold;
 	color: #FFFFF0;
 	background-color: #827AA4;
 	border-radius: 30%;
-	border: 1px solid;
+	/*border: 1px solid;*/
 	padding: 4px 8px;
 	min-width: 60px;
 	height: 35px;
-	margin-right: 10px;
+	margin: 0px 10px 5px 0px;
+	/*float: center;*/
 }
 
 .review-content {
