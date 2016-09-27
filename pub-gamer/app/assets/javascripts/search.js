@@ -27,10 +27,10 @@ $(document).ready(function() {
 	  	// $('#venue-query').val(ui.item.value);
 	  // },
 	  focus: function(event, ui) {
-	  	$('.ui-menu-item').css('background-color', "white");
-	  	$('.ui-menu-item').css('color', "green");
-	  	$('.ui-state-focus').css('background-color', "green");
-	  	$('.ui-state-focus').css('color', "white");
+	  	$('.ui-menu-item').css('background-color', "#FFFFF0");
+	  	$('.ui-menu-item').css('color', "#2B2936");
+	  	$('.ui-state-focus').css('background-color', "#827AA4");
+	  	$('.ui-state-focus').css('color', "#EDD0AF");
     }
 	})
   // $('#search-form').on('submit', function(event) {
