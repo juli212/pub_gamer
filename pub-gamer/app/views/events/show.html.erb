@@ -11,17 +11,30 @@
 </div>
 
 <div class="row align-center">
-	<div class="small-1 columns"></div>
-	<div class="small-3 columns" id="event-show-guest-list">
-		<p>Guests: <%= @event.limit %></p>
-		<h5><%= @event.guests.length %> People Attending:</h5>
+	<div class="small-3 columns event-show-side">
+		<% if @event.guests.include?(current_user) %>
+			<p>You are already going!</p>
+			<%= link_to "Cannot make it", event_path(@event), method: :delete %>
+			<% @event.guests.each do |guest| %>
+				<%= guest.user_name %>
+			<% end %>
+		<% elsif @event.full? %>
+			<p>Event is full :( you cannot join...</p>
+		<% else %>
+			<%= link_to "Join Event!", event_path(@event), method: :put %>
+		<% end %>
+		
+		<p>Guest Limit: <%= @event.limit %></p>
+		<p><%= @event.guests.length %> Confirmed</p>
+		<h5>Who's Attending:</h5>
 		<%@event.guests.each do |guest| %>
 			<div class="event-attendee-container">
 			<%= link_to guest.user_name, user_path(guest)%>
 			</div>
 		<% end %>
 	</div>
-	<div class="small-1 columns"></div>
+	<div class="small-1 columns">
+	</div>
 	<div class="small-7 columns">
 		<div id="venue-games">
 			<% if @event.games %>
@@ -34,56 +47,23 @@
 	</div>
 </div>
 
-
-<div class="row">
-	
-				<div class ="row">
-					<% if @event.guests.include?(current_user) %>
-						<p>You are already going!</p>
-						<%= link_to "Cannot make it", event_path(@event), method: :delete %>
-						<% @event.guests.each do |guest| %>
-							<%= guest.user_name %>
-						<% end %>
-					<% elsif @event.full? %>
-						<p>Event is full :( you cannot join...</p>
-					<% else %>
-						<%= link_to "Join Event!", event_path(@event), method: :put %>
-					<% end %>
-				</div>
-			<!-- end left box below picture -->
-			</div>
-
-
-			<!-- end small 9 -->
-		</div>
-		<!-- end nested row below picture -->
+<div class="row" id="event-show-comments">
+	<div class="small-3 columns">
 	</div>
-	<!-- end outside row -->
-</div>
-
-		<div class="row" id="event-show-comment-container">
-		<div class="small-3 columns">
-		</div>
-		<div class="small-5 columns"
-			<% if @event.guests.include?(current_user) %>
-				<% @comments.each do |comment| %>
-					<%= comment.body %>
-					<h6>
-					-<%= comment.username %>
-					</h6>
-					~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-					<br>
-
-				<% end %>
-
-
-				<%= form_for [@event, @comment] do |f| %>
-
-					<%= f.text_area :body  %>
-
-					<%= f.submit "Comment!", class: "button", id: "comment-button" %>
-				<% end %>
+	<div class="small-5 columns">
+		<% if @event.guests.include?(current_user) %>
+			<% @comments.each do |comment| %>
+				<%= comment.body %>		
+				<h6>-<%= comment.username %></h6>
 			<% end %>
-			<div class="small-4 columns">
-			</div>
-		</div>
+			<%= form_for [@event, @comment] do |f| %>
+
+				<%= f.text_area :body  %>
+
+				<%= f.submit "Comment!", class: "button", id: "comment-button" %>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="small-4 columns">
+	</div>
+</div>
