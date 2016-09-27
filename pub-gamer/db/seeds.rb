@@ -13,29 +13,59 @@ users = User.create([{user_name: "julia", password: "password", email: "julia@ju
 
 venues = Venue.create([
 	{name: "Slainte Bar and Lounge",
-		address: "304 Bowery, New York, NY 10012, USA"}, 
+		address: "304 Bowery, New York, NY 10012, USA",
+    place: "ChIJkQhyD4VZwokRkuLC_HdUQsU",
+    neighborhood: "Lower Manhattan" }, 
 	{name: "The Iron Horse NYC", 
-		address: "32 Cliff St, New York, NY 10038, USA"},
+		address: "32 Cliff St, New York, NY 10038, USA",
+    place: "ChIJKwU9OD1awokRQIUbiv9EgPM",
+    neighborhood: "Lower Manhattan" },
 	{name: "Welcome To The Johnsons",
-  	address: "123 Rivington St, New York, NY 10002, USA" },
+  	address: "123 Rivington St, New York, NY 10002, USA",
+    place: "ChIJD5T-FIFZwokRKLQDKrQ68-0",
+    neighborhood: "Lower Manhattan" },
   {name: "Parkside Lounge",
-  	address: "317 E Houston St, New York, NY 10002, USA"},
+  	address: "317 E Houston St, New York, NY 10002, USA",
+    place: "ChIJv2vIB4JZwokRQbbrk0W6I88",
+    neighborhood: "Lower Manhattan" },
   {name: "Bar Nine",
-  	address: "807 9th Ave, New York, NY 10019, USA"},
+  	address: "807 9th Ave, New York, NY 10019, USA",
+    place: "ChIJr3VP4FlYwokRcyikcDo79w8",
+    neighborhood: "Midtown" },
   {name: "Iona",
-  	address: "180 Grand St, Brooklyn, NY 11211, USA"},
+  	address: "180 Grand St, Brooklyn, NY 11211, USA",
+    place: "ChIJhxiuQmBZwokR-arCbRYMzdQ",
+    neighborhood: "Williamsburg" },
 	{name: "Banter Bar",
-  	address: "132 Havemeyer St, Brooklyn, NY 11211, USA"},
-  {name: "The Edge",
-  	address: "95 E 3rd St, New York, NY 10003, USA"},
+  	address: "132 Havemeyer St, Brooklyn, NY 11211, USA",
+    place: "ChIJv6BWj19ZwokRISnmtQh0HTQ",
+    neighborhood: "Williamsburg"},
+  {name: "Edge Bar",
+  	address: "95 E 3rd St, New York, NY 10003, USA",
+    place: "ChIJlYfAaYNZwokRUYk1BIpM8dM",
+    neighborhood: "Lower Manhattan" },
   {name: "The Irish American Pub",
-  	address: "17 John St, New York, NY 10038, USA"}
+  	address: "17 John St, New York, NY 10038, USA",
+    place: "ChIJ4ayAJRhawokRjzLOsdPWMCs",
+    neighborhood: "Lower Manhattan" },
+  {name: "Cherry Tavern",
+    address: "441 E 6th st, New York, NY 10009, USA",
+    place: "ChIJc2yQSp1ZwokRjcWYA96Gmzg",
+    neighborhood: "Lower Manhattan"},
+  {name: "Alligator Lounge",
+    address: "600 Metropolitan Ave, Brooklyn, NY 11211, USA",
+    place: "ChIJi72NxllZwokROkAxMMbU_nw",
+    neighborhood: "Williamsburg" },
+  {name: "Double Down Saloon",
+    address: "14 Avenue A, New York, NY 10009, USA",
+    place: "ChIJRZhgTIJZwokR5ZRVoHE3tlw",
+    neighborhood: "Lower Manhattan" }
 ])
 
 vibes = Vibe.create([  
-  {name: 'chill', pic: 'chillVibePurple.png'},
-  {name: 'expensive', pic: 'expensiveVibePurple.png'},
-  {name: 'divey', pic: 'diveyVibePurple.png'}])
+  {name: 'Chill', pic: 'chillVibePurple.png'},
+  {name: 'Pricey', pic: 'expensiveVibePurple.png'},
+  {name: 'Divey', pic: 'diveyVibePurple.png'}])
 
 
 VenueGame.create([
@@ -53,4 +83,10 @@ VenueGame.create([
   {game_id: 2, venue_id: 7},
   {game_id: 4, venue_id: 7},
   {game_id: 1, venue_id: 8},
-  {game_id: 1, venue_id: 9}])
+  {game_id: 1, venue_id: 9},
+  {game_id: 1, venue_id: 10},
+  {game_id: 5, venue_id: 11},
+  {game_id: 4, venue_id: 11},
+  {game_id: 1, venue_id: 11},
+  {game_id: 1, venue_id: 12}
+])
