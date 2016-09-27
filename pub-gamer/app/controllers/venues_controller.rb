@@ -38,10 +38,11 @@ class VenuesController < ApplicationController
   def new
     @venue = Venue.new
     @game = Game.new
-    @games = Game.all[0..4]
+    @games = Game.first(6)
   end
 
   def create
+    binding.pry
     @venue = Venue.new(venue_params)
     if @venue.save
       if params[:venue][:games]

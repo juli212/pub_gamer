@@ -2,26 +2,23 @@ class EventsController < ApplicationController
   before_filter :require_login
 
   def index
+    # binding.pry
     @event = Event.new
     @games = Game.all
-    @created_events = Event.where("user_id = #{current_user.id}")
-    # if params[:query]
-    #   @events = Event.search(params[:query])
-    # else
+    @events = Event.paginate(:page => params[:page], :per_page => 8)
+    # @attended_events = []
+    # @events.each do |event|
+    #   if event.attending_event?(current_user)
+    #     @attended_events << event
+    #   end
     # end
-      @events = Event.paginate(:page => params[:page], :per_page => 8)
-    @attended_events = []
-    @events.each do |event|
-      if event.attending_event?(current_user)
-        @attended_events << event
-      end
-    end
     # if request.xhr?
     #   render partial: 'index_main', locals: { events: @events }
     # end
   end
 
   def search
+    @event = Event.new
     respond_to do |format|
       format.html { @events = Event.search(params[:term]).paginate(:page => params[:page], :per_page => 5) }
       format.json { @results = Event.search(params[:term]) + Game.game_search(params[:term]) }
@@ -34,49 +31,52 @@ class EventsController < ApplicationController
     end
   end
 
-  def show
-  	@event = Event.find_by(id: params[:id])
-    @comments = @event.comments
-    @comment = Comment.new
-    render 'show'
-  end
-
   def new
-	  @event = Event.new
+    @event = Event.new
     @games = Game.all
-    if request.xhr?
-      render partial: '/events/event_create'
-    end
+    # if request.xhr?
+    #   render partial: '/events/event_create'
+    # end
   end
 
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     games = params[:games]
-    if !(games == nil) && @event.in_future?
-      @event.save
-      @event.games << Game.find(games)
+    if @event.in_future? && @event.save
+      !(games == nil) ? @event.games << Game.find(games) : @event.games = nil
       redirect_to event_path(@event)
-    elsif @event.in_future?
-      @event.save
-      redirect_to event_path(@event)
-  	else
-      @event = @event
+    else
+      @errors = @event.errors.full_messages
       @games = Game.all
-  	  @errors = @event.errors.full_messages
-      render 'new'
-  	end
+      @events = Event.paginate(:page => params[:page], :per_page => 8)
+      # redirect_to :back
+      render 'index'
+    end
   end
+   #  if !(games == nil) && @event.in_future?
+   #    @event.save
+   #    @event.games << Game.find(games)
+   #    redirect_to event_path(@event)
+   #  elsif @event.in_future?
+   #    @event.save
+   #    redirect_to event_path(@event)
+    # else
+   #    @event = @event
+   #    @games = Game.all
+    #   @errors = @event.errors.full_messages
+   #    render 'new'
+    # end
 
   # def edit
-  # 	# if !logged_in?
-  # 	  redirect_to events_path
-  # 	# else
-  # 	  @user = User.find_by(id: session[:user_id])
-  # 	  @event = Event.find_by(id: params[:id])
-  # 		if @user.id == @event.user_id
-  # 		end
-  # 	# end
+  #   # if !logged_in?
+  #     redirect_to events_path
+  #   # else
+  #     @user = User.find_by(id: session[:user_id])
+  #     @event = Event.find_by(id: params[:id])
+  #     if @user.id == @event.user_id
+  #     end
+  #   # end
   # end
 
   def update
@@ -89,6 +89,13 @@ class EventsController < ApplicationController
     @event = Event.find_by(id: params[:id])
     @event.guests.delete(current_user)
     redirect_to event_path(@event)
+  end
+
+  def show
+  	@event = Event.find_by(id: params[:id])
+    @comments = @event.comments
+    @comment = Comment.new
+    render 'show'
   end
 
   def search_events

@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
 	def create
-		binding.pry
 		@event = Event.find_by(id: params[:event_id])
 		@comment = Comment.new(comment_params)
 		@comment.user_id = current_user.id
