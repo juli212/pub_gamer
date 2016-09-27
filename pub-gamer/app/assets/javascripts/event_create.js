@@ -1,13 +1,4 @@
 // $(document).ready(function() {
-//   $('#event-create-link').on('click', function(event){
-//     event.preventDefault();
-//     $target = $(event.target)
-//     $.ajax({
-//       url: $target.attr('href')
-//     }).done(function(response){
-//       $('#event-create-ajax-div').append(response);
-//     })
-//   })
 // });
 
 $(document).ready(function() {
@@ -22,7 +13,7 @@ $(document).ready(function() {
     minHeight: 500,
     width: 500,
     // appendTo: '#event-create-ajax-div',
-    position: ({ my:"top", at: "middle", of: "#page-header-bottom"}),
+    position: ({ my:"top", at: "bottom", of: "#header-row"}),
     show: {
         effect: "blind",
         duration: 1000
@@ -34,18 +25,33 @@ $(document).ready(function() {
   });
 
   $('#event-create-link').on('click', function(event){
-  event.preventDefault()
-        // debugger;
+    event.preventDefault()
     if (window.location.pathname.includes("venue") ) {
       barName = $('#venue-name').text()
       barAddress = $('#venue-address').text()
       $('#event_location').val(barName);
-      $('#event_address').val(barAddress);
       $('#event_location').prop('readonly', true);
+      $('#event_address').val(barAddress);
       $('#event_address').prop('readonly', true);
     }
-    // $form = $(event.target).next()
     $("#event-create-container").dialog('open');
   })
+
+  // $('#event-create-form').on('submit', function(event){
+  //   $target = $(event.target)
+  //   $.ajax({
+  //     url: $target.attr('action'),
+  //     method: $target.attr('method'),
+  //     data: $target.serialize()
+  //   })
+  //   .done(function(){
+  //   })
+  //   .fail(function(response){
+  //     event.preventDefault()
+  //     // debugger;
+  //     $('#event-create-container').html(response);
+  //     // $('#event-create-container').prepend(response);
+  //   })
+  // })
 
 });
