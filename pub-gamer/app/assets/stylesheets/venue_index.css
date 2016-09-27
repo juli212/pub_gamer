@@ -25,28 +25,23 @@
 	padding-right: 40px;
 }
 
-/*.add-games {
-	border-radius: 10px;
-	margin-top: 15px;
-}*/
-
 #venue-create-form {
-  position: relative;
-  bottom: 280px;
-  left: -20px;
-  z-index: 99;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-  display: none;
-  background: rgba(73, 115, 77,0.9);
-  width: 650px;
-  height: 250px;
-  border-radius: 10px;
+	border: 2px solid rgba(43,41,54, 1.0);
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFF0;
+  background-color: #2B2936;
+  opacity: 0.6;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 #venue-create-form input {
+	text-align: center;
+	background-color: #FFFFF0;
 	border-radius: 10px;
+	opacity: 0.8;
 }
 
 #venue-create-games {
@@ -56,6 +51,7 @@
 .venue-create-game-button {
   position: fixed;
   opacity: 0;
+	visibility: hidden;
 }
 
 .venue-create-game {
@@ -63,7 +59,10 @@
 	min-width: 10%;
 	padding: 0px 10px;
 	border-radius: 40%/50%;
-	background-color: red;
+	/*background-color: #2B2936;*/
+	/*background-color: rgba(43,41,54, 1.0);*/
+	border: 2px solid #2B2936;
+	/*opacity: 1;*/
 }
 
 .venue-create-game p {
@@ -71,15 +70,17 @@
 }
 
 .venue-create-game:hover {
-	color: yellow;
-	background-color: purple;
+	border: 2px solid #FFFFF0;
+  background-color: #827AA4;
 }
 
 .select-venue-game {
-	background-color: black;
-	color: orange;
+	color: #EDD0AF;
+	background-color: #827AA4;
+  border: 2px solid #827AA4;
 }
 
-.selected-venue-game label {
-	color: orange;
+#venue-create-submit-button {
+	color: #2B2936;
+	background-color: #FFFFF0;
 }
