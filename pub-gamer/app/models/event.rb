@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :venue
+	belongs_to :neighborhood
 
 	has_many :comments
 	has_many :event_games
@@ -27,12 +28,17 @@ class Event < ActiveRecord::Base
 	end
 
 	def self.search(term)
-		events = Event.event_search(term) + Event.event_venue_search(term) + Event.game_search(term)
+		events = Event.event_search(term) + Event.event_venue_search(term) + Event.game_search(term) + Event.multi_word_search(term)
 		events.uniq
 	end
 
+	def self.multi_word_search(term)
+		words = term.split.join(' & ')
+		joins(:games).joins(:venue).where("to_tsvector(events.title || ' ' || events.description || ' ' || games.name || ' ' || venues.name || ' ' || venues.neighborhood) @@ to_tsquery('#{words}')")
+	end
+
 	def self.event_venue_search(term)
-		joins(:venue).where("venues.name ILIKE :term", term: "%#{term.downcase}%").uniq
+		joins(:venue).where("venues.name ILIKE :term OR venues.address ILIKE :term OR venues.neighborhood ILIKE :term", term: "%#{term.downcase}%").uniq
 	end
 	
 	def self.game_search(term)
