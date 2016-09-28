@@ -34,11 +34,11 @@ class Event < ActiveRecord::Base
 
 	def self.multi_word_search(term)
 		words = term.split.join(' & ')
-		joins(:games).joins(:venue).where("to_tsvector(events.title || ' ' || events.description || ' ' || games.name || ' ' || venues.name || ' ' || venues.neighborhood) @@ to_tsquery('#{words}')")
+		joins(:games).joins(:venue).joins('JOIN neighborhoods ON neighborhoods.id = venues.neighborhood_id').where("to_tsvector(events.title || ' ' || events.description || ' ' || games.name || ' ' || venues.name || ' ' || neighborhoods.name) @@ to_tsquery('#{words}')").uniq
 	end
 
 	def self.event_venue_search(term)
-		joins(:venue).where("venues.name ILIKE :term OR venues.address ILIKE :term OR venues.neighborhood ILIKE :term", term: "%#{term.downcase}%").uniq
+		joins(:venue).joins('JOIN neighborhoods ON neighborhoods.id = venues.neighborhood_id').where("venues.name ILIKE :term OR venues.address ILIKE :term OR neighborhoods.name ILIKE :term", term: "%#{term.downcase}%").uniq
 	end
 	
 	def self.game_search(term)
@@ -46,9 +46,12 @@ class Event < ActiveRecord::Base
 	end
 
 	def self.event_search(term)
-		where("title ILIKE :term OR description ILIKE :term", term: "%#{term.downcase}%")
+		where("title ILIKE :term OR description ILIKE :term", term: "%#{term.downcase}%").uniq
 	end
 
+	# def self.neighborhood_search(term)
+	# 	joins(:venue).joins('JOIN neighborhoods ON neighborhoods.id = venues.neighborhood_id').where("neighborhoods.name ILIKE :term", term: "%#{term.downcase}%")
+	# end
 
 	def full?
 		self.guests.length >= self.limit

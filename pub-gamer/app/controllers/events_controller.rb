@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   def index
     # binding.pry
     @event = Event.new
-    @games = Game.all
+    @games = Game.limit(6)
     @events = Event.paginate(:page => params[:page], :per_page => 8)
     # @attended_events = []
     # @events.each do |event|
@@ -17,11 +17,19 @@ class EventsController < ApplicationController
     # end
   end
 
+  def update_games
+    # binding.pry
+    @games = Venue.find_by(id: params[:event][:venue_id]).games
+    if request.xhr?
+      render partial: 'shared/games', locals: { games: @games }
+    end
+  end
+
   def search
     @event = Event.new
     respond_to do |format|
       format.html { @events = Event.search(params[:term]).paginate(:page => params[:page], :per_page => 5) }
-      format.json { @results = Event.search(params[:term]) + Game.game_search(params[:term]) }
+      format.json { @results = Event.search(params[:term]) + Game.game_search(params[:term]) + Neighborhood.neighborhood_search(params[:term]) }
     end
   end
 
@@ -31,9 +39,15 @@ class EventsController < ApplicationController
     end
   end
 
+  def add_games
+    respond_to do |format|
+      format.json { @results = Game.game_search(params[:term]) }
+    end
+  end
+
   def new
     @event = Event.new
-    @games = Game.all
+    @games = Game.limit(6)
     # if request.xhr?
     #   render partial: '/events/event_create'
     # end
@@ -98,19 +112,19 @@ class EventsController < ApplicationController
     render 'show'
   end
 
-  def search_events
-    @query ="%#{params[:query]}%"
-    @favorites = current_user.favorites
-    @events = Event.where("title ilike ? or location ilike ? or description ilike ?", @query, @query, @query)
-    @created_events = Event.where("user_id = #{current_user.id}")
-    @attended_events = []
-    @events.each do |event|
-      if event.attending_event?(current_user)
-        @attended_events << event
-      end
-    end
-    render 'index'
-  end
+  # def search_events
+  #   @query ="%#{params[:query]}%"
+  #   @favorites = current_user.favorites
+  #   @events = Event.where("title ilike ? or location ilike ? or description ilike ?", @query, @query, @query)
+  #   @created_events = Event.where("user_id = #{current_user.id}")
+  #   @attended_events = []
+  #   @events.each do |event|
+  #     if event.attending_event?(current_user)
+  #       @attended_events << event
+  #     end
+  #   end
+  #   render 'index'
+  # end
 
   private
 
