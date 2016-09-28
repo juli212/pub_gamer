@@ -21,17 +21,17 @@ class Venue < ActiveRecord::Base
 	# end
 
 	def self.search(term)
-		venues = Venue.venue_search(term) + Venue.multi_word_search(term) + Venue.game_search(term)
+		venues = Venue.venue_search(term) + Venue.multi_word_search(term) + Venue.game_search(term) + Venue.search_neighborhood(term)
 		venues.uniq
 	end
 
 	def self.multi_word_search(term)
 		words = term.split.join(' & ')
-		joins(:games).where("to_tsvector(venues.name || ' ' || venues.address || ' ' || venues.neighborhood || ' ' || games.name) @@ to_tsquery('#{words}')")		
+		joins(:games).joins(:neighborhood).where("to_tsvector(venues.name || ' ' || venues.address || ' ' || neighborhoods.name || ' ' || games.name) @@ to_tsquery('#{words}')")		
 	end
 
 	def self.venue_search(term)
-		where("name ILIKE :term OR address ILIKE :term OR neighborhood ILIKE :term", term: "%#{term.downcase}%")
+		where("name ILIKE :term OR address ILIKE :term", term: "%#{term.downcase}%")
 	end
 
 	def self.game_search(term)
@@ -39,7 +39,8 @@ class Venue < ActiveRecord::Base
 	end
 
 	def self.search_neighborhood(term)
-		where("neighborhood ILIKE :term", term: "%#{term.downcase}%").pluck(:neighborhood).uniq
+		joins(:neighborhood).where("neighborhoods.name ILIKE :term", term: "%#{term.downcase}%").uniq
+		# where("neighborhood ILIKE :term", term: "%#{term.downcase}%").pluck(:neighborhood).uniq
 	end
 
 #used in add_venue, events controller:

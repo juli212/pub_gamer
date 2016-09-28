@@ -31,7 +31,13 @@ class VenuesController < ApplicationController
     @favorites = current_user.favorites
     respond_to do |format|
       format.html { @venues = Venue.search(params[:term]).paginate(:page => params[:page], :per_page => 8) }
-      format.json { @results = Venue.search(params[:term]) + Game.game_search(params[:term]) }
+      format.json { @results = Venue.search(params[:term]) + Game.game_search(params[:term]) + Neighborhood.neighborhood_search(params[:term]) }
+    end
+  end
+
+  def add_games
+    respond_to do |format|
+      format.json { @results = Game.game_search(params[:term]) }
     end
   end
 
@@ -76,19 +82,19 @@ class VenuesController < ApplicationController
     @venue = Venue.find_by(id: params[:id])
     @reviews = @venue.sorted_reviews.paginate(:page => params[:page], :per_page => 4)
     @review = Review.new
-    @games = Game.all
+    @games = @venue.games.limit(6).uniq
     @event = Event.new
     @vibes = Vibe.all
     @current_rating = @venue.avg_rating
     render 'show'
   end
 
-  def search_venues
-    @query ="%#{params[:query]}%"
-    @favorites = current_user.favorites
-    @venues = Venue.where("name ilike ? or address ilike ? or description ilike ?", @query, @query, @query)
-    render 'index'
-  end
+  # def search_venues
+  #   @query ="%#{params[:query]}%"
+  #   @favorites = current_user.favorites
+  #   @venues = Venue.where("name ilike ? or address ilike ? or description ilike ?", @query, @query, @query)
+  #   render 'index'
+  # end
 
 private
 
