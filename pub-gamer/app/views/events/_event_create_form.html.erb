@@ -36,13 +36,7 @@
         <% if @games && !@games.empty? %>
           <%= f.label "Games" %>
           <div id="event-create-games">
-            <% @games.each do |game| %>
-              <div class="event-game", title="Games">
-                <%= check_box_tag "games[]", game.id, false, class: "game-button" %>
-                <br>
-                <label class="event-game-label"><%= game.name %></label>
-              </div> 
-            <% end %>
+            <%= render partial: 'events/event_create_games', locals: { games: @games } %>
           </div>
         <% end %>
         <div id="event-create-button-div">

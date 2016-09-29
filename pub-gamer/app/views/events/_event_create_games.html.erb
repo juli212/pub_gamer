@@ -1,0 +1,7 @@
+<% games.each do |game| %>
+  <div class="event-game", title="Games">
+    <%= check_box_tag "games[]", game.id, false, class: "game-button" %>
+    <br>
+    <label class="event-game-label"><%= game.name %></label>
+  </div> 
+<% end %>
