@@ -19,9 +19,9 @@ class EventsController < ApplicationController
 
   def update_games
     # binding.pry
-    @games = Venue.find_by(id: params[:event][:venue_id]).games
+    games = Venue.find_by(id: params[:event][:venue_id]).games
     if request.xhr?
-      render partial: 'shared/games', locals: { games: @games }
+      render partial: 'events/event_create_games', locals: { games: games }
     end
   end
 
