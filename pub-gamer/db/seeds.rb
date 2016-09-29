@@ -34,7 +34,7 @@ venues = Venue.create([
   	address: "317 E Houston St, New York, NY 10002, USA",
     place: "ChIJv2vIB4JZwokRQbbrk0W6I88",
     neighborhood_id: 1 },
-  {name: "Bar Nine",
+   {name: "Bar Nine",
   	address: "807 9th Ave, New York, NY 10019, USA",
     place: "ChIJr3VP4FlYwokRcyikcDo79w8",
     neighborhood_id: 3 },
