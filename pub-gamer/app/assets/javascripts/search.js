@@ -73,12 +73,21 @@ $(document).ready(function() {
 	  	$('#event_address').val(ui.item.address);
 	  	$('#event-venue_id').html("<input type='hidden' id='event_venue_id' name='event[venue_id]'>");
 	  	$('#event_venue_id').val(ui.item.id);
+	  	// debugger;
+	  	$.ajax({
+  	    url: 'events/update_games',
+    	  data: $('#event_venue_id').serialize()
+    	}).done(function(response){
+    		console.log(response);
+    		$('#event-create-games').html(response);
+      	// $('.index-main').html(response);
+    	})
 	  },
 	  focus: function(event, ui) {
-	  	$('.ui-menu-item').css('background-color', "white");
-	  	$('.ui-menu-item').css('color', "green");
-	  	$('.ui-state-focus').css('background-color', "green");
-	  	$('.ui-state-focus').css('color', "white");
+	  	$('.ui-menu-item').css('background-color', "#FFFFF0");
+	  	$('.ui-menu-item').css('color', "#2B2936");
+	  	$('.ui-state-focus').css('background-color', "#827AA4");
+	  	$('.ui-state-focus').css('color', "#EDD0AF");
     }
 	})
 });
