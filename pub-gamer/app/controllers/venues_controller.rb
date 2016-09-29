@@ -48,8 +48,8 @@ class VenuesController < ApplicationController
   end
 
   def create
-    binding.pry
     @venue = Venue.new(venue_params)
+    @venue.neighborhood = Neighborhood.find_or_create_by(name: params[:venue][:neighborhood].titleize)
     if @venue.save
       if params[:venue][:games]
         @venue.games << Game.find(params[:venue][:games])
@@ -99,7 +99,7 @@ class VenuesController < ApplicationController
 private
 
   def venue_params
-    params.require(:venue).permit(:name, :address, :neighborhood, :place, :other, :games)
+    params.require(:venue).permit(:name, :address, :place, :other, :games)
   end
 
 end

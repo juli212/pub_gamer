@@ -15,6 +15,10 @@ class Venue < ActiveRecord::Base
 	def game
 	end
 
+	def add_neighborhood(hood)
+		Neighborhood.find_or_create_by(name: hood.titleize)
+	end
+
 	# def self.single_phrase_search(term)
 	# 	venues = Venue.venue_search(term) + Venue.game_search(term)
 	# 	venues.uniq
