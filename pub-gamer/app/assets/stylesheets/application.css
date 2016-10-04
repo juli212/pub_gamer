@@ -75,6 +75,11 @@ h1 {
 
 .button {
   font-weight: bold;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 /*@media  screen and (max-device-width: 480px) (max-width: 1000px) {
