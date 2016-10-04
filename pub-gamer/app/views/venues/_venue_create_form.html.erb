@@ -22,10 +22,14 @@
 		    <% end %>
 	  	</div>
 	  	<div class="row">
-	  		<div class="small-6 columns">
+	  		<div class="small-7 columns">
+	  		<!-- <div class="small-5 columns"> -->
 	    		<%= f.text_field "game", placeholder: "Add Another Game", id: "other-text-field" %>
+	  		<!-- </div> -->
+	  		<!-- <div class="small-2 columns"> -->
+	  		<%= f.button "Add Game!", id: "add-new-game" %>
 	  		</div>
-	  		<div class="small-6 columns">
+	  		<div class="small-5 columns">
 	    		<%= f.text_field :neighborhood, required: true, placeholder: "neighborhood" %>
 	  		</div>
 	  	</div>
