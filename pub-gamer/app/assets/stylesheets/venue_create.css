@@ -61,14 +61,15 @@
 
 #add-new-game {
 	background-color: #827AA4;
+	/*height: 100%;*/
 	/*border: 1px solid black;*/
-	display: inline-block;
-	margin-top: -20px;
-	padding: 5px 15px;
-	width: 25%;
+	/*display: inline-block;*/
+	margin-left: -35px;
+	padding: 12px 20px;
+	/*width: 25%;*/
 }
 
 #other-text-field {
-	display: inline-block;
-	width: 60%;
+	/*display: inline-block;*/
+	/*width: 60%;*/
 }
