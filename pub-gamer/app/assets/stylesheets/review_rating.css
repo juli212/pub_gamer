@@ -3,6 +3,7 @@
   height: 50px;
   display: inline-block;
   margin: -2px -3px;
+  border-radius: 50%;
 }
 
 .octopus img {
@@ -16,7 +17,7 @@
 }
 
 .rated {
-  /*background-color: white;*/
+  background-color: #FFFFF0;
   /*border: 1px solid black;*/
 }
 
@@ -26,7 +27,7 @@
 
 .rate {
 /*  border: none;*/
-  /*background-color: white;*/
+  background-color: #FFFFF0;
   /*opacity: 0.3;*/
 }
 
@@ -37,6 +38,8 @@
 
 #rating {
   display: inline-block;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #EDD0AF;
   padding: 10px 0px;
+  background-color: #EDD0AF;
+  border-radius: 5px;
 }

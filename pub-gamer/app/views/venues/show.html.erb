@@ -3,7 +3,8 @@
 <%= render partial: 'venue' %>
 
 	<div class="row" >
-		<div class="small-7 columns" >
+		<div class="small-1 columns" ></div>
+		<div class="small-11 columns" >
 			<h2 class="text-center">Reviews</h2>
 			<div id="reviews">
 				<% if @venue.has_reviews? %>
@@ -16,12 +17,6 @@
 		  			<%= render partial: 'no_reviews' %>
 					</div>
 				<% end %>
-			</div>
-		</div>
-		<div class="small-5 columns text-center" >
-		  <h2>Add Review</h2>
-		  <div id="new-review-form" >
-				<%= render partial: 'reviews/new'%>
 			</div>
 		</div>
 	</div>

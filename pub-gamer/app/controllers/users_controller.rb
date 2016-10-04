@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def new
+    @user = User.new
     if request.xhr?
-      @user = User.new
       render partial: 'registration_form'
     end
   end
@@ -25,9 +25,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @favorites = @user.favorites
-    @created_events = @user.created_events
-    @upcoming_events = @user.events
+    if logged_in? && current_user == @user
+      @favorites = @user.favorites
+      @created_events = @user.created_events
+      @upcoming_events = @user.events
+    else
+      redirect_to root_path
+    end
   end
 
   def create

@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725021641) do
+ActiveRecord::Schema.define(version: 20160928153315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.text     "body",       null: false
-    t.integer  "event_id",   null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "body",                       null: false
+    t.boolean  "deleted",    default: false, null: false
+    t.integer  "event_id",                   null: false
+    t.integer  "user_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "event_games", force: :cascade do |t|
@@ -32,18 +33,25 @@ ActiveRecord::Schema.define(version: 20160725021641) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.text     "description", null: false
-    t.date     "date",        null: false
-    t.time     "time",        null: false
-    t.string   "location",    null: false
-    t.integer  "limit",       null: false
-    t.integer  "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "title",                       null: false
+    t.text     "description",                 null: false
+    t.date     "date",                        null: false
+    t.time     "time",                        null: false
+    t.integer  "limit",                       null: false
+    t.boolean  "deleted",     default: false, null: false
+    t.integer  "user_id",                     null: false
+    t.integer  "venue_id",                    null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "games", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,13 +65,14 @@ ActiveRecord::Schema.define(version: 20160725021641) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string   "content",    null: false
+    t.string   "content",                    null: false
     t.string   "week"
     t.integer  "rating"
-    t.integer  "venue_id",   null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "deleted",    default: false, null: false
+    t.integer  "venue_id",                   null: false
+    t.integer  "user_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "user_events", force: :cascade do |t|
@@ -84,6 +93,8 @@ ActiveRecord::Schema.define(version: 20160725021641) do
     t.string   "user_name",       null: false
     t.string   "password_digest", null: false
     t.string   "email",           null: false
+    t.integer  "age"
+    t.text     "bio"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -95,13 +106,17 @@ ActiveRecord::Schema.define(version: 20160725021641) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "venue_games", ["game_id", "venue_id"], name: "index_venue_games_on_game_id_and_venue_id", unique: true, using: :btree
+
   create_table "venues", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "address",     null: false
-    t.text     "description"
+    t.string   "name",                            null: false
+    t.string   "address",                         null: false
+    t.string   "place"
+    t.boolean  "deleted",         default: false, null: false
+    t.integer  "neighborhood_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "vibes", force: :cascade do |t|

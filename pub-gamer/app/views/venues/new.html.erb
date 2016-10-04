@@ -6,48 +6,16 @@
 
 <div id="map-wrapper">
 
-<div id="google-map">
-<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map"></div>
+  <div id="google-map">
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map">
+    </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKbw_KdUjv9tX0YJFvT1AOe3nI82-Osvw&libraries=places&callback=initMap"
-         async defer></script>
-</div>
-
-<div id="venue-create-form-container">
-
-  <%= form_for @venue, :html => {:id => "venue-create-form"} do |f| %>
-
-  <div id="venue-name-field">
-    <%= f.text_field :name %>
+           async defer>
+    </script>
   </div>
 
-  <div id="venue-address-wrapper">
-    <%= f.text_field :address %>
+  <div id="venue-create-form-container">
+    <%= render partial: 'venue_create_form' %>
   </div>
-
-  <div id="venue-games-field">
-    Games:
-    <% if @games && @games.length > 0 %>
-
-      <% @games.each do |game| %>
-        <%= check_box_tag "venue[games][]", game.id %>
-        <%= game.name %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div id="other-game-field">
-    Other: <%= f.text_field "game", placeholder: "game1, game2, game3", id: "other-text-field" %>
-  </div>
-
-  <div>
-    <%= f.submit "Add venue!", class: "button", id: "venue-create-submit-button" %>
-  </div>
-  <% end %>
-
-<!-- end form container -->
-</div>
-<!-- end map wrapper -->
-</div>
-<!-- end master container -->
 </div>

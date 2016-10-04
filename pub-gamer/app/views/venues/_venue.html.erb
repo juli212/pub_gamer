@@ -1,5 +1,5 @@
 <div class="row">
-	<h3><%= @venue.name %></h3>
+
 </div>
 
 <div class="row text-center" id="venue-header" >
@@ -12,21 +12,31 @@
 				<p>Not Yet Rated</p>
 			<% end %>
 		</div>
+
+		<%= link_to "Review!", new_venue_review_path(@venue.id), class: "button", id: "new-review-button" %>
+		  <div id="new-review-form" >
+				<%= render partial: 'reviews/new'%>
+			</div>
+		
 	</div>
 	<div class="small-6 columns">
-		<h3 class="text-left"><%= @venue.name %></h3>
+		<h3 class="text-left" id="venue-name"><%= @venue.name %></h3>
 		<div class="row align-center" >
-			<div class="small-1 columns" ></div>
-			<div class="small-11 columns" >
-				<p class="text-left"><%= @venue.address %></p>
+			<!-- <div class="small-1 columns" ></div> -->
+			<div class="small-12 columns" >
+				<p class="text-left" id="venue-address"><%= @venue.address %></p>
 				<div id="venue-games">
-					<h2 class="text-left">Games</h2>
 					<% if @venue.has_games? %>
-						<%= render partial: 'games', locals: { venue: @venue} %>
+						<%= render partial: 'shared/games', locals: { games: @venue.games } %>
 					<% else %>
 						<%= render partial: 'no_games' %>
 					<% end %>
 				</div>
+
+
+		<%= link_to "Create an Event", new_event_path, class: "button", id: "venue-event-create-link"  %>
+		<%= render partial: 'events/event_create' %>
+				
 			</div>
 		</div>
 	</div>

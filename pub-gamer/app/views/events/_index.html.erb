@@ -1,8 +1,16 @@
 <div class="row">
-  <div id="event-create-ajax-div">
+	<div class="small-1 columns">
+	</div>
+	<div class="small-4 columns">
+		<%= link_to "+  Create an Event", new_event_path, class: "button", id: "event-create-link"  %>
+	</div>
+  <div class="small-7 columns" id="event-create-box">
+  	<%= render partial: 'event_create' %>
   </div>
 </div>
+
 <div class="row">
+<div class="small-1 columns"></div>
 	<div class="small-9 columns index-main">
 		<% if @events && @events.length > 0 %>
 	  	<%= render partial: 'index_main', locals: { events: @events } %>

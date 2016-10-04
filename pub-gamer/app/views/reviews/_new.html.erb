@@ -1,10 +1,11 @@
 <%= form_for [ @venue, @review ] do |f| %>
+  <h3>Review</h3>
   <div class="row align-center">
   	<div class="small-7 colums" >
  	    <%= render 'reviews/rating' %>
     </div>
     <div class="small-4 columns" >
-      <h6 class="">When?</h6>
+      <h5 class="">When?</h5>
      	<%= render 'reviews/week' %>
     </div>
   </div>
@@ -22,7 +23,7 @@
           <%= render 'reviews/errors' %>
         <% end %>
       </div>
-      <%= f.text_area :content, cols: 40, rows: 10, placeholder: "Review here!" %>
+      <%= f.text_area :content, placeholder: "Review here!" %>
     </div>
   </div>
 

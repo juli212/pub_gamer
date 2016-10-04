@@ -1,20 +1,15 @@
-.venue-index-head {
-	
+#venue-create-link {
+	padding: 20px;
+  font-size: 25px;
+  border-radius: 20px;
+  display: block;
+  text-align: center;
 }
 
-.venue-index-venue {
-	min-height: 200px;
-	padding: 10px;
-	border: 1px solid white;
-	margin: 10px 0px;
-	min-width: 753px;
-
+#venue-create-link:hover {
+	color: #FFFFF0;
+  background-color: #827AA4;
 }
-
-.venue-index-venue h3 {
-	margin: 0px;
-}
-
 
 .favorited-venue {
 	border-bottom: 2px solid white;
@@ -22,23 +17,70 @@
 	padding-bottom: 5px;
 }
 
-.add-games {
+.venue-index-content {
+	padding-top: 10px;
+}
+
+.venue-index-bottom {
+	padding-right: 40px;
+}
+
+#venue-create-form {
+	border: 2px solid rgba(43,41,54, 1.0);
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFF0;
+  background-color: #2B2936;
+  opacity: 0.6;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#venue-create-form input {
+	text-align: center;
+	background-color: #FFFFF0;
 	border-radius: 10px;
-	margin-top: 15px;
+	opacity: 0.8;
 }
 
-
-.venue-index-pic-container {
-	font-weight: bold;
-	color: white;
-	width: 160px;
-	height: 160px;
-	border: 1px solid white;
-	background-image: url("octopus0.3opacity.png");
-	background-size: 100%;
+#venue-create-games {
+	padding-bottom: 10px;
 }
 
-.venue-index-pic-container p {
-	padding: 45px 40px;
-	opacity: 0.5;
+.venue-create-game-button {
+  position: fixed;
+  opacity: 0;
+	visibility: hidden;
+}
+
+.venue-create-game {
+	display: inline-block;
+	min-width: 10%;
+	padding: 0px 10px;
+	border-radius: 40%/50%;
+	/*background-color: #2B2936;*/
+	/*background-color: rgba(43,41,54, 1.0);*/
+	border: 2px solid #2B2936;
+	/*opacity: 1;*/
+}
+
+.venue-create-game p {
+	margin-top: -10px;
+}
+
+.venue-create-game:hover {
+	border: 2px solid #FFFFF0;
+  background-color: #827AA4;
+}
+
+.select-venue-game {
+	color: #EDD0AF;
+	background-color: #827AA4;
+  border: 2px solid #827AA4;
+}
+
+#venue-create-submit-button {
+	color: #2B2936;
+	background-color: #FFFFF0;
 }

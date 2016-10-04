@@ -1,0 +1,35 @@
+<% events.each do |event| %>
+  <div class="row event-index-box">
+    <div class="small-3 columns">
+      <div class="event-index-pic"></div>
+    </div>
+
+    <div class="small-9 columns">
+      <div class="row" >
+        <div class="small-10 columns text-center">
+          <h5 class=""><%= link_to event.title, event_path(event) %></h5>
+        </div>
+        <div class="small-2 columns"></div>
+      </div>
+
+      <div class="row" >
+        <div class="small-4 columns">
+          <p class=""><%= event.location %></p>
+          <p class=""><%= event.date.strftime("%B #{event.date.day.ordinalize}") %></p>
+          <p class=""><%= event.time.strftime('%-I:%M%p') %></p>
+          <p class=""><%= event.limit %></p>
+        </div>
+        <div class="small-4 columns">
+          <% event.games.each do |game|%>
+            <%=game.name%>
+          <%end%>
+        <p class=""><%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
+        </div>
+        <div class="small-4 columns">
+          <div class="event-index-join"><%= link_to "Join Event!", event_path(event), method: :put, class: "button" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

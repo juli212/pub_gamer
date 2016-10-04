@@ -1,0 +1,24 @@
+.pagination > * {
+	font-weight: bold;
+}
+
+.pagination a {
+	/*padding: 10px;*/
+	border-radius: 50%;
+}
+
+.pagination a:hover {
+	color: #FFFFF0;
+	background-color: #827AA4;
+}
+
+.pagination .current {
+	border-radius: 50%;
+	color: #EDD0AF;
+	background-color: #2B2936;
+}
+
+.pagination .current:hover {
+	color: #2B2936;
+	background-color: #EDD0AF;
+}

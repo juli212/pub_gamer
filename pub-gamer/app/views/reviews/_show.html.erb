@@ -22,15 +22,24 @@
 		</div>
 	</div>
 	<div class="small-8 columns review-content">
-		<% review.split_content.each do |line| %>
-			<p class="formatted-review"><%= line %></p>
+		<% if review.deleted? %>
+			<%= render partial: 'reviews/deleted' %>
+		<% else %>
+			<% review.split_content.each do |line| %>
+				<p class="formatted-review"><%= line %></p>
+			<% end %>
 		<% end %>
 	</div>
 
 </div>
 
 <div class="row" >
-	<div class="small-12 columns">
+	<div class="small-9 columns">
 		<p class="review-date text-center"><%= review.review_date %></p>
+	</div>
+	<div class="small-3 columns">
+		<% if review.user_id == current_user.id && !review.deleted %>
+			<%= link_to "delete", venue_review_path(@venue, review, "review[deleted]" => true), method: :put %>
+		<% end %>
 	</div>
 </div>

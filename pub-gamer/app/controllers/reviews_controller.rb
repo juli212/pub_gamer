@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+
+
 	def create
 		@review = Review.new(review_params)
 		@review.venue_id = params[:venue_id]
@@ -20,6 +22,18 @@ class ReviewsController < ApplicationController
 			@vibes = Vibe.all
 			render partial: 'reviews/errors'
 		end
+	end
+
+	def update
+		binding.pry
+		@review = Review.find_by(id:params[:id])
+		if current_user.id = @review.user_id
+			@review.update_attributes(params[:review])
+			redirect_to venue_path(@review.venue_id)
+		end
+	end
+
+	def new
 	end
 
 	private

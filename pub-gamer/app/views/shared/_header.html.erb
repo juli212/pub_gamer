@@ -1,9 +1,9 @@
-<div class="row header-row" >
+<div class="row" id="header-row" >
   <div class="small-3 columns">
-    <h2 id="page-header"></h2>
+    <h2 id="page-header"><a href="/">PubGamer</a></h2>
   </div>
 
-  <div class="small-6 columns" id="header-search-container">
+  <div class="small-6 columns" >
 		<form id="search-form">
 			<div class="search">
 
@@ -14,15 +14,16 @@
 			<%= submit_tag 'Search', class: "button index-head", id: "search-button" %>
 		</form>
   </div>
+  <div class="small-1 columns" >
+  </div>
+  <div class="small-2 columns center-align align-self-bottom" >
+  	<%= link_to "Logout", logout_path, method: :delete, class: "button", id: "logout-button" %>
+  </div>
 </div>
 
 
-<div class="row align-spaced header-row" >
-	<div class="small-4 columns">
-	<h2 id="page-header"></h2>
-	</div>
-	<div class="small-8 columns" id="header-search-container">
-
+<!-- <div class="row align-spaced header-row" >
+	<div class="small-12 columns" id="page-header-bottom">
 	</div>
 </div>
 
@@ -31,4 +32,4 @@
   <div class="small-12 columns">
   <span id="side-bar-linebreak"></span>
   </div>
-</div>
+</div> -->

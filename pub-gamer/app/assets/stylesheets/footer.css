@@ -1,0 +1,9 @@
+.footer-row {
+	width: 100%;
+	background-color: #EDD0AF;
+	height: 80px;
+	padding: 5%;
+	position: relative;
+	margin-top: -80px;
+	clear: both;
+}

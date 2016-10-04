@@ -6,5 +6,6 @@ class CreateVenueGames < ActiveRecord::Migration
       
       t.timestamps null: false
     end
+    add_index :venue_games, [:game_id, :venue_id], unique: true
   end
 end

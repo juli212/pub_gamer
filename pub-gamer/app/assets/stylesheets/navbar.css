@@ -1,76 +1,54 @@
 .top-bar {
-  width: 215px;
+  width: 200px;
   float: left;
-  display: inline;
   margin: 0;
   padding: 0;
   height: 100%;
   background-color: #2B2936;
+  position:fixed;
+}
+
+.top-bar a {
+  color: #EDD0AF;
 }
 
 .top-bar ul {
     background-color: #2B2936;
     border: none;
+    border-top: 7px solid #EDD0AF;
+    padding: 0px;
+    margin: 0px;
 }
 
 .top-bar li {
   border: none;
-  display: block;
-  width: 115%;
-  margin-left: -30px;
-  padding-left: 40px;
-
-}
-
-.active {
-  color: #EDD0AF;
+  width: 100%;
 }
 
 .top-bar li a{
+  width: 100%;
   color: #827aa4;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 23px;
+  font-weight: 700;
+  text-align: center;
+  display: inline-block;
+  border-radius: 40%/30%;
 }
 
+.top-bar li a:hover {
+  background-color: #EDD0AF;
+  color: #2B2936;
+}
 
 .top-bar h3 {
   margin-left: 22px;
   margin-top: 10px;
-  color: white;
+  color: #EDD0AF;
   font-size: 43px;
   line-height: 100%
 }
 
-/*.top-bar {
-	border-top: 2px solid black;
-	border-bottom: 2px solid black;
-	width: 100%;
-	background-color: #816687;
-	margin-bottom: 50px;
+nav {
+  margin-left: -12px;
 }
 
-.top-bar ul {
-	width: 80%;
-	margin: 0 auto;
-}
-.top-bar li {
-  float:left;
-  width: 16.6%;
-  text-align: center;
-  border: none;
-  font-size: 17px;
-}
-
-.top-bar li a:hover {
-  color: white;
-}
-
-.top-bar a {
-	color: black;
-    -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  /* ...and now for the proper property */
- /* transition:.3s;
-}*/

@@ -14,9 +14,15 @@
   <body>
 
   <%= render 'shared/navbar' %>
-  <%= render 'shared/header' %>
-
-  <%= yield %>
+  <div id="main">
+    <div class="align-left" id="wrap">
+      <%= render 'shared/header' %>
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
+    <%= render 'shared/footer' %>
+  </div>
 
   </body>
 </html>

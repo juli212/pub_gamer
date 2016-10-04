@@ -19,12 +19,16 @@ Rails.application.routes.draw do
 
   resources :events do
     get :search, :on => :collection
+    get :add_venue, :on => :collection
+    get :update_games, :on => :collection
+    get :add_games, :on => :collection
     resources :comments, only: [:create]
   end
 
   resources :venues do
     get :search, :on => :collection
-    resources :reviews, only: [:create]
+    get :add_games, :on => :collection
+    resources :reviews, only: [:new, :create, :update]
   end
 
   # resources :venues do
