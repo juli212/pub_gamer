@@ -36,8 +36,13 @@ class VenuesController < ApplicationController
   end
 
   def add_games
-    respond_to do |format|
-      format.json { @results = Game.game_search(params[:term]) }
+    if params[:venue]
+      game = Game.find_or_create_by(name: params[:venue][:game].downcase)
+      render partial: 'add_game', locals: { game: game }
+    else
+      respond_to do |format|
+        format.json { @results = Game.game_search(params[:term]) }
+      end
     end
   end
 
