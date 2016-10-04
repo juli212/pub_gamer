@@ -4,12 +4,33 @@ $(document).ready(function() {
     $(clicked_div).toggleClass('select-venue-game');
     $(clicked_div).find('input').prop('checked', !$(clicked_div).find('input').prop('checked'));
   })
+
+  $('body').on('click', '#createVenue',function(event){
+    event.preventDefault();
+    var infoBox = $(this.parentElement.parentElement)
+    // debugger;
+    var venueName = infoBox.find('.info-window-line-1').text()
+    // var venueAddress = $('.address-line').first().text() + ", " + $('.address-line').last().text()
+    var venueAddress = infoBox.find('.info-window-line-2').text() + ", " + infoBox.find('.info-window-line-3').text()
+
+    $('#venue_name').val(venueName)
+    $('#venue_name').prop('readonly', true);
+    $('#venue_address').val(venueAddress)
+    $('#venue_address').prop('readonly', true);
+    $("#venue-create-form-container").dialog('open');
+  })
+  
+  var resetForm = function() {
+    $('#venue-create-form')[0].reset()
+    $('#venue_place').val("")
+    $('#pac-input').val("")
+  }
+
   $("#venue-create-form-container").dialog({
     modal: true,
     autoOpen: false,
     minHeight: 250,
     width: 650,
-    // appendTo: '#event-create-ajax-div',
     position: ({ my:"center", at: "center", of: "#map-wrapper"}),
     show: {
         effect: "blind",
@@ -18,7 +39,8 @@ $(document).ready(function() {
     hide: {
         effect: "explode",
         duration: 1000
-    }
+    },
+    close: resetForm
   });
 });
 
