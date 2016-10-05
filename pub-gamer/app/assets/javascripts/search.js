@@ -22,8 +22,8 @@ $(document).ready(function() {
 			})   
 	  },
 	  // select: function(event, ui) {
-	  	// $target = $(event.target)
-	  	// debugger;
+	  // 	$target = $(event.target)
+	  // 	debugger;
 	  	// $('#venue-query').val(ui.item.value);
 	  // },
 	  focus: function(event, ui) {
