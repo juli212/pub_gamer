@@ -1,6 +1,8 @@
 <div class="row" id="header-row" >
   <div class="small-3 columns">
-    <h2 id="page-header"><a href="/">PubGamer</a></h2>
+    <% if current_user %>
+      <h2 id="page-header"><%= link_to "#{current_user.user_name}", user_path(current_user), id: "user" %></h2>
+    <% end %>
   </div>
 
   <div class="small-6 columns" >
@@ -17,7 +19,11 @@
   <div class="small-1 columns" >
   </div>
   <div class="small-2 columns center-align align-self-bottom" >
-  	<%= link_to "Logout", logout_path, method: :delete, class: "button", id: "logout-button" %>
+    <% if current_user %>
+      <%= link_to "Logout", logout_path, method: :delete, class: "button", id: "logout-button" %>
+    <% else %>
+      <%= link_to "login", root_path %>
+    <% end %>
   </div>
 </div>
 
