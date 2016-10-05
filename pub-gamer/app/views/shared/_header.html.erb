@@ -1,30 +1,32 @@
 <div class="row" id="header-row" >
-  <div class="small-3 columns">
+  <div class="small-2 columns">
     <% if current_user %>
       <h2 id="page-header"><%= link_to "#{current_user.user_name}", user_path(current_user), id: "user" %></h2>
     <% end %>
   </div>
-
-  <div class="small-6 columns" >
-		<form id="search-form">
-			<div class="search">
-
-				<input id="search-txt" class="index-head" name="term" placeholder="game, address, name" autofocus autocomplete="on">
-
-				<div class="results" id="search-results"></div>
-			</div>
-			<%= submit_tag 'Search', class: "button index-head", id: "search-button" %>
-		</form>
-  </div>
-  <div class="small-1 columns" >
-  </div>
-  <div class="small-2 columns center-align align-self-bottom" >
+  <div class="small-2 center-align columns">
     <% if current_user %>
       <%= link_to "Logout", logout_path, method: :delete, class: "button", id: "logout-button" %>
     <% else %>
       <%= link_to "login", root_path %>
     <% end %>
   </div>
+
+  <div class="small-6 columns" >
+    <form id="search-form">
+      <div class="search">
+
+        <input id="search-txt" class="index-head" name="term" placeholder="game, address, name" autofocus autocomplete="on">
+
+        <div class="results" id="search-results"></div>
+      </div>
+      <%= submit_tag 'Search', class: "button index-head", id: "search-button" %>
+    </form>
+  </div>
+  <div class="small-1 columns" >
+  </div>
+<!--   <div class="small-2 columns center-align align-self-bottom" >
+  </div> -->
 </div>
 
 
