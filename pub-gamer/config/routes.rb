@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :venues do
     get :search, :on => :collection
     get :add_games, :on => :collection
+    get :add_neighborhood, :on => :collection
     resources :reviews, only: [:new, :create, :update]
   end
 
