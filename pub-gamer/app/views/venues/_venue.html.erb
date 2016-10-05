@@ -9,7 +9,7 @@
 			<% if @venue.has_reviews? %>
 				<%= render partial: 'venue_rating', locals: { current_rating: @current_rating } %>
 				<% else %>
-				<p>Not Yet Rated</p>
+				<%= render partial: 'venue_rating', locals: { current_rating: 0 } %>
 			<% end %>
 		</div>
 
