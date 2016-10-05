@@ -34,6 +34,10 @@ $(document).ready(function() {
     })
   })
 
+  $('#venue-create-games').on('click', '.remove-venue-game-button', function(event){
+    $(this).closest('.venue-create-game').remove()
+  })
+
   var resetForm = function() {
     $('#venue-create-form')[0].reset()
     $('#venue_place').val("")

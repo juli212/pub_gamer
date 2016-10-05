@@ -43,10 +43,6 @@
 	margin-top: -10px;
 }
 
-.venue-create-game:hover {
-	border: 2px solid #FFFFF0;
-  background-color: #827AA4;
-}
 
 .select-venue-game {
 	color: #EDD0AF;
@@ -72,4 +68,23 @@
 #other-text-field {
 	/*display: inline-block;*/
 	/*width: 60%;*/
+}
+
+.venue-create-game-label {
+	display: inline-block;
+}
+
+.remove-venue-game-button {
+	display: inline-block;
+	padding: 4px;
+	border: 2px solid;
+	border-radius: 20%;
+}
+.remove-venue-game-button:hover {
+	border: 2px solid #FFFFF0;
+  background-color: #827AA4;
+}
+ 
+.results {
+	color: #827AA4;
 }
