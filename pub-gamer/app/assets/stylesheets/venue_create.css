@@ -24,23 +24,24 @@
 
 .venue-create-game-button {
   position: fixed;
-  opacity: 0;
 	visibility: hidden;
+  /*opacity: 0;*/
 }
 
 .venue-create-game {
 	display: inline-block;
 	min-width: 10%;
 	padding: 0px 10px;
-	border-radius: 40%/50%;
+	/*border-radius: 40%/50%;*/
+	border-radius: 5px;
 	/*background-color: #2B2936;*/
 	/*background-color: rgba(43,41,54, 1.0);*/
-	border: 2px solid #2B2936;
+	border: 2px solid #827AA4;
 	/*opacity: 1;*/
 }
 
 .venue-create-game p {
-	margin-top: -10px;
+	margin-top: -50px;
 }
 
 

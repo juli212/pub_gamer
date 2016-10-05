@@ -21,6 +21,7 @@ $(document).ready(function() {
   
   $('#add-new-game').on('click', function(event){
     // alert('click')
+    event.preventDefault();
     $target = $('#other-text-field')
     $.ajax({
       url: "/venues/add_games",
