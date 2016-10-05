@@ -92,6 +92,37 @@ $(document).ready(function() {
 	})
 
 
+  $('#venue_neighborhood').autocomplete({
+  	minLength: 1,
+  	appendTo: "#add-venue-neighborhood-results",
+  	source: function(request, response){
+  		$.ajax({
+        url: "/venues/add_neighborhood",
+        dataType: "json",
+        data: {
+            term: request.term
+        },
+        success: function(data) {
+	        response($.map(data, function(item) {
+	          return {
+	            label: item.name,
+	            value: item.name,
+	            id: item.id
+	          };
+	        }))
+	    	}
+			})
+  	},
+  	select: function(event, ui) {
+	  	$target = $(event.target)
+	  },
+	  focus: function(event, ui) {
+	  	$('.ui-menu-item').css('background-color', "#FFFFF0");
+	  	$('.ui-menu-item').css('color', "#2B2936");
+	  	$('.ui-state-focus').css('background-color', "#827AA4");
+	  	$('.ui-state-focus').css('color', "#EDD0AF");
+    }
+  })
 
 
 	$( "#other-text-field" ).autocomplete({

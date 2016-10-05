@@ -41,33 +41,38 @@ class VenuesController < ApplicationController
       render partial: 'add_game', locals: { game: game }
     else
       respond_to do |format|
-        format.json { @results = Game.game_search(params[:term]) }
+        format.json { @results = Game.add_to_venue(params[:term]).sort_by { |game| game.name } }
       end
+    end
+  end
+
+  def add_neighborhood
+    respond_to do |format|
+      format.json { @results = Neighborhood.add_to_venue(params[:term]).sort_by { |neighborhood| neighborhood.name } }
     end
   end
 
   def new
     @venue = Venue.new
-    @game = Game.new
-    @games = Game.first(6)
   end
 
   def create
+    binding.pry
     @venue = Venue.new(venue_params)
     @venue.neighborhood = Neighborhood.find_or_create_by(name: params[:venue][:neighborhood].titleize)
     if @venue.save
       if params[:venue][:games]
         @venue.games << Game.find(params[:venue][:games])
       end
-      new_game_array = params[:venue][:game].split(',')
-      new_game_array = new_game_array.map(&:lstrip)
-      if new_game_array.length > 0
-        new_game_array.each do |game|
-          game_obj = Game.find_or_create_by(name: game)
-          @venue.games << game_obj
-        end
-      end
-      redirect_to venues_path
+      # new_game_array = params[:venue][:game].split(',')
+      # new_game_array = new_game_array.map(&:lstrip)
+      # if new_game_array.length > 0
+      #   new_game_array.each do |game|
+      #     game_obj = Game.find_or_create_by(name: game)
+      #     @venue.games << game_obj
+      #   end
+      # end
+      redirect_to venue_path(@venue)
     else
       @games = Game.all
       @errors = @venue.errors.full_messages
