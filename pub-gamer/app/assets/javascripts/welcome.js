@@ -29,7 +29,7 @@ $(document).ready(function() {
     minHeight: 200,
     width: 200,
     // appendTo: "#form-box",
-    position: ({ my: "bottom", at: "center top", of: "#form-box" }),
+    position: ({ my: "middle", at: "center", of: window }),
     show: {
         effect: "bounce",
         duration: 1500
@@ -52,7 +52,7 @@ $(document).ready(function() {
     minHeight: 200,
     width: 200,
     appendTo: "#form-box",
-    position: ({ my: "bottom", at: "center top", of: "#form-box" }),
+    position: ({ my: "middle", at: "center", of: window }),
     show: {
         effect: "bounce",
         duration: 1500
