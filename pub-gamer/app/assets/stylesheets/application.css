@@ -18,17 +18,19 @@
  */
 
 html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  /*height: 100%;*/
+  /*margin: 0;*/
+  /*padding: 0;*/
 }
 
 body {
   /*background-color: #9a849f;*/
+  min-height: 100%;
+  height: auto;
   background-color: #FFFFF0;
-  min-width: 900px;
-  margin: 0 auto;
-  min-width: 1013px;
+  /*min-width: 900px;*/
+  /*margin: 0 auto;*/
+  /*min-width: 1013px;*/
 }
 
 body ul{
@@ -52,8 +54,8 @@ body ul a {
 }
 
 #main {
-  margin-left: 200px;
-  min-height: 100%;
+  /*margin-left: 200px;*/
+  /*min-height: 100%;*/
 }
 
 #wrap {
