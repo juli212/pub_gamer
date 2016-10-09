@@ -1,45 +1,52 @@
-<div class="row venue-show-left" >
-	<div class="small-4 columns">
-		<div class="review-rating">
-			Rating: 
-			<% if review.rating %>
-				<% review.rating.times do %>
-					<%= image_tag("octopus.png", size: '20') %>
+<div class="row review-show-row">
+	<div class="small-12 columns">
+		<div class="row">
+			<div class="small-4 columns review-info-box">
+				<div class="review-rating">
+					Rating: 
+					<% if review.rating %>
+						<% review.rating.times do %>
+							<%= image_tag("octopus.png", size: '30', title: "#{review.rating}") %>
+						<% end %>
+					<% end %>
+				</div>
+				<div class="review-vibes">
+					Vibes:
+					<% review.vibes.each do |vibe| %>
+						<%= image_tag("#{vibe.pic}", size: '30', title: "#{vibe.name}") %>
+					<% end %>
+				</div>
+				<div class="review-week">
+					Visited: <%= review.week %>
+				</div>
+			</div>
+			<div class="small-7 columns review-content">
+				<% if review.deleted? %>
+					<%= render partial: 'reviews/deleted' %>
+				<% else %>
+					<% review.split_content.each do |line| %>
+						<p class="formatted-review"><%= line %></p>
+					<% end %>
 				<% end %>
-			<% end %>
+			</div>
 		</div>
-		<div class="review-vibes">
-			Vibes:
-			<% review.vibes.each do |vibe| %>
-				<%= image_tag("#{vibe.pic}", size: '15') %>
-			<% end %>
+		
+		<div class="row review-show-bottom-row">
+			<div class="small-3 columns">
+				<div class="reviewed-by">
+					<p>Reviewed by: 
+						<%= link_to "#{review.author}", user_path(review.user_id) %>
+					</p>
+				</div>
+			</div>
+			<div class="small-4 columns">
+				<p class="review-date text-right"><%= review.review_date %></p>
+			</div>
+			<div class="small-3 columns">
+				<% if review.user_id == current_user.id && !review.deleted %>
+					<%= link_to "delete", venue_review_path(@venue, review, "review[deleted]" => true), method: :put %>
+				<% end %>
+			</div>
 		</div>
-		<div class="review-week">
-			Visited: <%= review.week %>
-		</div>
-		<div class="reviewed-by">
-			<%= link_to "#{review.author}", user_path(review.user_id) %>
-		</div>
-	</div>
-	<div class="small-8 columns review-content">
-		<% if review.deleted? %>
-			<%= render partial: 'reviews/deleted' %>
-		<% else %>
-			<% review.split_content.each do |line| %>
-				<p class="formatted-review"><%= line %></p>
-			<% end %>
-		<% end %>
-	</div>
-
-</div>
-
-<div class="row" >
-	<div class="small-9 columns">
-		<p class="review-date text-center"><%= review.review_date %></p>
-	</div>
-	<div class="small-3 columns">
-		<% if review.user_id == current_user.id && !review.deleted %>
-			<%= link_to "delete", venue_review_path(@venue, review, "review[deleted]" => true), method: :put %>
-		<% end %>
 	</div>
 </div>

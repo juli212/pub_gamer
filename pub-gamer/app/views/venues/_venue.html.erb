@@ -1,25 +1,17 @@
-<div class="row">
-
-</div>
-
-<div class="row text-center" id="venue-header" >
-	<div class="small-1 columns"></div>
+<div class="row text-center align-spaced" id="venue-header" >
+	<!-- <div class="small-1 columns"></div> -->
 	<div class="small-3 columns align-center" >
 		<div id="avg-rating">
 			<% if @venue.has_reviews? %>
 				<%= render partial: 'venue_rating', locals: { current_rating: @current_rating } %>
 				<% else %>
-				<p>Not Yet Rated</p>
+				<%= render partial: 'venue_rating', locals: { current_rating: 0 } %>
 			<% end %>
 		</div>
 
-		<%= link_to "Review!", new_venue_review_path(@venue.id), class: "button", id: "new-review-button" %>
-		  <div id="new-review-form" >
-				<%= render partial: 'reviews/new'%>
-			</div>
 		
 	</div>
-	<div class="small-6 columns">
+	<div class="small-7 columns">
 		<h3 class="text-left" id="venue-name"><%= @venue.name %></h3>
 		<div class="row align-center" >
 			<!-- <div class="small-1 columns" ></div> -->
@@ -32,28 +24,36 @@
 						<%= render partial: 'no_games' %>
 					<% end %>
 				</div>
-
-
-		<%= link_to "Create an Event", new_event_path, class: "button", id: "venue-event-create-link"  %>
-		<%= render partial: 'events/event_create' %>
-				
 			</div>
 		</div>
 	</div>
-	<div class="small-2 columns" %>
-		<div id="favorite">
-		<% if current_user && current_user.has_favorited?(@venue) %>
-			<%= render partial: 'users/favorite_added' %>
-		<% elsif current_user %>
-			<%= render partial: 'users/favorite_removed' %>
-		<% end %>
-		</div>
-	</div>
+<!-- 	<div class="small-2 columns" %>
+	</div> -->
 </div>
 
-<div class="row align-center">
-	<div class="small-6 columns text-center" >
-		
+<div class="row align-spaced" id="venue-show-button-row">
+	<div class="small-1 columns" >
+	</div>
+	<div class="small-3 columns" >
+		<%= link_to "Create an Event", new_event_path, class: "button", id: "venue-event-create-link"  %>
+		<%= render partial: 'events/event_create' %>
+	</div>
+	<div class="small-2 columns" >
+		<%= link_to "Review!", new_venue_review_path(@venue.id), class: "button", id: "new-review-button" %>
+		<div id="new-review-form" >
+			<%= render partial: 'reviews/new'%>
+		</div>
+	</div>
+	<div class="small-3 columns" >
+		<div id="favorite">
+			<% if current_user && current_user.has_favorited?(@venue) %>
+				<%= render partial: 'users/favorite_added' %>
+			<% elsif current_user %>
+				<%= render partial: 'users/favorite_removed' %>
+			<% end %>
+		</div>
+	</div>
+	<div class="small-1 columns" >
 	</div>
 </div>
 

@@ -29,7 +29,7 @@ $(document).ready(function() {
     minHeight: 200,
     width: 200,
     // appendTo: "#form-box",
-    position: ({ my: "top", at: "center bottom", of: "#under-header" }),
+    position: ({ my: "bottom", at: "center top", of: "#form-box" }),
     show: {
         effect: "bounce",
         duration: 1500

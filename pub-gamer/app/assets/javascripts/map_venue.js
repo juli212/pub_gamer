@@ -24,7 +24,7 @@ function initMap() {
       // var addressLine1 = $(content).find('.address-line').first().text()
       // var addressLine2 = $(content).find('.address-line').last().text()
       // var infoContent = "<div><div class='info-window-line-1'>" + name + "</div><div class='info-window-line-2'>" + addressLine1 + "</div><div class='info-window-line-3'>" + addressLine2 + "</div><div class='info-window-line-4'><button id=createVenue type=button>Select Venue!</button></div></div>"
-      var structureContent = "<div><div class='info-window-line-1'></div><div class='info-window-line-2'></div><div class='info-window-line-3'></div><div class='info-window-line-4'><button id=createVenue type=button>Select Venue!</button></div></div>"
+      var structureContent = "<div><div class='info-window-line-1'></div><div class='info-window-line-2'></div><div class='info-window-line-3'></div><div class='info-window-line-4'><button id=createVenue class=button type=button>Select Venue!</button></div></div>"
       $(content).html(structureContent);
       // debugger;
     }
@@ -119,7 +119,7 @@ function initMap() {
     var venueAddressLine2 = place.address_components[4].short_name + ', ' + place.address_components[6].short_name + ' ' + place.address_components[8].short_name
 
     infowindow.setContent(
-      "<div><div class='info-window-line-1'>" + place.name + "</div><div class='info-window-line-2'>" + venueAddressLine1 + "</div><div class='info-window-line-3'>" + venueAddressLine2 + "</div><div class='info-window-line-4'><button id=createVenue type=button>Select Venue!</button></div></div>"
+      "<div><div class='info-window-line-1'>" + place.name + "</div><div class='info-window-line-2'>" + venueAddressLine1 + "</div><div class='info-window-line-3'>" + venueAddressLine2 + "</div><div class='info-window-line-4'><button id=createVenue class=button type=button>Select Venue!</button></div></div>"
     );
     infowindow.open(map, marker);
   });

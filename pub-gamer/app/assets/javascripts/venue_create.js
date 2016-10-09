@@ -12,7 +12,6 @@ $(document).ready(function() {
     var venueName = infoBox.find('.info-window-line-1').text()
     // var venueAddress = $('.address-line').first().text() + ", " + $('.address-line').last().text()
     var venueAddress = infoBox.find('.info-window-line-2').text() + ", " + infoBox.find('.info-window-line-3').text()
-
     $('#venue_name').val(venueName)
     $('#venue_name').prop('readonly', true);
     $('#venue_address').val(venueAddress)
@@ -20,11 +19,32 @@ $(document).ready(function() {
     $("#venue-create-form-container").dialog('open');
   })
   
+  $('#add-new-game').on('click', function(event){
+    // alert('click')
+    event.preventDefault();
+    $target = $('#other-text-field')
+    $.ajax({
+      url: "/venues/add_games",
+      // method: "post",
+      data: $target.serialize()
+    }).done(function(response){
+      // console.log(response)
+    // debugger;
+      $('#venue-create-games').append(response)
+      $('#other-text-field').val("")
+    })
+  })
+
+  $('#venue-create-games').on('click', '.remove-venue-game-button', function(event){
+    $(this).closest('.venue-create-game').remove()
+  })
+
   var resetForm = function() {
     $('#venue-create-form')[0].reset()
     $('#venue_place').val("")
     $('#pac-input').val("")
     $('.select-venue-game').removeClass('select-venue-game')
+    $('#venue-create-games').html("")
   }
 
   $("#venue-create-form-container").dialog({

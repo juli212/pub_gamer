@@ -11,6 +11,10 @@ class Game < ActiveRecord::Base
 		where("name ILIKE :term", term: "%#{term.downcase}%")
 	end
 
+	def self.add_to_venue(term)
+		where("name ILIKE :term", term: "#{term.downcase}%")
+	end
+
 	def search_address
 		""
 	end
