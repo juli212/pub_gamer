@@ -85,3 +85,25 @@
 .ui-dialog-titlebar > *:hover {
 	background-color: transparent;
 }
+
+@media only screen and (min-width: 640px) {
+
+/*}*/
+
+/*@media only screen and (min-width: 40.0em) { */
+	#welcome-box {
+		/*margin-left: 200px;*/
+	}
+	.welcome-button-box {
+		width: 40%;
+		padding: 0px;
+		margin: 0;
+		/*display: block;*/
+		float: left;
+		margin: 15% 5%;
+	}
+	.welcome-button-box a {
+		/*padding: 0px 20px;*/
+		font-size: 36px;
+	}
+}
