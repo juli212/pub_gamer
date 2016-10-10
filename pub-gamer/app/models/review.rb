@@ -13,6 +13,10 @@ class Review < ActiveRecord::Base
     self.created_at.localtime.ctime
   end
 
+  def split_full_content
+    self.content.split("\r\n").join
+  end
+
   def split_content
     a = self.limit_content.split("\r\n")
     a[-1] = a[-1] + "..."
