@@ -36,6 +36,10 @@ class ReviewsController < ApplicationController
 	def new
 	end
 
+	def show
+		
+	end
+
 	private
 	def review_params
 		params.require(:review).permit(:content, :rating, :week, :venue_id)

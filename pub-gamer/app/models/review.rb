@@ -14,8 +14,10 @@ class Review < ActiveRecord::Base
   end
 
   def split_content
-    self.limit_content.split("\r\n")
-  end
+    a = self.limit_content.split("\r\n")
+    a[-1] = a[-1] + "..."
+    a
+  end 
 
   def limit_content
     self.content[0..150]
