@@ -28,7 +28,7 @@
 						<p class="formatted-review"><%= line %></p>
 					<% end %>
 					<% if review.content.length > 151 %>
-						<%= link_to "Read More!", venue_review_path(review.venue.id, review.id) %>
+						<%= link_to "Read More!", venue_review_path(review.venue.id, review.id), class: "read-more-review" %>
 					<% end %>
 				<% end %>
 			</div>
