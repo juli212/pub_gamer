@@ -39,6 +39,7 @@ class ReviewsController < ApplicationController
 	def show
 		@review = Review.find_by(id: params[:id])
 		if request.xhr?
+			# binding.pry
 			render partial: 'full_review', locals: { review: @review }
 		else
 			render 'show'
