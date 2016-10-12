@@ -4,9 +4,13 @@
 
 	<div class="row align-spaced" >
 <!-- 		<div class="small-1 columns" ></div> -->
-		<div class="small-11 columns" >
+		<div class="small-12 columns" >
 			<h2 class="text-center">Reviews</h2>
 			<div id="reviews">
+				<div id="full-review-container">
+					<div id="full-review-content">
+					</div>
+				</div>
 				<% if @venue.has_reviews? %>
 					<div id="review-index">
 		  			<%= render partial: 'reviews/index', locals: { reviews: @reviews } %>

@@ -43,6 +43,11 @@
 	font-weight: bold;
 }*/
 
+#review-index {
+  width: 90%;	
+	margin: 0px 5%;
+}
+
 .review-show-row {
 	color: #2B2936;
   background-color: #EDD0AF;
@@ -94,6 +99,14 @@
 	font-size: 20px;
 	width: 260px;
 	height: 170px;
+}
+
+@media only screen and (max-width: 575px) {
+  #avg-rating {
+  	/*text-align: center;*/
+    height: 100%;
+    padding-bottom: 20px;
+  }
 }
 
 #rate-avg-rating {
