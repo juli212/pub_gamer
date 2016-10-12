@@ -16,13 +16,12 @@
   <%= render 'shared/navbar' %>
     <!-- <div class="align-left" id="wrap"> -->
   <div id="main">
-      <%= render 'shared/header' %>
-      <!-- <div id="content"> -->
-        <%= yield %>
-      <!-- </div> -->
-    <!-- </div> -->
+    <%= render 'shared/header' %>
+    <div id="content">
+      <%= yield %>
+    </div>
+  <%= render 'shared/footer' %>
   </div>
-    <%= render 'shared/footer' %>
 
   </body>
 </html>
