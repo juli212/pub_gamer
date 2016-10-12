@@ -1,10 +1,11 @@
-<div class="row small-up-2 medium-up-4" id="header-row" >
-  <div class="small-2 medium-2 columns">
+<div class="row" id="header-row" >
+  <!-- <div class="hide-for-small-only medium-1 columns"></div> -->
+  <div class="small-4 hide-for-small-only medium-2 columns text-right">
     <% if current_user %>
       <h2 id="page-header"><%= link_to "#{current_user.user_name}", user_path(current_user), id: "user" %></h2>
     <% end %>
   </div>
-  <div class="small-2 medium-2 center-align columns">
+  <div class="small-4 hide-for-small-only  medium-2 columns text-left">
     <% if current_user %>
       <%= link_to "Logout", logout_path, method: :delete, class: "button", id: "logout-button" %>
     <% else %>
@@ -12,7 +13,7 @@
     <% end %>
   </div>
 
-  <div class="small-10 medium-6 columns" >
+  <div class="small-9 medium-5 columns text-right" >
     <form id="search-form">
       <div class="search">
 
@@ -20,10 +21,10 @@
 
         <div class="results" id="search-results"></div>
       </div>
-      <%= submit_tag 'Search', class: "button index-head", id: "search-button" %>
     </form>
   </div>
-  <div class="small-1 medium-1 columns" >
+  <div class="small-3 medium-2 columns self-align-left text-left" >
+      <%= submit_tag 'Search', class: "button index-head", id: "search-button" %>
   </div>
 <!--   <div class="small-2 columns center-align align-self-bottom" >
   </div> -->

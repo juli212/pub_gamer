@@ -15,6 +15,9 @@
 				<li><%= link_to "Events", events_path, id: "events" %></li>
 				<li><%= link_to "Venues", venues_path, id: "venues" %></li>
 				<li><%= link_to "Contact" %></li>
+				<% if logged_in? %>
+					<li><%= link_to "profile", user_path(current_user.id), id: "user" %></li>
+				<% end %>
 			</ul>
 		</div>
 	</div>
