@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     get :search, :on => :collection
     get :add_games, :on => :collection
     get :add_neighborhood, :on => :collection
-    resources :reviews, only: [:new, :create, :update]
+    resources :reviews, only: [:new, :create, :update, :show]
   end
 
   # resources :venues do

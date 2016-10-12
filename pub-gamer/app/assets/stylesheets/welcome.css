@@ -1,15 +1,9 @@
-#under-header {
-	color: #edd0af;	
-	margin-top: -212px;
-	font-size: 144px;
-	/*font-weight: normal;*/
-	/*letter-spacing: 10px;*/
-}
 
 .welcome-button-box {
 	border-radius: 20px;
 	background-color: #2B2936;
-	margin: 200px 20%;
+	/*margin: 200px 20%;*/
+	margin: 15%;
 	text-align: center;
 }
 
@@ -34,7 +28,6 @@
 }
 
 
-
 #form-box {
 	width: 20%;
 	min-width: 180px;
@@ -54,10 +47,6 @@
 	border-bottom-right-radius: 10px;
 	font-size: 30px;
 	text-align: center;
-}
-
-#login-form, #new_user {
-	/*padding: 30px;*/
 }
 
 #login-form h4, #new_user h4 {
@@ -95,4 +84,26 @@
 
 .ui-dialog-titlebar > *:hover {
 	background-color: transparent;
+}
+
+@media only screen and (min-width: 640px) {
+
+/*}*/
+
+/*@media only screen and (min-width: 40.0em) { */
+	#welcome-box {
+		/*margin-left: 200px;*/
+	}
+	.welcome-button-box {
+		width: 40%;
+		padding: 0px;
+		margin: 0;
+		/*display: block;*/
+		float: left;
+		margin: 15% 5%;
+	}
+	.welcome-button-box a {
+		/*padding: 0px 20px;*/
+		font-size: 36px;
+	}
 }

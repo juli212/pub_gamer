@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Pub Gamer" %></title>
 
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -14,15 +14,15 @@
   <body>
 
   <%= render 'shared/navbar' %>
+    <!-- <div class="align-left" id="wrap"> -->
   <div id="main">
-    <div class="align-left" id="wrap">
       <%= render 'shared/header' %>
-      <div id="content">
+      <!-- <div id="content"> -->
         <%= yield %>
-      </div>
-    </div>
-    <%= render 'shared/footer' %>
+      <!-- </div> -->
+    <!-- </div> -->
   </div>
+    <%= render 'shared/footer' %>
 
   </body>
 </html>

@@ -49,9 +49,39 @@ $(document).ready(function() {
       duration: 2000
     }
   });
-
   $('#new-review-button').on('click', function(event){
     event.preventDefault()
     $('#new-review-form').dialog('open');
+  })
+
+  var emptyReviewConent = function() {
+    $('#full-review-content').html("");
+  }
+
+  $('#full-review-content').dialog({
+    modal: true,
+    autoOpen: false,
+    minHeight: 300,
+    width: 400,
+    // appendTo: ,
+    position: ({ my:"top", at: "bottom", of: "#header-row"}),
+    show: {
+      effect: "bounce",
+      duration: 1500
+    },
+    hide: {
+      effect: "explode",
+      duration: 2000
+    },
+    close: emptyReviewConent
+  });
+  $('.read-more-review').on('click', function(event){
+    event.preventDefault()
+    $('#full-review-content').dialog('open')
+    $.ajax({
+      url: this.href
+    }).done(function(response){
+      $('#full-review-content').html(response);
+    })
   })
 });

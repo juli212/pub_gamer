@@ -36,6 +36,16 @@ class ReviewsController < ApplicationController
 	def new
 	end
 
+	def show
+		@review = Review.find_by(id: params[:id])
+		if request.xhr?
+			# binding.pry
+			render partial: 'full_review', locals: { review: @review }
+		else
+			render 'show'
+		end
+	end
+
 	private
 	def review_params
 		params.require(:review).permit(:content, :rating, :week, :venue_id)
