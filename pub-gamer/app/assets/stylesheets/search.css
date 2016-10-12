@@ -44,15 +44,16 @@ border-collapse:collapse;
 
 #search-txt {
 	color: #2B2936;
+	height: 40px;
 	font-weight: bold;
 	padding-left: 7px;
   border: medium none;
-  width: 400px;
+  width: 90%;
+  min-width: 80px;
+  /*width: 400px;*
 }
 
-#search-button{
-  margin-left: 405px;
-}
+
 
 .index-head {
   height: 37px;
