@@ -1,28 +1,50 @@
 
 <div class="row venue-index-venue index-box" >
-	<div class="small-3 columns" >
-		<div class="index-pic" >
+	<div class="small-12 show-for-small-only index-title columns text-center" >
+		<h5><%=link_to(venue.name, venue_path(venue))%></h5>
+		<p class=""><%= venue.address %></p>
+	</div>
+	<div class="small-7 medium-3 columns" >
+		<div class="index-pic">
 			<p class="" >No Photo Added</p>
 		</div>
 	</div>
 
-	<div class="small-9 columns text-center" >
-		<div class="row">
-			<div class="small-12 columns">
-				<h5 class="index-title"><%=link_to(venue.name, venue_path(venue))%></h5>
+	<div class="columns small-5 show-for-small-only">
+		<div class=" fav-button-div">
+		  <% if current_user.has_favorited?(venue) %>
+			  <p>One of My Venues!</p>
+			<% else %>
+		 		<%= button_to "Add To My Venues", user_path(current_user), method: :put, params: { venue: venue, from: "venue-index" }, class: "button venue-index-fav-button" %>
+  		<% end %>
+ 		</div>
+  	<div class="venue-index-games">
+			<% if venue.has_games? %>
+				<%= render partial: 'shared/games', locals: { games: venue.games } %>
+			<% else %>
+				<%= render partial: 'no_games' %>
+			<% end %>
+		</div>
+	</div>
+	<!-- </div> -->
+
+	<div class="columns text-center" >
+		<div class="hide-for-small-only row">
+			<div class="index-title columns">
+				<h5><%=link_to(venue.name, venue_path(venue))%></h5>
 				<p class=""><%= venue.address %></p>
 			</div>
 		</div>
 
-		<div class="row venue-index-content">
-  		<div class="small-7 columns">
+		<div class="row hide-for-small-only venue-index-content">
+  		<div class="venue-index-games medium-8 columns">
 				<% if venue.has_games? %>
 					<%= render partial: 'shared/games', locals: { games: venue.games } %>
 				<% else %>
 					<%= render partial: 'no_games' %>
 				<% end %>
 			</div>
-	  	<div class="small-5 columns fav-button-div">
+	  	<div class="medium-3 columns fav-button-div">
 			  <% if current_user.has_favorited?(venue) %>
 				  <p>One of My Venues!</p>
 				<% else %>
@@ -32,7 +54,7 @@
 		</div>
 
 		<div class="row venue-index-bottom">
-			<div class="small-4 columns">
+			<div class="hide-for-small-only columns">
   		</div>
   		<div class="small-3 columns text-right align-bottom">
   			<% if venue.avg_rating / 1 == venue.avg_rating %>
@@ -41,7 +63,7 @@
   				<p>Not Yet Rated</p>
   			<% end %>
   		</div>
-			<div class="small-5 columns">
+			<div class="small-8 columns">
 				<div class="venue-index-avg-rating" value="<%= venue.avg_rating %>">
 				  <div class="dimmed"></div>
 				  <div class="opaque"></div>

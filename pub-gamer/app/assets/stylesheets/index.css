@@ -1,11 +1,10 @@
+
 .index-box {
+  width: 100%;
+  margin: 2% 0px;
   color: #2B2936;
   background-color: #EDD0AF;
   border-radius: 7px;
-  min-width: 700px;
-  min-height: 200px;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
 }
 
 .index-box h5 {
@@ -17,41 +16,74 @@
   font-weight: bold;
 }
 
-.index-pic {
-  background-color: #FFFFF0;
-  border-radius: 5px;
-  height: 155px;
-  width: 155px;
-  margin: 20px 0px 0px 15px;
-  background-image: url("octopus0.3opacity.png");
-  background-size: 100%;
-  text-align: center;
-}
-
-.index-box .button:hover {
-	 background-color: #827AA4;
-  color: #FFFFF0;
-}
-/*
-.index-pic {
-  background-color: #FFFFF0;
-  border-radius: 5px;
-  height: 155px;
-  width: 155px;
-  margin: 10px 0px 0px 5px;
-  background-image: url("octopus0.3opacity.png");
-  background-size: 100%;
-  text-align: center;
-  padding-top: 80%;
-}*/
-
 .index-title a {
   color: #2B2936;
   font-weight: bold;
-  font-size: 30px;
+  /*font-size: 30px;*/
 }
 
-.index-title a:hover {
-  color: #827AA4;
-  text-decoration: underline;
+.index-pic {
+  background-color: #FFFFF0;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  margin: 0px;
+  margin-left: 3px;
+  margin-right: -3px;
+  background-image: url("octopus0.3opacity.png");
+  background-size: 100%;
+  text-align: center;
+    width: 100%;
+    padding-top: 50%; /* 1:1 Aspect Ratio */
+    position: relative;
+}
+
+
+@media only screen and (min-width: 640px) {
+  .index-box {
+    color: #2B2936;
+    background-color: #EDD0AF;
+    border-radius: 7px;
+    min-width: 400px;
+    width: 100%;
+    min-height: 200px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+
+  .index-box h5 {
+    margin: 0px;
+  }
+
+  .index-box p {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .index-pic {
+    background-color: #FFFFF0;
+    border-radius: 5px;
+    width: 155px;
+    height: 155px;
+    padding: 0px;
+    margin: 20px 0px 0px 15px;
+    background-image: url("octopus0.3opacity.png");
+    background-size: 100%;
+    text-align: center;
+  }
+
+  .index-box .button:hover {
+     background-color: #827AA4;
+    color: #FFFFF0;
+  }
+
+
+  .index-title a:hover {
+    color: #827AA4;
+    text-decoration: underline;
+  }
+  
+  .index-main {
+    margin: 0px 5px;
+  }
 }
