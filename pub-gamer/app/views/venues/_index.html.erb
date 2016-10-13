@@ -1,20 +1,22 @@
 
 <div class="row" >
-	<div class="small-1 columns">
+	<div class="hide-for-small-only medium-1 columns">
 	</div>
-	<div class="small-4 columns">
+	<div class="small-10 medium-4 columns">
 			<%=link_to("Add New Venue!", new_venue_path, class: "button", id: "venue-create-link") %>
 	</div>
-	<div class="small-7 columns">
+	<div class="hide-for-small-only medium-7 columns">
 	</div>
 
 </div>
 <div class="row">
-	<div class="small-1 columns">
+	<div class="hide-for-small-only medium-1 columns">
 	</div>
-	<div class="small-9 columns index-main">
+	<div class="small-12 medium-9 columns index-main">
 		<% if @venues && @venues.length > 0 %>
-  		<%= render partial: 'index_main', locals: { venues: @venues } %>
+			<% @venues.each do |venue| %>
+  			<%= render partial: 'index_venue_display', locals: { venue: venue } %>
+			<% end %>
   	<% else %>
   		<p>No Venues</p>
 		<% end %>
