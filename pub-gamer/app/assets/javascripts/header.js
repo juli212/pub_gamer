@@ -1,29 +1,39 @@
-$(document).ready(function() {
+$(window).load(function() {
+	$('#search-form').removeAttr('action')
 	$header = $('#page-header')
 	$path = window.location.pathname
+	navbarColor = '#FFFFF0'
+	navbarHighlight = '#A893FF'
+	navbarUnderline = '#31AB3C'
 	if ($path == "/" || $path == "") {
 		$('#header-row').remove();
 	}	else if ($path.includes("event")) {
-		$('#events').css('color','#EDD0AF');
-		$('#events').css('background-color', '#635A8E');
-		// $header.text("Events");
+		$('#events').css('text-decoration', 'underline');
 		$('#search-form').attr("action", "/events/search");
+		// $('#events').css('color', navbarColor);
+		// $('#events').css('background-color', navbarHighlight);
+		// $('#events').css('text-decoration', 'overline');
+		// $header.text("Events");
 	} else if ($path.includes("venue")) {
-		$('#venues').css('color','#EDD0AF');
-		$('#venues').css('background-color', '#635A8E');
-		// $header.text("Venues");
+		$('#venues').css('text-decoration', 'underline');
 		$('#search-form').attr("action", "/venues/search");
+		// $('#venues').css('color', navbarColor);
+		// $('#venues').css('background-color', navbarHighlight);
+		// $header.text("Venues");
 	} else if ($path.includes("user")){
-		$('#user').css('color','#EDD0AF');
-		$('#user').css('background-color', '#635A8E');
+		$('#topbar-row-three').remove()
+		$('#user').css('text-decoration', 'underline');
+		// $('#user').css('background-color', navbarHighlight);
 		// $header.text("Profile");
 	} else if ($path.includes("contact")){
-		$('#contact').css('color','#EDD0AF');
-		$('#contact').css('background-color', '#635A8E');
+		$('#topbar-row-three').remove()
+		// $('#contact').css('color', navbarColor);
+		$('#contact').css('text-decoration', 'underline');
 		// $header.text("Contact");
 	} else if ($path.includes("about")){
-		$('#about').css('color','#EDD0AF');
-		$('#about').css('background-color', '#635A8E');
+		$('#topbar-row-three').remove()
+		$('#about').css('text-decoration', 'underline');
+		// $('#about').css('background-color', navbarHighlight);
 		// $header.text("About Us");
 	}
 });
