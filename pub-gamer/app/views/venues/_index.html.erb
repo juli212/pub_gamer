@@ -6,7 +6,7 @@
 </div>
 
 <div class="row align-spaced">
-	<div class="small-12 medium-10 columns index-main">
+	<div class="small-12 medium-12 large-10 columns index-main">
 		<% if @venues && @venues.length > 0 %>
 			<% @venues.each do |venue| %>
   			<%= render partial: 'index_venue_display', locals: { venue: venue } %>

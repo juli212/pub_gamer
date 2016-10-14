@@ -7,9 +7,9 @@
   </div>
 </div>
 
-<div class="row align-spaced">
+<div class="row medium-collapse large-uncollapse align-spaced">
 <!-- <div class="small-1 columns"></div> -->
-	<div class="small-12 medium-10 columns index-main">
+	<div class="small-12 large-10 columns index-main">
 		<% if @events && @events.length > 0 %>
 	  	<%= render partial: 'index_main', locals: { events: @events } %>
 		<% else %>

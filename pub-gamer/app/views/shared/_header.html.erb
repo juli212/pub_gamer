@@ -1,5 +1,4 @@
 <div class="row" id="header-row" >
-  <!-- <div class="hide-for-small-only medium-1 columns"></div> -->
   <div class="small-4 hide-for-small-only medium-2 columns text-right">
     <% if current_user %>
       <h2 id="page-header"><%= link_to "#{current_user.user_name}", user_path(current_user), id: "user" %></h2>
@@ -14,31 +13,6 @@
   </div>
 
   <div class="small-9 medium-5 columns text-right" >
-    <form id="search-form">
-      <div class="search">
-
-        <input id="search-txt" class="index-head" name="term" placeholder="game, address, name" autofocus autocomplete="on">
-
-        <div class="results" id="search-results"></div>
-      </div>
-    </form>
+    <%= render partial: 'shared/search_form' %>
   </div>
-  <div class="small-3 medium-2 columns self-align-left text-left" >
-      <%= submit_tag 'Search', class: "button index-head", id: "search-button" %>
-  </div>
-<!--   <div class="small-2 columns center-align align-self-bottom" >
-  </div> -->
 </div>
-
-
-<!-- <div class="row align-spaced header-row" >
-	<div class="small-12 columns" id="page-header-bottom">
-	</div>
-</div>
-
-
-<div class="row">
-  <div class="small-12 columns">
-  <span id="side-bar-linebreak"></span>
-  </div>
-</div> -->

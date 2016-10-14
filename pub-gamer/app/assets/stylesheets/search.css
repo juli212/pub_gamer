@@ -26,7 +26,8 @@ border-collapse:collapse;
 }
 
 #search-results ul {
-	width: 400px;
+	/*width: 400px;*/
+	width: 70%;
 }
 
 #search-results ul li {
@@ -42,23 +43,11 @@ border-collapse:collapse;
 	overflow: hidden;
 }
 
-#search-txt {
-	color: #2B2936;
-	height: 40px;
-	font-weight: bold;
-	padding-left: 7px;
-  border: medium none;
-  width: 90%;
-  min-width: 80px;
-  /*width: 400px;*
-}
-
-
 
 .index-head {
-  height: 37px;
+/*  height: 37px;
   position: absolute;
-  margin-top: 55px;
+  margin-top: 55px;*/
 }
 
 .ui-helper-hidden-accessible {

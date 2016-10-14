@@ -1,13 +1,17 @@
 .top-bar {
-  background-color: #2B2936;
+  padding: 5px 1%px;
   min-width: 100%;
-  width: auto;
+  width: 100%;
+  background-color: #480000;
+  color: #F4AE35;
+  border-bottom: 2px solid #31AB3C;
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 640px) {
   .top-bar {
     width: 100%;
     position: fixed;
+    z-index: 80;
   }
 }
 
@@ -16,29 +20,24 @@
 }
 
 .top-bar a {
-  color: #EDD0AF;
+  color: #F4AE35;
   font-weight: bold;
 }
 
-.top-bar h3 {
-  font-size: 40px;
-  color: #EDD0AF;
-}
-
 .top-bar ul {
-  background-color: #2B2936;
+  background-color: #480000;
   width: 100%;
 }
 
 .top-bar ul li {
-  width: 20%;
+  width: 22%;
   margin: 0px;
   padding: 0px;
   border: none;
 }
 
 .top-bar ul li a {
-  padding: 5px 3%;
+  padding: 20px 3%;
 }
 
 
