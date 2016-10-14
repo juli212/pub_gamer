@@ -28,3 +28,7 @@ $(document).ready(function() {
 	}
 });
 
+$(window).load(function() {
+  pad_height = $(".top-bar").height() + 15;
+  $("#main").css("padding-top", pad_height);
+});
