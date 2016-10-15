@@ -1,22 +1,23 @@
 $(window).load(function() {
-	$('#search-form').removeAttr('action')
-	$header = $('#page-header')
+	// $header = $('#page-header')
 	$path = window.location.pathname
-	navbarColor = '#FFFFF0'
-	navbarHighlight = '#A893FF'
-	navbarUnderline = '#31AB3C'
+	// navbarColor = '#FFFFF0'
+	// navbarHighlight = '#A893FF'
+	// navbarUnderline = '#31AB3C'
 	if ($path == "/" || $path == "") {
 		$('#header-row').remove();
 	}	else if ($path.includes("event")) {
-		$('#events').css('text-decoration', 'underline');
 		$('#search-form').attr("action", "/events/search");
+		$('#events').css('text-decoration', 'underline');
 		// $('#events').css('color', navbarColor);
 		// $('#events').css('background-color', navbarHighlight);
 		// $('#events').css('text-decoration', 'overline');
 		// $header.text("Events");
 	} else if ($path.includes("venue")) {
-		$('#venues').css('text-decoration', 'underline');
+		// debugger;
 		$('#search-form').attr("action", "/venues/search");
+		// debugger;
+		$('#venues').css('text-decoration', 'underline');
 		// $('#venues').css('color', navbarColor);
 		// $('#venues').css('background-color', navbarHighlight);
 		// $header.text("Venues");
@@ -38,7 +39,9 @@ $(window).load(function() {
 	}
 });
 
-$(window).load(function() {
-  pad_height = $(".top-bar").height() + 15;
-  $("#main").css("padding-top", pad_height);
-});
+// $(window).load(function() {
+// 	if ($('.top-bar').height() > 0) {
+//   	pad_height = $(".top-bar").height() + 25;
+//   	$("#main").css("padding-top", pad_height);
+// 	}
+// });

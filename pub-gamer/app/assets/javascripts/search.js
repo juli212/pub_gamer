@@ -28,9 +28,9 @@ $(document).ready(function() {
 	  // },
 	  focus: function(event, ui) {
 	  	$('.ui-menu-item').css('background-color', "#FFFFF0");
-	  	$('.ui-menu-item').css('color', "#2B2936");
-	  	$('.ui-state-focus').css('background-color', "#827AA4");
-	  	$('.ui-state-focus').css('color', "#EDD0AF");
+	  	$('.ui-menu-item').css('color', "#480000");
+	  	$('.ui-state-focus').css('background-color', "#A893FF");
+	  	// $('.ui-state-focus').css('color', "#F4AE35");
     }
 	})
   // $('#search-form').on('submit', function(event) {

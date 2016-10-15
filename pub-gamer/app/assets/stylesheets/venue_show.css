@@ -111,21 +111,6 @@
 	border-bottom: 5px solid #EDD0AF;
 }
 
-.display-game {
-	/*text-align: center;*/
-	display: inline-block;
-	font-weight: bold;
-	color: #FFFFF0;
-	background-color: #827AA4;
-	border-radius: 30%;
-	/*border: 1px solid;*/
-	padding: 4px 8px;
-	min-width: 60px;
-	height: 35px;
-	margin: 0px 10px 5px 0px;
-	/*float: center;*/
-}
-
 #submit-review {
 	font-weight: bold;
 	/*background-color: white;*/

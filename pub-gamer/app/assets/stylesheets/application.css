@@ -27,11 +27,15 @@ body {
   background-color: #FFFFF0;
 }
 
+body > * {
+  color: #480000;
+}
+
 #main {
   height: 100%;
 }
 
-@media only screen and (min-width: 640px) {
+/*@media only screen and (min-width: 640px) {
   .side-bar {
     width: 25%;
     float: left;
@@ -50,7 +54,7 @@ body {
   #main {
     width: 85%;
   }
-}
+}*/
 
 body ul{
   list-style-type: none;
@@ -110,7 +114,21 @@ input:focus {
       border-top-left-radius: 0.6em;
     }
 }*/
-
+.display-game {
+  /*text-align: center;*/
+  display: inline-block;
+  font-weight: bold;
+  color: #FFFFF0;
+  background-color: #31AB3C;
+  border-radius: 10px;
+  /*border: 1px solid;*/
+  border-bottom: 1px solid #F4AE35;
+  padding: 4px 8px;
+  min-width: 60px;
+  height: 35px;
+  margin: 0px 10px 5px 0px;
+  /*float: center;*/
+}
 
 .pagination > * {
   float: left;

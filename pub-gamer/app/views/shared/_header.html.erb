@@ -1,18 +1,27 @@
-<div class="row" id="header-row" >
-  <div class="small-4 hide-for-small-only medium-2 columns text-right">
-    <% if current_user %>
-      <h2 id="page-header"><%= link_to "#{current_user.user_name}", user_path(current_user), id: "user" %></h2>
-    <% end %>
-  </div>
-  <div class="small-4 hide-for-small-only  medium-2 columns text-left">
-    <% if current_user %>
-      <%= link_to "Logout", logout_path, method: :delete, class: "button", id: "logout-button" %>
-    <% else %>
-      <%= link_to "login", root_path %>
-    <% end %>
+ <div class="top-bar">
+  <div class="row small-collapse">
+    <div class="small-12 columns">
+      <%= link_to image_tag("topbarBannerOrange.png"), method: "get", action: "index", controller: "welcome" %>
+    </div>
   </div>
 
-  <div class="small-9 medium-5 columns text-right" >
-    <%= render partial: 'shared/search_form' %>
+  <div class="row small-collapse align-spaced">
+    <div class="small-12 medium-7 columns">
+      <ul class="menu horizontal align-self-center">
+        <% if logged_in? %>
+          <li><%= link_to "Profile", user_path(current_user.id), id: "user" %></li>
+        <% end %>
+        <li><%= link_to "Venues", venues_path, id: "venues" %></li>
+        <li><%= link_to "Events", events_path, id: "events" %></li>
+        <li><%= link_to "About" %></li>
+        <li><%= link_to "Contact" %></li>
+      </ul>
+    </div>
+  <!-- </div> -->
+
+  <!-- <div class="row small-collapse" "> -->
+    <div class="small-12 medium-4 columns" id="topbar-row-three">
+      <%= render partial: '/shared/search_form' %>
+    </div>
   </div>
 </div>
