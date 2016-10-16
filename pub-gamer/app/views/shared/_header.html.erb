@@ -1,12 +1,12 @@
  <div class="top-bar">
   <div class="row small-collapse">
-    <div class="small-12 columns">
+    <div class="small-12 medium-expand columns">
       <%= link_to image_tag("topbarBannerOrange.png"), method: "get", action: "index", controller: "welcome" %>
     </div>
   </div>
 
   <div class="row small-collapse align-spaced">
-    <div class="small-12 medium-7 columns">
+    <div class="small-12 medium-7 medium-order-2 columns">
       <ul class="menu horizontal align-self-center">
         <% if logged_in? %>
           <li><%= link_to "Profile", user_path(current_user.id), id: "user" %></li>
@@ -15,12 +15,15 @@
         <li><%= link_to "Events", events_path, id: "events" %></li>
         <li><%= link_to "About" %></li>
         <li><%= link_to "Contact" %></li>
+        <% if !logged_in? %>
+          <li><%= link_to "Login", login_path, id: "user" %></li>
+        <% end %>
       </ul>
     </div>
   <!-- </div> -->
 
   <!-- <div class="row small-collapse" "> -->
-    <div class="small-12 medium-4 columns" id="topbar-row-three">
+    <div class="small-12 medium-4 medium-order-1 columns" id="topbar-row-three">
       <%= render partial: '/shared/search_form' %>
     </div>
   </div>
