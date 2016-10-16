@@ -1,4 +1,7 @@
-
-<% reviews.each do |review| %>
-	<%= render partial: 'reviews/show', locals: { review: review } %>
-<% end %>
+<div class="row small-up-1 medium-up-3 large-up-4 align-spaced review-show-row">
+	<% reviews.each do |review| %>
+		<div class="columns review-info-box">
+			<%= render partial: 'reviews/new_show', locals: { review: review } %>
+		</div>
+	<% end %>
+</div>

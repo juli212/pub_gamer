@@ -10,8 +10,8 @@
 		</div>
 	</div>
 
-	<div class="small-12 small-order-1 medium-order-2 medium-7 columns">
-		<h3 class="text-left" id="venue-name"><%= @venue.name %></h3>
+	<div class="small-12 small-order-1 medium-order-2 medium-expand columns">
+		<h2 class="text-left" id="venue-name"><%= @venue.name %></h2>
 		<div class="row align-center" >
 			<!-- <div class="small-1 columns" ></div> -->
 			<div class="small-12 columns" >
@@ -31,19 +31,19 @@
 </div>
 
 <div class="row align-spaced" id="venue-show-button-row">
-	<div class="hide-for-small-only medium-1 columns" >
+	<div class="show-for-large large-1 columns" >
 	</div>
-	<div class="small-9 medium-3 columns" >
+	<div class="small-9 medium-4 large-3 columns" >
 		<%= link_to "Create an Event", new_event_path, class: "button", id: "venue-event-create-link"  %>
 		<%= render partial: 'events/event_create' %>
 	</div>
-	<div class="small-9 medium-2 columns" >
+	<div class="small-9 medium-3 large-2 columns" >
 		<%= link_to "Review!", new_venue_review_path(@venue.id), class: "button", id: "new-review-button" %>
 		<div id="new-review-form" >
 			<%= render partial: 'reviews/new'%>
 		</div>
 	</div>
-	<div class="small-9 medium-3 columns" >
+	<div class="small-9 medium-4 large-3 columns" >
 		<div id="favorite">
 			<% if current_user && current_user.has_favorited?(@venue) %>
 				<%= render partial: 'users/favorite_added' %>
@@ -52,7 +52,7 @@
 			<% end %>
 		</div>
 	</div>
-	<div class="hide-for-small-only medium-1 columns" >
+	<div class="show-for-large large-1 columns" >
 	</div>
 </div>
 

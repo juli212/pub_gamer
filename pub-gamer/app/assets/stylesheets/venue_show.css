@@ -1,5 +1,31 @@
-#venue-show h2{
+#venue-show h2 {
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
 	/*color: white;*/
+}
+
+#venue-show p {
+	text-align: center;
+}
+
+@media only screen and (min-width: 640px) {
+	#venue-show h2 {
+		font-size: 40px;
+		/*font-weight: bold;*/
+		/*text-align: left;*/
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	#venue-show h2 {
+		font-size: 60px;
+		/*font-weight: bold;*/
+		text-align: left;
+	}
+	#venue-show p {
+		text-align: left;
+	}
 }
 
 #venue-show-button-row .button {
@@ -19,26 +45,21 @@
 }
 
 .review-show-row {
-	color: #2B2936;
+/*	color: #2B2936;
   background-color: #EDD0AF;
   border-radius: 7px;
   min-width: 260px;
   min-height: 120px;
   padding: 0px 30px 10px 0px;
-  margin-bottom: 15px;
+  margin-bottom: 15px;*/
 }
 
-@media only screen and (max-width: 575px) {
-  .review-index {
-  	width: 88%;
-  	margin: 0px 4%;
-  	/*padding-right: %;*/
-  }
-
-  .review-show-row {
-    padding-right: 4%;
-  }
+@media only screen and (min-width: 640px){
+	.review-show-row {
+		/*width: 30%;*/
+	}
 }
+
 
 .review-show-bottom-row {
 	border-top: 2px solid #FFFFF0;
@@ -72,12 +93,23 @@
 }
 
 .review-info-box {
-	padding-top: 10px;
-	border-bottom: 1px solid #FFFFF0;
-	border-right: 7px solid #FFFFF0;
+	padding: 10px 0px 0px 1%;
+	/*padding-top: 10px;*/
+	border-bottom: 3px solid #31AB3C;
+	border-right: 7px solid #31AB3C;
+	border-left: 5px solid #FFFFF0;
 	border-bottom-right-radius: 30px;
+	/*border-bottom-left-radius: -100px;*/
+	background-color: rgba(244, 174, 53, 0.2);
+	margin: 10px 0px;
 	/*width: 30%;*/
 	/*min-width: 230px;*/
+}
+
+@media only screen and (min-width: 640px){
+	.review-info-box {
+		padding-left: 8px;
+	}
 }
 
 #avg-rating {
