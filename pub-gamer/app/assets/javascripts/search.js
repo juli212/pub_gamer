@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+	// general search
 	$( "#search-txt" ).autocomplete({
 		minLength: 2,
 		appendTo: "#search-results",
@@ -45,6 +47,8 @@ $(document).ready(function() {
   //     $('.index-main').html(response);
   //   })
   // })
+
+  // add venue to event
   $( "#event_location" ).autocomplete({
 		minLength: 2,
 		appendTo: "#event-venue-results",
@@ -91,7 +95,7 @@ $(document).ready(function() {
     }
 	})
 
-
+// add neighborhood to venue
   $('#venue_neighborhood').autocomplete({
   	minLength: 1,
   	appendTo: "#add-venue-neighborhood-results",
@@ -124,7 +128,7 @@ $(document).ready(function() {
     }
   })
 
-
+// add game to venue
 	$( "#other-text-field" ).autocomplete({
 		minLength: 1,
 		appendTo: "#add-venue-game-results",
