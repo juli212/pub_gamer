@@ -1,8 +1,6 @@
 
 .welcome-button-box {
 	border-radius: 20px;
-	background-color: #2B2936;
-	/*margin: 200px 20%;*/
 	margin: 15%;
 	text-align: center;
 }
@@ -21,7 +19,7 @@
 
 .welcome-column a {
 	padding: 10px 0px;
-	color: #EDD0AF;
+	/*color: #EDD0AF;*/
 	font-size: 46px;
 	font-weight: bold;
 	display: block;
@@ -95,15 +93,15 @@
 		/*margin-left: 200px;*/
 	}
 	.welcome-button-box {
-		width: 40%;
+		width: 26%;
 		padding: 0px;
-		margin: 0;
 		/*display: block;*/
 		float: left;
-		margin: 15% 5%;
+		margin: 20% 12%;
 	}
 	.welcome-button-box a {
 		/*padding: 0px 20px;*/
 		font-size: 36px;
+		padding: 40px 0px;
 	}
 }
