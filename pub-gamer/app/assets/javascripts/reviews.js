@@ -39,7 +39,7 @@ $(document).ready(function() {
     minHeight: 500,
     width: 500,
     // appendTo: ,
-    position: ({ my:"top", at: "bottom", of: "#header-row"}),
+    position: ({ my:"top", at: "bottom", of: ".top-bar"}),
     show: {
       effect: "bounce",
       duration: 1500
@@ -64,7 +64,7 @@ $(document).ready(function() {
     minHeight: 300,
     width: 400,
     // appendTo: ,
-    position: ({ my:"top", at: "bottom", of: "#header-row"}),
+    position: ({ my:"top", at: "bottom", of: ".top-bar"}),
     show: {
       effect: "bounce",
       duration: 1500
