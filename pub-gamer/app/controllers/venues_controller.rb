@@ -30,7 +30,15 @@ class VenuesController < ApplicationController
   def search
     @favorites = current_user.favorites
     respond_to do |format|
-      format.html { @venues = Venue.search(params[:term]).paginate(:page => params[:page], :per_page => 8) }
+      format.html { 
+        venues = Venue.search(params[:term])
+        if venues.length == 1 && Venue.find_by(name: params[:term])
+          @venue = Venue.find_by(name: params[:term])
+          redirect_to venue_path(@venue)
+        else
+          @venues = venues.paginate(:page => params[:page], :per_page => 8)
+        end
+         }
       format.json { @results = Venue.search(params[:term]) + Game.game_search(params[:term]) + Neighborhood.neighborhood_search(params[:term]) }
     end
   end
@@ -90,7 +98,7 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find_by(id: params[:id])
-    @reviews = @venue.sorted_reviews.paginate(:page => params[:page], :per_page => 4)
+    @reviews = @venue.show_reviews.paginate(:page => params[:page], :per_page => 4)
     @review = Review.new
     @games = @venue.games.limit(6).uniq
     @event = Event.new
