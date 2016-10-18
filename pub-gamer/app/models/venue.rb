@@ -79,7 +79,6 @@ class Venue < ActiveRecord::Base
 		" - " + self.address
 	end
 
-
 	def make_new(game_name)
 		if !Game.find_by(name: game_name)
 			new_game = Game.create(name: game_name)
@@ -99,6 +98,10 @@ class Venue < ActiveRecord::Base
 
 	def recent_reviews
 		self.reviews.last(10).reverse
+	end
+
+	def show_reviews
+		self.sorted_reviews.reject { |review| review.deleted == true }
 	end
 
 	def sorted_reviews
