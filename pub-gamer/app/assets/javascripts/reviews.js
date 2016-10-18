@@ -61,11 +61,12 @@ $(document).ready(function() {
   $('#full-review-content').dialog({
     modal: true,
     autoOpen: false,
-    minHeight: 200,
-    height: screen.height * 0.50,
-    minWidth: 100,
-    width: $(window).width() * 0.70,
-    // appendTo: ,
+    // minHeight: 200,
+    // height: screen.height * 0.50,
+    // minWidth: 100,
+    minWidth: $(window).width() * 0.40,
+    minHeight: screen.height * 0.40,
+    // width: $(window).width() * 0.50,
     position: ({ my:"center top", at: "center bottom", of: ".top-bar"}),
     show: {
       effect: "bounce",

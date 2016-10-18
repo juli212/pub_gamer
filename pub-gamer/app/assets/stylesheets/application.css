@@ -35,27 +35,6 @@ body > * {
   height: 100%;
 }
 
-/*@media only screen and (min-width: 640px) {
-  .side-bar {
-    width: 25%;
-    float: left;
-  }
-
-  #main {
-    width: 75%;
-    float: right;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .side-bar {
-    width: 15%;
-  }
-  #main {
-    width: 85%;
-  }
-}*/
-
 body ul{
   list-style-type: none;
 }
@@ -76,15 +55,6 @@ body ul a {
   text-decoration: none;
 }
 
-
-/*#wrap {
-}
-
-#content {
-  overflow: auto;
-  padding-bottom: 80px;
-}*/
-
 h1 {
   text-align: center;
   font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
@@ -102,18 +72,6 @@ input:focus {
   outline: none;
 }
 
-/*@media  screen and (max-device-width: 480px) (max-width: 1000px) {
-    #venue-create-form {
-      position: absolute; bottom: 109px; left: 150px; z-index: 99;
-      display: none;
-      background: rgba(200, 117, 40,0.9);
-      border: 1px;
-      width: 650px;
-      height: 150px;
-      border-top-right-radius: 0.6em;
-      border-top-left-radius: 0.6em;
-    }
-}*/
 .display-game {
   /*text-align: center;*/
   display: inline-block;
@@ -147,4 +105,20 @@ input:focus {
 .ui-front {
   z-index: 100;
   position: fixed;
+}
+
+.ui-widget-content {
+  width: 500px;
+  height: 200px;
+  border: 2px solid #480000;
+  border-top: none;
+  border-radius: 10px;
+  /*border-bottom-left-radius: 10px;*/
+  /*border-bottom-right-radius: 10px;*/
+}
+
+.ui-widget-header {
+  background-color: #480000;
+  /*border-top-left-radius: 10px;*/
+  /*border-top-right-radius: 10px;*/
 }
