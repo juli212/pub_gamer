@@ -13,7 +13,7 @@ $(document).ready(function() {
     minHeight: 500,
     width: 500,
     // appendTo: '#event-create-ajax-div',
-    position: ({ my:"top", at: "bottom", of: "#header-row"}),
+    position: ({ my:"top", at: "bottom", of: ".top-bar"}),
     show: {
         effect: "blind",
         duration: 1000
