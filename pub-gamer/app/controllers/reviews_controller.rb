@@ -1,7 +1,5 @@
 class ReviewsController < ApplicationController
 
-
-
 	def create
 		@review = Review.new(review_params)
 		@review.venue_id = params[:venue_id]
@@ -28,7 +26,7 @@ class ReviewsController < ApplicationController
 		binding.pry
 		@review = Review.find_by(id:params[:id])
 		if current_user.id = @review.user_id
-			@review.update_attributes(params[:review])
+			@review.update_attributes(delete_review_params)
 			redirect_to venue_path(@review.venue_id)
 		end
 	end
@@ -37,9 +35,9 @@ class ReviewsController < ApplicationController
 	end
 
 	def show
+		@venue = Venue.find_by(id: params[:venue_id])
 		@review = Review.find_by(id: params[:id])
 		if request.xhr?
-			# binding.pry
 			render partial: 'full_review', locals: { review: @review }
 		else
 			render 'show'
@@ -49,6 +47,10 @@ class ReviewsController < ApplicationController
 	private
 	def review_params
 		params.require(:review).permit(:content, :rating, :week, :venue_id)
+	end
+
+	def delete_review_params
+		params.require(:review).permit(:deleted)
 	end
 
 end
