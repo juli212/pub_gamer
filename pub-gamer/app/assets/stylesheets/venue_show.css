@@ -87,9 +87,14 @@
 	/*padding-top: 10px;*/
 }
 
-.review-content {
-	padding-top: 30px;
-	/*width: 70%;*/
+#full-review-content {
+	color: #480000;
+	background-color: #FFFFF0;
+	padding: 15px 5px;
+}
+
+@media only screen and (min-width: 640px){
+	#full-review-content {}
 }
 
 .review-info-box {

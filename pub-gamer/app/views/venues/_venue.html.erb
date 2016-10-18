@@ -1,6 +1,6 @@
 <div class="row text-center align-spaced" id="venue-header" >
 	<!-- <div class="small-1 columns"></div> -->
-	<div class="small-8 small-order-2 medium-3 medium-order-1 columns align-center" >
+	<div class="small-12 small-order-2 medium-3 medium-order-1 columns align-center" >
 		<div id="avg-rating">
 			<% if @venue.has_reviews? %>
 				<%= render partial: 'venue_rating', locals: { current_rating: @current_rating } %>
