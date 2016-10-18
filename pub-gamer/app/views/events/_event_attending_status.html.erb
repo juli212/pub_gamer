@@ -1,0 +1,7 @@
+<% if event.user == current_user %>
+  <p>Your Event!</p>
+<% elsif event.attending_event?(current_user) %>
+  <p>You are going!</p>
+<% else %>
+  <%= link_to "Join Event!", event_path(event), method: :put, class: "button" %>
+<% end %>

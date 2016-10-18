@@ -12,7 +12,7 @@
 
     <div class="columns small-5 show-for-small-only">
       <div class="event-index-join">
-        <%= link_to "Join Event!", event_path(event), method: :put, class: "button" %>
+        <%= render partial: 'event_attending_status', locals: { event: event } %>
       </div>
       <div class="">
         <%= render partial: 'shared/games', locals: { games: event.games }%>
@@ -30,7 +30,7 @@
               <p><%= event.date.strftime("%B #{event.date.day.ordinalize}") %>, <%= event.time.strftime('%-I:%M%p') %></p>
             </div>
             <div class="small-3 medium-4 large-3 columns event-index-join">
-              <%= link_to "Join Event!", event_path(event), method: :put, class: "button" %>
+              <%= render partial: 'event_attending_status', locals: { event: event } %>
               <p class="">Created by: <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
               <p>Max Guests: <%= event.limit %></p>
             </div>
