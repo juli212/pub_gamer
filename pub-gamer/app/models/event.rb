@@ -68,16 +68,12 @@ class Event < ActiveRecord::Base
 	end
 
 
-  def attending_event?(current_user)
-    if self.guests.length == 0
+  def attending_event?(user)
+    if ( self.guests.empty? ) || ( !self.guests.include?(user) )
       return false
+    else
+    	return true
     end
-    self.guests.each do |guest|
-      if guest.id == current_user.id
-        return true
-      end
-    end
-    return false
   end
 
 
