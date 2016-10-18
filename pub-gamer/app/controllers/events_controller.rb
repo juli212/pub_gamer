@@ -95,7 +95,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find_by(id: params[:id])
-    @event.guests << current_user unless @event.full?
+    @event.guests << current_user unless ( @event.full? ) || ( @event.guests.include?(current_user) )
     redirect_to event_path(@event)
   end
 
