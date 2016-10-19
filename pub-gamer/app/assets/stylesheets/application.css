@@ -17,13 +17,16 @@
 
  */
 
+
+
+
+
 html {
   height: 100%;
 }
 
 body {
   min-height: 100%;
-  height: auto;
   background-color: #FFFFF0;
 }
 
@@ -31,8 +34,29 @@ body > * {
   color: #480000;
 }
 
+#content {
+  min-height: 100%;
+}
+
 #main {
-  height: 100%;
+  padding-top: 5px;
+  overflow: auto;
+  padding-bottom: 80px;
+}
+
+#foot {
+  background-color: #FBEBD4;
+  position: relative;
+  margin-top: -80px;
+  height: 80px;
+  width: 100%;
+  clear: both;
+}
+
+@media only screen and (min-width: 640px) {
+  #main {
+    padding-top: 10px;
+  }
 }
 
 body ul{
