@@ -1,8 +1,7 @@
 <% if event.user == current_user %>
   <p>Your Event!</p>
 <% elsif event.attending_event?(current_user) %>
-  <%= link_to image_tag("icons/hearts/heart5.1Orange", size: '80', title: "Leave Event", class: "button"), event_path(event), method: :delete %>
+  <%= button_to "", event_path(event), method: :put, title: "Leave Event", class: "button leave-event", params: {act: "leave"} %>
 <% else %>
-  
-  <%= link_to image_tag("icons/hearts/heart2.1Orange", size: '80', title: "Join Event", class: "button"), event_path(event), method: :put %>
+  <%= button_to "", event_path(event), method: :put, title: "Join Event", class: "button join-event", params: {act: "join"} %>
 <% end %>

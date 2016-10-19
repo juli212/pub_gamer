@@ -95,14 +95,16 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find_by(id: params[:id])
-    @event.guests << current_user unless ( @event.full? ) || ( @event.guests.include?(current_user) )
+    if params[:act] == "join"
+      @event.guests << current_user unless ( @event.full? ) || ( @event.guests.include?(current_user) )
+    elsif params[:act] == "leave"
+      @event.guests.delete(current_user)
+    end
     redirect_to event_path(@event)
   end
 
   def destroy
-    @event = Event.find_by(id: params[:id])
-    @event.guests.delete(current_user)
-    redirect_to event_path(@event)
+    # redirect_to event_path(@event)
   end
 
   def show
