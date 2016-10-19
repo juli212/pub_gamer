@@ -20,13 +20,13 @@
   font-weight: bold;
 }
 
-.top-bar ul {
+#nav {
   background-color: #FBEBD4;
   width: 100%;
   display: flex;
 }
 
-.top-bar ul li {
+#nav li {
   width: 20%;
   margin: 0px;
   padding: 0px;
@@ -37,7 +37,7 @@
 }
 
 
-.top-bar ul li a {
+#nav li a {
   padding: 20px 0px;
 }
 
@@ -50,18 +50,18 @@
     padding: 10px 40px;
   }
 
-  .top-bar ul {
+  #nav {
     margin: 20px 0px;
   }
-  .top-bar ul li {
+  #nav li {
     font-size: 16px;
   }
 
-  .top-bar ul li+li {
+  #nav li+li {
     border-left: 2px solid #480000;
   }
 
-  .top-bar ul li a {
+  #nav li a {
     padding: 0px 0px;
   }
 

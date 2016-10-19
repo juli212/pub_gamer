@@ -42,6 +42,7 @@ border-collapse: collapse;
 	height: 30px;
 	border-top: none;
 	overflow: hidden;
+	text-align: left;
 }
 @media only screen and (min-width: 640px) {
 	#search-results ul {
@@ -51,4 +52,11 @@ border-collapse: collapse;
 
 .ui-helper-hidden-accessible {
 	visibility: hidden;
+}
+
+.top-bar .ui-widget-content {
+	height: auto;
+	border-top: 1px dashed #480000;
+	border-radius: none;
+	width: 100%;
 }
