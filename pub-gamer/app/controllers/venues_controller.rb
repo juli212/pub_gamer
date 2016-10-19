@@ -25,7 +25,7 @@ class VenuesController < ApplicationController
   def index
     @favorites = current_user.favorites
     # binding.pry
-    @venues = Venue.paginate(:page => params[:page], :per_page => 5)
+    @venues = Venue.paginate(:page => params[:page], :per_page => 12)
   end
 
   def search
@@ -37,7 +37,7 @@ class VenuesController < ApplicationController
           @venue = Venue.find_by(name: params[:term])
           redirect_to venue_path(@venue)
         else
-          @venues = venues.paginate(:page => params[:page], :per_page => 8)
+          @venues = venues.paginate(:page => params[:page], :per_page => 12)
         end
          }
       format.json { @results = Venue.search(params[:term]) + Game.game_search(params[:term]) + Neighborhood.neighborhood_search(params[:term]) }
@@ -99,7 +99,7 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find_by(id: params[:id])
-    @reviews = @venue.show_reviews.paginate(:page => params[:page], :per_page => 4)
+    @reviews = @venue.show_reviews.paginate(:page => params[:page], :per_page => 6)
     @review = Review.new
     @games = @venue.games.limit(6).uniq
     @event = Event.new

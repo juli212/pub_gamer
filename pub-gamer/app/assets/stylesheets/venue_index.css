@@ -18,30 +18,41 @@
 }
 
 .venue-index-content {
-	padding-top: 10px;
+	/*padding-top: 10px;*/
 }
 
 .venue-index-bottom {
 	padding-right: 40px;
 }
 
+.venue-index-rating-box {
+	display: inline-block;
+	width: 75%;
+	/*float: left;*/
+}
+
 .fav-button-div {
 	/*width: 30%;*/
-	margin: 5px;
+	display: inline-block;
+	/*margin: 5px;*/
+	/*position: relative;*/
+	/*right: 30px;*/
+	/*float: left;*/
 }
+
 
 .venue-index-remove-button {
 	padding: 0px;
-	width: 80px;
-	height: 80px;
-	background-image: url(icons/hearts/heart6.1Orange.png);
-	background-size: 80px;
+	width: 50px;
+	height: 50px;
+	background-image: url(icons/hearts/heart5.1Brown.png);
+	background-size: 50px;
 }
 
 .venue-index-fav-button {
 		padding: 0px;
-	width: 80px;
-	height: 80px;
-	background-image: url(icons/hearts/heart1.1Orange.png);
-	background-size: 80px;
+	width: 50px;
+	height: 50px;
+	background-image: url(icons/hearts/heart2.1Brown.png);
+	background-size: 50px;
 }

@@ -1,5 +1,5 @@
 <% if current_user.has_favorited?(venue) %>
-  <%= button_to "Remove!", user_path(current_user), method: :put, params: { venue: venue, act: "remove" }, class: "button venue-index-remove-button" %>
+  <%= button_to "", user_path(current_user), method: :put, params: { venue: venue, act: "remove" }, class: "button venue-index-remove-button" %>
 <% else %>
-	<%= button_to "Add!", user_path(current_user), method: :put, params: { venue: venue, act: "add" }, class: "button venue-index-fav-button" %>
+	<%= button_to "", user_path(current_user), method: :put, params: { venue: venue, act: "add" }, class: "button venue-index-fav-button" %>
 <% end %>
