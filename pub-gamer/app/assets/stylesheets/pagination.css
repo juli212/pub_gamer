@@ -5,20 +5,21 @@
 .pagination a {
 	/*padding: 10px;*/
 	border-radius: 50%;
+	color: #480000;
 }
 
 .pagination a:hover {
-	color: #FFFFF0;
-	background-color: #827AA4;
+	color: #480000;
+	background-color: #A893FF;
 }
 
 .pagination .current {
 	border-radius: 50%;
-	color: #EDD0AF;
-	background-color: #2B2936;
+	color: #480000;
+	background-color: #A893FF;
 }
 
 .pagination .current:hover {
-	color: #2B2936;
-	background-color: #EDD0AF;
+	color: #FBEBD4;
+	background-color: #A893FF;
 }

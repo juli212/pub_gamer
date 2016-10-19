@@ -45,12 +45,20 @@ body > * {
 }
 
 #foot {
+  border-top: 1px solid #31AB3C;
+  text-align: center;
   background-color: #FBEBD4;
   position: relative;
   margin-top: -80px;
   height: 80px;
   width: 100%;
   clear: both;
+}
+
+#foot p {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px 0px;
 }
 
 @media only screen and (min-width: 640px) {
