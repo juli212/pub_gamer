@@ -1,8 +1,11 @@
 <% events.each do |event| %>
-  <div class="row index-box">
+  <div class="row index-box small-collapse">
     <div class="small-12 show-for-small-only index-title columns text-center">
-      <h5><%= link_to event.title, event_path(event) %></h5
-      <p><%= event.venue.address %></p>
+      <h5><%= link_to event.title, event_path(event) %></h5>
+      <p>
+        <%= image_tag("icons/location/location9Orange.png", size: '30', title: "location" ) %>
+        <%= event.venue.address %>
+      </p>
     </div>
     <div class="small-7 medium-4 large-3 columns">
       <div class="index-pic">
@@ -20,16 +23,30 @@
     </div>
 
     <div class="small-9 medium-8 large-9 columns">
-      <div class="row" >
+      <div class="row medium-collapse" >
         <div class="hide-for-small-only medium-12 columns text-center">
           <h5 class="index-title"><%= link_to event.title, event_path(event) %></h5>
+          <p class="text-left">
+            <%= image_tag("icons/location/location9Orange.png", size: '30', title: "location" ) %>
+            <%= event.venue.address %>
+          </p>
           <div class="row">
-            <div class="small-9 medium-8 large-9 columns">
-              <p><%= event.venue.address %></p>
+            <div class="medium-12-columns text-left">
+              <%= image_tag("icons/dice/dice1Orange.png", size: '30', title: "games" ) %>
               <%= render partial: 'shared/games', locals: { games: event.games }%>
-              <p><%= event.date.strftime("%B #{event.date.day.ordinalize}") %>, <%= event.time.strftime('%-I:%M%p') %></p>
             </div>
-            <div class="small-3 medium-4 large-3 columns event-index-join">
+          </div>
+
+          <div class="row medium-collapse">
+            <div class="medium-5 large-8 columns text-left">
+              <p>
+                <%= image_tag("icons/calendars/calendar1.1Orange.png", size: '25', title: "date") %>
+                <%= event.date.strftime("%B #{event.date.day.ordinalize}") %> </p><p>
+                <%= image_tag("icons/clocks/clock1.1Orange.png", size: '25', title: "time") %>
+                <%= event.time.strftime('%-I:%M%p') %>
+              </p>
+            </div>
+            <div class="medium-7 large-4 columns event-index-join">
               <%= render partial: 'event_attending_status', locals: { event: event } %>
               <p class="">Created by: <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
               <p>Max Guests: <%= event.limit %></p>
@@ -43,6 +60,7 @@
           <p><%= event.date.strftime("%B #{event.date.day.ordinalize}") %>, <%= event.time.strftime('%-I:%M%p') %></p>
         </div>
       </div>
+
     </div>
   </div>
 <% end %>
