@@ -1,28 +1,5 @@
-#header-row {
-  color: #FFFFF0;
-  background-color: #480000;
-  padding-top: 20px;
-  margin-bottom: 10px;
-}
 
-@media only screen and (max-width: 575px) {
-  #header-row {
-    width: 100%;
-  }
-}
-
-#page-header {
-  color: #2B2936;
-  font-weight: bold;
-}
-
-#logout-button {
-  /*margin-top: 52px;*/
-/*  position: relative;
-  margin: 0px;*/
-}
 .top-bar {
-  /*padding: 5px 1%;*/
   margin: 0px;
   padding: 0px;
   min-width: 100%;
@@ -44,42 +21,48 @@
 }
 
 .top-bar ul {
-  /*padding-top: 5px;*/
   background-color: #FBEBD4;
   width: 100%;
-  /*margin: 0 auto;*/
+  display: flex;
 }
 
 .top-bar ul li {
-  /*width: 22%;*/
+  width: 20%;
   margin: 0px;
   padding: 0px;
-  /*padding: ;*/
   border: none;
   font-size: 15px;
   text-align: center;
+  /*border-right: 1px solid;*/
 }
+
 
 .top-bar ul li a {
-  padding: 20px 7px;
+  padding: 20px 0px;
 }
 
+#topbar-row-three {
+  display: flex;
+}
 
 @media only screen and (min-width: 640px) {
-  .top-bar {
-    /*width: 100%;*/
-    /*position: fixed;*/
-    /*z-index: 80;*/
+  .top-bar img {
+    padding: 10px 40px;
   }
 
+  .top-bar ul {
+    margin: 20px 0px;
+  }
   .top-bar ul li {
-    /*width: 25%;*/
     font-size: 16px;
   }
 
+  .top-bar ul li+li {
+    border-left: 2px solid #480000;
+  }
+
   .top-bar ul li a {
-    /*padding: 20px 50%;*/
-    padding: 20px 5px;
+    padding: 0px 0px;
   }
 
   #topbar-row-three {
@@ -87,14 +70,12 @@
   }
 }
 
-
 #search-form {
   width: 100%;
-  /*display: inline-block;*/
 }
 
 .search {
-  width: 215px;
+  width: 100%;
   display: inline-block;
   margin: 0px;
   padding: 0px;
@@ -106,12 +87,12 @@
   height: 40px;
   font-weight: bold;
   border: medium #480000;
-  /*min-width: 80px;*/
-  /*width: 100%;*/
-  /*width: 300px;*/
   margin: 0px;
+  margin-left: 3px;
   padding-left: 7px;
+  min-width: 70%;
 }
+
 
 #search-button{
   display: inline-block;
@@ -120,15 +101,5 @@
   color: #FFFFF0;
   font-size: 20px;
   padding: 5px 2%;
-  /*font-weight: bolder;*/
-}
-
-@media only screen and (min-width: 640px) {
-  #header-row {
-    width: 100%;
-  }
-
-  #page-header {
-    padding: 0px;
-  }
+  font-weight: bolder;
 }

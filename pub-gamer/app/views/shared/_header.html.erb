@@ -1,12 +1,12 @@
  <div class="top-bar">
-  <div class="row small-collapse">
-    <div class="small-12 medium-expand columns">
+  <div class="row small-up-1 small-collapse expanded">
+    <div class="columns">
       <%= link_to image_tag("header2.png"), method: "get", action: "index", controller: "welcome" %>
     </div>
   </div>
 
-  <div class="row small-collapse align-spaced">
-    <div class="small-12 medium-6 medium-order-2 columns" id="topbar-row-two">
+  <div class="row small-up-1 medium-up-2 small-collapse align-spaced">
+    <div class="medium-order-2 columns" id="topbar-row-two">
       <ul class="menu horizontal align-self-center">
         <% if logged_in? %>
           <li><%= link_to "#{current_user.user_name}", user_path(current_user.id), id: "user" %></li>
@@ -20,10 +20,8 @@
         <% end %>
       </ul>
     </div>
-  <!-- </div> -->
 
-  <!-- <div class="row small-collapse" "> -->
-    <div class="small-12 medium-6 medium-order-1 columns" id="topbar-row-three">
+    <div class="medium-order-1 columns" id="topbar-row-three">
       <%= render partial: '/shared/search_form' %>
     </div>
   </div>
