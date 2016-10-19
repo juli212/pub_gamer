@@ -22,16 +22,22 @@ class UsersController < ApplicationController
     #   redirect_to venue_path(@venue)
     # end
     if params[:act] == "remove" && request.xhr?
+      flash[:notice] = "Venue removed from favorites"
       render partial: 'users/favorite_removed'
     elsif params[:act] == "remove"
+      flash[:notice] = "Venue removed from favorites"
       redirect_to venues_path
     elsif params[:act] == "add" && request.xhr?
+      flash[:notice] = "Venue added to favorites"
       render partial: 'users/favorite_added'
     elsif params[:act] == "add"
+      flash[:notice] = "Venue added to favorites"
       redirect_to venue_path(@venue)
     else
-    redirect_to venue_path(@venue)
-    end 
+    flash[:notice] = "favorites not updated"
+    redirect_to venues_path
+    end
+    # binding.pry
   end
 
   def show

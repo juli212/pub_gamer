@@ -5,6 +5,14 @@
 	</div>
 </div>
 
+<div class="row align-center">
+	<div class="columns notice">
+		<% if flash[:notice] %>
+			<p><%= flash[:notice] %></p>
+		<% end %>
+	</div>
+</div>
+
 <div class="row align-spaced">
 	<div class="small-12 medium-12 large-10 columns index-main">
 		<% if @venues && @venues.length > 0 %>

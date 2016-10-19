@@ -24,6 +24,7 @@ class VenuesController < ApplicationController
 
   def index
     @favorites = current_user.favorites
+    # binding.pry
     @venues = Venue.paginate(:page => params[:page], :per_page => 5)
   end
 
