@@ -97,10 +97,11 @@ class EventsController < ApplicationController
     @event = Event.find_by(id: params[:id])
     if params[:act] == "join"
       @event.guests << current_user unless ( @event.full? ) || ( @event.guests.include?(current_user) )
+      redirect_to event_path(@event)
     elsif params[:act] == "leave"
       @event.guests.delete(current_user)
+      redirect_to events_path
     end
-    redirect_to event_path(@event)
   end
 
   def destroy

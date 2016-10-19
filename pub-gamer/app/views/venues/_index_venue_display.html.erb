@@ -2,7 +2,10 @@
 <div class="row medium-collapse venue-index-venue index-box" >
 	<div class="small-12 show-for-small-only index-title columns text-center" >
 		<h5><%=link_to(venue.name, venue_path(venue))%></h5>
-		<p class=""><%= venue.address %></p>
+		<p class="">
+			<%= image_tag("icons/location/location9Orange.png", size: '30', title: "location" ) %>
+			<%= venue.address %>
+		</p>
 	</div>
 	<div class="small-7 medium-4 large-3 columns" >
 		<div class="index-pic">
@@ -12,14 +15,11 @@
 
 	<div class="columns small-5 show-for-small-only">
 		<div class=" fav-button-div">
-		  <% if current_user.has_favorited?(venue) %>
-			  <p>One of My Venues!</p>
-			<% else %>
-		 		<%= button_to "Add To My Venues", user_path(current_user), method: :put, params: { venue: venue, from: "venue-index" }, class: "button venue-index-fav-button" %>
-  		<% end %>
+			<%= render partial: "index_fav_buttons", locals: { venue: venue } %>
  		</div>
   	<div class="venue-index-games">
 			<% if venue.has_games? %>
+				<%= image_tag("icons/dice/dice1Orange.png", size: '30', title: "games" ) %>
 				<%= render partial: 'shared/games', locals: { games: venue.games } %>
 			<% else %>
 				<%= render partial: 'no_games' %>
@@ -29,27 +29,27 @@
 	<!-- </div> -->
 
 	<div class="columns" >
-		<div class="hide-for-small-only row">
+		<div class="hide-for-small-only row medium-collapse">
 			<div class="index-title columns text-center">
 				<h5><%=link_to(venue.name, venue_path(venue))%></h5>
-				<p class=""><%= venue.address %></p>
+				<p class="text-left">
+					<%= image_tag("icons/location/location9Orange.png", size: '30', title: "location" ) %>
+					<%= venue.address %>
+				</p>
 			</div>
 		</div>
 
 		<div class="row medium-collapse hide-for-small-only venue-index-content">
-  		<div class="venue-index-games medium-8 columns text-center">
+  		<div class="venue-index-games medium-8 columns text-left">
 				<% if venue.has_games? %>
+					<%= image_tag("icons/dice/dice1Orange.png", size: '30', title: "games" ) %>
 					<%= render partial: 'shared/games', locals: { games: venue.games } %>
 				<% else %>
 					<%= render partial: 'no_games' %>
 				<% end %>
 			</div>
 	  	<div class="medium-3 columns fav-button-div">
-			  <% if current_user.has_favorited?(venue) %>
-				  <p>One of My Venues!</p>
-				<% else %>
-			  	<%= button_to "Add To My Venues", user_path(current_user), method: :put, params: { venue: venue, from: "venue-index" }, class: "button venue-index-fav-button" %>
-  			<% end %>
+			 <%= render partial: "index_fav_buttons", locals: { venue: venue } %>
 			</div>
 		</div>
 

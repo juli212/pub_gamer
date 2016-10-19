@@ -29,3 +29,19 @@
 	/*width: 30%;*/
 	margin: 5px;
 }
+
+.venue-index-remove-button {
+	padding: 0px;
+	width: 80px;
+	height: 80px;
+	background-image: url(icons/hearts/heart6.1Orange.png);
+	background-size: 80px;
+}
+
+.venue-index-fav-button {
+		padding: 0px;
+	width: 80px;
+	height: 80px;
+	background-image: url(icons/hearts/heart1.1Orange.png);
+	background-size: 80px;
+}
