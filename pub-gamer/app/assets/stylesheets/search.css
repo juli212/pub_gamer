@@ -45,8 +45,8 @@ border-collapse: collapse;
 	overflow: hidden;
 }
 @media only screen and (min-width: 640px) {
-	#search-results ul li {
-		/*width: 300px;*/
+	#search-results ul {
+		width: 40%;
 	}
 }
 

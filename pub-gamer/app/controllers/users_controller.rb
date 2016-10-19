@@ -10,17 +10,28 @@ class UsersController < ApplicationController
   def update
     @venue = Venue.find_by(id: params[:venue])
     @user = current_user
-    prev_num_of_favs = @user.favorites.length
+    # prev_num_of_favs = @user.favorites.length
     @user.update_favorites(@venue)
-    if params[:from] == "venue-index" && request.xhr? && @user.favorite_added?(prev_num_of_favs)
-      render partial: 'venues/favorite_display', locals: { favorite: @venue }
-    elsif request.xhr? && @user.favorite_added?(prev_num_of_favs)
-      render partial: 'users/favorite_added'
-    elsif request.xhr? && @user.favorite_removed?(prev_num_of_favs)
+    # if params[:from] == "venue-index" && request.xhr? && @user.favorite_added?(prev_num_of_favs)
+    #   render partial: 'venues/favorite_display', locals: { favorite: @venue }
+    # elsif request.xhr? && @user.favorite_added?(prev_num_of_favs)
+    #   render partial: 'users/favorite_added'
+    # elsif request.xhr? && @user.favorite_removed?(prev_num_of_favs)
+    #   render partial: 'users/favorite_removed'
+    # else
+    #   redirect_to venue_path(@venue)
+    # end
+    if params[:act] == "remove" && request.xhr?
       render partial: 'users/favorite_removed'
-    else
+    elsif params[:act] == "remove"
+      redirect_to venues_path
+    elsif params[:act] == "add" && request.xhr?
+      render partial: 'users/favorite_added'
+    elsif params[:act] == "add"
       redirect_to venue_path(@venue)
-    end
+    else
+    redirect_to venue_path(@venue)
+    end 
   end
 
   def show

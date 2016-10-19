@@ -47,23 +47,25 @@
   /*padding-top: 5px;*/
   background-color: #FBEBD4;
   width: 100%;
+  /*margin: 0 auto;*/
 }
 
 .top-bar ul li {
-  width: 22%;
+  /*width: 22%;*/
   margin: 0px;
   padding: 0px;
+  /*padding: ;*/
   border: none;
   font-size: 15px;
   text-align: center;
 }
 
 .top-bar ul li a {
-  padding: 20px 3%;
+  padding: 20px 7px;
 }
 
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 640px) {
   .top-bar {
     /*width: 100%;*/
     /*position: fixed;*/
@@ -72,7 +74,12 @@
 
   .top-bar ul li {
     /*width: 25%;*/
-    font-size: 24px;
+    font-size: 16px;
+  }
+
+  .top-bar ul li a {
+    /*padding: 20px 50%;*/
+    padding: 20px 5px;
   }
 
   #topbar-row-three {
