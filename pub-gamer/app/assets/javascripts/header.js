@@ -5,7 +5,7 @@ $(window).load(function() {
 	// navbarHighlight = '#A893FF'
 	// navbarUnderline = '#31AB3C'
 	if ($path == "/" || $path == "") {
-		$('#header-row').remove();
+		$('#header-bottom').remove();
 	}	else if ($path.includes("event")) {
 		$('#search-form').attr("action", "/events/search");
 		$('#events').css('text-decoration', 'underline');
