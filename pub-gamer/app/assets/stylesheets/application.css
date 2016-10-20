@@ -42,6 +42,10 @@ body > * {
   padding-top: 5px;
   overflow: auto;
   padding-bottom: 80px;
+  background-image: url(pool10.4.jpg);
+  background-size: 100% 100%;
+  background-position: cover;
+  background-attachment: fixed;
 }
 
 #foot {
