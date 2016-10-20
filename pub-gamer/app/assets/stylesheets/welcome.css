@@ -18,13 +18,18 @@
 }
 
 .welcome-column a {
-	padding: 10px 0px;
-	/*color: #EDD0AF;*/
+	padding: 40px 0px;
 	font-size: 46px;
 	font-weight: bold;
 	display: block;
 }
 
+@media only screen and (min-width: 640px) {
+	.welcome-column a {
+		
+		padding: 10px 0px;
+	}
+}
 
 #form-box {
 	width: 20%;
