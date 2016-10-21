@@ -28,15 +28,15 @@
 		<div class="side-1">
 		<% if @event.user == current_user %>
 			<p class="text-center">Your Event!</p>
-			<%= button_to "yours", event_path(@event), method: :put, title: "Your Event", class: "button your-event", params: {act: "yours"} %>
+			<%= button_to "", event_path(@event), method: :put, title: "Your Event", class: "button your-event", params: {act: "yours"} %>
 		<% elsif @event.guests.include?(current_user) %>
 			<p class="text-center">Attending!</p>
-			<%= button_to "leave", event_path(@event), method: :put, title: "Leave Event", class: "button leave-event", params: {act: "leave"} %>
+			<%= button_to "", event_path(@event), method: :put, title: "Leave Event", class: "button leave-event", params: {act: "leave"} %>
 		<% elsif @event.full? %>
 			<p class="text-center">Event is full</p>
 		<% else %>
 			<p class="text-center">Not Attending</p>
-			<%= button_to "join", event_path(@event), method: :put, title: "Join Event", class: "button join-event", params: {act: "join"} %>
+			<%= button_to "", event_path(@event), method: :put, title: "Join Event", class: "button join-event", params: {act: "join"} %>
 		<% end %>
 		</div>
 
