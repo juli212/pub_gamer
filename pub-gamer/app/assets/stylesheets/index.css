@@ -17,7 +17,7 @@
 }
 
 .index-right {
-  max-height: 200px;
+  max-height: 206px;
   max-width: 59%;
   float: left;
   padding-right: 3px;
@@ -56,11 +56,14 @@
 }
 
 .index-title a {
-  font-weight: bold;
   color: #A893FF;
+}
+.index-title h5 {
+  margin: 0px;
 }
 
 .index-title h5 a {
+  line-height: 90%;
   margin: 0px;
   color: #480000;
   font-weight: bold;
