@@ -57,6 +57,10 @@ class Event < ActiveRecord::Base
 		self.guests.length >= self.limit
 	end
 
+	def open_spots
+		self.limit - self.guests.length
+	end
+
 	def in_future?
 		self.date > Date.today ||
 		(self.date == Date.today && self.time.strftime('%-I').to_i > Time.now.strftime('%-I').to_i) ||

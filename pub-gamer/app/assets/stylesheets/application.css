@@ -91,6 +91,17 @@ body ul a {
   text-decoration: none;
 }
 
+a {
+  color: #A893FF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #A893FF;
+  text-decoration: underline;
+}
+
 h1 {
   text-align: center;
   font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
