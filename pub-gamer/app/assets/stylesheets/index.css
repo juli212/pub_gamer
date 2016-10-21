@@ -70,6 +70,10 @@
   font-size: 26px;
 }
 
+.index-title a:hover {
+  text-decoration: underline;
+}
+
 .index-pic {
   font-weight: bold;
   margin: 0 auto;
