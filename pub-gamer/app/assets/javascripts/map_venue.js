@@ -2,7 +2,9 @@ function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 40.7118739, lng: -74.002533},
     zoom: 13,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: false,
+    streetViewControl: false
   });
 
   var infowindow = new google.maps.InfoWindow();
