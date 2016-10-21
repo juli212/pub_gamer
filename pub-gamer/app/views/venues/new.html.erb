@@ -1,10 +1,12 @@
 
-<h2 style="text-align:center;": "center">Add a venue!</h2>
+<div class="row columns">
+  <h2 class="text-center">Add a venue!</h2>
 
-<p style="text-align:center;": "center">Use the search box or naviagate the map to locate the venue you wish to add.</p>
+  <p class="text-center">Use the search box or naviagate the map to locate the venue you wish to add.</p>
+</div>
+<div class="row align-center">
 
-
-<div id="map-wrapper">
+<div class="columns" id="map-wrapper">
 
   <div id="google-map">
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
@@ -18,4 +20,5 @@
   <div id="venue-create-form-container">
     <%= render partial: 'venue_create_form' %>
   </div>
+</div>
 </div>
