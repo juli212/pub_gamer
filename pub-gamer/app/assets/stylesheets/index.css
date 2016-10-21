@@ -1,6 +1,5 @@
 
 .index-box {
-  /*width: 90%;*/
   width: 30%;
   margin: 2% 0px;
   padding: 5px;
@@ -11,61 +10,69 @@
   background-clip: padding-box;
 }
 
-.index-box h5 {
-  margin: 0px;
-}
-
-.index-box p {
-  margin: 0;
-  font-weight: bold;
-}
-
 .index-left {
-  /*display: inline-block;*/
-  min-width: 113px;
+  min-width: 110px;
   max-width: 40%;
   float: left;
 }
 
 .index-right {
-  /*display: inline-block;*/
-  max-width: 60%;
-  float: right;
+  max-height: 200px;
+  max-width: 59%;
+  float: left;
   padding-right: 3px;
+}
+
+.index-middle {
+  clear: both;
+  width: 100%;
+  padding: 5px;
+  max-height: 90px;
 }
 
 .index-bottom {
   clear: both;
   width: 100%;
   text-align: center;
-  display: flex;
+  /*display: flex;*/
 }
 
+.index-bottom p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px 0px;
+}
+
+.index-location a {
+  color: #A893FF;
+  font-weight: bold;
+}
 
 .index-title {
+  font-size: 12px;
+  height: 100px;
   padding: 0px 0px 3px 5px;
 }
+
 .index-title a {
-  color: #480000;
   font-weight: bold;
-  font-size: 20px;
+  color: #A893FF;
 }
 
-.index-title p {
-  font-size: 14px;
+.index-title h5 a {
+  margin: 0px;
+  color: #480000;
+  font-weight: bold;
+  font-size: 26px;
 }
 
 .index-pic {
-  float: center;
+  font-weight: bold;
   margin: 0 auto;
-  /*padding: 0px;*/
   background-color: #FFFFF0;
-  /*border-radius: 5px;*/
   width: 100px;
   height: 100px;
-  /*margin: 5px 0px 0px 5px;*/
-  /*margin-left: 3px;*/
-  /*margin-right: -3px;*/
   background-image: url("octopus0.3opacity.png");
   background-size: 100% 100%;
   text-align: center;
@@ -79,47 +86,4 @@
   .index-main {
     padding: 0px 20px;
   }
-  /*.index-box {*/
-    /*min-width: 400px;*/
-    /*min-width: 300px;*/
-    /*width: 100%;*/
-/*    width: 95%;
-    margin: 2% 1%;
-    min-height: 200px;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-  }*/
-
-/*  .index-box h5 {
-    margin: 0px;
-  }
-
-  .index-box p {
-    margin: 0;
-    font-weight: bold;
-  }*/
-
-  /*.index-pic {*/
-    /*background-color: #FFFFF0;*/
-    /*border-radius: 5px;*/
-    /*width: 155px;*/
-    /*height: 155px;*/
-    /*padding: 0px;*/
-    /*margin: 20px 0px 0px 15px;*/
-    /*background-image: url("octopus0.3opacity.png");*/
-    /*background-size: 100%;*/
-    /*text-align: center;*/
-  /*}*/
-
-/*  .index-box .button:hover {
-     background-color: #827AA4;
-    color: #FFFFF0;
-  }
-
-
-  .index-title a:hover {
-    color: #827AA4;
-    text-decoration: underline;
-  }*/
-
 }

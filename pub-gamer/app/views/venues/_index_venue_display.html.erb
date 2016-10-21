@@ -3,26 +3,29 @@
 		<div class="index-pic">
 			<p class="" >No Photo Added</p>
 		</div>
-		<p class="index-location">
-			<%= image_tag("icons/location/location9Purple.png", size: '30', title: "location" ) %>
-			<%= venue.address %>
-		</p>
 	</div>
+	
 	<div class="index-right">
 		<div class="index-title">
 			<h5><%=link_to(venue.name, venue_path(venue))%></h5>
 		</div>
-		<div class="venue-index-games text-left">
-				<% if venue.has_games? %>
-					<%= image_tag("icons/dice/dice1Purple.png", size: '30', title: "games" ) %>
-					<%= render partial: 'shared/games', locals: { games: venue.games } %>
-				<% else %>
-					<%= render partial: 'no_games' %>
-				<% end %>
-			</div>
+	</div>
+		
+	<div class="venue-index-games index-middle text-left">
+		<% if venue.has_games? %>
+			<%= image_tag("icons/dice/dice1Purple.png", size: '30', title: "games" ) %>
+			<%= render partial: 'shared/games', locals: { games: venue.games } %>
+		<% else %>
+			<%= render partial: 'no_games' %>
+		<% end %>
 	</div>
 	
 	<div class="index-bottom">
+		<p class="index-location">
+			<%= image_tag("icons/location/location9Purple.png", size: '30', title: "location" ) %>
+			<%= venue.address %>
+		</p>
+
 		<div class="venue-index-rating-box">
 			<div class="venue-index-avg-rating" value="<%= venue.avg_rating %>">
 		  	<div class="dimmed"></div>

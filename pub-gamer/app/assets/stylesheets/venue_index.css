@@ -6,53 +6,26 @@
   text-align: center;
 }
 
-#venue-create-link:hover {
-	color: #FFFFF0;
-  background-color: #827AA4;
-}
-
-.favorited-venue {
-	border-bottom: 2px solid white;
-	margin-bottom: 10px;
-	padding-bottom: 5px;
-}
-
-.venue-index-content {
-	/*padding-top: 10px;*/
-}
-
-.venue-index-bottom {
-	padding-right: 40px;
-}
-
 .venue-index-rating-box {
 	display: inline-block;
 	width: 75%;
-	/*float: left;*/
 }
 
 .fav-button-div {
-	/*width: 30%;*/
 	display: inline-block;
-	/*margin: 5px;*/
-	/*position: relative;*/
-	/*right: 30px;*/
-	/*float: left;*/
 }
 
-
-.venue-index-remove-button {
+.venue-index-remove-button, .venue-index-fav-button {
 	padding: 0px;
 	width: 50px;
 	height: 50px;
-	background-image: url(icons/hearts/heart5.1Brown.png);
 	background-size: 50px;
 }
 
+.venue-index-remove-button {
+	background-image: url(icons/hearts/heart5.1Brown.png);
+}
+
 .venue-index-fav-button {
-		padding: 0px;
-	width: 50px;
-	height: 50px;
 	background-image: url(icons/hearts/heart2.1Brown.png);
-	background-size: 50px;
 }

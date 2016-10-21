@@ -1,66 +1,41 @@
 <% events.each do |event| %>
-  <div class="row index-box small-collapse">
-    <div class="small-12 show-for-small-only index-title columns text-center">
-      <h5><%= link_to event.title, event_path(event) %></h5>
-      <p>
-        <%= image_tag("icons/location/location9Orange.png", size: '30', title: "location" ) %>
-        <%= event.venue.address %>
-      </p>
-    </div>
-    <div class="small-7 medium-4 large-3 columns">
+  <div class="columns index-box">
+    <div class="index-left">
       <div class="index-pic">
-        <p>No Photo Added</p>
+      	<p class="" >No Photo Added</p>
       </div>
+      <div class="event-status">
+    		<%= render partial: 'event_attending_status', locals: { event: event } %>
+    	</div>
     </div>
 
-    <div class="columns small-5 show-for-small-only">
-      <div class="event-index-join">
-        <%= render partial: 'event_attending_status', locals: { event: event } %>
-      </div>
-      <div class="">
+    <div class="index-right">
+    	<div class="index-title text-center">
+    		<h5><%= link_to event.title, event_path(event) %></h5>
+        Created by: <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %>
+    	</div>
+    	<div class="text-left">
+    		<%= image_tag("icons/dice/dice1Orange.png", size: '30', title: "games" ) %>
         <%= render partial: 'shared/games', locals: { games: event.games }%>
-      </div>
+    	</div>
     </div>
 
-    <div class="small-9 medium-8 large-9 columns">
-      <div class="row medium-collapse" >
-        <div class="hide-for-small-only medium-12 columns text-center">
-          <h5 class="index-title"><%= link_to event.title, event_path(event) %></h5>
-          <p class="text-left">
-            <%= image_tag("icons/location/location9Orange.png", size: '30', title: "location" ) %>
-            <%= event.venue.address %>
-          </p>
-          <div class="row">
-            <div class="medium-12-columns text-left">
-              <%= image_tag("icons/dice/dice1Orange.png", size: '30', title: "games" ) %>
-              <%= render partial: 'shared/games', locals: { games: event.games }%>
-            </div>
-          </div>
-
-          <div class="row medium-collapse">
-            <div class="medium-5 large-8 columns text-left">
-              <p>
-                <%= image_tag("icons/calendars/calendar1.1Orange.png", size: '25', title: "date") %>
-                <%= event.date.strftime("%B #{event.date.day.ordinalize}") %> </p><p>
-                <%= image_tag("icons/clocks/clock1.1Orange.png", size: '25', title: "time") %>
-                <%= event.time.strftime('%-I:%M%p') %>
-              </p>
-            </div>
-            <div class="medium-7 large-4 columns event-index-join">
-              <%= render partial: 'event_attending_status', locals: { event: event } %>
-              <p class="">Created by: <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
-              <p>Max Guests: <%= event.limit %></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row show-for-small-only" >
-        <div class="small-12 columns event-first-column">
-          <p><%= event.date.strftime("%B #{event.date.day.ordinalize}") %>, <%= event.time.strftime('%-I:%M%p') %></p>
-        </div>
-      </div>
-
+    <div class="index-bottom align-bottom">
+    	<div>
+      	<p class="index-location">
+      		<%= image_tag("icons/location/location9Orange.png", size: '30', title: "location" ) %>
+        	<%= link_to event.venue.name, venue_path(event.venue) %>
+      	</p>
+    	</div>
+    	<div>
+	      <%= image_tag("icons/calendars/calendar1.1Orange.png", size: '25', title: "date") %>
+	      <%= event.date.strftime("%B #{event.date.day.ordinalize}") %>
+	      <%= image_tag("icons/clocks/clock1.1Orange.png", size: '25', title: "time") %>
+	      <%= event.time.strftime('%-I:%M%p') %>
+	      <%= image_tag("icons/people/person1.1Orange.png", size: '30', title: "attendees") %> 
+	      <%= event.guests.length %>
+    	</div>
     </div>
+   
   </div>
 <% end %>

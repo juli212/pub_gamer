@@ -7,28 +7,31 @@
   text-align: center;
 }
 
-#event-create-link:hover {
-  color: #FFFFF0;
-  background-color: #827AA4;
-}
-
 #event-create-box {
   visibility: hidden;
   position: fixed;
 }
 
-.leave-event {
+.event-status {
+	padding: 10px 15px 0px;
+}
+
+.your-event, .join-event, .leave-event {
 	padding: 0px;
 	width: 80px;
 	height: 80px;
-	background-image: url(icons/hearts/heart5.1Orange.png);
-	background-size: 80px;
+	background-size: 100% 100%;
+	margin: 0 auto;
+}
+
+.leave-event {
+	background-image: url(icons/events/event4Orange.png);
 }
 
 .join-event {
-	padding: 0px;
-	width: 80px;
-	height: 80px;
-	background-image: url(icons/hearts/heart2.1Orange.png);
-	background-size: 80px;	
+	background-image: url(icons/events/event4Orange.png);
+}
+
+.your-event {
+	background-image: url(icons/events/event3Creme.png);
 }
