@@ -11,11 +11,13 @@
 			<%= @event.date.strftime("%B #{@event.date.day.ordinalize}") %>
 			<%= image_tag("icons/clocks/clock1.1Brown.png", size: '25', title: "time") %>
 			<%= @event.time.strftime('%-I:%M%p') %>
+			<%= image_tag("icons/shops/shop1Purple.png", size: '30', title: "place" ) %>
+       <%= link_to @event.venue.name, venue_path(@event.venue) %>
 		</p>
 	</div>
 		<div class="show-for-small-only" id="venue-games">
 			<% if @event.games %>
-				<%= image_tag("icons/dice/dice1Brown.png", size: '30', title: "games" ) %>
+				<%= image_tag("icons/dice/dice1Green.png", size: '30', title: "games" ) %>
 				<%= render partial: 'shared/games', locals: { games: @event.games } %>
 			<% else %>
 				<%= render partial: 'no_games' %>
@@ -31,12 +33,12 @@
 			<%= button_to "", event_path(@event), method: :put, title: "Your Event", class: "button your-event", params: {act: "yours"} %>
 		<% elsif @event.guests.include?(current_user) %>
 			<p class="text-center">Attending!</p>
-			<%= button_to "", event_path(@event), method: :put, title: "Leave Event", class: "button leave-event", params: {act: "leave"} %>
+			<%= button_to "LEAVE!", event_path(@event), method: :put, title: "Leave Event", class: "button leave-event", params: {act: "leave"} %>
 		<% elsif @event.full? %>
 			<p class="text-center">Event is full</p>
 		<% else %>
 			<p class="text-center">Not Attending</p>
-			<%= button_to "", event_path(@event), method: :put, title: "Join Event", class: "button join-event", params: {act: "join"} %>
+			<%= button_to "JOIN!", event_path(@event), method: :put, title: "Join Event", class: "button join-event", params: {act: "join"} %>
 		<% end %>
 		</div>
 
@@ -47,10 +49,10 @@
 		</p>
 		
 		<% @event.guests.length.times do %>
-			<%= image_tag("icons/people/person1.1Purple.png", size: '25', title: "peole") %>
+			<%= image_tag("icons/people/person1.1Purple0.3.png", width: '10', title: "peole") %>
 		<% end %>
 		<% @event.open_spots.times do %>
-			<%= image_tag("icons/people/person1.1Brown.png", size: '25', title: "peole") %>
+			<%= image_tag("icons/people/person1.1Brown0.3.png", width: '10', title: "peole") %>
 		<% end %>
 		<h5 class="text-center">Players</h5>
 		<%@event.guests.each do |guest| %>
@@ -64,7 +66,7 @@
 	<div id="event-middle">
 		<div class="hide-for-small-only" id="venue-games">
 			<% if @event.games %>
-				<%= image_tag("icons/dice/dice1Brown.png", size: '30', title: "games" ) %>
+				<%= image_tag("icons/dice/dice1Green.png", size: '30', title: "games" ) %>
 				<%= render partial: 'shared/games', locals: { games: @event.games } %>
 			<% else %>
 				<%= render partial: 'no_games' %>

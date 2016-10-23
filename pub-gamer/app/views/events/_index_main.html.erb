@@ -15,24 +15,24 @@
         <p>Created by: <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
     	</div>
     	<div class="text-left">
-    		<%= image_tag("icons/dice/dice1Orange.png", size: '30', title: "games" ) %>
+    		<%= image_tag("icons/dice/dice1Green.png", size: '30', title: "games" ) %>
         <%= render partial: 'shared/games', locals: { games: event.games }%>
     	</div>
     </div>
 
     <div class="index-bottom align-bottom">
     	<div>
-      	<p class="index-location">
-      		<%= image_tag("icons/location/location9Orange.png", size: '30', title: "location" ) %>
+      	<p class="index-place">
+      		<%= image_tag("icons/shops/shop1Purple.png", size: '30', title: "place" ) %>
         	<%= link_to event.venue.name, venue_path(event.venue) %>
       	</p>
     	</div>
     	<div>
-	      <%= image_tag("icons/calendars/calendar1.1Orange.png", size: '25', title: "date") %>
+	      <%= image_tag("icons/calendars/calendar1.1Purple.png", size: '25', title: "date") %>
 	      <%= event.date.strftime("%B #{event.date.day.ordinalize}") %>
-	      <%= image_tag("icons/clocks/clock1.1Orange.png", size: '25', title: "time") %>
+	      <%= image_tag("icons/clocks/clock1.1Purple.png", size: '25', title: "time") %>
 	      <%= event.time.strftime('%-I:%M%p') %>
-	      <%= image_tag("icons/people/person1.1Orange.png", size: '30', title: "attendees") %> 
+	      <%= image_tag("icons/people/person1.1Purple0.3.png", width: '15', title: "attendees") %> 
 	      <%= event.guests.length %>
     	</div>
     </div>

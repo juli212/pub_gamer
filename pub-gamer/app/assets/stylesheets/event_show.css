@@ -91,17 +91,25 @@ background-image: linear-gradient(
 		width: 31%;
 	}
 
-	.event-show-side .your-event, .event-show-side .leave-event, .event-show-side .join-event {
+	.event-show-side .your-event {
 		width: 60%;
 		padding-bottom: 60%;
 	}
+
+	 .event-show-side .leave-event, .event-show-side .join-event {
+	 	
+	 }
 }
 
-.event-show-side .your-event, .event-show-side .leave-event, .event-show-side .join-event {
+.event-show-side .your-event{
 	width: 50%;
 	padding-bottom: 50%;
 	margin: 0px 20% 20px;
 }
+
+ .event-show-side .leave-event, .event-show-side .join-event {
+
+ }
 
 #event-show-comments::-webkit-scrollbar {
 	width: 10px;
