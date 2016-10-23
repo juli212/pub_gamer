@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
-  
+  has_attached_file :photo, styles: { medium: "200x200>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment :photo, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+
   has_many :reviews
   has_many :user_venues
   has_many :favorites, through: :user_venues, source: :venue
