@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-games = Game.create([{ name: 'pool'}, {name: 'fooseball'}, {name: 'shuffleboard'}, {name: 'darts'}, {name: 'skeeball'}, {name: 'ping-pong'}])
+games = Game.create([{ name: 'pool'}, {name: 'fooseball'}, {name: 'shuffleboard'}, {name: 'darts'}, {name: 'skeeball'}, {name: 'ping-pong'}, {name: 'karaoke'}, {name: 'cards'}, {name: 'chess'}, {name: 'arcade'}, {name: 'boardgames'}])
 
 users = User.create([{user_name: "julia", password: "password", email: "julia@julia.com"}, {user_name: "alex", password: "password", email: "alex@alex.com"}])
 
