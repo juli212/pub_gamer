@@ -1,7 +1,8 @@
 <div class="columns index-box">
 	<div class="index-left">
 		<div class="index-pic">
-			<p class="" >No Photo Added</p>
+			<%= render partial: 'shared/no_photo_added' %>
+			<!-- <p class="" >No Photo Added</p> -->
 		</div>
 	</div>
 	
@@ -11,7 +12,7 @@
 		</div>
 	</div>
 		
-	<div class="venue-index-games index-middle text-left">
+	<div class="venue-index-games index-middle text-left index-games">
 		<% if venue.has_games? %>
 			<%= image_tag("icons/dice/dice1Purple.png", size: '30', title: "games" ) %>
 			<%= render partial: 'shared/games', locals: { games: venue.games } %>
@@ -37,6 +38,9 @@
 		</div>
 		<div class="fav-button-div">
 		 	<%= render partial: "index_fav_buttons", locals: { venue: venue } %>
+		</div>
+		<div class="index-bottom-notice">
+			<p></p>
 		</div>
 	</div>
 </div>

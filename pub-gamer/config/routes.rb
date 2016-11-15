@@ -5,19 +5,12 @@ Rails.application.routes.draw do
 
 # user authentication
   root "welcome#index"
-  get "register" => "users#new", as: "register"
+  # get "register" => "users#new", as: "register"
   get "login" => "sessions#new", as: "login"
   post "login" => "sessions#create", as: "new_login"
   delete "logout" => "sessions#destroy", as: "logout"
 
-# search
-  # post "search_venues" => "venues#search_venues"
-  # post "search_events" => "events#search_events"
-  # get "venues_search" => 'venues#search'
-
-  # get 'venues/autocomplete_venue_name'
-
-  resources :events do
+  resources :events, except: [:destroy] do
     get :search, :on => :collection
     get :add_venue, :on => :collection
     get :update_games, :on => :collection
@@ -25,16 +18,24 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
-  resources :venues do
+  resources :venues, except: [:destroy] do
     get :search, :on => :collection
     get :add_games, :on => :collection
     get :add_neighborhood, :on => :collection
+    get :inaccurate
     resources :reviews, only: [:new, :create, :update, :show]
+    resources :events, only: [:index]
   end
 
   # resources :venues do
   # end
 
-  resources :users, only: [:show, :new, :create , :edit, :update]
+  resources :users, except: [:index, :destroy] do
+    get :events
+    put :delete_profile
+  end
+
+  resources :about, only: [:index]
+  resources :contact, only: [:index]
 
 end

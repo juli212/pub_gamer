@@ -82,16 +82,16 @@ $(document).ready(function() {
   	    url: 'events/update_games',
     	  data: $('#event_venue_id').serialize()
     	}).done(function(response){
-    		console.log(response);
+    		// console.log(response);
     		$('#event-create-games').html(response);
       	// $('.index-main').html(response);
     	})
 	  },
 	  focus: function(event, ui) {
 	  	$('.ui-menu-item').css('background-color', "#FFFFF0");
-	  	$('.ui-menu-item').css('color', "#2B2936");
-	  	$('.ui-state-focus').css('background-color', "#827AA4");
-	  	$('.ui-state-focus').css('color', "#EDD0AF");
+	  	$('.ui-menu-item').css('color', "#480000");
+	  	$('.ui-state-focus').css('background-color', "#A893FF");
+	  	$('.ui-state-focus').css('color', "#480000");
     }
 	})
 
@@ -129,7 +129,7 @@ $(document).ready(function() {
   })
 
 // add game to venue
-	$( "#other-text-field" ).autocomplete({
+	$( "#other-text-field, #add-game-input" ).autocomplete({
 		minLength: 1,
 		appendTo: "#add-venue-game-results",
 		source: function(request, response) {

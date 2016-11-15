@@ -19,18 +19,30 @@ class VenuesController < ApplicationController
         else
           @venues = venues.paginate(:page => params[:page], :per_page => 12)
         end
-         }
+      }
       format.json { @results = Venue.search(params[:term]) + Game.game_search(params[:term]) + Neighborhood.neighborhood_search(params[:term]) }
     end
+  end
+
+  def inaccurate
+    
   end
 
   def add_games
     if params[:venue]
       game = Game.find_or_create_by(name: params[:venue][:game].downcase)
-      render partial: 'add_game', locals: { game: game }
+      if params[:venue][:exists] == "yes"
+        venue = Venue.find_by(id: params[:venue][:id])
+        if !venue.games.include?(game)
+          venue.games << game
+          render partial: '/shared/add_game_to_show', locals: { game: game }
+        end
+      else
+        render partial: 'add_game', locals: { game: game }
+      end
     else
       respond_to do |format|
-        format.json { @results = Game.add_to_venue(params[:term]).sort_by { |game| game.name } }
+        format.json { @results = Game.add_game(params[:term]).sort_by { |game| game.name } }
       end
     end
   end
@@ -53,14 +65,6 @@ class VenuesController < ApplicationController
       if params[:venue][:games]
         @venue.games << Game.find(params[:venue][:games])
       end
-      # new_game_array = params[:venue][:game].split(',')
-      # new_game_array = new_game_array.map(&:lstrip)
-      # if new_game_array.length > 0
-      #   new_game_array.each do |game|
-      #     game_obj = Game.find_or_create_by(name: game)
-      #     @venue.games << game_obj
-      #   end
-      # end
       redirect_to venue_path(@venue)
     else
       @games = Game.all
@@ -79,9 +83,9 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find_by(id: params[:id])
-    @reviews = @venue.show_reviews.paginate(:page => params[:page], :per_page => 6)
+    @reviews = @venue.show_reviews.paginate(:page => params[:page], :per_page => 12)
     @review = Review.new
-    @games = @venue.games.limit(6).uniq
+    @games = @venue.games
     @event = Event.new
     @vibes = Vibe.all
     @current_rating = @venue.avg_rating

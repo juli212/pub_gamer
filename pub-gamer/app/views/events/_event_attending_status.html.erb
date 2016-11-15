@@ -1,9 +1,8 @@
 <% if event.user == current_user %>
-  <%= button_to "", event_path(event), method: :get, title: "Your Event", class: "button your-event", params: {act: "yours"} %>
+  <%= link_to "", edit_event_path(event), title: "Edit", class: "edit-event" %>
+  <%= button_to "", event_path(event), method: :put, title: "Cancel Event", class: "delete-event", params: {act: "delete"} %>
 <% elsif event.attending_event?(current_user) %>
-  <!-- <p>leave!</p> -->
   <%= button_to "LEAVE!", event_path(event), method: :put, title: "Leave Event", class: "button leave-event", params: {act: "leave"} %>
 <% else %>
-	<!-- <p>join!</p> -->
   <%= button_to "JOIN!", event_path(event), method: :put, title: "Join Event", class: "button join-event", params: {act: "join"} %>
 <% end %>

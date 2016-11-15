@@ -1,42 +1,14 @@
-// $(document).ready(function() {
-
-//   $('#login a').on('click', function(event){
-//     event.preventDefault();
-//     $target = $(event.target)
-//     $.ajax({
-//       url: $target.attr('href')
-//     }).done(function(response){
-//         $('#form-container').html(response).hide().fadeIn(300);
-//     })
-//   })
-
-//   $('#register a').on('click', function(event){
-//     event.preventDefault();
-//     $target = $(event.target)
-//     $.ajax({
-//       url: $target.attr('href')
-//     }).done(function(response){
-//         $('#form-container').html(response).hide().fadeIn(300);
-//     })
-//   })
-// });
-
 
 $(document).ready(function() {
   $("#login-box").dialog({
     modal: true,
     autoOpen: false,
     minHeight: 200,
-    width: 200,
-    // appendTo: "#form-box",
+    width: setFormWidth,
     position: ({ my: "middle", at: "center", of: window }),
-    show: {
-        effect: "bounce",
-        duration: 1500
-    },
     hide: {
-        effect: "explode",
-        duration: 2000
+      effect: "explode",
+      duration: 1000
     }
   });
 
@@ -46,20 +18,25 @@ $(document).ready(function() {
   	$('#login-box').dialog('open');
   })
 
+  var width = $(window).width()
+  var setFormWidth = function() {
+    if (width >= 640) {
+      return width * 0.7
+    } else {
+      return width
+    }
+  }
+
   $("#register-box").dialog({
     modal: true,
     autoOpen: false,
+    width: setFormWidth,
     minHeight: 200,
-    width: 200,
     appendTo: "#form-box",
     position: ({ my: "middle", at: "center", of: window }),
-    show: {
-        effect: "bounce",
-        duration: 1500
-    },
     hide: {
-        effect: "explode",
-        duration: 2000
+      effect: "explode",
+      duration: 1000
     }
 	});
 

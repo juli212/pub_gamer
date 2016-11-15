@@ -5,76 +5,104 @@
 }
 
 #event-create-form {
-  background-color: #2B2936;
+  background-color: #480000;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   text-align: center;
   font-size: 30px;
   color: #FFFFF0;
-  max-width: 500px;
+  /*width: 500px;*/
 }
 
 #event-create-form label {
-  color: #EDD0AF;
+  color: #FBEBD4;
   font-weight: bold;
 }
 
 #event-create-form input, #event-create-form textarea {
-  height: 35px;
-  border-radius: 10px;
+  height: 25px;
   background-color: #FFFFF0;
   text-align: center;
+  border-radius: 5px;
+}
+
+@media only screen and (min-width: 640px) {
+  #event-create-form input, #event-create-form textarea {
+    border-radius: 10px;
+    height: 35px;
+  }
+}
+
+#event-venue-results ul {
+  font-size: 15px;
 }
 
 #event-create-form textarea {
-  height: 120px;
+  height: 60px;
+}
+
+#event-create-games {
+  height: 80px;
+  overflow-y: scroll;
+}
+
+@media only screen and (min-width: 640px) {
+  #event-create-form textarea {
+    height: 120px;
+  }
+
+  #event-create-games {
+    min-height: 25%;
+  }
 }
 
 .game-button {
-  position: fixed;
+  /*position: fixed;*/
   opacity: 0;
 }
 
+
 .event-game {
-  border: 2px solid #2B2936;
+  border: 2px solid #FBEBD4;
   float: center;
-  min-width: 24%;
+  min-width: 20%;
   display: inline-block;
-  border-radius: 40%/45%;
-  padding: 0px 0px 20px;
+  /*border-radius: 40%/45%;*/
+  border-radius: 7px;
+  padding: 0px 3px 10px;
   margin: 2px 1px;
 }
-
-.event-game input {
-  height: 15px;
-}
-
 
 .event-game-label {
   margin: 0px;
   padding: 0px;
-  margin-top: -25px;
+  margin-top: -40px;
   background-color: blue
   color: green;
 }
 
 .event-game:hover {
-  border: 2px solid #FFFFF0;
-  background-color: #827AA4;
+  opacity: 0.4;
+  /*border: 2px solid #FFFFF0;*/
+  /*background-color: #A893FF;*/
 }
 
 .select-game {
-  background-color: #827AA4;
-  border: 2px solid #827AA4;
+  background-color: #A893FF;
+  border: 2px solid #A893FF;
 }
+
+.select-game:hover {
+  opacity: 0.7;
+}
+
 #event-create-button-div {
-  padding-top: 15px;
+  /*padding-top: 15px;*/
   clear: left;
 }
 
 #event-create-submit-button {
   background-color: #FFFFF0;
-  color: #2B2936;
   border-radius: 10px;
   font-weight: bold;
   font-size: 20px;

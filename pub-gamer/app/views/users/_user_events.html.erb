@@ -1,0 +1,44 @@
+<div class="user-scroll-box">
+	<div class="row align-spaced small-collapse user-button-row">
+		<div>
+			<h4 class="columns text-center">Events</h4>
+		</div>
+	</div>
+	<div class="row align-spaced small-collapse user-button-row">
+		<div class="columns text-center">
+			<%= link_to "Upcoming", user_events_path(@user, event: "upcoming"), name: "upcoming", class: "button", id: "upcoming" %>
+		</div>
+		<div class="columns text-center">
+			<%= link_to "Created", user_events_path(@user, event: "created"), name: "created", class: "button", id: "created" %>
+		</div>
+		<div class="columns text-center">
+			<%= link_to "Attending", user_events_path(@user, event: "attending"), name: "attending", class: "button", id: "attending" %>
+		</div>
+		<div class="columns text-center">
+			<%= link_to "Past", user_events_path(@user, event: "past"), name: "past", class: "button", id: "past" %>
+		</div>
+	</div>
+	<div class="outside-user-scroll">
+		<div class="inside-user-scroll">
+			<% events.each do |event| %>
+				<% if event.deleted %> 
+					<div class="user-event text-center deleted-event">
+				<% else %>
+					<div class="user-event text-center">
+				<% end %>
+					<h4><%= link_to event.title, event_path(event) %></h4>
+					<div>
+						<%= image_tag("icons/calendars/calendar1.1Purple.png", size: '20', title: "date") %>
+			      <%= event.date.strftime("%B #{event.date.day.ordinalize}") %>
+			    </div>
+			    <div>
+			      <%= image_tag("icons/clocks/clock1.1Purple.png", size: '20', title: "time") %>
+			      <%= event.time.strftime('%-I:%M%p') %>
+			      <%= image_tag("icons/people/person1.1Purple0.3.png", width: '10', title: "attendees") %> 
+			      <%= event.guests.length %>
+			    </div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -42,26 +42,35 @@
   border-top-right-radius: 10px;
 }
 
-#login-form, #new_user {
-	min-width: 150px;
-	margin: 0 auto;
-	padding: 30px 30px;
-	background-color: #2B2936;
+#login-form, #new_user, .edit_user {
+	/*min-width: 150px;*/
+	/*margin: 0 auto;*/
+	/*padding: 30px 30px;*/
+	padding-bottom: 20px;
+	background-color: #480000;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	font-size: 30px;
 	text-align: center;
 }
 
-#login-form h4, #new_user h4 {
+#login-form h4, #new_user h4, .edit_user h4 {
 	color: #FFFFF0;
 	text-align: center;
 }
 
-#login-form input, #new_user input {
+#login-form input, #new_user input, .edit_user input {
 	height: 35px;
 	border-radius: 10px;
 	background-color: #FFFFF0;
+}
+#choose-pic-text {
+	font-size: 16px;
+	color: white;
+}
+#user_photo {
+	/*border-radius: 3px;*/
+	font-size: 16px;
 }
 
 #login-button, #register-button {

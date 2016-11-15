@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20161023215103) do
   create_table "reviews", force: :cascade do |t|
     t.string   "content",                    null: false
     t.string   "week"
-    t.integer  "rating"
+    t.integer  "rating",                     null: false
     t.boolean  "deleted",    default: false, null: false
     t.integer  "venue_id",                   null: false
     t.integer  "user_id",                    null: false
@@ -90,13 +90,16 @@ ActiveRecord::Schema.define(version: 20161023215103) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "user_name",          null: false
-    t.string   "password_digest",    null: false
-    t.string   "email",              null: false
+    t.string   "first_name",                         null: false
+    t.string   "last_name",                          null: false
+    t.string   "user_name",                          null: false
+    t.string   "password_digest",                    null: false
+    t.string   "email",                              null: false
     t.integer  "age"
     t.text     "bio"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.boolean  "deleted",            default: false, null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"

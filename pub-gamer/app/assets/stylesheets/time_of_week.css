@@ -6,7 +6,7 @@
   display: block;
   /*border: 2px solid white;*/
   width: 100px;
-  background-color: #EDD0AF;
+  background-color: #FBEBD4;
   border-radius: 50%/40%;
   /*margin: 5px -3px;*/
 }
@@ -27,5 +27,11 @@
 }
 
 .time-of-week {
+  /*color: #A893FF;*/
   background-color: #FFFFF0;
+}
+
+.time-of-week label {
+  /*font-weight: bold;*/
+  color: #A893FF;
 }

@@ -10,17 +10,18 @@ class Event < ActiveRecord::Base
 	has_many :guests, through: :user_events, source: :user
 
 	validates :title, :description, :date, :time, :limit, :venue_id, :user_id, presence: true
+	validates_inclusion_of :limit, in: 0..40
 
 	def name
 		self.title
 	end
 
 	def location
-		# self.venue.name
+		self.venue ? self.venue.name : ""
 	end
 
 	def address
-		# self.venue.address
+		self.venue ? self.venue.address : ""
 	end
 
 	def search_location
@@ -49,6 +50,14 @@ class Event < ActiveRecord::Base
 		where("title ILIKE :term OR description ILIKE :term", term: "%#{term.downcase}%").uniq
 	end
 
+	def self.event_index_events
+		where("deleted = 'false'" && 'date >= ?', Date.today).order(:date)
+	end
+
+	def self.venue_event_index_events(venue_id)
+		Event.event_index_events.where('venue_id = ?', venue_id)
+	end
+
 	# def self.neighborhood_search(term)
 	# 	joins(:venue).joins('JOIN neighborhoods ON neighborhoods.id = venues.neighborhood_id').where("neighborhoods.name ILIKE :term", term: "%#{term.downcase}%")
 	# end
@@ -67,10 +76,13 @@ class Event < ActiveRecord::Base
 		(self.date == Date.today && self.time.strftime('%-I').to_i == Time.now.strftime('%-I').to_i && self.time.strftime('%-M').to_i > Time.now.strftime('%-M').to_i)
 	end
 
-	def sort_events_by_time
-		# method to sort by time
+	def self.future_events
+		where("date >= ?", DateTime.now).order('date ASC, time ASC')
 	end
 
+	def self.past_events
+		where("date < ?", DateTime.now).order('date DESC, time DESC')
+	end
 
   def attending_event?(user)
     if ( self.guests.empty? ) || ( !self.guests.include?(user) )

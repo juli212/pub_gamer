@@ -1,11 +1,41 @@
 <div id="register-box">
-  <%=form_for @user, id: 'register-form', html: { multipart: true } do |f| %>
+  <%=form_for @user, id: 'register-form', html: { multipart: true } do  |f| %>
   	<h4>Register</h4>
-  	<%= f.file_field :photo, placeholder: "photo", title: "photo" %>
-    <%= f.text_field :user_name, placeholder: "User Name", required: true, title: "User Name" %>
-    <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$", required: true, title: "Email"%>
-    <%= f.password_field :password, placeholder: "Password", required: true, title: "Password" %>
-    <%= f.submit "Register", class: 'button large', id: "register-button" %>
+    <div class="row align-spaced">
+      <div class="small-12 medium-6 columns">
+        <%= f.text_field :first_name, placeholder: "First Name", required: true, title: "First Name" %>
+      </div>
+      <div class="small-12 medium-6 columns">
+        <%= f.text_field :last_name, placeholder: "Last Name", required: true, title: "Last Name" %>
+      </div>
+    </div>
+    <div class="row align-spaced">
+      <div class="small-9 medium-6 columns">
+        <%= f.text_field :user_name, placeholder: "User Name", required: true, title: "User Name" %>
+      </div>
+      <div class="small-3 medium-4 columns">
+        <%= f.number_field :age, min: "18", max: "100", placeholder: "Age", required: true, title: "Age" %>
+      </div>
+    </div>
+    <div class="row align-spaced">
+      <div class="small-12 columns">
+        <%= f.file_field :photo, placeholder: "photo", title: "photo" %>
+      </div>
+      <div class="small-12 columns">
+        <%= f.text_area :bio, placeholder: "Bio", title: "Bio" %>
+      </div>
+    </div>
+    <div class="row align-spaced">
+      <div class="small-12 medium-6 columns">
+        <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$", required: true, title: "Email"%>
+      </div>
+      <div class="small-12 medium-6 columns">
+        <%= f.password_field :password, placeholder: "Password", required: true, title: "Password" %>
+      </div>
+    </div>
+    <div class="row columns">
+      <%= f.submit "Register", class: 'button large', id: "register-button" %>
+    </div>
   <% end %>
 </div>
 

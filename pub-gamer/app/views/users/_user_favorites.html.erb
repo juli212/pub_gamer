@@ -1,0 +1,23 @@
+<div class="user-scroll-box">
+	<div class="row align-spaced small-collapse user-button-row">
+		<div class="columns text-center">
+			<h4>Favorites</h4>
+		</div>
+	</div>
+	<div class="outside-user-scroll">
+		<div class="inside-user-scroll">
+			<% venues.each do |venue| %>
+				<div class="user-event text-center">
+					<div>
+						<h4><%= link_to venue.name, venue_path(venue) %>
+						</h4>
+					</div>
+					<%= image_tag("icons/dice/dice1Green.png", size: '25', title: "games", class: "game-img") %>
+					<% venue.games.each do |game| %>
+						<div class="user-show-game"><%= game.name %></div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

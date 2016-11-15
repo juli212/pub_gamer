@@ -1,9 +1,9 @@
  <%= form_for @event, :html => {:id => "event-create-form"} do |f| %>
-    <h4>Create Event</h4>
+    <!-- <h4>Create Event</h4> -->
     <div class="row">
       <div class="small-12 columns">
         <%= f.text_field :title, placeholder: "Title", required: true, title: "Title" %>
-        <%= f.text_field :location, placeholder: "Location", required: true, title: "Location" %>
+        <%= f.text_field :location, placeholder: "Venue by Name", required: true, title: "Location" %>
         <div class="results" id="event-venue-results">
           
         </div>
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row align-bottom">
       <div class="small-5 columns">
         <%= f.label "Date" %>
         <%= f.date_field :date, required: true, title: "Date" %>
@@ -22,7 +22,7 @@
       </div>
       <div class="small-3 columns">
         <%= f.label "Max Guests" %>
-        <%= f.number_field :limit, min: "0", max: "100", placeholder: "Guests", required: true, title: "Number of Guests" %>
+        <%= f.number_field :limit, min: "0", max: "40", placeholder: "Guests", required: true, title: "Number of Guests" %>
       </div>
     </div>
     <div id="event-venue_id">

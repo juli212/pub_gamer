@@ -20,16 +20,12 @@ $(document).ready(function() {
   })
   
   $('#add-new-game').on('click', function(event){
-    // alert('click')
     event.preventDefault();
     $target = $('#other-text-field')
     $.ajax({
       url: "/venues/add_games",
-      // method: "post",
       data: $target.serialize()
     }).done(function(response){
-      // console.log(response)
-    // debugger;
       $('#venue-create-games').append(response)
       $('#other-text-field').val("")
     })
@@ -39,7 +35,7 @@ $(document).ready(function() {
     $(this).closest('.venue-create-game').remove()
   })
 
-  var resetForm = function() {
+  var resetVenueForm = function() {
     $('#venue-create-form')[0].reset()
     $('#venue_place').val("")
     $('#pac-input').val("")
@@ -47,12 +43,32 @@ $(document).ready(function() {
     $('#venue-create-games').html("")
   }
 
+  var width = $(window).width()
+  var setFormWidth = function() {
+    // debugger;
+    if (width >= 640) {
+      return width * 0.7
+    } else {
+      return width
+    }
+  }
+  var setHeight = function() {
+    debugger;
+    if (width >= 640) {
+      consle.log(screen.height)
+      return screen.height * 0.8
+    } else {
+      console.log(screen.height)
+      return screen.height
+    }
+  }
+
   $("#venue-create-form-container").dialog({
     modal: true,
     autoOpen: false,
-    minHeight: 250,
-    width: 650,
-    position: ({ my:"center", at: "center", of: "#map-wrapper"}),
+    width: setFormWidth,
+    height: setHeight,
+    position: ({ my:"center top", at: "center middle", of: ".top-bar"}),
     show: {
         effect: "blind",
         duration: 1000
@@ -61,19 +77,6 @@ $(document).ready(function() {
         effect: "explode",
         duration: 1000
     },
-    close: resetForm
+    close: resetVenueForm
   });
 });
-
-  // $('#event-create-link').on('click', function(event){
-    // event.preventDefault()
-    // if (window.location.pathname.includes("venue") ) {
-    //   barName = $('#venue-name').text()
-    //   barAddress = $('#venue-address').text()
-    //   $('#event_location').val(barName);
-    //   $('#event_location').prop('readonly', true);
-    //   $('#event_address').val(barAddress);
-    //   $('#event_address').prop('readonly', true);
-    // }
-    // $("#venue-create-form-container").dialog('open');
-  // })

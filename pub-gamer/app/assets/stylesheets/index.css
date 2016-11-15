@@ -41,7 +41,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 5px 0px;
+  padding: 5px 0px 0px;
+  /*margin-bottom: 0px;*/
 }
 
 .index-location a {
@@ -80,7 +81,7 @@
   background-color: #FFFFF0;
   width: 100px;
   height: 100px;
-  background-image: url("octopus0.3opacity.png");
+  /*background-image: url("octopus0.3opacity.png");*/
   background-size: 100% 100%;
   text-align: center;
 }
@@ -93,4 +94,20 @@
   .index-main {
     padding: 0px 20px;
   }
+}
+
+.index-games {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.index-bottom-notice {
+  margin: 0px;
+  padding: 0px;
+  height: 26px;
+}
+
+.index-bottom-notice p {
+  margin: 0px;
+  padding: 0px;
 }

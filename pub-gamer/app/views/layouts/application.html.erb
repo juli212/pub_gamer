@@ -16,7 +16,13 @@
     <div id="content">
       <%= render 'shared/header' %>
       <div id="main">
-        <%= yield %>
+        <%= render 'shared/no_script' %>
+        <div id ="scripts">
+          <%= yield %>
+          <script type="text/javascript">
+            showScript();
+          </script>
+        </div>
       </div>
     </div>
     <div id="foot">

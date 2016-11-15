@@ -1,4 +1,8 @@
-<div class="row align-center">
+<% if @event.deleted %> 
+	<div class="row align-center deleted-event">
+<% else %>
+	<div class="row align-center">
+<% end %>
 	<div class="small-12 columns" id="event-show-title">
 		<h2 class="text-center" ><%= @event.title %></h2>
 		<h5 class="text-center">
@@ -15,22 +19,35 @@
        <%= link_to @event.venue.name, venue_path(@event.venue) %>
 		</p>
 	</div>
-		<div class="show-for-small-only" id="venue-games">
-			<% if @event.games %>
-				<%= image_tag("icons/dice/dice1Green.png", size: '30', title: "games" ) %>
-				<%= render partial: 'shared/games', locals: { games: @event.games } %>
-			<% else %>
-				<%= render partial: 'no_games' %>
-			<% end %>
+	<div class="show-for-small-only" id="venue-games">
+		<% if @event.games %>
+			<%= image_tag("icons/dice/dice1Green.png", size: '30', title: "games" ) %>
+			<%= render partial: 'shared/games', locals: { games: @event.games } %>
+		<% else %>
+			<%= render partial: 'no_games' %>
+		<% end %>
+		<div>
+			<%= link_to "Add Games!", nil, id: "add-games" %>
 		</div>
+	</div>
 </div>
+<div id="view-venue-on-map">
+	<input id="place-id" type="hidden" value="<%=@event.venue.place %>" />
+	<div id="show-map"></div>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKbw_KdUjv9tX0YJFvT1AOe3nI82-Osvw&amp;libraries=places">
+  </script>
+</div>
+
+<div id="edit-event-box"></div>
 
 <div class="row align-center">
 	<div class="event-show-side">
 		<div class="side-1">
+		<% if @event.deleted == false %>
 		<% if @event.user == current_user %>
 			<p class="text-center">Your Event!</p>
-			<%= button_to "", event_path(@event), method: :put, title: "Your Event", class: "button your-event", params: {act: "yours"} %>
+				<%= button_to "", event_path(@event), method: :put, title: "Cancel Event", class: "delete-event", params: {act: "delete"} %>
+				<%= button_to "", edit_event_path(@event), title: "Edit", class: "edit-event" %>
 		<% elsif @event.guests.include?(current_user) %>
 			<p class="text-center">Attending!</p>
 			<%= button_to "LEAVE!", event_path(@event), method: :put, title: "Leave Event", class: "button leave-event", params: {act: "leave"} %>
@@ -40,10 +57,11 @@
 			<p class="text-center">Not Attending</p>
 			<%= button_to "JOIN!", event_path(@event), method: :put, title: "Join Event", class: "button join-event", params: {act: "join"} %>
 		<% end %>
+		<% end %>
 		</div>
 
-		<div class="side-2">
-		<p class="text-center">
+		<div class="side-2 text-center">
+		<p class="">
 			<%= @event.open_spots %>
 			spots left!
 		</p>

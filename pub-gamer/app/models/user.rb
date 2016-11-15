@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
   validates_length_of :user_name, maximum: 25, message: "25 character max"
   validates_length_of :bio, maximum: 600
   validates_inclusion_of :age, in: 18..99
-  has_attached_file :photo, styles: { medium: "200x200>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :photo,
+  	styles: { medium: "200x200>", thumb: "100x100>" },
+  	default_url: "/images/:style/octopus0.3opacity.png"
   validates_attachment :photo, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
   has_many :reviews
@@ -34,6 +36,23 @@ class User < ActiveRecord::Base
 
 	def created_events
 		Event.where(user_id: self.id)
+	end
+
+	def attending_events
+		self.events
+	end
+
+	def all_events
+		events = self.created_events + self.attending_events
+	end
+
+	def upcoming_events
+		events = self.all_events.select { |event| event.date >= DateTime.now }
+		events.sort_by &:date
+	end
+
+	def past_events
+		self.all_events.select { |event| event.date < DateTime.now }
 	end
 
 	def update_favorites(selected_venue)

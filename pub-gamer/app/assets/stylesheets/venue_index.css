@@ -17,6 +17,7 @@
 
 .venue-index-remove-button, .venue-index-fav-button {
 	padding: 0px;
+	margin: 0px;
 	width: 50px;
 	height: 50px;
 	background-size: 50px;

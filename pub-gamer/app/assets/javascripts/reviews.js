@@ -1,55 +1,34 @@
+  var width = $(window).width()
+  var setFormWidth = function() {
+    // debugger;
+    if (width >= 1024) {
+      return width * 0.5
+    } else if (width >= 640) {
+      return width * 0.7
+    } else {
+      return width
+    }
+  }
+  var setHeight = function() {
+    debugger;
+    if (width >= 640) {
+      consle.log(screen.height)
+      return screen.height * 0.8
+    } else {
+      console.log(screen.height)
+      return screen.height
+    }
+  }
 $(document).ready(function() {
-  // $('#new_review').on('submit', function(event){
-  //   event.preventDefault();
-  //   $target = $(event.target)
-  //   $rating = $target.children('#rating').children('.rated').last().children('input').attr('value')
-  //   $.ajax({
-  //     url: $target.attr('action'),
-  //     method: $target.attr('method'),
-  //     data: $target.serialize()
-  //   }).done(function(response){
-  //     if ($(response).hasClass('venue-show-left')) {
-  //       $('.rated').removeClass('rated')
-  //       if ($('#no-reviews')) {
-  //         $('#no-reviews').remove()
-  //       }
-  //       $('#reviews').prepend(response);
-  //       $('.selected').removeClass('selected')
-  //       $('.time-of-week').removeClass('time-of-week');
-  //       $('#new-review-errors').html("");
-  //       $('#new_review').each(function(){
-  //         this.reset();
-  //       });
-  //     } else {
-  //       $('#new-review-errors').html(response);
-  //     }
-  //   })
-  //   $.ajax({
-  //     url: $target.children('#rating').attr('action'),
-  //     method: 'put',
-  //     data: $rating
-  //   }).done(function(response){
-  //     $('#avg-rating').html(response);
-  //     UpdateOctopusRating();
-  //   })
-  // })
+
   $('#new-review-form').dialog({
     modal: true,
     autoOpen: false,
-    minHeight: 500,
-    width: 500,
-    // appendTo: ,
-    position: ({ my:"top", at: "bottom", of: ".top-bar"}),
-    show: {
-      effect: "bounce",
-      duration: 1500
-    },
-    hide: {
-      effect: "explode",
-      duration: 2000
-    }
+    height: setHeight,
+    width: setFormWidth,
+    position: ({ my:"top", at: "middle", of: ".top-bar"}),
   });
-  $('#new-review-button').on('click', function(event){
+  $('.new-review-button').on('click', function(event){
     event.preventDefault()
     $('#new-review-form').dialog('open');
   })
@@ -68,14 +47,6 @@ $(document).ready(function() {
     minHeight: screen.height * 0.40,
     // width: $(window).width() * 0.50,
     position: ({ my:"center top", at: "center bottom", of: ".top-bar"}),
-    show: {
-      effect: "bounce",
-      duration: 1500
-    },
-    hide: {
-      effect: "explode",
-      duration: 2000
-    },
     close: emptyReviewConent
   });
   $('.read-more-review').on('click', function(event){

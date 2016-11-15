@@ -95,14 +95,30 @@
 }
 
 #venue-create-form input {
+  height: 25px;
+  border-radius: 5px;
 	text-align: center;
-	background-color: #FFFFF0;
-	border-radius: 10px;
-	opacity: 0.8;
+ 	background-color: #FFFFF0;
+ 	opacity: 0.8;
+}
+
+@media only screen and (min-width: 640px){
+  #venue-create-form input {
+    border-radius: 10px;
+    height: 35px;
+  }
 }
 
 #venue-create-games {
 	padding-bottom: 10px;
+  max-height: 230px;
+  overflow-y: auto;
+}
+
+@media only screen and (min-width: 640px){
+  #venue-create-games {
+    max-height: 400px;
+  }
 }
 
 .venue-create-game-button {
@@ -114,19 +130,20 @@
 .venue-create-game {
 	display: inline-block;
 	min-width: 10%;
-	padding: 0px 10px;
-	/*border-radius: 40%/50%;*/
 	border-radius: 5px;
-	/*background-color: #2B2936;*/
-	/*background-color: rgba(43,41,54, 1.0);*/
 	border: 2px solid #827AA4;
-	/*opacity: 1;*/
+  padding: 0px 3px;
 }
 
 .venue-create-game p {
 	margin-top: -50px;
 }
 
+@media only screen and (min-width: 640px){
+  .venue-create-game {
+    padding: 0px 10px;
+  }
+}
 
 .select-venue-game {
 	color: #EDD0AF;
@@ -137,21 +154,21 @@
 #venue-create-submit-button {
 	color: #2B2936;
 	background-color: #FFFFF0;
+  min-height: 35px;
 }
 
 #add-new-game {
 	background-color: #827AA4;
-	/*height: 100%;*/
-	/*border: 1px solid black;*/
-	/*display: inline-block;*/
-	margin-left: -35px;
-	padding: 12px 20px;
-	/*width: 25%;*/
+  margin: 0;
+  font-size: 16px;
+  padding: 10px 5px;  
 }
 
-#other-text-field {
-	/*display: inline-block;*/
-	/*width: 60%;*/
+@media only screen and (min-width: 640px){
+  #add-new-game {
+  	margin-left: -35px;
+  	padding: 12px 20px;
+  }
 }
 
 .venue-create-game-label {

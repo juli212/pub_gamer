@@ -2,23 +2,17 @@ class EventsController < ApplicationController
   before_filter :require_login
 
   def index
-    # binding.pry
     @event = Event.new
-    @games = Game.limit(6)
-    @events = Event.paginate(:page => params[:page], :per_page => 8)
-    # @attended_events = []
-    # @events.each do |event|
-    #   if event.attending_event?(current_user)
-    #     @attended_events << event
-    #   end
-    # end
-    # if request.xhr?
-    #   render partial: 'index_main', locals: { events: @events }
-    # end
+    @games = Game.all
+    if params[:venue_id]
+      events = Event.venue_event_index_events(params[:venue_id])
+    else
+      events = Event.event_index_events
+    end
+    @events = events.paginate(:page => params[:page], :per_page => 12)
   end
 
   def update_games
-    # binding.pry
     games = Venue.find_by(id: params[:event][:venue_id]).games
     if request.xhr?
       render partial: 'events/event_create_games', locals: { games: games }
@@ -28,8 +22,8 @@ class EventsController < ApplicationController
   def search
     @event = Event.new
     respond_to do |format|
-      format.html { @events = Event.search(params[:term]).paginate(:page => params[:page], :per_page => 5) }
-      format.json { @results = Event.search(params[:term]) + Game.game_search(params[:term]) + Neighborhood.neighborhood_search(params[:term]) }
+      format.html { @events = Event.future_events.search(params[:term]).paginate(:page => params[:page], :per_page => 12) }
+      format.json { @results = Event.future_events.search(params[:term]) + Game.game_search(params[:term]) + Neighborhood.neighborhood_search(params[:term]) }
     end
   end
 
@@ -47,7 +41,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @games = Game.limit(6)
+    @games = Game.all
     # if request.xhr?
     #   render partial: '/events/event_create'
     # end
@@ -58,61 +52,68 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
     games = params[:games]
     if @event.in_future? && @event.save
-      !(games == nil) ? @event.games << Game.find(games) : @event.games = nil
+      games != nil ? @event.games << Game.find(games) : @event.games = @event.games
+      binding.pry
+      # redirect_to :back
       redirect_to event_path(@event)
     else
       @errors = @event.errors.full_messages
       @games = Game.all
-      @events = Event.paginate(:page => params[:page], :per_page => 8)
-      # redirect_to :back
-      render 'index'
+      @events = Event.paginate(:page => params[:page], :per_page => 12)
+      redirect_to :back
     end
   end
-   #  if !(games == nil) && @event.in_future?
-   #    @event.save
-   #    @event.games << Game.find(games)
-   #    redirect_to event_path(@event)
-   #  elsif @event.in_future?
-   #    @event.save
-   #    redirect_to event_path(@event)
-    # else
-   #    @event = @event
-   #    @games = Game.all
-    #   @errors = @event.errors.full_messages
-   #    render 'new'
-    # end
 
-  # def edit
-  #   # if !logged_in?
-  #     redirect_to events_path
-  #   # else
-  #     @user = User.find_by(id: session[:user_id])
-  #     @event = Event.find_by(id: params[:id])
-  #     if @user.id == @event.user_id
-  #     end
-  #   # end
-  # end
+  def edit
+    binding.pry
+    @event = Event.find_by(id: params[:id])
+    @games = @event.games
+    if @event.user == current_user && request.xhr?
+      render partial: 'event_create_form', locals: { event: @event }
+    elsif @event.user == current_user
+      render 'edit'
+    else
+      redirect_to event_path(@event)
+    end
+  end
 
   def update
+    # binding.pry
     @event = Event.find_by(id: params[:id])
-    if params[:act] == "join"
-      @event.guests << current_user unless ( @event.full? ) || ( @event.guests.include?(current_user) )
+    if @event.deleted == "true"
+      @errors = ["Event has been cancelled, it cannot be modified"]
+      redirect_to event_path(@event)
+    elsif !@event.in_future?
+      @errors = ["Event date has already passed, it cannot be modified"]
+    elsif params[:act] == "join"
+      @event.guests << current_user unless ( @event.full? ) || ( @event.guests.include?(current_user) ) || ( @event.user == current_user )
       redirect_to event_path(@event)
     elsif params[:act] == "leave"
-      @event.guests.delete(current_user)
+      @event.guests.delete(current_user) if @event.guests.include?(current_user)
       redirect_to events_path
+    elsif params[:act] == "delete" && @event.user == current_user
+      @event.update_attribute('deleted', true)
+      redirect_to events_path
+    else
+      @event.update_attributes(event_params)
+      @event.games = []
+      @event.games << Game.find(params[:games])
+      venue = Venue.find_by(name: params[:event][:location])
+      @event.venue = venue if @event.venue != venue 
+      redirect_to event_path(@event)
     end
-  end
-
-  def destroy
-    # redirect_to event_path(@event)
   end
 
   def show
-  	@event = Event.find_by(id: params[:id])
-    @comments = @event.comments
-    @comment = Comment.new
-    render 'show'
+    @event = Event.find_by(id: params[:id])
+    if @event.deleted == true && @event.user != current_user
+    # if @event.deleted == true redirect_to events_path unless @event.user == current_user
+      redirect_to events_path
+    else
+      @comments = @event.comments
+      @comment = Comment.new
+      render 'show'
+    end
   end
 
   # def search_events
@@ -132,7 +133,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :date, :time, :description, :limit, :venue_id, :games => [])
+    params.require(:event).permit(:title, :date, :time, :description, :limit, :venue_id, :deleted, :games => [])
   end
 
 end

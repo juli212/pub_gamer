@@ -2,7 +2,7 @@
 <%= form_for @venue, :html => {:id => "venue-create-form"} do |f| %>
 <div class="row">
 			<!-- <div class="row"> -->
-	<div class="small-5 columns">
+	<div class="small-12 medium-5 columns">
 		<%= f.text_field :name, required: true, placeholder: "Name" %>
 		<%= f.text_field :address, required: true, placeholder: "Address" %>
 		<%= f.text_field :neighborhood, required: true, placeholder: "neighborhood" %>
@@ -10,7 +10,7 @@
 		</div>
 	</div>
 
-	<div class="small-7 columns">
+	<div class="small-12 medium-7 columns">
 		<div class="row">
 			<div class="small-7 columns">
 				<%= f.text_field "game", placeholder: "Add A Game!", id: "other-text-field" %>
@@ -29,7 +29,7 @@
 
 <%= f.text_field :place, type: 'hidden' %>
 <div class="row align-spaced">
-	<div class="small-4 columns">
+	<div class="small-8 medium-4 columns">
 		<%= f.submit "Add venue!", class: "button", id: "venue-create-submit-button" %>
 	</div>
 </div>

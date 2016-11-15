@@ -8,6 +8,36 @@
 				<%= render partial: 'venue_rating', locals: { current_rating: 0 } %>
 			<% end %>
 		</div>
+		<div class="row algin-spaced">
+			<div class="small-7 columns show-for-small-only">
+				<ul id="venue-show-list">
+				<li>
+					<%= link_to "Venue <span class='arrow'>&#9660;</span>".html_safe, nil, id: "venue-show-dropdown-arrow", class: "button" %>
+					<ul id="venue-show-dropdown">
+						<li>
+							<%= link_to "Create Event", new_event_path, id: "venue-event-create-link"  %>
+						</li>
+						<li>
+							<%= link_to "Events", venue_events_path(@venue), id: "venue-event-index-button" %>
+						</li>
+						<li>
+							<%= link_to "Review!", new_venue_review_path(@venue.id), class: "new-review-button" %>
+						</li>
+						<li>
+							<%= link_to "Report Inaccurate", venue_inaccurate_path(@venue), id: "report-inaccurate-button" %>
+						</li>
+					</ul>
+				</li>
+				</ul>
+			</div>
+			<div class="small-5 columns medium-12">
+				<% if current_user.has_favorited?(@venue) %>
+				  <%= render partial: 'venues/index_remove_favorite', locals: { venue: @venue } %>
+				<% else %>
+					<%= render partial: 'venues/index_add_favorite', locals: { venue: @venue } %>
+				<% end %>
+			</div>
+		</div>
 	</div>
 
 	<div class="small-12 small-order-1 medium-order-2 medium-expand columns">
@@ -17,7 +47,8 @@
 			<div class="small-12 columns" >
 				<p class="text-left" id="venue-address">
 					<%= image_tag("icons/location/location9Brown.png", size: '30', title: "location" ) %>
-					<%= @venue.address %> <%= link_to "map", nil, id: "view-map" %>
+					<span id="get-venue-address"><%= @venue.address %></span>
+					<%= link_to "map", nil, id: "view-map" %>
 				</p>
 				<div id="venue-games">
 					<% if @venue.has_games? %>
@@ -26,38 +57,49 @@
 					<% else %>
 						<%= render partial: 'no_games' %>
 					<% end %>
+					<%= link_to "Add Games!", nil, id: "add-game-link" %>
 				</div>
+				<div>
+					<%= form_for @venue, html: { id: "add-games"} do |f| %>
+						<%= f.hidden_field :exists, value: "yes" %>
+						<%= f.hidden_field :id, value: "#{@venue.id}" %>
+						<%= f.text_field "game", placeholder: "Add A Game!", id: "add-game-input" %>
+						<div class="results" id="add-game-results">
+						</div>
+						<%= f.submit "Add Game!", id: "add-game-button" %>
+					<% end %>
+				</div>
+				<%= link_to "cancel", nil, id: "cancel-add-game-link" %>
 			</div>
 		</div>
 	</div>
-<!-- 	<div class="small-2 columns" %>
-	</div> -->
+
 </div>
 
-<div class="row align-spaced" id="venue-show-button-row">
-	<div class="show-for-large large-1 columns" >
+<div id="view-venue-on-map">
+	<input id="place-id" type="hidden" value="<%=@venue.place %>" />
+	<div id="show-map">
 	</div>
-	<div class="small-9 medium-4 large-3 columns" >
-		<%= link_to "Create an Event", new_event_path, class: "button", id: "venue-event-create-link"  %>
-		<%= render partial: 'events/event_create' %>
-	</div>
-	<div class="small-9 medium-3 large-2 columns" >
-		<%= link_to "Review!", new_venue_review_path(@venue.id), class: "button", id: "new-review-button" %>
-		<div id="new-review-form" >
-			<%= render partial: 'reviews/new'%>
-		</div>
-	</div>
-	<div class="small-9 medium-4 large-3 columns" >
-		<div id="favorite">
-			<% if current_user && current_user.has_favorited?(@venue) %>
-				<%= render partial: 'users/favorite_added' %>
-			<% elsif current_user %>
-				<%= render partial: 'users/favorite_removed' %>
-			<% end %>
-		</div>
-	</div>
-	<div class="show-for-large large-1 columns" >
-	</div>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKbw_KdUjv9tX0YJFvT1AOe3nI82-Osvw&amp;libraries=places">
+  </script>
 </div>
 
+<div id="new-review-form" >
+	<%= render partial: 'reviews/new'%>
+</div>
+<%= render partial: 'events/event_create' %>
 
+<div class="row align-spaced small-collapse medium-uncollapse hide-for-small-only" id="venue-show-button-row">
+	<div class="small-9 medium-4 large-3 columns" >
+		<%= link_to "Create Event", new_event_path, class: "button", id: "venue-event-create-link"  %>
+	</div>
+	<div class="small-5 medium-2 large-2 columns">
+		<%= link_to "Events", venue_events_path(@venue), class: "button", id: "venue-event-index-button" %>
+	</div>
+	<div class="small-5 medium-2 large-2 columns" >
+		<%= link_to "Review!", new_venue_review_path(@venue.id), class: "button new-review-button" %>
+	</div>
+	<div class="small-9 medium-4 large-3 columns" >
+		<%= link_to "Report Inaccurate", venue_inaccurate_path(@venue), class: "button", id: "report-inaccurate-button" %>
+	</div>
+</div>

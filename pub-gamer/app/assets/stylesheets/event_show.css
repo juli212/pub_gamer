@@ -23,6 +23,7 @@
 	width: 40%;
 }
 .side-2 {
+	/*clear: both;*/
 	width: 58%;
 }
 
@@ -178,4 +179,27 @@ background-image: linear-gradient(
 .event-comment h6 a {
 	font-size: 12px;
 	font-weight: normal;
+}
+
+.side-1 .button_to {
+	text-align: center;
+	width: 50%;
+	margin: 0;
+	float: left;
+}
+
+.edit-event, .delete-event {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border: none;
+	background-color: #FBEBD4;
+	background-size: 100% 100%;
+}
+.edit-event {
+	background-image: url(edit1Brown.png);
+}
+
+.delete-event {
+	background-image: url(delete1Brown.png);
 }

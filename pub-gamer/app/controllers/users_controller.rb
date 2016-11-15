@@ -1,53 +1,81 @@
 class UsersController < ApplicationController
 
   def new
+    binding.pry
     @user = User.new
     if request.xhr?
       render partial: 'registration_form'
     end
   end
 
-  def update
-    @venue = Venue.find_by(id: params[:venue])
-    @user = current_user
-    # prev_num_of_favs = @user.favorites.length
-    @user.update_favorites(@venue)
-    # if params[:from] == "venue-index" && request.xhr? && @user.favorite_added?(prev_num_of_favs)
-    #   render partial: 'venues/favorite_display', locals: { favorite: @venue }
-    # elsif request.xhr? && @user.favorite_added?(prev_num_of_favs)
-    #   render partial: 'users/favorite_added'
-    # elsif request.xhr? && @user.favorite_removed?(prev_num_of_favs)
-    #   render partial: 'users/favorite_removed'
-    # else
-    #   redirect_to venue_path(@venue)
-    # end
-    if params[:act] == "remove" && request.xhr?
-      flash[:notice] = "Venue removed from favorites"
-      render partial: 'users/favorite_removed'
-    elsif params[:act] == "remove"
-      flash[:notice] = "Venue removed from favorites"
-      redirect_to venues_path
-    elsif params[:act] == "add" && request.xhr?
-      flash[:notice] = "Venue added to favorites"
-      render partial: 'users/favorite_added'
-    elsif params[:act] == "add"
-      flash[:notice] = "Venue added to favorites"
-      redirect_to venue_path(@venue)
-    else
-    flash[:notice] = "favorites not updated"
-    redirect_to venues_path
+  def events
+    user = User.find(params[:user_id])
+    if params[:event] == "upcoming"
+      events = user.upcoming_events
+    elsif params[:event] == "created"
+      events = user.created_events
+    elsif params[:event] == "attending"
+      events = user.attending_events
+    elsif params[:event] == "past"
+      events = user.past_events
     end
-    # binding.pry
+    render partial: 'display_user_events', locals: { events: events }
+  end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+    if logged_in? && current_user == @user
+      if request.xhr?
+        render partial: 'registration_form'
+      else
+        render 'edit'
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
+  def delete_profile
+    binding.pry
+    @user = User.find_by(id: params[:user_id])
+    if @user == current_user
+      @user.update_attribute('deleted', true)
+      session.clear
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    if params[:venue]
+      @venue = Venue.find_by(id: params[:venue]) 
+      @user.update_favorites(@venue)
+    end
+    if params[:act] == "remove"
+      # flash[:notice] = "Venue removed from favorites"
+      render partial: 'venues/index_add_favorite', locals: { venue: @venue }
+    elsif params[:act] == "add"
+      # flash[:notice] = "Venue added to favorites"
+      render partial: 'venues/index_remove_favorite', locals: { venue: @venue }
+    else
+      @user.update_attributes(user_params)
+      redirect_to user_path(@user)
+    end
   end
 
   def show
-    @user = User.find_by(id: params[:id])
-    if logged_in? && current_user == @user
+    if logged_in? 
+      @user = User.find_by(id: params[:id])
+    else
+      redirect_to root_path
+    end
+    if @user.deleted?
+        redirect_to root_path
+    else
+      @show = "yes"
       @favorites = @user.favorites
       @created_events = @user.created_events
       @upcoming_events = @user.events
-    else
-      redirect_to root_path
     end
   end
 
@@ -58,13 +86,14 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       @errors = @user.errors.full_messages
-      render 'new'
+      redirect_to root_path, :flash => { :notice => @user.errors.full_messages }
+      # render 'new'
     end
   end
 
   private
 
   def user_params
-      params.require(:user).permit(:user_name,:email,:password, :venue, :photo)
+      params.require(:user).permit(:user_name, :first_name, :last_name, :age, :bio, :email, :password, :venue, :photo)
   end
 end

@@ -1,5 +1,5 @@
 <% if current_user.has_favorited?(venue) %>
-  <%= button_to "", user_path(current_user), method: :put, params: { venue: venue, act: "remove" }, class: "button venue-index-remove-button" %>
+  <%= render partial: 'venues/index_remove_favorite', locals: { venue: venue } %>
 <% else %>
-	<%= button_to "", user_path(current_user), method: :put, params: { venue: venue, act: "add" }, class: "button venue-index-fav-button" %>
+	<%= render partial: 'venues/index_add_favorite', locals: { venue: venue } %>
 <% end %>
