@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+	before_filter :require_login
+	
 	def create
 		@event = Event.find_by(id: params[:event_id])
 		@comment = Comment.new(comment_params)

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def new
-    binding.pry
     @user = User.new
     if request.xhr?
       render partial: 'registration_form'
@@ -36,64 +35,70 @@ class UsersController < ApplicationController
   end
 
   def delete_profile
-    binding.pry
     @user = User.find_by(id: params[:user_id])
     if @user == current_user
       @user.update_attribute('deleted', true)
       session.clear
-      redirect_to root_path
+      redirect_to root_path, flash: { notice: "Your profile has been deleted" }
     end
   end
 
   def update
     @user = User.find_by(id: params[:id])
-    if params[:venue]
-      @venue = Venue.find_by(id: params[:venue]) 
-      @user.update_favorites(@venue)
-    end
-    if params[:act] == "remove"
-      # flash[:notice] = "Venue removed from favorites"
-      render partial: 'venues/index_add_favorite', locals: { venue: @venue }
-    elsif params[:act] == "add"
-      # flash[:notice] = "Venue added to favorites"
-      render partial: 'venues/index_remove_favorite', locals: { venue: @venue }
-    else
-      @user.update_attributes(user_params)
+    if @user == current_user
+      if params[:venue]
+        @venue = Venue.find_by(id: params[:venue]) 
+        @user.update_favorites(@venue)
+      end
+      if params[:act] == "remove"
+        render partial: 'venues/index_add_favorite', locals: { venue: @venue }
+      elsif params[:act] == "add"
+        render partial: 'venues/index_remove_favorite', locals: { venue: @venue }
+      else
+        @user.update_attributes(user_params)
+        redirect_to user_path(@user)
+      end
+    else 
       redirect_to user_path(@user)
     end
   end
 
   def show
-    if logged_in? 
+    binding.pry
       @user = User.find_by(id: params[:id])
+    if !logged_in? || @user.deleted?
+      notice = "You must be logged in to view page"
+      redirect_to root_path, flash: { :notice => notice }
     else
-      redirect_to root_path
-    end
-    if @user.deleted?
-        redirect_to root_path
-    else
-      @show = "yes"
       @favorites = @user.favorites
       @created_events = @user.created_events
       @upcoming_events = @user.events
     end
   end
+    # if logged_in? 
+    # else
+    #   redirect_to root_path
+    # end
+    # if @user.deleted?
+    #     redirect_to root_path
+    # else
+    #   # @show = "yes"
 
   def create
     @user = User.new(user_params)
+    binding.pry
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       @errors = @user.errors.full_messages
       redirect_to root_path, :flash => { :notice => @user.errors.full_messages }
-      # render 'new'
     end
   end
 
   private
 
   def user_params
-      params.require(:user).permit(:user_name, :first_name, :last_name, :age, :bio, :email, :password, :venue, :photo)
+      params.require(:user).permit(:user_name, :first_name, :last_name, :birthday, :bio, :email, :password, :password_confirmation, :venue, :photo)
   end
 end

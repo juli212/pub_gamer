@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-
+	before_filter :require_login
+	
 	def create
 		@review = Review.new(review_params)
 		@review.venue_id = params[:venue_id]
