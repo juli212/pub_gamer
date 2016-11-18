@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
   has_secure_password
-  validates :user_name, :email, :password, presence: true
+  validates :user_name, :email, :password, :birthday, presence: true
   validates :email, uniqueness: true
   validates_length_of :first_name, maximum: 30, message: "30 character max"
   validates_length_of :last_name, maximum: 30, message: "30 character max"
   validates_length_of :user_name, maximum: 25, message: "25 character max"
   validates_length_of :bio, maximum: 600
-  validates_inclusion_of :age, in: 18..99
+  # validates_inclusion_of :age, in: 18..99
   has_attached_file :photo,
   	styles: { medium: "200x200>", thumb: "100x100>" },
   	default_url: "/images/:style/octopus0.3opacity.png"
