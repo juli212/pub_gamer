@@ -2,25 +2,33 @@
   <%=form_for @user, id: 'register-form', html: { multipart: true } do  |f| %>
   	<h4>Register</h4>
     <div class="row align-spaced">
-      <div class="small-12 medium-6 columns">
+      <div class="small-6 columns">
         <%= f.text_field :first_name, placeholder: "First Name", required: true, title: "First Name" %>
       </div>
-      <div class="small-12 medium-6 columns">
+      <div class="small-6 columns">
         <%= f.text_field :last_name, placeholder: "Last Name", required: true, title: "Last Name" %>
       </div>
     </div>
     <div class="row align-spaced">
-      <div class="small-9 medium-6 columns">
+      <div class="small-12 medium-6 columns">
         <%= f.text_field :user_name, placeholder: "User Name", required: true, title: "User Name" %>
       </div>
-      <div class="small-3 medium-4 columns">
-        <%= f.number_field :age, min: "18", max: "100", placeholder: "Age", required: true, title: "Age" %>
+      <!-- <div class="small-4 medium-2 columns"> -->
+        <!-- Birthday: -->
+      <!-- </div> -->
+      <div class="small-12 medium-6 columns" id="user-birthday">
+        <div id="user-birthday-label">
+          <span>Birthday:</span>
+        </div>
+        <%= f.date_select :birthday, start_year: 1900, end_year: 2000, title: "Birthday", required: true %>
       </div>
     </div>
     <div class="row align-spaced">
       <div class="small-12 columns">
         <%= f.file_field :photo, placeholder: "photo", title: "photo" %>
       </div>
+    </div>
+    <div class="row algin-spaced">
       <div class="small-12 columns">
         <%= f.text_area :bio, placeholder: "Bio", title: "Bio" %>
       </div>
@@ -31,6 +39,9 @@
       </div>
       <div class="small-12 medium-6 columns">
         <%= f.password_field :password, placeholder: "Password", required: true, title: "Password" %>
+      </div>
+      <div class="small-12 columns">
+        <%= f.password_field :password_confirmation, placeholder: "confirm password", required: true, title: "confirm password" %>
       </div>
     </div>
     <div class="row columns">
