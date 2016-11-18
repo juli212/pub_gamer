@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20161023215103) do
     t.string   "user_name",                          null: false
     t.string   "password_digest",                    null: false
     t.string   "email",                              null: false
-    t.integer  "age"
+    t.date     "birthday",                           null: false
     t.text     "bio"
     t.boolean  "deleted",            default: false, null: false
     t.datetime "created_at",                         null: false
