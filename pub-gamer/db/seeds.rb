@@ -10,8 +10,8 @@
 games = Game.create([{ name: 'pool'}, {name: 'fooseball'}, {name: 'shuffleboard'}, {name: 'darts'}, {name: 'skeeball'}, {name: 'ping-pong'}, {name: 'karaoke'}, {name: 'cards'}, {name: 'chess'}, {name: 'arcade'}, {name: 'boardgames'}])
 
 users = User.create([
-  {user_name: "julia", first_name: "Julia", last_name: "Giraldi", password: "password", age: 26, bio: "i am pretty awesome. I play all of the soccer. Hike lots. And eat things pretty often.", email: "julia@julia.com"}, 
-  {user_name: "alex", first_name: "Alex", last_name: "Forger", password: "password", age: 29, bio: "i am alex. i play guitar. I also do other things...", email: "alex@alex.com"}])
+  {user_name: "julia", first_name: "Julia", last_name: "Giraldi", password: "password", birthday: '26 Jan 1990', bio: "i am pretty awesome. I play all of the soccer. Hike lots. And eat things pretty often.", email: "julia@julia.com"}, 
+  {user_name: "alex", first_name: "Alex", last_name: "Forger", password: "password", birthday: '26 Jan 1987', bio: "i am alex. i play guitar. I also do other things...", email: "alex@alex.com"}])
 
 neighborhoods = Neighborhood.create([
   { name: 'Lower Manhattan'},
