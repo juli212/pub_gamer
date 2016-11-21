@@ -9,16 +9,16 @@
     <div class="medium-order-2 columns" id="topbar-row-two">
       <ul class="menu horizontal align-self-center" id="nav">
         <% if logged_in? %>
-        <li><%= link_to "#{current_user.user_name}<span class='arrow'>&#9660;</span>".html_safe, nil, id: "user" %>
-          <ul class="header-dropdown">
-            <li><%= link_to "Profile", user_path(current_user.id) %></li>
-            <% if @show %>
-            <li><%= link_to "Edit Profile", edit_user_path(current_user), id: "edit-user-profile", name: "#{current_user.id}" %></li>
-            <% end %>
-            <li><%= link_to "logout", logout_path(current_user), controller: "sessions", action: :destroy, method: :delete, id: "logout-link" %></li>
-            <li><%= link_to "delete profile", user_delete_profile_path(current_user), method: :put, id: "delete-user-profile" %></li>
-          </ul>
-        </li>
+          <li><%= link_to "#{current_user.user_name}<span class='arrow'>&#9660;</span>".html_safe, nil, id: "user" %>
+            <ul class="header-dropdown">
+              <li><%= link_to "Profile", user_path(current_user.id) %></li>
+              <% if @show %>
+                <li><%= link_to "Edit Profile", edit_user_path(current_user), id: "edit-user-profile", name: "#{current_user.id}" %></li>
+              <% end %>
+              <li><%= link_to "logout", logout_path(current_user), controller: "sessions", action: :destroy, method: :delete, id: "logout-link" %></li>
+              <li><%= link_to "delete profile", user_delete_profile_path(current_user), method: :put, id: "delete-user-profile" %></li>
+            </ul>
+          </li>
         <% end %>
         <li><%= link_to "Venues", venues_path, id: "venues" %></li>
         <li><%= link_to "Events", events_path, id: "events" %></li>
