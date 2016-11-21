@@ -13,9 +13,6 @@
       <div class="small-12 medium-6 columns">
         <%= f.text_field :user_name, placeholder: "User Name", required: true, title: "User Name" %>
       </div>
-      <!-- <div class="small-4 medium-2 columns"> -->
-        <!-- Birthday: -->
-      <!-- </div> -->
       <div class="small-12 medium-6 columns" id="user-birthday">
         <div id="user-birthday-label">
           <span>Birthday:</span>
@@ -24,24 +21,14 @@
       </div>
     </div>
     <div class="row align-spaced">
-      <div class="small-12 columns">
+      <div class="small-12 medium-6 columns">
         <%= f.file_field :photo, placeholder: "photo", title: "photo" %>
-      </div>
-    </div>
-    <div class="row algin-spaced">
-      <div class="small-12 columns">
-        <%= f.text_area :bio, placeholder: "Bio", title: "Bio" %>
-      </div>
-    </div>
-    <div class="row align-spaced">
-      <div class="small-12 medium-6 columns">
         <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$", required: true, title: "Email"%>
+        <%= f.password_field :password, placeholder: "Password", required: true, title: "Password" %>
+        <%= f.password_field :password_confirmation, placeholder: "confirm password", required: true, title: "confirm password" %>
       </div>
       <div class="small-12 medium-6 columns">
-        <%= f.password_field :password, placeholder: "Password", required: true, title: "Password" %>
-      </div>
-      <div class="small-12 columns">
-        <%= f.password_field :password_confirmation, placeholder: "confirm password", required: true, title: "confirm password" %>
+        <%= f.text_area :bio, placeholder: "Bio", title: "Bio" %>
       </div>
     </div>
     <div class="row columns">
