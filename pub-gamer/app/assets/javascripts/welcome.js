@@ -18,14 +18,23 @@ $(document).ready(function() {
   	$('#login-box').dialog('open');
   })
 
-  var width = $(window).width()
-  var setFormWidth = function() {
-    if (width >= 640) {
-      return width * 0.7
-    } else {
-      return width
+  var setFormHeight = function(height) {
+    height = screen.height
+    if (height >= 670)
+      return height * 0.7
+    else {
+      return height
     }
   }
+
+  // var setFormWidth = function(width) {
+  //   width = $(window).width()
+  //   if (width >= 640) {
+  //     return width * 0.7
+  //   } else {
+  //     return width
+  //   }
+  // }
 
   $("#register-box").dialog({
     modal: true,
