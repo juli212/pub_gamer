@@ -45,9 +45,8 @@ class UsersController < ApplicationController
 
   def edit_password
     @user = User.find_by(id: params[:user_id])
-    binding.pry
     if @user && @user == current_user
-      render partial: 'edit_password', locals: { user: @user }
+      render partial: 'edit_password_form', locals: { user: @user }
     elsif @user
       redirect_to user_path(@user)
     else
@@ -56,12 +55,16 @@ class UsersController < ApplicationController
   end
 
   def update_password
-    @user = User.find_by(id: params[:id])
-    if @user == current_user && @user.authenticate(params[:password])
-      @user.update_attribute("password", params[:password])
-      flash[:notice] = ["Password successfully updated"]
+    # binding.pry
+    @user = User.find_by(id: params[:user_id])
+    if @user == current_user && @user.authenticate(params[:user][:old_password])
+      password = params[:user][:new_password]
+      confirmation = params[:user][:password_confirmation]
+      flash[:notice] = @user.update_password(password, confirmation)
+    elsif @user
+      flash[:notice] = ["Authentication failed"]
     else
-      flash[:notice] = ["Password failed to update"]  
+      flash[:notice] = ["Unknown user"]
     end
     redirect_to user_path(@user)
   end
