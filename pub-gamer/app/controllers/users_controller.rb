@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     if logged_in? && current_user == @user
       if request.xhr?
-        render partial: 'registration_form'
+        render partial: 'edit_user'
       else
         render 'edit'
       end
@@ -39,8 +39,31 @@ class UsersController < ApplicationController
     if @user == current_user
       @user.update_attribute('deleted', true)
       session.clear
-      redirect_to root_path, flash: { notice: "Your profile has been deleted" }
+      redirect_to root_path, flash: { notice: ["Your profile has been deleted"] }
     end
+  end
+
+  def edit_password
+    @user = User.find_by(id: params[:user_id])
+    binding.pry
+    if @user && @user == current_user
+      render partial: 'edit_password', locals: { user: @user }
+    elsif @user
+      redirect_to user_path(@user)
+    else
+      redirect_to root_path, flash: { notice: ["You must be logged in to view this page"] }
+    end
+  end
+
+  def update_password
+    @user = User.find_by(id: params[:id])
+    if @user == current_user && @user.authenticate(params[:password])
+      @user.update_attribute("password", params[:password])
+      flash[:notice] = ["Password successfully updated"]
+    else
+      flash[:notice] = ["Password failed to update"]  
+    end
+    redirect_to user_path(@user)
   end
 
   def update
@@ -64,12 +87,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    binding.pry
+    # binding.pry
       @user = User.find_by(id: params[:id])
     if !logged_in? || @user.deleted?
-      notice = "You must be logged in to view page"
+      notice = ["You must be logged in to view page"]
       redirect_to root_path, flash: { :notice => notice }
     else
+      @show = "yes"
       @favorites = @user.favorites
       @created_events = @user.created_events
       @upcoming_events = @user.events
