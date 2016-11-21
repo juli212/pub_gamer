@@ -63,6 +63,12 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def old_password
+	end
+
+	def new_password
+	end
+
 	def favorite_added?(prev_num_of_favs)
 		self.favorites.length > prev_num_of_favs
 	end
