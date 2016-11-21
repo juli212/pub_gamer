@@ -20,12 +20,6 @@ function initMap() {
   google.maps.InfoWindow.prototype.setContent = function (content) {
     //argument is a node
     if (content.querySelector) {
-      // debugger;
-      // var address = $(content).find('.address').text()
-      // var name = $(content).find('.title').text()
-      // var addressLine1 = $(content).find('.address-line').first().text()
-      // var addressLine2 = $(content).find('.address-line').last().text()
-      // var infoContent = "<div><div class='info-window-line-1'>" + name + "</div><div class='info-window-line-2'>" + addressLine1 + "</div><div class='info-window-line-3'>" + addressLine2 + "</div><div class='info-window-line-4'><button id=createVenue type=button>Select Venue!</button></div></div>"
       var structureContent = "<div><div class='info-window-line-1'></div><div class='info-window-line-2'></div><div class='info-window-line-3'></div><div class='info-window-line-4'><button id=createVenue class=button type=button>Select Venue!</button></div></div>"
       $(content).html(structureContent);
       // debugger;
@@ -70,8 +64,12 @@ function initMap() {
   })
 
   var input = document.getElementById('pac-input');
+  var options = {
+    // types: ,
+    componentRestrictions: {country: 'us'}
+  }
 
-  var autocomplete = new google.maps.places.Autocomplete(input);
+  var autocomplete = new google.maps.places.Autocomplete(input, options);
   autocomplete.bindTo('bounds', map);
 
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
