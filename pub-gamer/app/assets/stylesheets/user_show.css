@@ -104,10 +104,6 @@
 		height: 200px;
 	}
 
-/*	#inside-user-events {
-		height: 200px;
-	}*/
-
 	.outside-user-scroll::-webkit-scrollbar {
  		display: none;
 	}
@@ -142,4 +138,13 @@
 #profile-pic img {
 	border-radius: 2px;
 	border: 1px solid #480000;
+}
+
+#edit-user-button {
+	padding: 0px;
+}
+
+#edit-password-link {
+	font-size: 14px;
+	font-weight: normal;
 }
