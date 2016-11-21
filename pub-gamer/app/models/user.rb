@@ -69,6 +69,15 @@ class User < ActiveRecord::Base
 	def new_password
 	end
 
+	def update_password(password, confirmation)
+		if password == confirmation
+			self.update_attribute("password", password)
+			notice = ["Password successfully updated"]
+		else
+			notice = ["Password failed to update"]
+		end
+	end
+
 	def favorite_added?(prev_num_of_favs)
 		self.favorites.length > prev_num_of_favs
 	end
