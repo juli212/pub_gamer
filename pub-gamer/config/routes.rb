@@ -27,12 +27,11 @@ Rails.application.routes.draw do
     resources :events, only: [:index]
   end
 
-  # resources :venues do
-  # end
-
   resources :users, except: [:index, :destroy] do
     get :events
     put :delete_profile
+    get :edit_password
+    put :update_password
   end
 
   resources :about, only: [:index]
