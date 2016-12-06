@@ -2,50 +2,58 @@ $(document).ready(function() {
 	function emptyEventForm() {
 		$('#edit-event-box').html("");
 	}
-	function setEventForm() {
-		$('.game-button').prop('checked', true)
-		$('.game-button').parent().addClass('select-game')
-		$('#event-create-button-div').replaceWith(updateEventButton)
-	}
-	var updateEventButton = "<div id='event-edit-button-div'>" 
+	// function setEventForm() {
+	// 	$('.game-button').prop('checked', true)
+	// 	$('.game-button').parent().addClass('select-game')
+	// 	$('#event-create-button-div').replaceWith(updateEventButton)
+	// }
+	var updateEventButton = "<div id='event-edit-button-div' class='small-12 columns'>" 
 		+ "<button class='button'>Update</button>"
 		+ "</div"
 
 	$('#edit-event-box').dialog({
 		modal: true,
 		autoOpen: false,
-    minHeight: screen.height * 0.8,
-    minWidth: $(window).width() * 0.7,
+		maxHeight: setHeight(),
+		width: setFormWidth(),
     position: ({ my:"center top", at: "center middle", of: ".top-bar"}),
 		close: emptyEventForm
 	})
 	$('.edit-event').on('click', function(event){
 		event.preventDefault();
 		event.stopPropagation();
-		// debugger;
 		$('#edit-event-box').dialog('open')
 		$.ajax({
-			url: $(this).parent().attr('action')
+			url: this.href
 		}).done(function(response){
 			$('#edit-event-box').html(response);
-			setEventForm();
+
+		// add autocomplete to change venue(options in search.js):
+			$('#event_location').autocomplete(eventVenueACOpctions)
+
+		// add autocomplete to add games(options in search.js:
+			$("#new-game-field").autocomplete(eventGameOptions)
+			// end autocomplete
 		})
-	})
-	$('#edit-event-box').on('click', '.event-game', function(event){
-		clicked_div = event.target.closest('.event-game')
-    $(clicked_div).toggleClass('select-game');
-    if ( $(clicked_div).hasClass('select-game') ) {
-      $(clicked_div).find('input').prop('checked', true)
-    }
-    else {
-      $(clicked_div).find('input').prop('checked', false)
-    }
 	})
 
 	$('.delete-event').on('click', function(event){
+		event.preventDefault();
+		event.stopPropagation();
 		var deleteEvent = confirm("Are you sure you want to delete this event?");
-		if (deleteEvent == false) {
-			event.preventDefault();
+		if (deleteEvent != false) {
+			$target = $(this).parent()
+			$.ajax({
+				url: $target.attr('action'),
+				method: $target.attr('method'),
+				data: $target.serialize()
+			}).done(function(){
+				$target.closest('.index-box').addClass('deleted-event');
+				$target.closest('.event-status').empty();
+				$('.show-box').addClass('deleted-event');
+				$('#comment_body, #comment-button').attr('disabled', true);
+				$('#event-show-comments, #comment_body, .event-show-side').addClass('cancel-fade');
+			})
 		}
 	})
 });

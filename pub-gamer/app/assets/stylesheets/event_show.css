@@ -19,11 +19,9 @@
 }
 
 .side-1 {
-	padding: 5px 0 0 5px;
-	width: 40%;
+	padding: 5px;
 }
 .side-2 {
-	/*clear: both;*/
 	width: 58%;
 }
 
@@ -37,10 +35,14 @@
 	border-top: 4px solid #480000;
 }
 
+#event-middle {
+	width: 100%;
+}
+
 #event-description {
 	min-height: 40%;
 	/*background-color: rgba(251, 235, 212, 0.6);*/
-background-image: linear-gradient(
+	background-image: linear-gradient(
   to right, 
   rgba(251, 235, 212, 0.2), 
   rgba(251, 235, 212, 0.8),
@@ -60,11 +62,11 @@ background-image: linear-gradient(
 }
 
 #event-right {
-		width: 90%;
+	width: 90%;
 	height: 300px;
-		float: left;
-		margin-left: 1%;
-		margin-bottom: 60px;
+	float: left;
+	margin-left: 1%;
+	margin-bottom: 60px;
 }
 
 @media only screen and (min-width: 640px) {
@@ -78,6 +80,10 @@ background-image: linear-gradient(
 	.side-1, .side-2 {
 		float: none;
 		width: 100%;
+	}
+
+	.side-2 {
+		clear: both;
 	}
 
 	#event-middle {

@@ -33,14 +33,23 @@
         	<%= link_to event.venue.name, venue_path(event.venue) %>
       	</p>
     	</div>
-    	<div>
-	      <%= image_tag("icons/calendars/calendar1.1Purple.png", size: '25', title: "date") %>
-	      <%= event.date.strftime("%B #{event.date.day.ordinalize}") %>
-	      <%= image_tag("icons/clocks/clock1.1Purple.png", size: '25', title: "time") %>
-	      <%= event.time.strftime('%-I:%M%p') %>
-	      <%= image_tag("icons/people/person1.1Purple0.3.png", width: '15', title: "attendees") %> 
-	      <%= event.guests.length %>
-    	</div>
+    	<div class="index-bottom-info">
+        <div>
+  	      <%= image_tag("icons/calendars/calendar1.1Purple.png", size: '25', title: "date") %>
+          <%= event.date.strftime("%B #{event.date.day.ordinalize}") %>
+          </div>
+          <div>
+  	      <%= image_tag("icons/clocks/clock1.1Purple.png", size: '25', title: "time") %>
+  	      <%= event.time.strftime('%-I:%M%p') %>
+  	      </div>
+          <div>
+          <%= image_tag("icons/people/person1.1Purple0.3.png", width: '15', title: "attendees") %> 
+  	      <span class="event-guest-number"><%= event.guests.length %></span>
+      	</div>
+      </div>
+      <div class="index-bottom-notice">
+        <p></p>
+      </div>
     </div>
    
   </div>

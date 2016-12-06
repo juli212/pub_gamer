@@ -24,7 +24,8 @@
 /*button that appears from map venue click*/
 #createVenue {
   color: #EDD0AF;
-  background-color: #2B2936;
+  background-color: #480000;
+  /*background-color: #2B2936;*/
   font-size: 16px;
   font-weight: bold;
   padding: 10px 15px;
@@ -88,8 +89,9 @@
   font-weight: bold;
   text-align: center;
   color: #FFFFF0;
-  background-color: #2B2936;
-  opacity: 0.6;
+  background-color: #480000;
+  /*background-color: #2B2936;*/
+  opacity: 0.4;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }

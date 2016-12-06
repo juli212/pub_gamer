@@ -42,8 +42,28 @@
 }
 
 #event-create-games {
-  height: 80px;
+  height: 130px;
   overflow-y: scroll;
+  border-bottom: 3px solid rgba(244, 174, 53, 0.3);
+}
+
+#event-add-game {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  margin-top: -10px;
+  border-bottom: 3px solid rgba(244, 174, 53, 0.3);
+}
+
+#event-add-game >* {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+
+#event-add-game button {
+  padding: 5px;
+  margin: 0px;
 }
 
 @media only screen and (min-width: 640px) {
@@ -63,41 +83,39 @@
 
 
 .event-game {
-  border: 2px solid #FBEBD4;
+  border: 1px solid #A893FF;
+  /*border: 1px solid #FBEBD4;*/
+  border-right: none;
   float: center;
   min-width: 20%;
   display: inline-block;
   /*border-radius: 40%/45%;*/
   border-radius: 7px;
-  padding: 0px 3px 10px;
+  padding: 0px 3px;
   margin: 2px 1px;
 }
+.event-game div {
+  margin-top: -12px;
+  margin-bottom: -2px;
+}
 
-.event-game-label {
-  margin: 0px;
+.event-game p, .event-game a {
+  font-size: 16px;
+  display: inline-block;
   padding: 0px;
-  margin-top: -40px;
-  background-color: blue
-  color: green;
+  margin: 0px;
+  /*margin-top: -10px;*/
 }
 
-.event-game:hover {
-  opacity: 0.4;
-  /*border: 2px solid #FFFFF0;*/
-  /*background-color: #A893FF;*/
+.event-game a {
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid;
+  padding: 0px 3px;
+  border-radius: 1px;
 }
 
-.select-game {
-  background-color: #A893FF;
-  border: 2px solid #A893FF;
-}
-
-.select-game:hover {
-  opacity: 0.7;
-}
-
-#event-create-button-div {
-  /*padding-top: 15px;*/
+#event-create-button-div, #event-edit-button-div {
   clear: left;
 }
 
@@ -106,4 +124,12 @@
   border-radius: 10px;
   font-weight: bold;
   font-size: 20px;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.event-create-game-input {
+  position: absolute;
+  display: none;
+  /*visibility: hidden;  */
 }

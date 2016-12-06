@@ -29,6 +29,7 @@ class VenuesController < ApplicationController
   end
 
   def add_games
+    # binding.pry
     if params[:venue]
       game = Game.find_or_create_by(name: params[:venue][:game].downcase)
       if params[:venue][:exists] == "yes"
@@ -38,7 +39,7 @@ class VenuesController < ApplicationController
           render partial: '/shared/add_game_to_show', locals: { game: game }
         end
       else
-        render partial: 'add_game', locals: { game: game }
+        render partial: '/shared/add_game', locals: { game: game }
       end
     else
       respond_to do |format|
@@ -91,13 +92,6 @@ class VenuesController < ApplicationController
     @current_rating = @venue.avg_rating
     render 'show'
   end
-
-  # def search_venues
-  #   @query ="%#{params[:query]}%"
-  #   @favorites = current_user.favorites
-  #   @venues = Venue.where("name ilike ? or address ilike ? or description ilike ?", @query, @query, @query)
-  #   render 'index'
-  # end
 
 private
 

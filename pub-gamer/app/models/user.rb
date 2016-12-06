@@ -61,6 +61,7 @@ class User < ActiveRecord::Base
 		else
 			self.favorites << selected_venue
 		end
+		self.favorites.length
 	end
 
 	def old_password

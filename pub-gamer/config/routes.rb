@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     get :add_venue, :on => :collection
     get :update_games, :on => :collection
     get :add_games, :on => :collection
+    put :guests
+    post :cancel
     resources :comments, only: [:create]
   end
 
@@ -22,17 +24,22 @@ Rails.application.routes.draw do
     get :search, :on => :collection
     get :add_games, :on => :collection
     get :add_neighborhood, :on => :collection
-    get :inaccurate
+    # get :inaccurate
+    get :map_search, :on => :collection
     resources :reviews, only: [:new, :create, :update, :show]
     resources :events, only: [:index]
   end
 
-  resources :users, except: [:index, :destroy] do
+  resources :users, except: [:index, :new, :destroy] do
     get :events
     put :delete_profile
     get :edit_password
     put :update_password
+    put :update_favorite
   end
+
+  # resources :games, only: [:add_games]
+  put "add_games" => "games#update", as: "add_games"
 
   resources :about, only: [:index]
   resources :contact, only: [:index]

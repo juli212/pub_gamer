@@ -1,6 +1,5 @@
   var width = $(window).width()
   var setFormWidth = function() {
-    // debugger;
     if (width >= 1024) {
       return width * 0.5
     } else if (width >= 640) {
@@ -10,12 +9,11 @@
     }
   }
   var setHeight = function() {
-    debugger;
     if (width >= 640) {
-      consle.log(screen.height)
+      // console.log(screen.height)
       return screen.height * 0.8
     } else {
-      console.log(screen.height)
+      // console.log(screen.height)
       return screen.height
     }
   }

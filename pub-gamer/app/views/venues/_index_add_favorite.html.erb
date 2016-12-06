@@ -1,1 +1,1 @@
-<%= button_to "", user_path(current_user), method: :put, params: { venue: venue, act: "add" }, class: "button venue-index-fav-button" %>
+<%= button_to "", user_update_favorite_path(current_user), method: :put, params: { venue: venue }, class: "button venue-index-fav-button" %>

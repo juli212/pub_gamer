@@ -1,8 +1,7 @@
 <% if event.user == current_user %>
-  <%= link_to "", edit_event_path(event), title: "Edit", class: "edit-event" %>
-  <%= button_to "", event_path(event), method: :put, title: "Cancel Event", class: "delete-event", params: {act: "delete"} %>
+  <%= render partial: 'user_event_buttons', locals: { event: event } %>
 <% elsif event.attending_event?(current_user) %>
-  <%= button_to "LEAVE!", event_path(event), method: :put, title: "Leave Event", class: "button leave-event", params: {act: "leave"} %>
+  <%= render partial: 'leave_event_button', locals: { event: event } %>
 <% else %>
-  <%= button_to "JOIN!", event_path(event), method: :put, title: "Join Event", class: "button join-event", params: {act: "join"} %>
+  <%= render partial: 'join_event_button', locals: { event: event } %>
 <% end %>

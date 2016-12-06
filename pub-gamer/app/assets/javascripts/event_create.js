@@ -1,16 +1,14 @@
 $(document).ready(function() {
-  $('#event-create-games').on('click', '.event-game', function(event){
-    // debugger;
-    clicked_div = event.target.closest('.event-game')
-    $(clicked_div).toggleClass('select-game');
-    if ( $(clicked_div).hasClass('select-game') ) {
-      $(clicked_div).find('input').prop('checked', true)
-    }
-    else {
-      $(clicked_div).find('input').prop('checked', false)
-    }
-    // $(clicked_div).find('input').prop('checked', !$(clicked_div).find('input').prop('checked'));
-  })
+  // $('#event-create-games').on('click', '.event-game', function(event){
+  //   clicked_div = event.target.closest('.event-game')
+  //   $(clicked_div).toggleClass('select-game');
+  //   if ( $(clicked_div).hasClass('select-game') ) {
+  //     $(clicked_div).find('input').prop('checked', true)
+  //   }
+  //   else {
+  //     $(clicked_div).find('input').prop('checked', false)
+  //   }
+  // })
 
   var openEventForm = function() {
     resetEventForm();
@@ -33,26 +31,30 @@ $(document).ready(function() {
     autoOpen: false,
     open: openEventForm,
     title: "Create Event!",
-    // minHeight: 500,
-    // width: 500,
-    minHeight: screen.height * 0.8,
-    minWidth: $(window).width() * 0.7,
-    position: ({ my:"center top", at: "center middle", of: ".top-bar"}),
-    show: {
-        effect: "blind",
-        duration: 1000
-    },
-    hide: {
-        effect: "explode",
-        duration: 1000
-    },
+    height: setHeight(),
+    width: setFormWidth(),
+    position: ({ my:"center middle", at: "center middle", of: window }),
     close: resetEventForm
   });
 
-  // $('#event-create-link').on('click', function(event){
-  //   event.preventDefault();
-  //   $("#event-create-container").dialog('open');
-  // })
+  $('#event-create-container, #edit-event-box').on('click', '#add-new-game', function(event){
+    // debugger;
+    event.preventDefault();
+    $target = $(this).closest('#event-add-game').find('#new-game-field')
+    $.ajax({
+      url: "/events/add_games",
+      data: $target.serialize()
+    }).done(function(response){
+      $('#event-create-games').append(response)
+      $('#new-game-field').val("")
+    })
+  })
+
+  $('#event-create-container, #edit-event-box').on('click', '.remove-event-game-button', function(event){
+    event.preventDefault(); 
+    $(this).closest('.event-game').remove()
+  })
+
   $('#venue-event-create-link, #event-create-link').on('click', function(event){
     event.preventDefault();
     $("#event-create-container").dialog('open');
@@ -66,7 +68,7 @@ $(document).ready(function() {
   }
 
   $('#event-create-form').on('submit', function(event){
-    if ( $('#event-create-games').find('.select-game').length <= 0 ) {
+    if ( $('#event-create-games').find('.event-game').length <= 0 ) {
       noGames()
     }
   })

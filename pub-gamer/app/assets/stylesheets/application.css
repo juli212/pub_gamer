@@ -173,9 +173,13 @@ input:focus {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
 .ui-dialog-titlebar span {
   /*display: block;*/
   width: 80%;
   text-align: left;
+}
 
+.cancel-fade {
+  opacity: 0.5;
 }

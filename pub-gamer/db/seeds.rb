@@ -16,59 +16,214 @@ users = User.create([
 neighborhoods = Neighborhood.create([
   { name: 'Lower Manhattan'},
   { name: 'Williamsburg'},
-  { name: 'Midtown'}
+  { name: 'Midtown'},
+
+  { name: 'Alphabet City'},
+  { name: 'Astoria'},
+  { name: 'Bay Ridge'},
+  { name: 'Bedford Stuyvesant'},
+  { name: 'Boerum Hill'},
+  { name: 'Bowery'},
+  { name: 'Brooklyn Heights'},
+  { name: 'Bushwick'},
+  { name: 'Carroll Gardens'},
+  { name: 'Chelsea'},
+  { name: 'Chinatown'},
+  { name: 'Clinton Hill'},
+  { name: 'Cobble Hill'},
+  { name: 'Crown Heights'},
+  { name: 'Ditmas Park'},
+  { name: 'Dumbo'},
+  { name: 'East Harlem'},
+  { name: 'East Village'},
+  { name: 'Financial District'},
+  { name: 'Flatbush'},
+  { name: 'Flatiron'},
+  { name: 'Fort Green'},
+  { name: 'Gowanus'},
+  { name: 'Gramercy'},
+  { name: 'Greenwich Village'},
+  { name: 'Greenpoint'},
+  { name: 'Hamilton Heights'},
+  { name: 'Harlem'},
+  { name: 'Hells Kitchen'},
+  { name: 'Inwood'},
+  { name: 'Kips Bay'},
+  { name: 'Lenox Hill'},
+  { name: 'Long Island City'},
+  { name: 'Lower East Side'},
+  { name: 'Manhattan Valley'},
+  { name: 'Meatpacking'},
+  { name: 'Midtown'},
+  { name: 'Murray Hill'},
+  { name: 'NoHo'},
+  { name: 'Park Slope'},
+  { name: 'Prospect Heights'},
+  { name: 'Prospect Park'},
+  { name: 'Prospect Park South'},
+  { name: 'Red Hook'},
+  { name: 'Upper East Side'},
+  { name: 'Upper West Side'},
+  { name: 'Sunnyside'},
+  { name: 'Sunset Park'},
+  { name: 'SoHo'},
+  { name: 'Tribecca'},
+  { name: 'Washington Heights'},
+  { name: 'West Village'},
+  { name: 'Yorkville'}
 ])
 
 venues = Venue.create([
 	{name: "Slainte Bar and Lounge",
 		address: "304 Bowery, New York, NY 10012",
     place: "ChIJkQhyD4VZwokRkuLC_HdUQsU",
-    neighborhood_id: 1 }, 
+    neighborhood_id: Neighborhood.find_or_create_by(name: "East Village").id }, 
 	{name: "The Iron Horse NYC", 
 		address: "32 Cliff St, New York, NY 10038",
     place: "ChIJKwU9OD1awokRQIUbiv9EgPM",
-    neighborhood_id: 1 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Financial District").id },
 	{name: "Welcome To The Johnsons",
   	address: "123 Rivington St, New York, NY 10002",
     place: "ChIJD5T-FIFZwokRKLQDKrQ68-0",
-    neighborhood_id: 1 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Lower East Side").id },
   {name: "Parkside Lounge",
   	address: "317 E Houston St, New York, NY 10002",
     place: "ChIJv2vIB4JZwokRQbbrk0W6I88",
-    neighborhood_id: 1 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Lower East Side").id },
    {name: "Bar Nine",
   	address: "807 9th Ave, New York, NY 10019",
     place: "ChIJr3VP4FlYwokRcyikcDo79w8",
-    neighborhood_id: 3 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Hells Kitchen").id },
   {name: "Iona",
   	address: "180 Grand St, Brooklyn, NY 11211",
     place: "ChIJhxiuQmBZwokR-arCbRYMzdQ",
-    neighborhood_id: 2 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Williamsburg").id },
 	{name: "Banter Bar",
   	address: "132 Havemeyer St, Brooklyn, NY 11211",
     place: "ChIJv6BWj19ZwokRISnmtQh0HTQ",
-    neighborhood_id: 2 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Williamsburg").id },
   {name: "Edge Bar",
   	address: "95 E 3rd St, New York, NY 10003",
     place: "ChIJlYfAaYNZwokRUYk1BIpM8dM",
-    neighborhood_id: 1 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "East Village").id },
   {name: "The Irish American Pub",
   	address: "17 John St, New York, NY 10038",
     place: "ChIJ4ayAJRhawokRjzLOsdPWMCs",
-    neighborhood_id: 1 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Financial District").id },
   {name: "Cherry Tavern",
     address: "441 E 6th st, New York, NY 10009",
     place: "ChIJc2yQSp1ZwokRjcWYA96Gmzg",
-    neighborhood_id: 1},
+    neighborhood_id: Neighborhood.find_or_create_by(name: "East Village").id },
   {name: "Alligator Lounge",
     address: "600 Metropolitan Ave, Brooklyn, NY 11211",
     place: "ChIJi72NxllZwokROkAxMMbU_nw",
-    neighborhood_id: 2 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Williamsburg").id },
   {name: "Double Down Saloon",
     address: "14 Avenue A, New York, NY 10009",
     place: "ChIJRZhgTIJZwokR5ZRVoHE3tlw",
-    neighborhood_id: 1 }
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Lower East Side").id },
+  {name: "1020 Bar",
+    address: "1020 Amsterdam Ave, New York, NY 10025",
+    place: "ChIJ7SZK6zz2wokRpjhEZIwDNLg",
+    neighborhood_id: 4 },
+  {name: "40 Knots Bar",
+    address:"200 Columbia St, Brooklyn, NY 11231",
+    place: "ChIJWcexSFxawokRJWVcJEOJMA4",
+    neighborhood_id: 5 },
+  {name: "Abilene",
+    address: "442 Court St, Brooklyn, NY 11231",
+    place: "ChIJ2TXRiVhawokRvAlAEg3QVtE",
+    neighborhood_id: 6 },
+  {name: "Ace Bar",
+    address: "531 E 5th St, New York, NY 10009q",
+    place: "ChIJuddLo4JZwokRdm_oW8FoWN4",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "East Village").id },
+  {name: "Union Hall",
+    address: "702 Union St, Brooklyn, NY 11215",
+    place: "ChIJ43tYfapbwokRnkJq38aBk_M",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Park Slope").id },
+  {name: "The Carriage House",
+    address: "219 E 59th St, New York, NY 10022",
+    place: "ChIJp18_3uVYwokRMEDmAlz_GYo",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Lenox Hill").id },
+  {name: "Fat Black Pussycat",
+    address: "130 W 3rd St, New York, NY 10012",
+    place: "ChIJUzSA1pNZwokRXIM_Ln81TZc",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Greenwich Village").id },
+  {name: "",
+    address: "",
+    place: "",
+    neighborhood_id: },
+  {name: "",
+    address: "",
+    place: "",
+    neighborhood_id: }
 ])
+
+# 1020 bar: pool/darts *
+# 40 knots bar: pool *
+# abileen: scrabble *
+# Ace bar: darts/billiards/pinball/skeeball *
+# alibi: pool
+# angry wade's: pool/darts
+# antarctica: pool
+# b side: pool
+# bar 169: pool
+# barfly ny: pool
+# battery harris: pool
+# billymark's west: pool
+# bleeker st. bar: pool
+# blue ruin: pool
+# bull mcCabes: pool/darts
+# canal bar: pool
+# dave's tavern
+# doc holiday's: pool
+# dusk: pool
+# failte: pool/darts
+# fat black pussycat: pool *
+# fat cat: pool/shuffleboard/pingpong/chess
+# floyd, ny: bocce ball
+# full circle: skeeball
+# galway hooker: pool/darts (different than galway hooker downtown-pool)
+# halyards: pool
+# hank's saloon: pool
+# hi-fi: pool
+# jakes dilemma: pool
+# josie wood's pub: pool/darts
+# kelly's: pool
+# landsdowne road: pool/darts
+# legends: pool/darts
+# lucky jacks: pool
+# lucy's: pool/pinball
+# mad hatter saloon: pool/darts
+# manitoba's: airhockey
+# mission dolores: pinball
+# mona's: pool
+# montero's bar and grill: pool/karaoke
+# nancy whiskey: shuffle puck
+# nowhere: pool
+# O'hanlons: pool/darts
+# paddy maguires ale house: pool/darts
+# peter dillons: pool
+# ryan's daughter: pool
+# royal palms: shuffleboard
+# sixth ward: pool
+# slate: pingpong/pool/etc
+# snafu: pool
+# sophie's: pool
+# tempest bar: pool
+# the carriage house: pool/karaoke/darts *
+# the duck: pool/mortal kombat
+# the hog pit nyc: pool
+# the levee: pool
+# the patriot: pool
+# the whiskey brooklyn: shuffleboard/skeeball 
+# the whiskey ward: pool
+# turkey's nest tavern: pool
+# tropical 128: pool
+# union hall: bocce ball *
+# walter's bar: pool/darts
+# zablozki's: pool
 
 vibes = Vibe.create([  
   {name: 'Chill', pic: 'chillVibePurple.png'},

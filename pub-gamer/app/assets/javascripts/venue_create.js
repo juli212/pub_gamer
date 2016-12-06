@@ -19,8 +19,9 @@ $(document).ready(function() {
     $("#venue-create-form-container").dialog('open');
   })
   
-  $('#add-new-game').on('click', function(event){
+  $('#venue-create-form-container').on('click', '#add-new-game', function(event){
     event.preventDefault();
+    debugger;
     $target = $('#other-text-field')
     $.ajax({
       url: "/venues/add_games",
@@ -43,25 +44,25 @@ $(document).ready(function() {
     $('#venue-create-games').html("")
   }
 
-  var width = $(window).width()
-  var setFormWidth = function() {
-    // debugger;
-    if (width >= 640) {
-      return width * 0.7
-    } else {
-      return width
-    }
-  }
-  var setHeight = function() {
-    debugger;
-    if (width >= 640) {
-      consle.log(screen.height)
-      return screen.height * 0.8
-    } else {
-      console.log(screen.height)
-      return screen.height
-    }
-  }
+  // var width = $(window).width()
+  // var setFormWidth = function() {
+  //   // debugger;
+  //   if (width >= 640) {
+  //     return width * 0.7
+  //   } else {
+  //     return width
+  //   }
+  // }
+  // var setHeight = function() {
+  //   debugger;
+  //   if (width >= 640) {
+  //     consle.log(screen.height)
+  //     return screen.height * 0.8
+  //   } else {
+  //     console.log(screen.height)
+  //     return screen.height
+  //   }
+  // }
 
   $("#venue-create-form-container").dialog({
     modal: true,
@@ -69,14 +70,14 @@ $(document).ready(function() {
     width: setFormWidth,
     height: setHeight,
     position: ({ my:"center top", at: "center middle", of: ".top-bar"}),
-    show: {
-        effect: "blind",
-        duration: 1000
-    },
-    hide: {
-        effect: "explode",
-        duration: 1000
-    },
+    // show: {
+    //     effect: "blind",
+    //     duration: 1000
+    // },
+    // hide: {
+    //     effect: "explode",
+    //     duration: 1000
+    // },
     close: resetVenueForm
   });
 });

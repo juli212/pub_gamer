@@ -60,7 +60,7 @@
 }
 
 #login-form input, #new_user input, .edit_user input {
-	height: 35px;
+	height: 30px;
 	border-radius: 10px;
 	background-color: #FFFFF0;
 }
@@ -71,6 +71,64 @@
 #user_photo {
 	/*border-radius: 3px;*/
 	font-size: 16px;
+}
+
+#user-birthday {
+	/*display: inline-block;*/
+	color: #FFFFF0;
+	font-size: 16px;
+	font-weight: bold;
+	height: 35px;
+	padding: 0px;
+	margin: 0px;
+}
+
+@media only screen and (min-width: 640px) {
+	#user-birthday {
+		font-size: 20px;
+	}
+	#login-form input, #new_user input, .edit_user input {
+		height: 35px;
+		/*font-size:;*/
+	}
+}
+
+#new_user select, .edit_user select {
+	height: 35px;
+	background-color: #FFFFF0;
+	/*padding: 0;*/
+	border-radius: 10px;
+	/*width: 30%;*/
+	margin: 0px;
+	position: relative;
+	top: 0;
+	/*margin-top: -30px;*/
+}
+
+#new_user textarea, .edit_user textarea {
+	background-color: #FFFFF0;
+	border-radius: 10px;
+	height: 100%;
+}
+
+#user-birthday-label {
+	display: inline-block;
+	margin: 0px;
+	/*display: inline-block;*/
+	/*padding-right: 15px;*/
+	width: 25%;
+}
+
+#user_birthday_1i {
+	margin-top: -10px;
+	width: 20%;
+}
+
+#user_birthday_2i {
+	width: 30%;
+}
+#user_birthday_3i {
+	width: 15%;
 }
 
 #login-button, #register-button {

@@ -12,6 +12,9 @@ class Event < ActiveRecord::Base
 	validates :title, :description, :date, :time, :limit, :venue_id, :user_id, presence: true
 	validates_inclusion_of :limit, in: 0..40
 
+	def game
+	end
+
 	def name
 		self.title
 	end
@@ -92,5 +95,20 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def update_guest_status(user)
+  	if attending_event?(user)
+  		leave(user)
+  	else
+  		join(user)
+  	end
+  end
+
+  def leave(user)
+  	guests.delete(user)
+  end
+
+  def join(user)
+  	guests << user unless self.user == user
+  end
 
 end

@@ -21,7 +21,7 @@
         <%= f.time_field :time, { :ampm => true } %>
       </div>
       <div class="small-3 columns">
-        <%= f.label "Max Guests" %>
+        <%= f.label "Guests" %>
         <%= f.number_field :limit, min: "0", max: "40", placeholder: "Guests", required: true, title: "Number of Guests" %>
       </div>
     </div>
@@ -33,15 +33,27 @@
     <div class="row">
       <div class="small-12 columns">
         <%= f.text_area :description, placeholder: "Description", required: true, title: "Description" %>
-        <% if @games && !@games.empty? %>
-          <%= f.label "Games" %>
+      </div>
+      <div id="event-add-game">
+        <div class="small-7 columns">
+          <%= f.text_field "game", placeholder: "Add A Game!", id: "new-game-field" %>
+          <div class="results" id="add-event-game-results">
+          </div>
+        </div>
+        <div class="small-5 columns">
+          <%= f.button "Add Game!", id: "add-new-game" %>
+        </div>
+      </div>
+      <div class="small-12 columns">
+        <% if @games %>
+
           <div id="event-create-games">
             <%= render partial: 'events/event_create_games', locals: { games: @games } %>
           </div>
         <% end %>
-        <div id="event-create-button-div">
+      </div>
+      <div class="small-12 columns" id="event-create-button-div">
           <%= f.button :submit, class: "button", id: "event-create-submit-button" %>
-        </div>
       </div>
     </div>
   <% end %>

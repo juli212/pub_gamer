@@ -1,0 +1,17 @@
+var guestNumber = $target.closest('.index-box').find('.event-guest-number')
+var notice = $target.closest('.index-box').find('.index-bottom-notice p')
+<% if @event.user == @user %>
+	$target.replaceWith("<%= j render partial: 'user_event_buttons', locals: { event: @event } %>");
+<% elsif @event.attending_event?(@user) %>
+	var note = "You joined this event"
+	$target.replaceWith("<%= j render partial: 'leave_event_button', locals: { event: @event } %>");
+	$(guestNumber).text("<%= j render partial: 'guest_number', locals: { guests: @guests } %>");
+<% else %>
+	var note = "You left this event"
+	$target.replaceWith("<%= j render partial: 'join_event_button', locals: { event: @event } %>");
+	$(guestNumber).text("<%= j render partial: 'guest_number', locals: { guests: @guests } %>");
+<% end %>
+notice.text(note);
+setTimeout(function(){
+	notice.text("")
+}, 3000);

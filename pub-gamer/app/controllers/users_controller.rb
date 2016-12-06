@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
 
-  def new
-    @user = User.new
-    if request.xhr?
-      render partial: 'registration_form'
-    end
-  end
+  # def new
+  #   binding.pry
+  #   @user = User.new
+  #   if request.xhr?
+  #     render partial: 'registration_form'
+  #   end
+  # end
 
   def events
     user = User.find(params[:user_id])
@@ -55,7 +56,6 @@ class UsersController < ApplicationController
   end
 
   def update_password
-    # binding.pry
     @user = User.find_by(id: params[:user_id])
     if @user == current_user && @user.authenticate(params[:user][:old_password])
       password = params[:user][:new_password]
@@ -69,28 +69,31 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
-  def update
-    @user = User.find_by(id: params[:id])
+  def update_favorite
+    @user = User.find_by(id: params[:user_id])
     if @user == current_user
-      if params[:venue]
-        @venue = Venue.find_by(id: params[:venue]) 
-        @user.update_favorites(@venue)
+      respond_to do |format|
+        @old_fav_num = @user.favorites.length
+        @venue = Venue.find_by(id: params[:venue])
+        new_fav_num = @user.update_favorites(@venue)
+        format.js
       end
-      if params[:act] == "remove"
-        render partial: 'venues/index_add_favorite', locals: { venue: @venue }
-      elsif params[:act] == "add"
-        render partial: 'venues/index_remove_favorite', locals: { venue: @venue }
-      else
-        @user.update_attributes(user_params)
-        redirect_to user_path(@user)
-      end
-    else 
+    end
+    # else
+      # redirect_to user_path(@user)
+    # end
+  end
+
+  def update
+    binding.pry
+    @user = User.find_by(id: params[:id])
+    if @user == current_user && @user.authenticate(params[:user][:password])
+      @user.update_attributes(user_params)
       redirect_to user_path(@user)
     end
   end
 
   def show
-    # binding.pry
       @user = User.find_by(id: params[:id])
     if !logged_in? || @user.deleted?
       notice = ["You must be logged in to view page"]

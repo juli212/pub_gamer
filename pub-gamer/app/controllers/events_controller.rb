@@ -28,33 +28,35 @@ class EventsController < ApplicationController
   end
 
   def add_venue
+    # binding.pry
     respond_to do |format|
       format.json { @results = Venue.venue_name_search(params[:term]) }
     end
   end
 
   def add_games
-    respond_to do |format|
-      format.json { @results = Game.game_search(params[:term]) }
+    # binding.pry
+    if params[:event]
+      game = Game.find_or_create_by(name: params[:event][:game].downcase)
+      render partial: 'add_game', locals: { game: game }
+    else
+      respond_to do |format|
+        format.json { @results = Game.add_game(params[:term]).sort_by { |game| game.name } } 
+      end
     end
   end
 
   def new
     @event = Event.new
-    @games = Game.all
-    # if request.xhr?
-    #   render partial: '/events/event_create'
-    # end
+    @games = Game.sample(5)
   end
 
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-    games = params[:games]
+    games = params[:event][:games]
     if @event.in_future? && @event.save
       games != nil ? @event.games << Game.find(games) : @event.games = @event.games
-      binding.pry
-      # redirect_to :back
       redirect_to event_path(@event)
     else
       @errors = @event.errors.full_messages
@@ -65,40 +67,54 @@ class EventsController < ApplicationController
   end
 
   def edit
-    binding.pry
     @event = Event.find_by(id: params[:id])
     @games = @event.games
-    if @event.user == current_user && request.xhr?
+    if @event.user == current_user
       render partial: 'event_create_form', locals: { event: @event }
-    elsif @event.user == current_user
-      render 'edit'
     else
       redirect_to event_path(@event)
     end
   end
 
-  def update
+  def guests
+    @event = Event.find_by(id: params[:event_id])
+    if @event.deleted
+      redirect_to events_path
+    else
+      respond_to do |format|
+        @user = current_user
+        @event.update_guest_status(@user) unless @event.user == @user
+        @guests = @event.guests.length
+        format.js
+      end
+    end
+  end
+
+  def cancel
     # binding.pry
+    @event = Event.find_by(id: params[:event_id])
+    if current_user == @event.user
+      @event.update_attribute('deleted', true)
+      render partial: 'cancelled'
+    else
+      redirect_to user_path(current_user)
+    end
+  end
+
+  def update
     @event = Event.find_by(id: params[:id])
     if @event.deleted == "true"
       @errors = ["Event has been cancelled, it cannot be modified"]
       redirect_to event_path(@event)
     elsif !@event.in_future?
       @errors = ["Event date has already passed, it cannot be modified"]
-    elsif params[:act] == "join"
-      @event.guests << current_user unless ( @event.full? ) || ( @event.guests.include?(current_user) ) || ( @event.user == current_user )
-      redirect_to event_path(@event)
-    elsif params[:act] == "leave"
-      @event.guests.delete(current_user) if @event.guests.include?(current_user)
-      redirect_to events_path
-    elsif params[:act] == "delete" && @event.user == current_user
-      @event.update_attribute('deleted', true)
-      redirect_to events_path
     else
-      @event.update_attributes(event_params)
-      @event.games = []
-      @event.games << Game.find(params[:games])
+      games = params[:event][:games]
       venue = Venue.find_by(name: params[:event][:location])
+      @event.update_attributes(event_params)
+      @event.games = Game.find(games)
+      @event.games = []
+      @event.games << Game.find(params[:event][:games])
       @event.venue = venue if @event.venue != venue 
       redirect_to event_path(@event)
     end
@@ -116,24 +132,11 @@ class EventsController < ApplicationController
     end
   end
 
-  # def search_events
-  #   @query ="%#{params[:query]}%"
-  #   @favorites = current_user.favorites
-  #   @events = Event.where("title ilike ? or location ilike ? or description ilike ?", @query, @query, @query)
-  #   @created_events = Event.where("user_id = #{current_user.id}")
-  #   @attended_events = []
-  #   @events.each do |event|
-  #     if event.attending_event?(current_user)
-  #       @attended_events << event
-  #     end
-  #   end
-  #   render 'index'
-  # end
 
   private
 
   def event_params
-    params.require(:event).permit(:title, :date, :time, :description, :limit, :venue_id, :deleted, :games => [])
+    params.require(:event).permit(:title, :date, :time, :description, :limit, :venue_id, :deleted)
   end
 
 end

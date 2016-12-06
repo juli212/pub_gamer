@@ -40,3 +40,6 @@
 	background-image: url(icons/events/event3.2Creme.png);
 }
 
+.index-bottom-info div {
+	display: inline-block;
+}

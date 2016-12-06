@@ -1,7 +1,7 @@
 <% if @event.deleted %> 
-	<div class="row align-center deleted-event">
+	<div class="row align-center show-box deleted-event">
 <% else %>
-	<div class="row align-center">
+	<div class="row align-center show-box">
 <% end %>
 	<div class="small-12 columns" id="event-show-title">
 		<h2 class="text-center" ><%= @event.title %></h2>
@@ -15,6 +15,7 @@
 			<%= @event.date.strftime("%B #{@event.date.day.ordinalize}") %>
 			<%= image_tag("icons/clocks/clock1.1Brown.png", size: '25', title: "time") %>
 			<%= @event.time.strftime('%-I:%M%p') %>
+			<br class="show-for-small-only">
 			<%= image_tag("icons/shops/shop1Purple.png", size: '30', title: "place" ) %>
        <%= link_to @event.venue.name, venue_path(@event.venue) %>
 		</p>
@@ -41,23 +42,26 @@
 <div id="edit-event-box"></div>
 
 <div class="row align-center">
-	<div class="event-show-side">
-		<div class="side-1">
-		<% if @event.deleted == false %>
-		<% if @event.user == current_user %>
-			<p class="text-center">Your Event!</p>
-				<%= button_to "", event_path(@event), method: :put, title: "Cancel Event", class: "delete-event", params: {act: "delete"} %>
-				<%= button_to "", edit_event_path(@event), title: "Edit", class: "edit-event" %>
-		<% elsif @event.guests.include?(current_user) %>
-			<p class="text-center">Attending!</p>
-			<%= button_to "LEAVE!", event_path(@event), method: :put, title: "Leave Event", class: "button leave-event", params: {act: "leave"} %>
-		<% elsif @event.full? %>
-			<p class="text-center">Event is full</p>
-		<% else %>
-			<p class="text-center">Not Attending</p>
-			<%= button_to "JOIN!", event_path(@event), method: :put, title: "Join Event", class: "button join-event", params: {act: "join"} %>
-		<% end %>
-		<% end %>
+	<% if @event.deleted %>
+		<div class="event-show-side cancel-fade">
+	<% else %>
+		<div class="event-show-side">
+	<% end %>
+		<div class="side-1 event-status">
+			<% if @event.deleted == false %>
+				<% if @event.user == current_user %>
+					<p class="text-center">Your Event!</p>
+					<%= render partial: 'user_event_buttons', locals: { event: @event } %>
+				<% elsif @event.attending_event?(current_user) %>
+					<p class="text-center">Attending!</p>
+					<%= render partial: 'leave_event_button', locals: { event: @event } %>
+				<% elsif @event.full? %>
+					<p class="text-center">Event is full</p>
+				<% else %>
+					<p class="text-center">Not Attending</p>
+					<%= render partial: 'join_event_button', locals: { event: @event } %>
+				<% end %>
+			<% end %>
 		</div>
 
 		<div class="side-2 text-center">
@@ -67,10 +71,10 @@
 		</p>
 		
 		<% @event.guests.length.times do %>
-			<%= image_tag("icons/people/person1.1Purple0.3.png", width: '10', title: "peole") %>
+			<%= image_tag("icons/people/person1.1Purple0.3.png", width: '10', title: "peole", class: "taken-guest") %>
 		<% end %>
 		<% @event.open_spots.times do %>
-			<%= image_tag("icons/people/person1.1Brown0.3.png", width: '10', title: "peole") %>
+			<%= image_tag("icons/people/person1.1Brown0.3.png", width: '10', title: "peole", class: "empty-guest") %>
 		<% end %>
 		<h5 class="text-center">Players</h5>
 		<%@event.guests.each do |guest| %>
@@ -97,23 +101,17 @@
 	</div>
 
 	<div id="event-right">
-		<div id="event-show-comments">
-			<% if @event.user == current_user || @event.guests.include?(current_user) %>
-				<% @comments.each do |comment| %>
-					<div class="event-comment">
-						<p class="text-center"><%= comment.body %></p>
-						<h6 class="text-center">-<%= link_to comment.username, user_path(comment.user_id) %></h6>
-					</div>
-				<% end %>
-			<% end %>
-		</div>
-		<div class="text-center" id="event-comment-new">
-			<% if @event.user == current_user || @event.guests.include?(current_user) %>
-				<%= form_for [@event, @comment] do |f| %>
-					<%= f.text_area :body  %>
-					<%= f.submit "Comment!", class: "button", id: "comment-button" %>
-				<% end %>
-			<% end %>
-		</div>
+		<% if @event.user == current_user || @event.guests.include?(current_user) %>
+		<% if @event.deleted %>
+			<div class="cancel-fade" id="event-show-comments">
+		<% else %>
+			<div id="event-show-comments">
+		<% end %>
+				<%= render partial: 'comments/index', locals: { comments: @event.comments } %>
+			</div>
+			<div class="text-center" id="event-comment-new">
+				<%= render partial: 'comments/new', locals: { event: @event, comment: @comment } %>
+			</div>
+		<% end %>
 	</div>
 </div>
