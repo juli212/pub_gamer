@@ -45,26 +45,6 @@ $(document).ready(function() {
     $('#venue-create-games').html("")
   }
 
-  // var width = $(window).width()
-  // var setFormWidth = function() {
-  //   // debugger;
-  //   if (width >= 640) {
-  //     return width * 0.7
-  //   } else {
-  //     return width
-  //   }
-  // }
-  // var setHeight = function() {
-  //   debugger;
-  //   if (width >= 640) {
-  //     consle.log(screen.height)
-  //     return screen.height * 0.8
-  //   } else {
-  //     console.log(screen.height)
-  //     return screen.height
-  //   }
-  // }
-
   $("#venue-create-form-container").dialog({
     modal: true,
     autoOpen: false,
