@@ -21,10 +21,11 @@ $(document).ready(function() {
   
   $('#venue-create-form-container').on('click', '#add-new-game', function(event){
     event.preventDefault();
-    debugger;
+    // debugger;
     $target = $('#other-text-field')
     $.ajax({
-      url: "/venues/add_games",
+      url: "/games/add_game",
+      type: "post",
       data: $target.serialize()
     }).done(function(response){
       $('#venue-create-games').append(response)
@@ -32,8 +33,8 @@ $(document).ready(function() {
     })
   })
 
-  $('#venue-create-games').on('click', '.remove-venue-game-button', function(event){
-    $(this).closest('.venue-create-game').remove()
+  $('#venue-create-games').on('click', '.remove-game-button', function(event){
+    $(this).closest('.update-game').remove()
   })
 
   var resetVenueForm = function() {
@@ -70,14 +71,6 @@ $(document).ready(function() {
     width: setFormWidth,
     height: setHeight,
     position: ({ my:"center top", at: "center middle", of: ".top-bar"}),
-    // show: {
-    //     effect: "blind",
-    //     duration: 1000
-    // },
-    // hide: {
-    //     effect: "explode",
-    //     duration: 1000
-    // },
     close: resetVenueForm
   });
 });

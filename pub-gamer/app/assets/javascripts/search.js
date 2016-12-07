@@ -3,7 +3,8 @@ var eventGameOptions = {
 	appendTo: "#add-event-game-results",
 	source: function(request, response){
 		$.ajax({
-			url: "/events/add_games",
+			url: "/games/add_game",
+			type: "post",
 			dataType: "json",
 			data: {
 				term: request.term
@@ -157,7 +158,6 @@ $(document).ready(function() {
 
 // add game to event
 	$("#new-game-field").autocomplete(eventGameOptions)
-	// $("#new-game-field").autocomplete() 
 
 // add game to venue
 	$( "#other-text-field, #add-game-input" ).autocomplete({
@@ -165,7 +165,8 @@ $(document).ready(function() {
 		appendTo: "#add-venue-game-results",
 		source: function(request, response) {
   	  $.ajax({
-        url: "/venues/add_games",
+  	  	url: "/games/add_game",
+  	  	type: "post",
         dataType: "json",
         data: {
             term: request.term

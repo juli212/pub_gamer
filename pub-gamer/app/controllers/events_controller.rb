@@ -28,23 +28,21 @@ class EventsController < ApplicationController
   end
 
   def add_venue
-    # binding.pry
     respond_to do |format|
       format.json { @results = Venue.venue_name_search(params[:term]) }
     end
   end
 
-  def add_games
-    # binding.pry
-    if params[:event]
-      game = Game.find_or_create_by(name: params[:event][:game].downcase)
-      render partial: 'add_game', locals: { game: game }
-    else
-      respond_to do |format|
-        format.json { @results = Game.add_game(params[:term]).sort_by { |game| game.name } } 
-      end
-    end
-  end
+  # def add_games
+  #   if params[:event]
+  #     game = Game.find_or_create_by(name: params[:event][:game].downcase)
+  #     render partial: 'add_game', locals: { game: game }
+  #   else
+  #     respond_to do |format|
+  #       format.json { @results = Game.add_game(params[:term]).sort_by { |game| game.name } } 
+  #     end
+  #   end
+  # end
 
   def new
     @event = Event.new
@@ -54,7 +52,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-    games = params[:event][:games]
+    games = params[:games]
     if @event.in_future? && @event.save
       games != nil ? @event.games << Game.find(games) : @event.games = @event.games
       redirect_to event_path(@event)
@@ -109,7 +107,7 @@ class EventsController < ApplicationController
     elsif !@event.in_future?
       @errors = ["Event date has already passed, it cannot be modified"]
     else
-      games = params[:event][:games]
+      games = params[:games]
       venue = Venue.find_by(name: params[:event][:location])
       @event.update_attributes(event_params)
       @event.games = Game.find(games)

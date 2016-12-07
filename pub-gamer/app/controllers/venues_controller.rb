@@ -29,22 +29,22 @@ class VenuesController < ApplicationController
   end
 
   def add_games
-    # binding.pry
-    if params[:venue]
+    # if params[:venue]
       game = Game.find_or_create_by(name: params[:venue][:game].downcase)
-      if params[:venue][:exists] == "yes"
-        venue = Venue.find_by(id: params[:venue][:id])
-        if !venue.games.include?(game)
-          venue.games << game
-          render partial: '/shared/add_game_to_show', locals: { game: game }
-        end
-      else
-        render partial: '/shared/add_game', locals: { game: game }
+    if params[:venue][:exists] == "yes"
+      venue = Venue.find_by(id: params[:venue][:id])
+      if !venue.games.include?(game)
+        venue.games << game
+        render partial: '/shared/add_game_to_show', locals: { game: game }
       end
-    else
-      respond_to do |format|
-        format.json { @results = Game.add_game(params[:term]).sort_by { |game| game.name } }
-      end
+      # end
+      # else
+        # render partial: '/shared/add_game', locals: { game: game }
+      # end
+    # else
+    #   respond_to do |format|
+    #     format.json { @results = Game.add_game(params[:term]).sort_by { |game| game.name } }
+    #   end
     end
   end
 
@@ -63,8 +63,9 @@ class VenuesController < ApplicationController
     @venue = Venue.new(venue_params)
     @venue.neighborhood = Neighborhood.find_or_create_by(name: params[:venue][:neighborhood].titleize)
     if @venue.save
-      if params[:venue][:games]
-        @venue.games << Game.find(params[:venue][:games])
+      binding.pry
+      if params[:games]
+        @venue.games << Game.find(params[:games])
       end
       redirect_to venue_path(@venue)
     else

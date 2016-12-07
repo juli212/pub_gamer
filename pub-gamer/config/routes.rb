@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 # user authentication
   root "welcome#index"
-  # get "register" => "users#new", as: "register"
+
   get "login" => "sessions#new", as: "login"
   post "login" => "sessions#create", as: "new_login"
   delete "logout" => "sessions#destroy", as: "logout"
@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     get :search, :on => :collection
     get :add_venue, :on => :collection
     get :update_games, :on => :collection
-    get :add_games, :on => :collection
     put :guests
     post :cancel
     resources :comments, only: [:create]
@@ -37,9 +36,10 @@ Rails.application.routes.draw do
     put :update_password
     put :update_favorite
   end
+  # resources :games, only: [:create]
 
-  # resources :games, only: [:add_games]
-  put "add_games" => "games#update", as: "add_games"
+  # get :ga
+  post "/games/add_game" => "games#add_game", as: "add_game"
 
   resources :about, only: [:index]
   resources :contact, only: [:index]

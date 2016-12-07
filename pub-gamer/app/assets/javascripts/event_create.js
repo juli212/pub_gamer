@@ -38,11 +38,11 @@ $(document).ready(function() {
   });
 
   $('#event-create-container, #edit-event-box').on('click', '#add-new-game', function(event){
-    // debugger;
     event.preventDefault();
     $target = $(this).closest('#event-add-game').find('#new-game-field')
     $.ajax({
-      url: "/events/add_games",
+      url: "/games/add_game",
+      method: "post",
       data: $target.serialize()
     }).done(function(response){
       $('#event-create-games').append(response)
@@ -50,9 +50,9 @@ $(document).ready(function() {
     })
   })
 
-  $('#event-create-container, #edit-event-box').on('click', '.remove-event-game-button', function(event){
+  $('#event-create-container, #edit-event-box').on('click', '.remove-game-button', function(event){
     event.preventDefault(); 
-    $(this).closest('.event-game').remove()
+    $(this).closest('.update-game').remove()
   })
 
   $('#venue-event-create-link, #event-create-link').on('click', function(event){
@@ -68,7 +68,7 @@ $(document).ready(function() {
   }
 
   $('#event-create-form').on('submit', function(event){
-    if ( $('#event-create-games').find('.event-game').length <= 0 ) {
+    if ( $('#event-create-games').find('.update-game').length <= 0 ) {
       noGames()
     }
   })
