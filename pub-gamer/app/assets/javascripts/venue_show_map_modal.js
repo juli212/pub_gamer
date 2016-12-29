@@ -1,12 +1,8 @@
 $(document).ready(function() {
-	$('#view-venue-on-map').dialog({
-		modal: true,
-		autoOpen: false,
+	$('#view-venue-on-map').dialog(dialogOptions, {
 		open: showMap,
-		height: screen.height * 0.6,
-		width: $(window).width() * 0.7,
-		position: ({my:'top', at: 'middle', of: '.top-bar'})
-	});
+		close: null
+	})
 	$('#view-map').on('click', function(event){
 		event.preventDefault();
 		$('#view-venue-on-map').dialog('open');

@@ -26,16 +26,10 @@ $(document).ready(function() {
     $('#event-create-form')[0].reset();
     $('.select-game').removeClass('select-game');
   }
-  $("#event-create-container").dialog({
-    modal: true,
-    autoOpen: false,
+  $("#event-create-container").dialog(dialogOptions, {
     open: openEventForm,
-    title: "Create Event!",
-    height: setHeight(),
-    width: setFormWidth(),
-    position: ({ my:"center middle", at: "center middle", of: window }),
     close: resetEventForm
-  });
+  })
 
   $('#event-create-container, #edit-event-box').on('click', '#add-new-game', function(event){
     event.preventDefault();

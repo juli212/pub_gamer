@@ -18,6 +18,9 @@
 		<% else %>
 			<%= render partial: 'shared/no_photo_added' %>
 		<% end %>
+		<% if @user == current_user %>
+		<p><%= link_to "Edit Profile", edit_user_path(current_user), id: "edit-own-profile", name: "#{current_user.id}" %></p>
+		<% end %>
 	</div>
 	<div class="columns">
 		<p><%=@user.bio%></p>

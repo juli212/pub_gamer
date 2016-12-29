@@ -1,23 +1,14 @@
 $(document).ready(function() {
-	function emptyEventForm() {
-		$('#edit-event-box').html("");
-	}
-	// function setEventForm() {
-	// 	$('.game-button').prop('checked', true)
-	// 	$('.game-button').parent().addClass('select-game')
-	// 	$('#event-create-button-div').replaceWith(updateEventButton)
+	// function emptyEventForm() {
+	// 	$('#edit-event-box').html("");
 	// }
+
 	var updateEventButton = "<div id='event-edit-button-div' class='small-12 columns'>" 
 		+ "<button class='button'>Update</button>"
 		+ "</div"
 
-	$('#edit-event-box').dialog({
-		modal: true,
-		autoOpen: false,
-		maxHeight: setHeight(),
-		width: setFormWidth(),
-    position: ({ my:"center top", at: "center middle", of: ".top-bar"}),
-		close: emptyEventForm
+	$('#edit-event-box').dialog(dialogOptions, {
+		close: emptyDialogBox
 	})
 	$('.edit-event').on('click', function(event){
 		event.preventDefault();

@@ -1,13 +1,7 @@
 $(document).ready(function() {
-	$('#edit-user-profile-box').dialog({
-		modal: true,
-		autoOpen: false,
-		width: setFormWidth,
-		height: setHeight,
-		position: ({ my: "top", at: "center", of: ".top-bar" })
-	})
+	$('#edit-user-profile-box').dialog(dialogOptions)
 
-	$('#edit-user-profile').on('click', function(event){
+	$('#edit-user-profile, #edit-own-profile').on('click', function(event){
 		event.preventDefault();
 		$('#edit-user-profile-box').dialog('open')
 		$.ajax({
@@ -33,6 +27,7 @@ $(document).ready(function() {
 		var sure = confirm("Are you sure you want to delete your profile?");
 		if (sure == false) {
 			event.preventDefault();
+			event.stopPropagation();
 		}
 	})
 })

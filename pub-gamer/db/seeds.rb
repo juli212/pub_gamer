@@ -14,63 +14,7 @@ users = User.create([
   {user_name: "alex", first_name: "Alex", last_name: "Forger", password: "password", birthday: '26 Jan 1987', bio: "i am alex. i play guitar. I also do other things...", email: "alex@alex.com"}])
 
 neighborhoods = Neighborhood.create([
-  { name: 'Lower Manhattan'},
-  { name: 'Williamsburg'},
-  { name: 'Midtown'},
-
-  { name: 'Alphabet City'},
-  { name: 'Astoria'},
-  { name: 'Bay Ridge'},
-  { name: 'Bedford Stuyvesant'},
-  { name: 'Boerum Hill'},
-  { name: 'Bowery'},
-  { name: 'Brooklyn Heights'},
-  { name: 'Bushwick'},
-  { name: 'Carroll Gardens'},
-  { name: 'Chelsea'},
-  { name: 'Chinatown'},
-  { name: 'Clinton Hill'},
-  { name: 'Cobble Hill'},
-  { name: 'Crown Heights'},
-  { name: 'Ditmas Park'},
-  { name: 'Dumbo'},
-  { name: 'East Harlem'},
-  { name: 'East Village'},
-  { name: 'Financial District'},
-  { name: 'Flatbush'},
-  { name: 'Flatiron'},
-  { name: 'Fort Green'},
-  { name: 'Gowanus'},
-  { name: 'Gramercy'},
-  { name: 'Greenwich Village'},
-  { name: 'Greenpoint'},
-  { name: 'Hamilton Heights'},
-  { name: 'Harlem'},
-  { name: 'Hells Kitchen'},
-  { name: 'Inwood'},
-  { name: 'Kips Bay'},
-  { name: 'Lenox Hill'},
-  { name: 'Long Island City'},
-  { name: 'Lower East Side'},
-  { name: 'Manhattan Valley'},
-  { name: 'Meatpacking'},
-  { name: 'Midtown'},
-  { name: 'Murray Hill'},
-  { name: 'NoHo'},
-  { name: 'Park Slope'},
-  { name: 'Prospect Heights'},
-  { name: 'Prospect Park'},
-  { name: 'Prospect Park South'},
-  { name: 'Red Hook'},
-  { name: 'Upper East Side'},
-  { name: 'Upper West Side'},
-  { name: 'Sunnyside'},
-  { name: 'Sunset Park'},
-  { name: 'SoHo'},
-  { name: 'Tribecca'},
-  { name: 'Washington Heights'},
-  { name: 'West Village'},
-  { name: 'Yorkville'}
+  { name: 'Lower Manhattan'}, { name: 'Williamsburg'}, { name: 'Midtown'}, { name: 'Alphabet City'}, { name: 'Astoria'}, { name: 'Bay Ridge'}, { name: 'Bedford Stuyvesant'}, { name: 'Boerum Hill'}, { name: 'Bowery'}, { name: 'Brooklyn Heights'}, { name: 'Bushwick'}, { name: 'Carroll Gardens'}, { name: 'Chelsea'}, { name: 'Chinatown'}, { name: 'Clinton Hill'}, { name: 'Cobble Hill'}, { name: 'Crown Heights'}, { name: 'Ditmas Park'}, { name: 'Dumbo'}, { name: 'East Harlem'}, { name: 'East Village'}, { name: 'Financial District'}, { name: 'Flatbush'}, { name: 'Flatiron'}, { name: 'Fort Green'}, { name: 'Gowanus'}, { name: 'Gramercy'}, { name: 'Greenwich Village'}, { name: 'Greenpoint'}, { name: 'Hamilton Heights'}, { name: 'Harlem'}, { name: 'Hells Kitchen'}, { name: 'Inwood'}, { name: 'Kips Bay'}, { name: 'Lenox Hill'}, { name: 'Long Island City'}, { name: 'Lower East Side'}, { name: 'Manhattan Valley'}, { name: 'Meatpacking'}, { name: 'Midtown'}, { name: 'Morningside Heights'}, { name: 'Murray Hill'}, { name: 'NoHo'}, { name: 'Park Slope'}, { name: 'Prospect Heights'}, { name: 'Prospect Park'}, { name: 'Prospect Park South'}, { name: 'Red Hook'}, { name: 'Upper East Side'}, { name: 'Upper West Side'}, { name: 'Sunnyside'}, { name: 'Sunset Park'}, { name: 'SoHo'}, { name: 'Tribecca'}, { name: 'Washington Heights'}, { name: 'West Village'}, { name: 'Yorkville'}
 ])
 
 venues = Venue.create([
@@ -125,15 +69,15 @@ venues = Venue.create([
   {name: "1020 Bar",
     address: "1020 Amsterdam Ave, New York, NY 10025",
     place: "ChIJ7SZK6zz2wokRpjhEZIwDNLg",
-    neighborhood_id: 4 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Morningside Heights").id },
   {name: "40 Knots Bar",
     address:"200 Columbia St, Brooklyn, NY 11231",
     place: "ChIJWcexSFxawokRJWVcJEOJMA4",
-    neighborhood_id: 5 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Carroll Gardens").id },
   {name: "Abilene",
     address: "442 Court St, Brooklyn, NY 11231",
     place: "ChIJ2TXRiVhawokRvAlAEg3QVtE",
-    neighborhood_id: 6 },
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Carroll Gardens").id },
   {name: "Ace Bar",
     address: "531 E 5th St, New York, NY 10009q",
     place: "ChIJuddLo4JZwokRdm_oW8FoWN4",
@@ -150,34 +94,76 @@ venues = Venue.create([
     address: "130 W 3rd St, New York, NY 10012",
     place: "ChIJUzSA1pNZwokRXIM_Ln81TZc",
     neighborhood_id: Neighborhood.find_or_create_by(name: "Greenwich Village").id },
-  {name: "",
-    address: "",
-    place: "",
-    neighborhood_id: },
-  {name: "",
-    address: "",
-    place: "",
-    neighborhood_id: }
+  {name: "Alibi NYC Soho Salon",
+    address: "67 Greene St, New York, NY 10012",
+    place: "ChIJuURJAYxZwokRI7hCsVDgO88",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "SoHo").id },
+  {name: "Angry Wade's",
+    address: "222 Smith St, Brooklyn, NY 11231",
+    place: "ChIJNVhF-1BawokRG2i4lLPyqqs",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Carroll Gardens").id },
+  {name: "169 Bar",
+    address: "169 E Broadway, New York, NY 10002",
+    place: "ChIJVeXRdylawokRJYXkLU8yMpE",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Lower East Side").id },
+  {name: "Barfly",
+    address: "244 3rd Ave, New York, NY 10010",
+    place: "ChIJLVH0QaBZwokRGivIPQcDKU4",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Gramercy Park").id },
+  {name: "Battery Harris",
+    address: "64 Frost St, Brooklyn, NY 11211",
+    place: "ChIJ3WxVXVpZwokRIjTixoew3T4",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Williamsburg").id },
+  {name: "Blue Ruin",
+    address: "538 9th Ave, New York, NY 10018",
+    place: "ChIJJ1ZxtlJYwokRU2Ysk8JPqgM",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Hell's Kitchen").id },
+  {name: "Bull McCABE'S",
+    address: "29 St Marks Pl, New York, NY 10003",
+    place: "ChIJpVqBe5xZwokRMIOr6FtZg9Y",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "East Village").id },
+  {name: "Canal Bar",
+    address: "270 3rd Ave # A, Brooklyn, NY 11215",
+    place: "ChIJN7FyClVawokRsq3fIOUBa9s",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Gowanus").id },
+  {name: "Dave's Tavern",
+    address: "574 9th Ave, New York, NY 10036",
+    place: "ChIJTXpP7lJYwokRniLvHyM0IWk",
+    neighborhood_id: Neighborhood.find_or_create_by(name: "Hell's Kitchen").id },
+  {name: "Doc Holliday's",
+    address: "141 Avenue A, New York, NY 10009",
+    place: "ChIJwRcz2HdZwokR_I0BuB3PkFc",
+    deleted: false,
+    neighborhood_id: Neighborhood.find_or_create_by(name: "East Village").id }
+  # {name: "",
+  #   address: "",
+  #   place: "",
+  #   neighborhood_id: },
+  # {name: "",
+  #   address: "",
+  #   place: "",
+  #   neighborhood_id: }
 ])
+
+
 
 # 1020 bar: pool/darts *
 # 40 knots bar: pool *
 # abileen: scrabble *
 # Ace bar: darts/billiards/pinball/skeeball *
-# alibi: pool
-# angry wade's: pool/darts
-# antarctica: pool
-# b side: pool
-# bar 169: pool
-# barfly ny: pool
-# battery harris: pool
+# alibi: pool *
+# angry wade's: pool/darts *
+# b side: pool 
+# bar 169: pool *
+# barfly ny: pool, darts *
+# battery harris: pool *
 # billymark's west: pool
 # bleeker st. bar: pool
-# blue ruin: pool
-# bull mcCabes: pool/darts
-# canal bar: pool
-# dave's tavern
-# doc holiday's: pool
+# blue ruin: pool *
+# bull mcCabes: pool/darts *
+# canal bar: pool *
+# dave's tavern: pool *
+# doc holiday's: pool *
 # dusk: pool
 # failte: pool/darts
 # fat black pussycat: pool *

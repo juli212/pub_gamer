@@ -79,9 +79,6 @@ class UsersController < ApplicationController
         format.js
       end
     end
-    # else
-      # redirect_to user_path(@user)
-    # end
   end
 
   def update

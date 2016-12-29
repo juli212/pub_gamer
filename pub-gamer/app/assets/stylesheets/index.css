@@ -18,8 +18,9 @@
 
 .index-right {
   max-height: 206px;
-  max-width: 59%;
+  width: 59%;
   float: left;
+  padding-top: 10px;
   padding-right: 3px;
 }
 
@@ -34,7 +35,6 @@
   clear: both;
   width: 100%;
   text-align: center;
-  /*display: flex;*/
 }
 
 .index-bottom p {
@@ -42,7 +42,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 5px 0px 0px;
-  /*margin-bottom: 0px;*/
 }
 
 .index-location a {
@@ -81,7 +80,6 @@
   background-color: #FFFFF0;
   width: 100px;
   height: 100px;
-  /*background-image: url("octopus0.3opacity.png");*/
   background-size: 100% 100%;
   text-align: center;
 }

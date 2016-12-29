@@ -30,3 +30,28 @@
 .venue-index-fav-button {
 	background-image: url(icons/hearts/heart2.1Brown.png);
 }
+
+#toggle-venue-view-links p {
+	font-size: 17px;
+	font-weight: normal;
+	color: #2C1B13;
+	text-decoration: none;
+}
+#toggle-venue-view-links a {
+	color: #2C1B13;
+	font-weight: bold;
+	text-decoration: underline;
+	padding: 4px 5px;
+	border-radius: 4px;
+}
+
+.view-box {
+	display: none;
+}
+
+.selected-view {
+	font-weight: normal;
+	background-color: rgba(168, 147, 255, 0.6);
+	text-decoration: none;
+}
+

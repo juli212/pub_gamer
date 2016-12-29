@@ -23,8 +23,10 @@ Rails.application.routes.draw do
     get :search, :on => :collection
     get :add_games, :on => :collection
     get :add_neighborhood, :on => :collection
+    post :results, :on => :collection
     # get :inaccurate
-    get :map_search, :on => :collection
+    get :dropdown, :on => :collection
+    get :map, on: :collection
     resources :reviews, only: [:new, :create, :update, :show]
     resources :events, only: [:index]
   end

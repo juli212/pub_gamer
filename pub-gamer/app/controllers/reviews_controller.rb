@@ -17,9 +17,11 @@ class ReviewsController < ApplicationController
 			redirect_to venue_path(venue)
 		else
 			@errors = @review.errors.full_messages
+			binding.pry
 			@venue = venue
 			@vibes = Vibe.all
-			render partial: 'reviews/errors'
+			redirect_to venue_path(venue)
+			# render partial: 'reviews/errors'
 		end
 	end
 

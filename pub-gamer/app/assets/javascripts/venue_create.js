@@ -45,12 +45,7 @@ $(document).ready(function() {
     $('#venue-create-games').html("")
   }
 
-  $("#venue-create-form-container").dialog({
-    modal: true,
-    autoOpen: false,
-    width: setFormWidth,
-    height: setHeight,
-    position: ({ my:"center top", at: "center middle", of: ".top-bar"}),
+  $("#venue-create-form-container").dialog(dialogOptions, {
     close: resetVenueForm
-  });
+  })
 });

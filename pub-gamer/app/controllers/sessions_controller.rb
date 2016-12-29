@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(user)
     else
       @errors = ['Invalid Email or Password']
+      binding.pry
       redirect_to root_path, :flash => { :notice => @errors }
     end
   end

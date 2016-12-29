@@ -78,7 +78,8 @@ $(document).ready(function() {
 		appendTo: "#search-results",
 		source: function(request, response) {
   	  $.ajax({
-        url: $('#search-form').attr("action"),
+  	  	url: "/venues/dropdown",
+        // url: $('#search-form').attr("action"),
         dataType: "json",
         data: {
             term: request.term
@@ -107,18 +108,6 @@ $(document).ready(function() {
 	  	// $('.ui-state-focus').css('color', "#F4AE35");
     }
 	})
-  // $('#search-form').on('submit', function(event) {
-  // 	event.preventDefault();
-  //   $target = $(event.target)
-  //   $.ajax({
-  //     url: $target.attr('href'),
-  //     data: $target.serialize()
-  //   }).done(function(response){
-  //   	// console.log(response);
-  // 	debugger;
-  //     $('.index-main').html(response);
-  //   })
-  // })
 
 // add venue to new event
   $('#event-create-container #event_location').autocomplete(eventVenueACOpctions)

@@ -74,10 +74,6 @@ function initMap() {
 
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-  // var infowindow = new google.maps.InfoWindow();
-  // var marker = new google.maps.Marker({
-  //   map: map
-  // });
   marker.addListener('click', function() {
     infowindow.open(map, marker);
   });

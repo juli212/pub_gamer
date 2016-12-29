@@ -60,6 +60,7 @@
 	margin: 0 auto;
 	border-bottom: 5px solid #480000;
 	border-top: 5px solid #480000;
+	margin-bottom: 40px;
 }
 
 .inside-user-scroll {
@@ -99,6 +100,10 @@
 	float:left;
 }
 
+#profile-bottom-space {
+	height: 30px;
+}
+
 @media only screen and (min-width: 640px) {
 	.user-scroll-box {
 		height: 200px;
@@ -115,16 +120,25 @@
 		width: 300px;
 		min-height: 200px;
 	}
+
+	#profile-bottom-space {
+		height: 50px;
+	}
 }
+
 
 .user-show-game {
 	display: inline-block;
 	float: left;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	margin: 3px;
-	padding: 3px;
-	color: #FBEBD4;
-	background-color: #31AB3C;
+	padding: 4px 8px;
+	/*height: 35px;*/
+	color: #FFFFF0;
+	border-top-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-bottom: 1px solid #F4AE35;
+	background-color: #2C1B13;
 }
 
 #user-favorites .outside-user-scroll {
@@ -134,10 +148,30 @@
 	margin-top: 40px;
 }
 
+#profile-pic {
+	width: 100px;
+	height: 130px;
+}
 
 #profile-pic img {
+	width: 100px;
+	/*height: 200px;*/
 	border-radius: 2px;
-	border: 1px solid #480000;
+	border: 5px solid #FBEBD4;
+	/*padding-bottom: 30px;*/
+	/*background-color: #FBEBD4;*/
+	/*border: 1px solid #480000;*/
+}
+
+@media only screen and (min-width: 640px) {
+	#profile-pic {
+		width: 200px;
+		height: 210px;
+	}
+
+	#profile-pic img {
+		width: 200px;
+	}
 }
 
 #edit-user-button {

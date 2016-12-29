@@ -84,14 +84,12 @@
 }
 
 #venue-create-form {
-	border: 2px solid rgba(43,41,54, 1.0);
+	border: 2px solid rgba(44,27,19, 1.0);
   padding: 10px;
   font-weight: bold;
   text-align: center;
   color: #FFFFF0;
-  background-color: #480000;
-  /*background-color: #2B2936;*/
-  opacity: 0.4;
+  opacity: 0.7;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }

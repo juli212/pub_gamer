@@ -12,14 +12,21 @@
 
 .top-bar img {
   width: 100%;
-  background-color: rgba(72, 0, 0, 0.4);
-  /*background-color: transparent;*/
-  /*background-color: #480000;*/
+  background-color: rgba(44, 27, 19, 0.8);
+  /*background-color: rgba(72, 0, 0, 0.4);*/
   padding: 10px 5px;
+  background: radial-gradient(
+    at 60% 35%,
+    rgba(44, 27, 19, 0.3), 
+    rgba(44, 27, 19, 0.8),
+    rgba(44, 27, 19, 0.9),
+    rgba(44, 27, 19, 1.0)
+  );
 }
 
 .top-bar a {
-  color: #480000;
+  color: #2C1B13;
+  /*color: #480000;*/
   font-weight: bold;
 }
 
@@ -44,6 +51,7 @@
 }
 
 
+
 #nav li a {
   padding: 20px 0px;
 }
@@ -65,7 +73,8 @@
   }
 
   #nav li+li {
-    border-left: 2px solid #480000;
+    border-left: 2px solid #2C1B13;
+    /*border-left: 2px solid #480000;*/
   }
 
   #nav li a {
@@ -116,11 +125,13 @@
 }
 
 .header-dropdown li+li {
-  border-bottom: 1px solid #480000;
+  border-bottom: 1px solid #2C1B13;
+  /*border-bottom: 1px solid #480000;*/
 }
 
 #nav li ul {
-  border: 1px solid #480000;
+  border: 1px solid #2C1B13;
+  /*border: 1px solid #480000;*/
   border-top: none;
 }
 
@@ -145,7 +156,8 @@
   margin: 0;
   font-style: none;
   border: none;
-  border-bottom: 1px solid #480000;
+  border-bottom: 1px solid #2C1B13;
+  /*border-bottom: 1px solid #480000;*/
 }
 
 @media only screen and (min-width: 640px) {
@@ -171,7 +183,8 @@
   color: #480000;
   height: 40px;
   font-weight: bold;
-  border: medium #480000;
+  border: medium #2C1B13;
+  /*border: medium #480000;*/
   margin: 0px;
   margin-left: 3px;
   padding-left: 7px;
@@ -186,4 +199,8 @@
   font-size: 20px;
   padding: 5px 2%;
   font-weight: bolder;
+}
+
+.header-underline {
+  text-decoration: underline;
 }

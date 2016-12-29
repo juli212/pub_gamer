@@ -100,8 +100,6 @@ class EventsController < ApplicationController
       venue = Venue.find_by(name: params[:event][:location])
       @event.update_attributes(event_params)
       @event.games = Game.find(games)
-      @event.games = []
-      @event.games << Game.find(params[:event][:games])
       @event.venue = venue if @event.venue != venue 
       redirect_to event_path(@event)
     end
