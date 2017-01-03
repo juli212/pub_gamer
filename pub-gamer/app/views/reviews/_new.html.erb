@@ -17,11 +17,6 @@
 
   <div class="row" >
     <div class="small-12 columns" >
-      <div id="new-review-errors">
-        <% if @errors %>
-          <%= render 'reviews/errors' %>
-        <% end %>
-      </div>
       <%= f.text_area :content, placeholder: "Review here!" %>
     </div>
   </div>

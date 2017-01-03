@@ -4,14 +4,15 @@ class VenuesController < ApplicationController
 # skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
-    redirect_to search_venues_path
+    # redirect_to search_venues_path
     # @view_partial = "list"
     # @view_partial = params[:views][:view] || params[:views][:last_view] || "list"
     # @favorites = current_user.favorites
-    # @venues = Venue.paginate(:page => params[:page], :per_page => 12)
+    @venues = Venue.paginate(:page => params[:page], :per_page => 12)
   end
 
   def dropdown
+    # binding.pry
     @search_term = params[:term] if params[:term]
     respond_to do |format|
       format.json {
@@ -35,16 +36,18 @@ class VenuesController < ApplicationController
   end
 
   def search
-    @view_partial = "list"
-    @search_term = params[:term] if params[:term]
-    @venues = Venue.paginate(:page => params[:page], :per_page => 12)
+    # binding.pry
+    # @view_partial = "list"
     if params[:term]
+      @search_term = params[:term]
       venues = Venue.search(@search_term)
       respond_to do |format|
         format.html { 
           @venues = venues.paginate(:page => params[:page], :per_page => 12)
         }
       end
+    else
+      @venues = Venue.paginate(:page => params[:page], :per_page => 12)
     end
   end
 
@@ -97,14 +100,15 @@ class VenuesController < ApplicationController
   end
 
   def show
+    # binding.pry
     @venue = Venue.find_by(id: params[:id])
     @reviews = @venue.show_reviews.paginate(:page => params[:page], :per_page => 12)
-    @review = @review || Review.new
+    @review = Review.new
     @games = @venue.games
     @event = Event.new
     @vibes = Vibe.all
     @current_rating = @venue.avg_rating
-    render 'show'
+    # render 'show'
   end
 
 private

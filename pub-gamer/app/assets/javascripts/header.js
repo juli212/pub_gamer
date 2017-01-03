@@ -3,10 +3,10 @@ $(window).load(function() {
 	if ($path == "/" || $path == "") {
 		$('#header-bottom').remove();
 	}	else if ($path.includes("event")) {
-		$('#search-form').attr("action", "/events/search");
+		$('#search-form').attr("action", "/events/search").attr('name', 'events');
 		$('#events').addClass('header-underline')
 	} else if ($path.includes("venue")) {
-		$('#search-form').attr("action", "/venues/search");
+		$('#search-form').attr("action", "/venues/search").attr('name', 'venues');
 		$('#venues').addClass('header-underline')
 	} else if ($path.includes("user")){
 		$('#topbar-row-three').remove()

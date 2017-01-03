@@ -21,7 +21,6 @@ $(document).ready(function() {
   
   $('#venue-create-form-container').on('click', '#add-new-game', function(event){
     event.preventDefault();
-    // debugger;
     $target = $('#other-text-field')
     $.ajax({
       url: "/games/add_game",
@@ -38,7 +37,8 @@ $(document).ready(function() {
   })
 
   var resetVenueForm = function() {
-    $('#venue-create-form')[0].reset()
+    // debugger;
+    $(this).find('form')[0].reset()
     $('#venue_place').val("")
     $('#pac-input').val("")
     $('.select-venue-game').removeClass('select-venue-game')

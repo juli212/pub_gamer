@@ -36,6 +36,18 @@ class Event < ActiveRecord::Base
 		events.uniq
 	end
 
+	def startdate
+		self.date.strftime('%a %b %d, %Y')
+	end
+
+	def starttime
+		self.time.strftime('%-I:%M%p')
+	end
+
+	def place
+		self.venue.place
+	end
+
 	def self.multi_word_search(term)
 		words = term.split.join(' & ')
 		joins(:games).joins(:venue).joins('JOIN neighborhoods ON neighborhoods.id = venues.neighborhood_id').where("to_tsvector(events.title || ' ' || events.description || ' ' || games.name || ' ' || venues.name || ' ' || neighborhoods.name) @@ to_tsquery('#{words}')").uniq

@@ -19,11 +19,39 @@ class EventsController < ApplicationController
     end
   end
 
+  def dropdown
+    @search_term = params[:term] if params[:term]
+    respond_to do |format|
+      format.json {
+        @results = Event.future_events.search(@search_term) + Game.game_search(@search_term) + Neighborhood.neighborhood_search(@search_term)
+      }
+    end
+  end
+
+  def results
+    # binding.pry
+    if request.xhr? && params[:term]
+      events = Event.search(params[:term])
+    else
+      events = Event.all.sample(15)
+    end
+    respond_to do |format|
+      format.json {
+        @events = events
+        render json: @events, :only => [:id, :title, :venue_id, :date, :time ]
+      }
+    end
+  end
+
   def search
     @event = Event.new
-    respond_to do |format|
-      format.html { @events = Event.future_events.search(params[:term]).paginate(:page => params[:page], :per_page => 12) }
-      format.json { @results = Event.future_events.search(params[:term]) + Game.game_search(params[:term]) + Neighborhood.neighborhood_search(params[:term]) }
+    if params[:term]
+      @search_term = params[:term]
+      respond_to do |format|
+        format.html { @events = Event.future_events.search(params[:term]).paginate(:page => params[:page], :per_page => 12) }
+      end
+    else
+      @events = Event.paginate(:page => params[:page], :per_page => 12)
     end
   end
 

@@ -1,14 +1,4 @@
 $(document).ready(function() {
-  // $('#event-create-games').on('click', '.event-game', function(event){
-  //   clicked_div = event.target.closest('.event-game')
-  //   $(clicked_div).toggleClass('select-game');
-  //   if ( $(clicked_div).hasClass('select-game') ) {
-  //     $(clicked_div).find('input').prop('checked', true)
-  //   }
-  //   else {
-  //     $(clicked_div).find('input').prop('checked', false)
-  //   }
-  // })
 
   var openEventForm = function() {
     resetEventForm();

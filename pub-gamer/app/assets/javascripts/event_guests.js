@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	$('.event-status').on('click','form', function(event){
 		event.preventDefault();
+		debugger;
 		$target = $(this)
 		var action = this.action
 		if ( $target.children('join-leave-event') ) {

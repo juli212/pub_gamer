@@ -34,7 +34,7 @@
 			<p>Reviewed by 
 				<%= link_to "#{review.author}", user_path(review.user_id) %></p>
 			<% if review.user_id == current_user.id && !review.deleted %>
-				<%= link_to "delete", venue_review_path(@venue, review, "review[deleted]" => true), method: :put %>
+				<%= link_to "delete", venue_review_path(@venue, review, "review[deleted]" => true), method: :put, class: "delete-review" %>
 			<% end %>
 		</div>
 	</div>

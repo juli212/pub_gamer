@@ -1,55 +1,24 @@
-<div class="row review-show-row">
-	<div class="medium-12 columns">
-		<div class="row">
-			<div class="small-11 medium-6 large-4 columns review-info-box">
-				<div class="review-rating">
-					Rating: 
-					<% if review.rating %>
-						<% review.rating.times do %>
-							<%= image_tag("octopus.png", size: '30', title: "#{review.rating}") %>
-						<% end %>
-					<% end %>
-				</div>
-				<div class="review-vibes">
-					Vibes:
-					<% review.vibes.each do |vibe| %>
-						<%= image_tag("#{vibe.pic}", size: '30', title: "#{vibe.name}") %>
-					<% end %>
-				</div>
-				<div class="review-week">
-					Visited: <%= review.week %>
-				</div>
-			</div>
-			<div class="small-12 medium-6 large-7 columns review-content">
-				<% if review.deleted? %>
-					<%= render partial: 'reviews/deleted' %>
-				<% else %>
-					<% review.split_content.each do |line| %>
-						<p class="formatted-review"><%= line %></p>
-					<% end %>
-					<% if review.content.length > 151 %>
-						<%= link_to "Read More!", venue_review_path(review.venue.id, review.id), class: "read-more-review" %>
-					<% end %>
-				<% end %>
-			</div>
-		</div>
-		
-		<div class="row align-spaced review-show-bottom-row">
-			<div class="small-3 medium-3 columns">
-				<div class="reviewed-by">
-					<p>Reviewed by 
-						<%= link_to "#{review.author}", user_path(review.user_id) %>
-					</p>
-				</div>
-			</div>
-			<div class="small-5 medium-4 columns">
-				<p class="review-date text-right"><%= review.review_date %></p>
-			</div>
-			<div class="small-2 columns align-self-middle">
-				<% if review.user_id == current_user.id && !review.deleted %>
-					<%= link_to "delete", venue_review_path(@venue, review, "review[deleted]" => true), method: :put %>
-				<% end %>
-			</div>
-		</div>
+<div class="columns review-info-box">
+	<div class="review-rating">
+		<% if review.rating %>
+			<% review.rating.times do %>
+				<%= image_tag("octopus.png", size: '30', title: "#{review.rating}") %>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="review-vibes">
+		Vibes:
+		<% review.vibes.each do |vibe| %>
+			<%= image_tag("#{vibe.pic}", size: '30', title: "#{vibe.name}") %>
+		<% end %>
+	</div>
+	<div class="review-week">
+		Visited: <%= review.week %>
+	</div>
+	<div class="reviewed-by">
+		<p>Reviewed by 
+			<%= link_to "#{review.author}", user_path(review.user_id) %>
+		</p>
+		<%= link_to "Read Review!", venue_review_path(review.venue.id, review.id), class: "read-more-review button" %>
 	</div>
 </div>

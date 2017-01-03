@@ -1,0 +1,6 @@
+$('#review-index .review-show-row').prepend("<%= j render partial: 'reviews/show', locals: { review: @review } %>")
+if ( $('.review-info-box').length > 12 ) {
+	$('.review-info-box').last().remove()
+}
+$('#avg-rating').html("<%= j render partial: 'venues/venue_rating', locals: { current_rating: @current_rating } %>")
+UpdateOctopusRating();

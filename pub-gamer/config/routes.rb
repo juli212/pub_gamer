@@ -14,19 +14,20 @@ Rails.application.routes.draw do
     get :search, :on => :collection
     get :add_venue, :on => :collection
     get :update_games, :on => :collection
+    post :results, :on => :collection
+    get :dropdown, :on => :collection
     put :guests
     post :cancel
     resources :comments, only: [:create]
   end
 
-  resources :venues, except: [:destroy] do
+  resources :venues, except: [:destroy, :edit] do
     get :search, :on => :collection
     get :add_games, :on => :collection
     get :add_neighborhood, :on => :collection
     post :results, :on => :collection
-    # get :inaccurate
     get :dropdown, :on => :collection
-    get :map, on: :collection
+    # get :inaccurate
     resources :reviews, only: [:new, :create, :update, :show]
     resources :events, only: [:index]
   end

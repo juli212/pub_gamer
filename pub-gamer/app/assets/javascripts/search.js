@@ -77,9 +77,10 @@ $(document).ready(function() {
 		minLength: 2,
 		appendTo: "#search-results",
 		source: function(request, response) {
+        var path = '/' + $('#search-form').attr('name') + '/dropdown'
+			// debugger;
   	  $.ajax({
-  	  	url: "/venues/dropdown",
-        // url: $('#search-form').attr("action"),
+  	  	url: path,
         dataType: "json",
         data: {
             term: request.term

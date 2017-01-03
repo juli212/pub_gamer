@@ -1,10 +1,23 @@
 $(document).ready(function() {
-  // opens form for new venue review
+  // sets new review form as dialog
   $('#new-review-form').dialog(dialogOptions)
 
+  // opens form for new venue review
   $('.new-review-button').on('click', function(event){
     event.preventDefault()
     $('#new-review-form').dialog('open');
+  })
+
+  // submits new review form and updates venue rating
+  $('#new_review').on('submit', function(event){
+    event.preventDefault();
+    target = this
+    $.ajax({
+      url: target.action,
+      type: target.method,
+      data: $(target).serialize()
+    }).done()
+    $('#new-review-form').dialog('close');
   })
 
   // displays written review content
@@ -14,12 +27,20 @@ $(document).ready(function() {
   })
 
   $('.read-more-review').on('click', function(event){
-    event.preventDefault()
+    event.preventDefault();
     $('#full-review-content').dialog('open')
     $.ajax({
       url: this.href
     }).done(function(response){
       $('#full-review-content').html(response);
     })
+  })
+
+  $('#full-review-content').on('click', '.delete-review', function(event){
+    var sure = confirm("Are you sure you want to delete this review?");
+    if (sure == false ) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
   })
 });
