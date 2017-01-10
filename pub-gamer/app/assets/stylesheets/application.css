@@ -31,7 +31,7 @@ body {
 }
 
 body > * {
-  color: #480000;
+  color: #2C1B13;
 }
 
 #content {
@@ -69,6 +69,11 @@ body > * {
   #main {
     padding-top: 10px;
   }
+}
+
+.dragscroll {
+  /*cursor: all-scroll;*/
+  cursor: url(arrowMouse.png), all-scroll;
 }
 
 body ul{
@@ -148,7 +153,7 @@ input:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background: black;
+  background: #939393;
   opacity: 0.9;
 }
 .ui-front {
@@ -158,37 +163,57 @@ input:focus {
 
 .ui-widget-content {
   border-radius: 10px;
-  /*border: 2px solid #480000;*/
+  /*border: 2px solid #2C1B13;*/
   /*border-top: none;*/
 }
 
 .ui-dialog-content form {
   background-color: #2C1B13;
-  
 }
 
-.ui-dialog {
-  /*border-radius: 10px;*/
+.ui-dialog form {
+  /*color: #FFFFF0;*/
+  padding: 3%;
+  font-size: 30px;
+  text-align: center;
+  color: #FBEBD4;
+  background-color: #2C1B13;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.ui-dialog form label {
+  color: #FBEBD4;
+}
+
+.ui-dialog form input,
+.ui-dialog form textarea {
+  text-align: center;
+  background-color: #FFFFF0;
+  height: 25px;
+  border-radius: 5px;
+}
+
+@media only screen and (min-width: 640px) {
+  .ui-dialog form input,
+  .ui-dialog form textarea {
+    height: 35px;
+    border-radius: 10px;
+  }
 }
 
 .ui-dialog-titlebar {
   background-color: #2C1B13;
-  /*background-color: #480000;*/
-  /*border-top-left-radius: 10px;*/
-  /*border-top-right-radius: 10px;*/
 }
 
 .ui-dialog-titlebar span {
-  /*display: block;*/
   width: 80%;
   text-align: left;
 }
 
 .ui-state-focus {
-  /*outline: none;*/
   font-weight: bold;
   color: #2C1B13;
-  /*background-color:een;*/
 }
 
 * {

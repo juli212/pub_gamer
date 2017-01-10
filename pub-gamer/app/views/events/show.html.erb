@@ -66,21 +66,19 @@
 
 		<div class="side-2 text-center">
 		<p class="">
-			<%= @event.open_spots %>
+			<span class="spots-left"><%= @event.open_spots %></span>
 			spots left!
 		</p>
 		
 		<% @event.guests.length.times do %>
-			<%= image_tag("icons/people/person1.1Purple0.3.png", width: '10', title: "peole", class: "taken-guest") %>
+			<%= image_tag("icons/people/person1.1Purple0.3.png", width: '10', title: "peole", class: "guest-pic taken-guest") %>
 		<% end %>
 		<% @event.open_spots.times do %>
-			<%= image_tag("icons/people/person1.1Brown0.3.png", width: '10', title: "peole", class: "empty-guest") %>
+			<%= image_tag("icons/people/person1.1Brown0.3.png", width: '10', title: "peole", class: "guest-pic empty-guest") %>
 		<% end %>
 		<h5 class="text-center">Players</h5>
-		<%@event.guests.each do |guest| %>
-			<div class="event-attendee-container text-center">
-			<%= link_to guest.user_name, user_path(guest) %>
-			</div>
+		<% @event.guests.each do |guest| %>
+			<%= render partial: 'event_attendee', locals: { guest: guest } %>
 		<% end %>
 		</div>
 	</div>
@@ -101,17 +99,6 @@
 	</div>
 
 	<div id="event-right">
-		<% if @event.user == current_user || @event.guests.include?(current_user) %>
-		<% if @event.deleted %>
-			<div class="cancel-fade" id="event-show-comments">
-		<% else %>
-			<div id="event-show-comments">
-		<% end %>
-				<%= render partial: 'comments/index', locals: { comments: @event.comments } %>
-			</div>
-			<div class="text-center" id="event-comment-new">
-				<%= render partial: 'comments/new', locals: { event: @event, comment: @comment } %>
-			</div>
-		<% end %>
+		<%= render partial: 'event_show_right', locals: { event: @event, comment: @comment } %>
 	</div>
 </div>

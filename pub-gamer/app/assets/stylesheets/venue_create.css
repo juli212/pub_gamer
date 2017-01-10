@@ -21,15 +21,6 @@
   }
 }
 
-/*button that appears from map venue click*/
-#createVenue {
-  color: #EDD0AF;
-  background-color: #480000;
-  /*background-color: #2B2936;*/
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px 15px;
-}
 .controls {
   margin-top: 10px;
   border: 1px solid transparent;
@@ -83,30 +74,21 @@
   width: 345px;
 }
 
-#venue-create-form {
-	border: 2px solid rgba(44,27,19, 1.0);
-  padding: 10px;
+/*button that appears from map venue click*/
+#createVenue {
+  color: #FBEBD4;
+  background-color: #2C1B13;
+  font-size: 16px;
   font-weight: bold;
-  text-align: center;
-  color: #FFFFF0;
+  padding: 10px 15px;
+}
+
+#venue-create-form {
   opacity: 0.7;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
 #venue-create-form input {
-  height: 25px;
-  border-radius: 5px;
-	text-align: center;
- 	background-color: #FFFFF0;
- 	opacity: 0.8;
-}
-
-@media only screen and (min-width: 640px){
-  #venue-create-form input {
-    border-radius: 10px;
-    height: 35px;
-  }
+  opacity: 0.8;
 }
 
 #venue-create-games {
@@ -119,42 +101,6 @@
   #venue-create-games {
     max-height: 400px;
   }
-}
-
-.venue-create-game-button {
-  position: fixed;
-	visibility: hidden;
-  /*opacity: 0;*/
-}
-
-.venue-create-game {
-	display: inline-block;
-	min-width: 10%;
-	border-radius: 5px;
-	border: 2px solid #827AA4;
-  padding: 0px 3px;
-}
-
-.venue-create-game p {
-	margin-top: -50px;
-}
-
-@media only screen and (min-width: 640px){
-  .venue-create-game {
-    padding: 0px 10px;
-  }
-}
-
-.select-venue-game {
-	color: #EDD0AF;
-	background-color: #827AA4;
-  border: 2px solid #827AA4;
-}
-
-#venue-create-submit-button {
-	color: #2B2936;
-	background-color: #FFFFF0;
-  min-height: 35px;
 }
 
 #add-new-game {
@@ -171,19 +117,10 @@
   }
 }
 
-.venue-create-game-label {
-	display: inline-block;
-}
-
-.remove-venue-game-button {
-	display: inline-block;
-	padding: 4px;
-	border: 2px solid;
-	border-radius: 20%;
-}
-.remove-venue-game-button:hover {
-	border: 2px solid #FFFFF0;
-  background-color: #827AA4;
+#venue-create-submit-button {
+  color: #2B2936;
+  background-color: #FFFFF0;
+  min-height: 35px;
 }
  
 .results {

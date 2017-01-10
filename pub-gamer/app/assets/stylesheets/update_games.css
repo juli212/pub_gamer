@@ -1,5 +1,5 @@
 
-/*.event-game*/
+/*.event-game, venue-create-game*/
 .update-game {
 	border: 1px solid #A893FF;
 	border-right: none;
@@ -9,11 +9,12 @@
 	border-radius: 7px;
 	padding: 0px 3px;
 	margin: 2px 1px;
+	height: 35px;
 }
 
 .update-game div {
-	/*margin-top: -12px;*/
-	/*margin-bottom: -2px;*/
+	height: 25px;
+	margin-top: -10px;
 }
 
 .update-game p, .update-game a {

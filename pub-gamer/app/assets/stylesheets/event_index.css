@@ -16,24 +16,12 @@
 	padding: 10px 15px 0px;
 }
 
-.join-event, .leave-event {
-
-}
-
 .your-event {
 	padding: 0px;
 	width: 40px;
 	height: 0px;
 	background-size: 100% 100%;
 	margin: 0 auto;
-}
-
-.leave-event {
-	/*background-image: url(icons/events/event5.2Brown.png);*/
-}
-
-.join-event {
-	/*background-image: url(icons/events/event4.2Brown.png);*/
 }
 
 .your-event {

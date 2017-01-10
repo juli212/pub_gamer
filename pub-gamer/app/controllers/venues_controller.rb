@@ -4,15 +4,12 @@ class VenuesController < ApplicationController
 # skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
-    # redirect_to search_venues_path
-    # @view_partial = "list"
-    # @view_partial = params[:views][:view] || params[:views][:last_view] || "list"
-    # @favorites = current_user.favorites
-    @venues = Venue.paginate(:page => params[:page], :per_page => 12)
+    if !request.xhr?
+      @venues = Venue.paginate(:page => params[:page], :per_page => 12)
+    end
   end
 
   def dropdown
-    # binding.pry
     @search_term = params[:term] if params[:term]
     respond_to do |format|
       format.json {
@@ -36,8 +33,6 @@ class VenuesController < ApplicationController
   end
 
   def search
-    # binding.pry
-    # @view_partial = "list"
     if params[:term]
       @search_term = params[:term]
       venues = Venue.search(@search_term)
@@ -51,9 +46,9 @@ class VenuesController < ApplicationController
     end
   end
 
-  def inaccurate
+  # def inaccurate
     
-  end
+  # end
 
   def add_games
       game = Game.find_or_create_by(name: params[:venue][:game].downcase)
@@ -78,37 +73,39 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
-    @venue.neighborhood = Neighborhood.find_or_create_by(name: params[:venue][:neighborhood].titleize)
-    if @venue.save
-      if params[:games]
-        @venue.games << Game.find(params[:games])
+    if !request.xhr?
+      @venue.neighborhood = Neighborhood.find_or_create_by(name: params[:venue][:neighborhood].titleize)
+      if @venue.save
+        if params[:games]
+          @venue.games << Game.find(params[:games])
+        end
+        redirect_to venue_path(@venue)
+      else
+        @games = Game.all
+        @errors = @venue.errors.full_messages
+        render 'new'
       end
-      redirect_to venue_path(@venue)
-    else
-      @games = Game.all
-      @errors = @venue.errors.full_messages
-      render 'new'
     end
   end
 
   def update
     if request.xhr?
-    venue = Venue.find_by(id: params[:id])
-    @current_rating = venue.avg_rating
+      venue = Venue.find_by(id: params[:id])
+      @current_rating = venue.avg_rating
       render partial: '/venues/venue_rating', locals: { current_rating: @current_rating }
     end
   end
 
   def show
-    # binding.pry
-    @venue = Venue.find_by(id: params[:id])
-    @reviews = @venue.show_reviews.paginate(:page => params[:page], :per_page => 12)
-    @review = Review.new
-    @games = @venue.games
-    @event = Event.new
-    @vibes = Vibe.all
-    @current_rating = @venue.avg_rating
-    # render 'show'
+    if !request.xhr?
+      @venue = Venue.find_by(id: params[:id])
+      @reviews = @venue.show_reviews.paginate(:page => params[:page], :per_page => 12)
+      @review = Review.new
+      @games = @venue.games
+      @event = Event.new
+      @vibes = Vibe.all
+      @current_rating = @venue.avg_rating
+    end
   end
 
 private

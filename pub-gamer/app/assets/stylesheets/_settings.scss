@@ -237,8 +237,8 @@ $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: #A893FF;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
-$button-color: #480000;
+$button-background-hover: $button-background;
+$button-color: #2C1B13;
 $button-color-alt: $black;
 $button-radius: 10px;
 $button-sizes: (

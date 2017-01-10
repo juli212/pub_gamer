@@ -18,7 +18,7 @@
 			<%= link_to "Past", user_events_path(@user, event: "past"), name: "past", class: "button", id: "past" %>
 		</div>
 	</div>
-	<div class="outside-user-scroll">
+	<div class="outside-user-scroll horizontal dragscroll">
 		<div class="inside-user-scroll">
 			<% events.each do |event| %>
 				<% if event.deleted %> 

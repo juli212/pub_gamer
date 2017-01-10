@@ -32,16 +32,13 @@ Rails.application.routes.draw do
     resources :events, only: [:index]
   end
 
-  resources :users, except: [:index, :new, :destroy] do
+  resources :users, except: [:index, :new] do
     get :events
-    put :delete_profile
     get :edit_password
     put :update_password
     put :update_favorite
   end
-  # resources :games, only: [:create]
 
-  # get :ga
   post "/games/add_game" => "games#add_game", as: "add_game"
 
   resources :about, only: [:index]

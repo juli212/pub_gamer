@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Pub Gamer" %></title>
-
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
+<!--     <script src="/vendor/assets/javascripts/dragscroll/dragscroll.js"></script> -->
   </head>
 
   <body>

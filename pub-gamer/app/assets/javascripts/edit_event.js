@@ -1,7 +1,4 @@
 $(document).ready(function() {
-	// function emptyEventForm() {
-	// 	$('#edit-event-box').html("");
-	// }
 
 	var updateEventButton = "<div id='event-edit-button-div' class='small-12 columns'>" 
 		+ "<button class='button'>Update</button>"

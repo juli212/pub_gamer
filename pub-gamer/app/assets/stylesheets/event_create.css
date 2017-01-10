@@ -1,35 +1,30 @@
 #event-new-box form {
-  padding: 3%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  /*padding: 3%;*/
+  /*border-top-left-radius: 10px;*/
+  /*border-top-right-radius: 10px;*/
 }
 
 #event-create-form {
-  background-color: #480000;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  text-align: center;
-  font-size: 30px;
-  color: #FFFFF0;
-  /*width: 500px;*/
+  /*border-bottom-left-radius: 10px;*/
+  /*border-bottom-right-radius: 10px;*/
+  /*text-align: center;*/
+  /*font-size: 30px;*/
 }
 
-#event-create-form label {
-  color: #FBEBD4;
-  font-weight: bold;
-}
+/*#event-create-form label {*/
+  /*color: #FBEBD4;*/
+  /*font-weight: bold;*/
+/*}*/
 
 #event-create-form input, #event-create-form textarea {
-  height: 25px;
-  background-color: #FFFFF0;
-  text-align: center;
-  border-radius: 5px;
+  /*height: 25px;*/
+  /*border-radius: 5px;*/
 }
 
 @media only screen and (min-width: 640px) {
   #event-create-form input, #event-create-form textarea {
-    border-radius: 10px;
-    height: 35px;
+    /*border-radius: 10px;*/
+    /*height: 35px;*/
   }
 }
 

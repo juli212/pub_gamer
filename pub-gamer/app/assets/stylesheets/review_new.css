@@ -1,19 +1,11 @@
-#new_review {
-  padding: 3%;
-  background-color: #480000;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  text-align: center;
-  font-size: 30px;
-  color: #FBEBD4;
+#new_review label {
+  color: #2C1B13;
+  /*font-weight: bold;*/
 }
 
 #new_review textarea {
 	margin-top: 10px;
 	min-height: 100px;
-	color: #480000;
-	background-color: #FBEBD4;
-	border-radius: 20px;
 }
 
 #new_review button {

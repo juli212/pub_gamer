@@ -1,5 +1,7 @@
 class ContactController < ApplicationController
 	def index
-		# binding.pry
+		if request.xhr?
+			render 'index'
+		end
 	end
 end
