@@ -83,7 +83,7 @@
 		</div>
 	</div>
 
-	<div id="event-middle">
+	<div id="event-middle" class="text-center">
 		<div class="hide-for-small-only" id="venue-games">
 			<% if @event.games %>
 				<%= image_tag("icons/dice/dice1Green.png", size: '30', title: "games" ) %>
@@ -94,8 +94,11 @@
 		</div>
 		<div class="text-center" id="event-description">
 			<h5>Description</h5>
-			<p><%= @event.description %></p>
+			<% @event.split_description.each do |line| %>
+				<p><%= line %></p>
+			<% end %>
 		</div>
+		<p>event hosted by: <%= link_to @event.user.user_name, user_path(@event.user) %></p>
 	</div>
 
 	<div id="event-right">

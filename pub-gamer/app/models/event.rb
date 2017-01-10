@@ -123,4 +123,12 @@ class Event < ActiveRecord::Base
   	guests << user unless self.user == user
   end
 
+  def formatted_description
+  	self.split_description.each { |line| p line }
+  end
+
+  def split_description
+  	self.description.split(/\r\n/)
+  end
+
 end
