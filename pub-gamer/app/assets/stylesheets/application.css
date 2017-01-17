@@ -32,11 +32,12 @@ body {
 
 body > * {
   color: #2C1B13;
+  outline: none;
 }
 
 #content {
   min-height: 100%;
-  background-image: url(pool10.3.jpg);
+  background-image: url(backgroundPoolPic);
   background-size: 100% 100%;
   background-position: cover;
   background-attachment: fixed;
@@ -73,7 +74,7 @@ body > * {
 
 .dragscroll {
   /*cursor: all-scroll;*/
-  cursor: url(arrowMouse.png), all-scroll;
+  cursor: url('arrowMouse.png'), all-scroll;
 }
 
 body ul{

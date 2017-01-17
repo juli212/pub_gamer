@@ -1,3 +1,7 @@
+#venue-show {
+	position: relative;
+}
+
 #venue-show h2 {
 	font-size: 24px;
 	font-weight: bold;
@@ -247,4 +251,25 @@
 
 #venue-show-dropdown li a {
 	color: #2C1B13;
+}
+
+.show-title {
+	position: relative;
+}
+
+#venue-show {
+	z-index: 1;
+}
+
+#venue-show .user-status {
+	right: 10px;
+	width: 90px;
+	height: 90px;
+	z-index: -1;
+}
+
+@media only screen and (min-width: 640px){
+	#venue-show .user-status {
+		right: 30px;
+	}
 }

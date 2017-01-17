@@ -1,6 +1,9 @@
 
 <div id="venue-show">
-<%= render partial: 'venue' %>
+
+
+	<%= render partial: 'venue' %>
+	
 
 	<div class="row align-spaced" >
 		<div class="small-12 medium-4 text-center columns" >
@@ -18,15 +21,17 @@
 			<div id="full-review-content">
 			</div>
 		</div>
-		<% if @venue.has_reviews? %>
-			<div id="review-index">
-  			<%= render partial: 'reviews/index', locals: { reviews: @reviews } %>
-  			<%= will_paginate @reviews %>
-  		</div>
-  	<% else %>
-  		<div id="no-reviews">
-  			<%= render partial: 'no_reviews' %>
-			</div>
-		<% end %>
+				<div id="review-index">
+		<div class="row small-up-1 medium-up-3 large-up-4 align-spaced review-show-row">
+			<% if @venue.has_reviews? %>
+  				<%= render partial: 'reviews/index', locals: { reviews: @reviews } %>
+  				<%= will_paginate @reviews %>
+  			<!-- </div> -->
+  		<% else %>
+  			<!-- <div id="no-reviews"> -->
+  				<%= render partial: 'no_reviews' %>
+			<% end %>
+				</div>
+		</div>
 	</div>
 </div>

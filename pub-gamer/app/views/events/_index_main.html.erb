@@ -16,12 +16,21 @@
     </div>
 
     <div class="index-right">
+      <div class="user-status">
+        <% if event.user == current_user %>
+          <%= image_tag("icons/mine/creme.png", size: '40', title: 'my event', class: 'positive') %>
+        <% elsif event.attending_event?(current_user) %>
+          <%= image_tag("icons/check/green.png", size: '40', title: 'attending', class: 'positive') %>
+        <% else %>
+          <%= image_tag("icons/check/green.png", size: '40', title: 'not attending', class: 'negative') %>
+        <% end %>
+      </div>
     	<div class="index-title text-center">
     		<h5><%= link_to event.title, event_path(event) %></h5>
         <p>Created by: <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
     	</div>
     	<div class="text-left index-games">
-    		<%= image_tag("icons/dice/dice1Green.png", size: '30', title: "games" ) %>
+    		<%= image_tag("icons/dice/green.png", size: '30', title: "games" ) %>
         <%= render partial: 'shared/games', locals: { games: event.games }%>
     	</div>
     </div>
@@ -29,21 +38,21 @@
     <div class="index-bottom align-bottom">
     	<div>
       	<p class="index-place">
-      		<%= image_tag("icons/shops/shop1Purple.png", size: '30', title: "place" ) %>
+      		<%= image_tag("icons/shops/purple.png", size: '30', title: "place" ) %>
         	<%= link_to event.venue.name, venue_path(event.venue) %>
       	</p>
     	</div>
     	<div class="index-bottom-info">
         <div>
-  	      <%= image_tag("icons/calendars/calendar1.1Purple.png", size: '25', title: "date") %>
+  	      <%= image_tag("icons/calendars/purple.png", size: '25', title: "date") %>
           <%= event.date.strftime("%B #{event.date.day.ordinalize}") %>
           </div>
           <div>
-  	      <%= image_tag("icons/clocks/clock1.1Purple.png", size: '25', title: "time") %>
+  	      <%= image_tag("icons/clocks/purple.png", size: '25', title: "time") %>
   	      <%= event.time.strftime('%-I:%M%p') %>
   	      </div>
           <div>
-          <%= image_tag("icons/people/person1.1Purple0.3.png", width: '15', title: "attendees") %> 
+          <%= image_tag("icons/people/purple0.3.png", width: '15', title: "attendees") %> 
   	      <span class="event-guest-number"><%= event.guests.length %></span>
       	</div>
       </div>

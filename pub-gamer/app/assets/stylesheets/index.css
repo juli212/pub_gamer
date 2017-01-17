@@ -8,6 +8,7 @@
   border-right: 10px solid transparent;
   border-left: 10px solid transparent;
   background-clip: padding-box;
+  position: relative;
 }
 
 .index-left {
@@ -17,6 +18,7 @@
 }
 
 .index-right {
+  /*position: relative;*/
   max-height: 206px;
   width: 59%;
   float: left;
@@ -65,7 +67,7 @@
 .index-title h5 a {
   line-height: 90%;
   margin: 0px;
-  color: #480000;
+  color: #2C1B13;
   font-weight: bold;
   font-size: 26px;
 }
@@ -108,4 +110,22 @@
 .index-bottom-notice p {
   margin: 0px;
   padding: 0px;
+}
+
+.user-status {
+  position: absolute;
+  top: 10;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-size: 40px;
+  background-color: transparent;
+  z-index: -1;
+}
+
+.positive {
+  opacity: 1;
+}
+.negative {
+  opacity: 0.1;
 }

@@ -212,9 +212,9 @@ venues = Venue.create([
 # zablozki's: pool
 
 vibes = Vibe.create([  
-  {name: 'Chill', pic: 'chillVibePurple.png'},
-  {name: 'Pricey', pic: 'expensiveVibePurple.png'},
-  {name: 'Divey', pic: 'diveyVibePurple.png'}])
+  {name: 'Chill', pic: 'icons/vibe/chill.png'},
+  {name: 'Pricey', pic: 'icons/vibe/expensive.png'},
+  {name: 'Divey', pic: 'icons/vibe/divey.png'}])
 
 
 VenueGame.create([

@@ -1,3 +1,4 @@
+$('#no-reviews').remove();
 $('#review-index .review-show-row').prepend("<%= j render partial: 'reviews/show', locals: { review: @review } %>")
 if ( $('.review-info-box').length > 12 ) {
 	$('.review-info-box').last().remove()

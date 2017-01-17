@@ -16,18 +16,6 @@
 	padding: 10px 15px 0px;
 }
 
-.your-event {
-	padding: 0px;
-	width: 40px;
-	height: 0px;
-	background-size: 100% 100%;
-	margin: 0 auto;
-}
-
-.your-event {
-	background-image: url(icons/events/event3.2Creme.png);
-}
-
 .index-bottom-info div {
 	display: inline-block;
 }

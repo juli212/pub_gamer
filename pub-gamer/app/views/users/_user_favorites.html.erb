@@ -12,7 +12,7 @@
 						<h4><%= link_to venue.name, venue_path(venue) %>
 						</h4>
 					</div>
-					<%= image_tag("icons/dice/dice1Green.png", size: '25', title: "games", class: "game-img") %>
+					<%= image_tag("icons/dice/green.png", size: '25', title: "games", class: "game-img") %>
 					<% venue.games.each do |game| %>
 						<div class="user-show-game"><%= game.name %></div>
 					<% end %>

@@ -1,8 +1,14 @@
 <div class="columns index-box">
+		<div class="user-status">
+			<% if current_user.has_favorited?(venue) %>
+				<%= image_tag("icons/hearts/favoritePurple.png", size: '40', title: 'favorite', class: 'positive') %>
+			<% else %>
+				<%= image_tag("icons/hearts/favoritePurple.png", size: '40', title: 'not a favorite', class: 'negative') %>
+			<% end %>
+		</div>
 	<div class="index-left">
 		<div class="index-pic">
 			<%= render partial: 'shared/no_photo_added' %>
-			<!-- <p class="" >No Photo Added</p> -->
 		</div>
 	</div>
 	
@@ -14,7 +20,7 @@
 		
 	<div class="venue-index-games index-middle text-left index-games">
 		<% if venue.has_games? %>
-			<%= image_tag("icons/dice/dice1Purple.png", size: '30', title: "games" ) %>
+			<%= image_tag("icons/dice/purple.png", size: '30', title: "games" ) %>
 			<%= render partial: 'shared/games', locals: { games: venue.games } %>
 		<% else %>
 			<%= render partial: 'no_games' %>
@@ -23,7 +29,7 @@
 	
 	<div class="index-bottom">
 		<p class="index-location">
-			<%= image_tag("icons/location/location9Purple.png", size: '30', title: "location" ) %>
+			<%= image_tag("icons/location/purple.png", size: '30', title: "location" ) %>
 			<%= venue.address %>
 		</p>
 

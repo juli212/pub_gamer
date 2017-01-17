@@ -26,11 +26,11 @@
 }
 
 .venue-index-remove-button {
-	background-image: url(icons/hearts/heart5.1Brown.png);
+	background-image: url(icons/hearts/removeBrown.png);
 }
 
 .venue-index-fav-button {
-	background-image: url(icons/hearts/heart2.1Brown.png);
+	background-image: url(icons/hearts/addBrown.png);
 }
 
 #toggle-venue-view-links p {

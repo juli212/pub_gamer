@@ -31,7 +31,7 @@
 	margin-top: 7px;
 	margin-bottom: 0;
 	font-weight: bold;
-	border-top: 4px solid #480000;
+	border-top: 4px solid #;
 }
 
 #event-middle {
@@ -147,7 +147,7 @@
 	overflow-y: scroll;
 }
 #event-show-comments a {
-	color: #480000;
+	color: #2C1B13;
 }
 
 #event-comment-new {
@@ -156,7 +156,7 @@
 
 #event-comment-new textarea {
 	min-height: 80px;
-	color: #480000;
+	color: #2C1B13;
 	background-color: #FBEBD4;
 }
 
@@ -210,10 +210,10 @@
 		float: none;
 	}	
 
-	.side-1 .user-event-buttons {
+.user-event-buttons {
 		margin: 0 auto;
 	}
-	.side-1 .user-event-buttons form {
+.user-event-buttons form {
 		width: 30px;
 		height: 30px;
 		float: none;
@@ -234,9 +234,9 @@
 	background-size: 100% 100%;
 }
 .edit-event {
-	background-image: url(edit1Brown.png);
+	background-image: url(icons/edit/brown.png);
 }
 
 .delete-event {
-	background-image: url(delete1Brown.png);
+	background-image: url(icons/delete/brown.png);
 }
