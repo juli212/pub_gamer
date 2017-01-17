@@ -10,7 +10,8 @@
   border-bottom: 2px solid #31AB3C;
 }
 
-.top-bar img {
+/*.top-bar img {*/
+#header-images {
   width: 100%;
   background-color: rgba(44, 27, 19, 0.8);
   /*background-color: rgba(72, 0, 0, 0.4);*/
@@ -25,9 +26,33 @@
   );
 }
 
+.header-image{
+  display: inline-block;
+}
+
+.header-image a {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.header-image a img {
+  margin: 0px;
+  padding: 0px;
+}
+
+#octopus-head-image {
+  max-width: 18.5%;
+  /*max-width: 17.212%;*/
+}
+
+#head-image-text {
+  max-width: 81.5%;
+  /*max-width: 82.788%;*/
+}
+
 .top-bar a {
   color: #2C1B13;
-  /*color: #480000;*/
   font-weight: bold;
 }
 

@@ -18,17 +18,11 @@ $(window).load(function() {
 		$('#topbar-row-three').remove()
 		$('#about').addClass('header-underline')
 	}
-	$('.top-bar img').mouseover(function(event){
-		$('.top-bar img').attr('src', '/assets/header2GlassesOff.png')
+	$('#header-images').mouseover(function(event){
+		$('#octopus-head-image img').attr('src', '/assets/octopusHeaderGlassesOffBrownOutline.png')
 	})
-	$('.top-bar img').mouseout(function(event){
-		$('.top-bar img').attr('src', '/assets/header2.png')
+	$('#header-images').mouseout(function(event){
+		$('#octopus-head-image img').attr('src', '/assets/octopusHeaderWithGlassesBrown.png')
 	})
-	// $('#toggle-venue-view-links').on('click', '#map-view-link', function(){
-	// 	$('#search-form').attr("action", "/venues/map_search")
-	// })
-	// 	$('#toggle-venue-view-links').on('click', '#list-view-link', function(){
-	// 	$('#search-form').attr("action", "/venues/search")
-	// })
 });
 

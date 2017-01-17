@@ -1,7 +1,10 @@
 <div class="top-bar">
-  <div class="row small-up-1 small-collapse expanded">
-    <div class="columns">
-      <%= link_to image_tag("header2.png"), method: "get", action: "index", controller: "welcome" %>
+  <div class="row small-up-1 small-collapse expanded" id="header-images">
+    <div class="columns header-image" id="octopus-head-image">
+      <%= link_to image_tag("octopusHeaderWithGlassesBrown.png"), method: "get", action: "index", controller: "welcome" %>
+    </div> 
+    <div class="columns header-image" id="head-image-text">
+      <%= link_to image_tag("headerImageNoOctopus.png"), method: "get", action: "index", controller: "welcome"%>
     </div>
   </div>
 
