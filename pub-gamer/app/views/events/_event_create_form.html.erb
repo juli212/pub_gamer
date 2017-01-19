@@ -1,5 +1,5 @@
  <%= form_for @event, :html => {:id => "event-create-form"} do |f| %>
-    <!-- <h4>Create Event</h4> -->
+    <h4>Event Details</h4>
     <div class="row">
       <div class="small-12 columns">
         <%= f.text_field :title, placeholder: "Title", required: true, title: "Title" %>
@@ -52,7 +52,7 @@
         <% end %>
       </div>
       <div class="small-12 columns" id="event-create-button-div">
-          <%= f.button :submit, class: "button", id: "event-create-submit-button" %>
+        <%= f.button :submit, class: "button submit-button", id: "event-create-submit-button" %>
       </div>
     </div>
   <% end %>

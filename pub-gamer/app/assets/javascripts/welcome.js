@@ -1,8 +1,19 @@
 
 // $(document).ready(function() {
-  function welcomePage(){
     // debugger;
-  $("#login-box, #register-box").dialog(dialogOptions)
+var welcomeWidth = function() {
+  if (width >= 640) {
+    return 350
+  } else {
+    return 300
+  }
+}
+  function welcomePage(){
+    $("#register-box").dialog(dialogOptions)
+    $("#login-box").dialog(dialogOptions, {
+      width: welcomeWidth
+    })
+  // }
 
   $('#login').on('click', function(event){
 		event.preventDefault()

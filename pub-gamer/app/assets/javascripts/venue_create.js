@@ -8,9 +8,7 @@ $(document).ready(function() {
   $('body').on('click', '#createVenue',function(event){
     event.preventDefault();
     var infoBox = $(this.parentElement.parentElement)
-    // debugger;
     var venueName = infoBox.find('.info-window-line-1').text()
-    // var venueAddress = $('.address-line').first().text() + ", " + $('.address-line').last().text()
     var venueAddress = infoBox.find('.info-window-line-2').text() + ", " + infoBox.find('.info-window-line-3').text()
     $('#venue_name').val(venueName)
     $('#venue_name').prop('readonly', true);
@@ -37,12 +35,8 @@ $(document).ready(function() {
   })
 
   var resetVenueForm = function() {
-    // debugger;
-    $(this).find('form')[0].reset()
-    $('#venue_place').val("")
-    $('#pac-input').val("")
-    $('.select-venue-game').removeClass('select-venue-game')
-    $('#venue-create-games').html("")
+    // $(this).find('form')[0].reset()
+    // $('#venue-create-games').html()
   }
 
   $("#venue-create-form-container").dialog(dialogOptions, {

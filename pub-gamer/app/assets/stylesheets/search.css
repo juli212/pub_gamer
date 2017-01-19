@@ -19,17 +19,18 @@ border:0;
 border-collapse: collapse;
 }
 
-#search-results {
+.results {
 	position: absolute;
 	border: none;
 	z-index: 7;
 }
 
-#search-results ul {
+ul.ui-autocomplete {
 	width: 90%;
+	border-top: 1px dashed #2C1B13;
 }
 
-#search-results ul li {
+ul.ui-autocomplete li {
 	background-color: #FFFFF0;
 	color: #2C1B13;
 	font-size: 22px;
@@ -45,18 +46,19 @@ border-collapse: collapse;
 	text-align: left;
 }
 @media only screen and (min-width: 640px) {
-	#search-results ul {
+		ul.ui-autocomplete {
 		width: 40%;
 	}
 }
 
-.ui-helper-hidden-accessible {
-	visibility: hidden;
+/* should be .ui-state-focus*/
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+	color: #FBEBD4;
+	background-color: #A893FF;
+	padding-left: 7px;
+	border-bottom: 1px solid #2C1B13;
 }
 
-.top-bar .ui-widget-content {
-	height: auto;
-	border-top: 1px dashed #2C1B13;
-	border-radius: none;
-	width: 100%;
+.ui-helper-hidden-accessible {
+	visibility: hidden;
 }

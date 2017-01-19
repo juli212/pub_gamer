@@ -12,7 +12,7 @@ $(document).ready(function() {
 		event.stopPropagation();
 		$('#edit-event-box').dialog('open')
 		$.ajax({
-			url: this.href
+			url: this.closest('form').action
 		}).done(function(response){
 			$('#edit-event-box').html(response);
 

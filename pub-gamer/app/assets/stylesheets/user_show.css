@@ -126,7 +126,6 @@
 	}
 }
 
-
 .user-show-game {
 	display: inline-block;
 	float: left;
@@ -174,15 +173,7 @@
 	}
 }
 
-#edit-user-button {
-	padding: 0px;
-}
-
 #edit-password-link {
 	font-size: 14px;
 	font-weight: normal;
-}
-
-#update-password-form {
-	/*background-color: #2C1B13;*/
 }
