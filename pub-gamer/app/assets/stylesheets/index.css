@@ -112,7 +112,7 @@
   padding: 0px;
 }
 
-.user-status {
+.user-favorite-status {
   position: absolute;
   top: 10;
   right: 10px;
@@ -126,6 +126,14 @@
 .positive {
   opacity: 1;
 }
+
+.positive:hover {
+  opacity: 0.3;
+}
 .negative {
   opacity: 0.1;
+}
+
+.negative:hover {
+  opacity: 0.7;
 }

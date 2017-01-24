@@ -1,12 +1,14 @@
 $(document).ready(function() {
-  $('.fav-button-div').on('click', 'form', function(event){
+  $('.user-favorite-status').on('click', 'a', function(event){
     event.preventDefault();
+    // debugger;
     $('.index-bottom-notice p').text("");
-    $target = $(event.target).closest('form')
+    $target = $(this)
     $.ajax({
-      url: $target.attr('action'),
-      method: $target.children('input').first().attr('value'),
-      data: $target.serialize()
+      url: this.href,
+      method: 'put'
+
     }).done()
+  // debugger;
   })
 });

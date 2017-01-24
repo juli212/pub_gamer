@@ -21,16 +21,8 @@
 	width: 50px;
 	height: 50px;
 	background-size: 50px;
-	border: 2px solid #2C1B13;
+	/*border: 2px solid #2C1B13;*/
 	background-color: transparent;
-}
-
-.venue-index-remove-button {
-	background-image: url(icons/hearts/removeBrown.png);
-}
-
-.venue-index-fav-button {
-	background-image: url(icons/hearts/addBrown.png);
 }
 
 #toggle-venue-view-links p {

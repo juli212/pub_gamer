@@ -261,15 +261,21 @@
 	z-index: 1;
 }
 
-#venue-show .user-status {
+#venue-show h2 {
+	display: inline;
+	position: relative;
+	z-index: 3;
+}
+
+#venue-show .user-favorite-status {
 	right: 10px;
 	width: 90px;
 	height: 90px;
-	z-index: -1;
+	z-index: 2;
 }
 
 @media only screen and (min-width: 640px){
-	#venue-show .user-status {
+	#venue-show .user-favorite-status {
 		right: 30px;
 	}
 }

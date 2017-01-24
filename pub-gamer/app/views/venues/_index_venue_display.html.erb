@@ -1,9 +1,9 @@
 <div class="columns index-box">
-		<div class="user-status">
+		<div class="user-favorite-status">
 			<% if current_user.has_favorited?(venue) %>
-				<%= image_tag("icons/hearts/favoritePurple.png", size: '40', title: 'favorite', class: 'positive') %>
+				<%= render partial: 'remove_favorite_heart', locals: { venue: venue } %>
 			<% else %>
-				<%= image_tag("icons/hearts/favoritePurple.png", size: '40', title: 'not a favorite', class: 'negative') %>
+				<%= render partial: 'add_favorite_heart', locals: { venue: venue } %>
 			<% end %>
 		</div>
 	<div class="index-left">
@@ -41,9 +41,6 @@
 			<script>
 				IndexOctopusRating();
 			</script>
-		</div>
-		<div class="fav-button-div">
-		 	<%= render partial: "index_fav_buttons", locals: { venue: venue } %>
 		</div>
 		<div class="index-bottom-notice">
 			<p></p>

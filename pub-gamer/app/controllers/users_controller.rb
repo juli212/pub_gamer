@@ -82,7 +82,7 @@ class UsersController < ApplicationController
       if @user == current_user
         respond_to do |format|
           @old_fav_num = @user.favorites.length
-          @venue = Venue.find_by(id: params[:venue])
+          @venue = Venue.find_by(id: params[:venue_id])
           new_fav_num = @user.update_favorites(@venue)
           format.js
         end

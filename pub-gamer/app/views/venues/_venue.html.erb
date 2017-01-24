@@ -1,8 +1,8 @@
-	<div class="user-status">
+	<div class="user-favorite-status">
 		<% if current_user.has_favorited?(@venue) %>
-			<%= image_tag("icons/hearts/favoritePurple.png", size: '90', title: 'favorite', class: 'positive') %>
+			<%= render partial: 'remove_favorite_heart', locals: { venue: @venue } %>
 		<% else %>
-			<%= image_tag("icons/hearts/favoriteCreme.png", size: '90', title: 'favorite', class: 'negative') %>
+			<%= render partial: 'add_favorite_heart', locals: { venue: @venue } %>
 		<% end %>
 	</div>
 
@@ -38,13 +38,13 @@
 				</li>
 				</ul>
 			</div>
-			<div class="small-5 columns medium-12 fav-button-div">
+<!-- 			<div class="small-5 columns medium-12 fav-button-div">
 				<% if current_user.has_favorited?(@venue) %>
 				  <%= render partial: 'venues/index_remove_favorite', locals: { venue: @venue } %>
 				<% else %>
 					<%= render partial: 'venues/index_add_favorite', locals: { venue: @venue } %>
 				<% end %>
-			</div>
+			</div> -->
 		</div>
 	</div>
 

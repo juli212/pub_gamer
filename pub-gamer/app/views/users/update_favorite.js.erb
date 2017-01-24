@@ -1,12 +1,12 @@
-var notice = $target.closest('.index-bottom').find('.index-bottom-notice p')
+var notice = $target.closest('.index-box').find('.index-bottom-notice p')
 <% if @user.favorite_added?(@old_fav_num) %>
 	var note = "Venue added to favorites"
 	$target.closest('.index-box').find('.user-status img').switchClass('negative', 'positive');
-	$target.replaceWith("<%= j render partial: 'venues/index_remove_favorite', locals: { venue: @venue } %>");
+	$target.replaceWith("<%= j render partial: 'venues/remove_favorite_heart', locals: { venue: @venue } %>");
 <% else %>
 	var note = "Venue removed from favorites"
 	$target.closest('.index-box').find('.user-status img').switchClass('positive', 'negative');
-	$target.replaceWith("<%= j render partial: 'venues/index_add_favorite', locals: { venue: @venue } %>");
+	$target.replaceWith("<%= j render partial: 'venues/add_favorite_heart', locals: { venue: @venue } %>");
 <% end %>
 notice.text(note);
 setTimeout(function(){
