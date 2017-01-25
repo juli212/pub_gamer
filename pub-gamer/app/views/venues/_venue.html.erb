@@ -1,13 +1,15 @@
-	<div class="user-favorite-status">
-		<% if current_user.has_favorited?(@venue) %>
-			<%= render partial: 'remove_favorite_heart', locals: { venue: @venue } %>
-		<% else %>
-			<%= render partial: 'add_favorite_heart', locals: { venue: @venue } %>
-		<% end %>
-	</div>
+<div class="user-favorite-status fav-holder">
+	<% if current_user.has_favorited?(@venue) %>
+		<%= render partial: 'remove_favorite_heart', locals: { venue: @venue } %>
+	<% else %>
+		<%= render partial: 'add_favorite_heart', locals: { venue: @venue } %>
+	<% end %>
+<div class="show-favorite-notice">
+	<p class="fav-notice"></p>
+</div>
+</div>
 
 <div class="row text-center align-spaced" id="venue-header" >
-	<!-- <div class="small-1 columns"></div> -->
 	<div class="small-12 small-order-2 medium-3 medium-order-1 columns align-center" >
 		<div id="avg-rating">
 			<% if @venue.has_reviews? %>
@@ -38,13 +40,6 @@
 				</li>
 				</ul>
 			</div>
-<!-- 			<div class="small-5 columns medium-12 fav-button-div">
-				<% if current_user.has_favorited?(@venue) %>
-				  <%= render partial: 'venues/index_remove_favorite', locals: { venue: @venue } %>
-				<% else %>
-					<%= render partial: 'venues/index_add_favorite', locals: { venue: @venue } %>
-				<% end %>
-			</div> -->
 		</div>
 	</div>
 
