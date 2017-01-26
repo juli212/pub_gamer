@@ -1,50 +1,34 @@
-function allVenuesMap(venues, allMarkers) {
+
+
+function allVenuesMap(){
+	var markers = [];
 	var allVenues = venuesFound
-	var mapElement = document.getElementById('all-venues-map');
+  var mapElement = document.getElementById('all-venues-map');
 	var mapOptions = {
 		center: { lat: 40.72, lng: -73.96 },
 		zoom: 11,
 		mapTypeId: 'roadmap'
 	}
-	var map = new google.maps.Map(mapElement, mapOptions)
+	var map = new google.maps.Map(mapElement, mapOptions);
 
-  for (i = 0; i < allVenues.length; i++) {
-  	var venue = allVenues[i]
-  	createMarker(venue, map);
+  for (var i = 0; i < allVenues.length; i++) {
+  	var link = "/venues/" + allVenues[i].id
+    markers[i] = new google.maps.Marker({
+      position: { lat: parseFloat(allVenues[i].lat), lng: parseFloat(allVenues[i].lng) },
+      id: i,
+      map: map,
+      link: "<a href=" + link + ">" + allVenues[i].name + "</a>",
+      address: allVenues[i].address,
+      name: allVenues[i].name
+    });
+      
+    google.maps.event.addListener(markers[i], 'click', function(){
+      var infowindow = new google.maps.InfoWindow({
+        content: this.link + "<br><p>" + this.address + "</p>",
+        position:this.getPosition()
+      });
+      infowindow.open(map);
+    });
   }
 }
 
-function createMarker(data, map) {
-	var service = new google.maps.places.PlacesService(map);
-	service.getDetails({
-		placeId: data.place
-	}, function(result, status) {
-		if (status != google.maps.places.PlacesServiceStatus.OK) {
-			alert(status);
-			return;
-		}
-		var marker = new google.maps.Marker({
-			map: map,
-			place: {
-				placeId: data.place,
-				location: result.geometry.location
-			}
-		});
-		infoBox(map, marker, data, result);
-	});
-}
-
-function infoBox(map, marker, data, result) {
-	var infoWindow = new google.maps.InfoWindow();
-	google.maps.event.addListener(marker, "click", function(event) {
-		infoWindow.setContent(data.name);
-		infoWindow.open(map, marker);
-	});
-	(function(marker, data) {
-		google.maps.event.addListener(marker, "click", function(event) {
-			var link = "/venues/" + data.id
-			infoWindow.setContent("<a href=" + link + ">" + data.name + "</a><br><p>" + result.formatted_address + "</p>");
-			infoWindow.open(map, marker);
-		});
-	})(marker, data);
-}

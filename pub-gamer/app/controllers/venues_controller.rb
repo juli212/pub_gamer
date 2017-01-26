@@ -27,7 +27,7 @@ class VenuesController < ApplicationController
     respond_to do |format|
       format.json {
         @venues = venues
-        render json: @venues, :only => [:id, :name, :place]
+        render json: @venues, :only => [:id, :name, :address, :lat, :lng]
       }
     end
   end
@@ -72,6 +72,7 @@ class VenuesController < ApplicationController
   end
 
   def create
+    binding.pry
     @venue = Venue.new(venue_params)
     if !request.xhr?
       @venue.neighborhood = Neighborhood.find_or_create_by(name: params[:venue][:neighborhood].titleize)
@@ -111,7 +112,7 @@ class VenuesController < ApplicationController
 private
 
   def venue_params
-    params.require(:venue).permit(:name, :address, :place, :other, :games)
+    params.require(:venue).permit(:name, :address, :place, :lat, :lng, :other, :games)
   end
 
 end

@@ -119,6 +119,8 @@ ActiveRecord::Schema.define(version: 20161023215103) do
     t.string   "name",                            null: false
     t.string   "address",                         null: false
     t.string   "place"
+    t.string   "lat",                             null: false
+    t.string   "lng",                             null: false
     t.boolean  "deleted",         default: false, null: false
     t.integer  "neighborhood_id"
     t.integer  "user_id"

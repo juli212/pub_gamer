@@ -27,6 +27,8 @@
 
 
 <%= f.text_field :place, type: 'hidden' %>
+<%= f.text_field :lat, type: 'hidden' %>
+<%= f.text_field :lng, type: 'hidden' %>
 <div class="row align-spaced">
 	<div class="small-8 medium-4 columns">
 		<%= f.submit "Add venue!", class: "button submit-button", id: "venue-create-submit-button" %>

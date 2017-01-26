@@ -43,7 +43,11 @@ function initMap() {
   };
 
   google.maps.event.addListener(map,'click',function(e){
+    var lat = e.latLng.lat().toString()
+    var lng = e.latLng.lng().toString()
     $('#venue_place').val(e.placeId)
+    $('#venue_lat').val(lat)
+    $('#venue_lng').val(lng)
     var iD = e.placeId 
     var request = {
       placeId: iD
@@ -54,7 +58,6 @@ function initMap() {
 
     function callback(place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        // debugger;
         var venueAddressLine1 = place.address_components[0].short_name + ' ' + place.address_components[1].short_name
         var venueAddressLine2 = place.address_components[4].short_name + ', ' + place.address_components[6].short_name + ' ' + place.address_components[8].short_name
           $('.info-window-line-1').text(place.name)
@@ -98,9 +101,10 @@ function initMap() {
       placeId: place.place_id,
       location: place.geometry.location
     });
-
     var reFormatAddress = place.formatted_address.slice(0, -5)
     var venueNeighborhood = place.address_components[2].long_name
+    var lat = place.geometry.location.lat().toString()
+    var lng = place.geometry.location.lng().toString()
 
     marker.setVisible(true);
     $('#venue_name').val(place.name)
@@ -109,6 +113,8 @@ function initMap() {
     $('#venue_address').prop('readonly', true);
     $('#venue_neighborhood').val(venueNeighborhood)
     $('#venue_place').val(place.place_id)
+    $('#venue_lat').val(lat)
+    $('#venue_lng').val(lng)
 
     $("#venue-create-form-container").dialog('open');
 
