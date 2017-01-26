@@ -300,4 +300,20 @@ VenueGame.create([
   {game_id: 4, venue_id: 11},
   {game_id: 1, venue_id: 11},
   {game_id: 1, venue_id: 12}
+
+  # {game_id: 1, venue_id: 2},
+  # {game_id: 1, venue_id: 3},
+  # {game_id: 1, venue_id: 4},
+  # {game_id: 1, venue_id: 2},
+  # {game_id: 1, venue_id: 3},
+  # {game_id: 1, venue_id: 4},
+  # {game_id: 1, venue_id: 2},
+  # {game_id: 1, venue_id: 3},
+  # {game_id: 1, venue_id: 4},
+  # {game_id: 1, venue_id: 2},
+  # {game_id: 1, venue_id: 3},
+  # {game_id: 1, venue_id: 4},
+  # {game_id: 1, venue_id: 2},
+  # {game_id: 1, venue_id: 3},
+  # {game_id: 1, venue_id: 4},
 ])

@@ -1,5 +1,3 @@
-
-
 function allVenuesMap(){
 	var markers = [];
 	var allVenues = venuesFound
