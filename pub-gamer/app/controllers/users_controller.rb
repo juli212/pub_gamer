@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  require 'resolv-replace'
+  
   def events
     user = User.find(params[:user_id])
     if !request.xhr?
@@ -124,6 +125,7 @@ class UsersController < ApplicationController
     if !request.xhr?
       if @user.save
         session[:user_id] = @user.id
+        # UserMailer.welcome_email(@user).deliver_now
         redirect_to user_path(@user)
       else
         @errors = @user.errors.full_messages
