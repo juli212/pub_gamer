@@ -25,13 +25,18 @@ $(document).ready(function() {
       type: "post",
       data: $target.serialize()
     }).done(function(response){
+      $('#venue-create-games .no-games-p').remove()
       $('#venue-create-games').append(response)
       $('#other-text-field').val("")
     })
   })
 
   $('#venue-create-games').on('click', '.remove-game-button', function(event){
+    event.preventDefault()
     $(this).closest('.update-game').remove()
+    if ( $('#venue-create-games .update-game').length < 1 ) {
+      $('#venue-create-games').html("<p class='no-games-p'>No Games Added</p>")
+    }
   })
 
   var resetVenueForm = function() {

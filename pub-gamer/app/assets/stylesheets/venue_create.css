@@ -81,9 +81,17 @@
 }
 
 #venue-create-games {
+  border-left: 3px solid rgba(251, 235, 212, 0.4);
+  border-top: 3px solid rgba(251, 235, 212, 0.4);
+  border-top-left-radius: 5px;
 	padding-bottom: 10px;
   max-height: 230px;
   overflow-y: auto;
+}
+
+.no-games-p {
+  font-size: 16px;
+  color: #A893FF;
 }
 
 @media only screen and (min-width: 640px){
