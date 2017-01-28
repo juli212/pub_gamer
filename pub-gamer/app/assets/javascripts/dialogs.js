@@ -36,7 +36,10 @@ var dialogOptions = {
   width: setFormWidth,
   position: ({ my: 'top', at: 'middle', of: '.top-bar'}),
   open: function() {
-    $('.ui-button-text').blur()
+    // debugger;
+    $('.ui-dialog .ui-button').blur()
+    // $('.ui-button-text').blur()
+    // debugger;
   },
 	close: closeDialogWindow
 }
