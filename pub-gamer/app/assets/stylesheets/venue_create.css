@@ -96,6 +96,7 @@
 
 @media only screen and (min-width: 640px){
   #venue-create-games {
+    min-height: 90px;
     max-height: 400px;
   }
 }
