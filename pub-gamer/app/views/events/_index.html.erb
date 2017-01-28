@@ -16,23 +16,25 @@
 </script>
 
 <div class="row align-spaced">
-	<div class="small-10 medium-6 columns">
-		<%= link_to "Create Event", new_event_path, class: "button", id: "event-create-link"  %>
+	<div class="small-10 medium-3 columns">
+		<%= link_to "+ Event", new_event_path, class: "button", id: "event-create-link"  %>
 	</div>
-  <div class="small-7 columns" id="event-create-box">
+  <div class="columns" id="event-create-box">
   	<%= render partial: 'event_create' %>
   </div>
 </div>
 
-<div id="edit-event-box"></div>
-
-<div class="row small-collapse expanded small-up-1 medium-up-2 large-up-3 align-spaced index-main">
-	<% if @events && @events.length > 0 %>
-  	<%= render partial: 'index_main', locals: { events: @events } %>
-	<% else %>
-		<p>No Events</p>
-	<% end %>
+<div class="row align-spaced" >
+  <div class="small-12 columns text-center" id="toggle-venue-view-links">
+    <p><%= link_to "List View", nil, id: "list" %> | <%= link_to "Map View", nil, id: "map" %></p>
+  </div>
 </div>
-<div class="row columns">
-	<%= will_paginate @events %>
+
+<div id="list-map">
+  <div class="view-box" id ="list-box">
+    <%= render partial: 'list' %>
+  </div>
+  <div class="view-box" id="map-box">
+    <%= render partial: 'map' %>
+  </div>
 </div>

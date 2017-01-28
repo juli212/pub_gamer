@@ -39,7 +39,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.json {
         @events = events
-        render json: @events, :only => [:id, :title, :venue_id, :date, :time ]
+        render json: @events, :include => {:venue=> {:only => [ :id, :name, :address, :lat, :lng ] }}, :only => [:id, :title], :methods => [:startdate, :starttime]
       }
     end
   end
