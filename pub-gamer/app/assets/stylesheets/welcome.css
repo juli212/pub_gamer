@@ -81,8 +81,6 @@
 #user_bio {
 	background-color: #FFFFF0;
 	border-radius: 10px;
-	/*height: 180px;*/
-	/*margin-top: 20px;*/
 }
 
 @media only screen and (min-width: 640px) {

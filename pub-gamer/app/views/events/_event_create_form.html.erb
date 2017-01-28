@@ -3,10 +3,15 @@
     <div class="row">
       <div class="small-12 columns">
         <%= f.text_field :title, placeholder: "Title", required: true, title: "Title" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 medium-6 columns">
         <%= f.text_field :location, placeholder: "Venue by Name", required: true, title: "Location" %>
         <div class="results" id="event-venue-results">
-          
         </div>
+      </div>
+      <div class="small-12 medium-6 columns">
         <%= f.text_field :address, placeholder: "Address", required: true, title: "Address" %>
       </div>
     </div>
@@ -41,7 +46,7 @@
           </div>
         </div>
         <div class="small-5 columns">
-          <%= f.button "Add Game!", id: "add-new-game" %>
+          <%= f.button "Add Game!", class: "button", id: "add-new-game" %>
         </div>
       </div>
       <div class="small-12 columns">
