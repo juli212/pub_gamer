@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.user-favorite-status').on('click', 'a', function(event){
+  $('.user-status').on('click', 'a', function(event){
     event.preventDefault();
     $('.fav-notice').text("");
     $target = $(this)

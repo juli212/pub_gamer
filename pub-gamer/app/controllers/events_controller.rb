@@ -34,7 +34,7 @@ class EventsController < ApplicationController
     if request.xhr? && params[:term]
       events = Event.search(params[:term])
     else
-      events = Event.all.sample(15)
+      events = Event.future_events.sample(15)
     end
     respond_to do |format|
       format.json {

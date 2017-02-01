@@ -172,8 +172,13 @@ input:focus {
   /*border-top: none;*/
 }
 
-.ui-dialog-content form {
+/*.ui-dialog-content form {
   background-color: #2C1B13;
+}*/
+
+.ui-dialog {
+    /*color: #2C1B13;*/
+  /*background-color: #FFFFF0;*/
 }
 
 .ui-dialog form {

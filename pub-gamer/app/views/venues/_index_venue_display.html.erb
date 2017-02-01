@@ -1,5 +1,5 @@
 <div class="columns index-box fav-holder">
-		<div class="user-favorite-status">
+		<div class="user-status">
 			<% if current_user.has_favorited?(venue) %>
 				<%= render partial: 'remove_favorite_heart', locals: { venue: venue } %>
 			<% else %>

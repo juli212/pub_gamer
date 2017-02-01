@@ -209,21 +209,18 @@
 		margin: 0 auto;
 		float: none;
 	}	
-
-.user-event-buttons {
-		margin: 0 auto;
-	}
-.user-event-buttons form {
-		width: 30px;
-		height: 30px;
-		float: none;
-		display: inline-block;
-	}
 }
 
-/*.side-1 .delete-event-form {
-	width: 50%;
-}*/
+.user-event-buttons {
+	margin: 0 auto;
+}
+
+.user-event-buttons form {
+	width: 30px;
+	height: 30px;
+	float: none;
+	display: inline-block;
+}
 
 .edit-event, .delete-event {
 	display: inline-block;

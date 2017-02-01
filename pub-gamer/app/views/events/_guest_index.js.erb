@@ -4,12 +4,12 @@ var notice = $target.closest('.index-box').find('.index-bottom-notice p')
 	$target.replaceWith("<%= j render partial: 'user_event_buttons', locals: { event: @event } %>");
 <% elsif @event.attending_event?(@user) %>
 	var note = "You joined this event"
-	$target.closest('.index-box').find('.user-status img').switchClass('negative', 'positive');
+	$target.closest('.index-box').find('.user-status img').switchClass('low-opacity', 'high-opacity');
 	$target.replaceWith("<%= j render partial: 'leave_event_button', locals: { event: @event } %>");
 	$(guestNumber).text("<%= j render partial: 'guest_number', locals: { guests: @guests } %>");
 <% else %>
 	var note = "You left this event"
-	$target.closest('.index-box').find('.user-status img').switchClass('positive', 'negative');
+	$target.closest('.index-box').find('.user-status img').switchClass('high-opacity', 'low-opacity');
 	$target.replaceWith("<%= j render partial: 'join_event_button', locals: { event: @event } %>");
 	$(guestNumber).text("<%= j render partial: 'guest_number', locals: { guests: @guests } %>");
 <% end %>

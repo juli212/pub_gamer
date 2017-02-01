@@ -22,7 +22,9 @@ $(document).ready(function() {
 
   // displays written review content
   $('#full-review-content').dialog(dialogOptions, {
-    height: 350,
+    width: reviewShowWidth,
+    height: reviewShowHeight,
+    position: ({ my: 'top', at: 'top+17%', of: window}),
     close: emptyDialogBox
   })
 

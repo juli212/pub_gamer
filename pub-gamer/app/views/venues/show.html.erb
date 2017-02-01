@@ -22,13 +22,11 @@
 			</div>
 		</div>
 				<div id="review-index">
-		<div class="row small-up-1 medium-up-3 large-up-4 align-spaced review-show-row">
+		<div class="row small-up-1 medium-up-3 large-up-4 small-collapse align-spaced review-show-row">
 			<% if @venue.has_reviews? %>
   				<%= render partial: 'reviews/index', locals: { reviews: @reviews } %>
   				<%= will_paginate @reviews %>
-  			<!-- </div> -->
   		<% else %>
-  			<!-- <div id="no-reviews"> -->
   				<%= render partial: 'no_reviews' %>
 			<% end %>
 				</div>

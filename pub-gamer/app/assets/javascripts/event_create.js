@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   var openEventForm = function() {
     resetEventForm();
+    openFunction();
     if (window.location.pathname.includes("venue") ) {
       barName = $('#venue-name').text()
       barAddress = $('#get-venue-address').text()

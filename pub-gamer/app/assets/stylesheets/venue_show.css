@@ -77,9 +77,8 @@
 	border-top: 2px solid #FFFFF0;
 }
 
-#full-review-content {
-	color: #2C1B13;
-	background-color: #FFFFF0;
+.review-info-row {
+	border-top: 1px solid #2C1B13;
 	/*border-bottom-left-radius: 10px;*/
 	/*border-bottom-right-radius: 10px;*/
 }
@@ -89,6 +88,16 @@
 	padding: 10px;
 	height: 250px;
 	overflow-y: scroll;
+	color: #2C1B13;
+	border-top: 5px solid rgba(44, 27, 19, 0.7);
+	border-left: 1px solid rgba(44, 27, 19, 0.5);
+	border-right: 1px solid rgba(44, 27, 19, 0.5);
+	/*border-top: 3px solid #2C1B13;*/
+	background-color: #FFFFF0;
+}
+
+#review-content p {
+	line-height: 10px;
 }
 
 /*@media only screen and (min-width: 640px){
@@ -136,6 +145,14 @@
 .reviewed-by {
 	 border-top: 3px solid rgba(251, 235, 212, 1.0);
 	/*border-top: 3px solid green;*/
+}
+
+.delete-review {
+	font-size: 12px;
+}
+
+.review-date {
+	font-size: 11px;
 }
 
 #avg-rating {
@@ -267,15 +284,15 @@
 	z-index: 3;
 }
 
-#venue-show .user-favorite-status {
+#venue-show .user-status {
 	right: 10px;
 	width: 90px;
 	height: 90px;
-	z-index: 2;
+	/*z-index: 2;*/
 }
 
 @media only screen and (min-width: 640px){
-	#venue-show .user-favorite-status {
-		right: 30px;
+	#venue-show .user-status {
+		right: 5px;
 	}
 }

@@ -1,4 +1,4 @@
-<div class="user-favorite-status fav-holder">
+<div class="user-status fav-holder">
 	<% if current_user.has_favorited?(@venue) %>
 		<%= render partial: 'remove_favorite_heart', locals: { venue: @venue } %>
 	<% else %>

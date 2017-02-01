@@ -4,6 +4,15 @@
   <% else %>
     <div class="columns index-box">
   <% end %>
+    <div class="user-status">
+      <% if event.user == current_user %>
+          <%= image_tag("icons/mine/creme.png", size: '40', title: 'my event') %>
+        <% elsif event.attending_event?(current_user) %>
+          <%= render partial: 'attending_event_check' %>
+        <% else %>
+          <%= render partial: 'not_attending_event_check' %>
+        <% end %>
+    </div>
     <div class="index-left">
       <div class="index-pic">
       	<%= render partial: 'shared/no_photo_added' %>
@@ -16,15 +25,6 @@
     </div>
 
     <div class="index-right">
-      <div class="user-status">
-        <% if event.user == current_user %>
-          <%= image_tag("icons/mine/creme.png", size: '40', title: 'my event', class: 'positive') %>
-        <% elsif event.attending_event?(current_user) %>
-          <%= image_tag("icons/check/green.png", size: '40', title: 'attending', class: 'positive') %>
-        <% else %>
-          <%= image_tag("icons/check/green.png", size: '40', title: 'not attending', class: 'negative') %>
-        <% end %>
-      </div>
     	<div class="index-title text-center">
     		<h5><%= link_to event.title, event_path(event) %></h5>
         <p>Created by: <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
