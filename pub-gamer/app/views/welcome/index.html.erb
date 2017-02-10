@@ -1,9 +1,5 @@
 
-<div id="notice" class="row columns align-center">
-  <% if notice %>
-    <p class="text-center"><%= notice[0] %></p>
-  <% end %>
-</div>
+<%= render partial: 'shared/error_display', locals: { errors: @errors } %>
 
 <div class="row small-up-1 medium-up-2" id="welcome-box align-spaced">
 
@@ -23,6 +19,10 @@
 </div>
 
 <div id="form-box">
+</div>
+
+<div class="row columns text-center">
+  <%= render partial: '/shared/octopuzzle' %>
 </div>
 
 <script type="text/javascript">

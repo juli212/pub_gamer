@@ -1,0 +1,77 @@
+.octopuzzle {
+	position: relative;
+}
+
+.octopuzzle h1 {
+	color: rgb(44, 27, 19);
+	font-size: 50px;
+}
+
+.puzzle-box {
+	border: 5px solid rgb(44, 27, 19);
+	width: 244px;
+	height: 244px;
+	margin: 0 auto;
+}
+
+.puzzle-piece {
+	width: 78px;
+	height: 78px;
+	float: left;
+	border: 1px solid rgba(44, 27, 19, 0.3);
+}
+
+.puzzle-piece img {
+	width: 78px;
+	height: 78px;
+}
+
+#octopuzzle-start-button, #octopuzzle-reset-button {
+	border: 2px solid rgb(44, 27, 19);
+	margin: 5px 2px;
+}
+
+.rotate-90 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.rotate-180 {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.rotate-270 {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.win-message {
+	padding-top: 44px;
+	position: absolute;
+	text-align: center;
+	font-size: 100px;
+	font-weight: bold;
+	color: #A893FF;
+	width: 244px;
+	height: 244px;
+	bottom: 52px;
+	border: 5px solid orange;
+	left: 50%;
+	margin-left: -122px;
+	background: rgba(44, 27, 19, 0.6);
+	display: none;
+}
+
+.solved {
+	border: none;
+}
