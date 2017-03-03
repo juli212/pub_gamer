@@ -46,10 +46,6 @@ class VenuesController < ApplicationController
     end
   end
 
-  # def inaccurate
-    
-  # end
-
   def add_games
       game = Game.find_or_create_by(name: params[:venue][:game].downcase)
     if params[:venue][:exists] == "yes"
@@ -72,7 +68,6 @@ class VenuesController < ApplicationController
   end
 
   def create
-    binding.pry
     @venue = Venue.new(venue_params)
     if !request.xhr?
       @venue.neighborhood = Neighborhood.find_or_create_by(name: params[:venue][:neighborhood].titleize)
@@ -84,8 +79,10 @@ class VenuesController < ApplicationController
       else
         @games = Game.all
         @errors = @venue.errors.full_messages
-        render 'new'
+        redirect_to new_venue_path, flash: { error: @errors }
       end
+    else
+      redirect_to new_venue_path
     end
   end
 

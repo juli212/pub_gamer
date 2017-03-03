@@ -4,4 +4,4 @@ if ( $('.review-info-box').length > 12 ) {
 	$('.review-info-box').last().remove()
 }
 $('#avg-rating').html("<%= j render partial: 'venues/venue_rating', locals: { current_rating: @current_rating } %>")
-UpdateOctopusRating();
+updateOctopusRating();

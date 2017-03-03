@@ -1,4 +1,5 @@
 var notice = $target.closest('.fav-holder').find('.fav-notice')
+
 <% if @user.favorite_added?(@old_fav_num) %>
 	var note = "Favorite Added"
 	$target.closest('.index-box').find('.user-status img').switchClass('negative', 'positive');
@@ -8,9 +9,6 @@ var notice = $target.closest('.fav-holder').find('.fav-notice')
 	$target.closest('.index-box').find('.user-status img').switchClass('positive', 'negative');
 	$target.replaceWith("<%= j render partial: 'venues/add_favorite_heart', locals: { venue: @venue } %>");
 <% end %>
-notice.text(note);
-setTimeout(function(){
-	notice.fadeOut(3500, function() {
-		notice.text("").removeAttr('style');
-	})
-}, 1500)
+
+// in venue_favorite.js
+favTimer(notice, note);

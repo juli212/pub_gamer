@@ -27,7 +27,7 @@
     <div class="index-right">
     	<div class="index-title text-center">
     		<h5><%= link_to event.title, event_path(event) %></h5>
-        <p>Created by: <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
+        <p>Created by: <%= link_to event.user.user_name, user_profile_path(event.user) %></p>
     	</div>
     	<div class="text-left index-games">
     		<%= image_tag("icons/dice/green.png", size: '30', title: "games" ) %>

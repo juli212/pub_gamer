@@ -6,6 +6,9 @@ class Review < ActiveRecord::Base
 
   validates :content, :venue_id, :user_id, :rating, presence: true
   validates_inclusion_of :rating, in: 1..5
+  validates_length_of :content, maximum: 500, message: "over character limit"
+  validates_length_of :week, maximum: 15, message: "over character limit"
+
 
   def review_date
   	# date = self.created_at.strftime("%a, %B %d, %Y")

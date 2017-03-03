@@ -1,11 +1,12 @@
 $(document).ready(function() {
+
   $('.venue-create-game').on('click', function(event){
     clicked_div = event.target.closest('.venue-create-game')
     $(clicked_div).toggleClass('select-venue-game');
     $(clicked_div).find('input').prop('checked', !$(clicked_div).find('input').prop('checked'));
   })
 
-  $('body').on('click', '#createVenue',function(event){
+  $('body').on('click', '.create-venue',function(event){
     event.preventDefault();
     var infoBox = $(this.parentElement.parentElement)
     var venueName = infoBox.find('.info-window-line-1').text()
@@ -31,20 +32,25 @@ $(document).ready(function() {
     })
   })
 
+  var removeGames = function() {
+    $('#venue-create-games').html("<p class='no-games-p'>No Games Added</p>")
+  }
+  var resetVenueForm = function() {
+    document.getElementById('venue-create-form').reset()
+    $('#venue-create-form').find("input[type=hidden][id^='venue']")
+    removeGames()
+  }
+
   $('#venue-create-games').on('click', '.remove-game-button', function(event){
     event.preventDefault()
     $(this).closest('.update-game').remove()
     if ( $('#venue-create-games .update-game').length < 1 ) {
-      $('#venue-create-games').html("<p class='no-games-p'>No Games Added</p>")
+      removeGames()
     }
   })
-
-  var resetVenueForm = function() {
-    // $(this).find('form')[0].reset()
-    // $('#venue-create-games').html()
-  }
 
   $("#venue-create-form-container").dialog(dialogOptions, {
     close: resetVenueForm
   })
+
 });

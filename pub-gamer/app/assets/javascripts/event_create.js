@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   var openEventForm = function() {
     resetEventForm();
-    openFunction();
+    // openFunction();
     if (window.location.pathname.includes("venue") ) {
       barName = $('#venue-name').text()
       barAddress = $('#get-venue-address').text()
@@ -19,6 +19,7 @@ $(document).ready(function() {
   }
   $("#event-create-container").dialog(dialogOptions, {
     open: openEventForm,
+    position: ({ my: 'middle top', at: 'middle top+50', of: window, collision: 'fit' }),
     close: resetEventForm
   })
 

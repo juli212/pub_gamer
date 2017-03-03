@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	</head>
+	<body>
+		<h1>Inaccurate Venue Report</h1>
+		<table>
+			<tr>
+				<td>
+					User:
+				</td>
+				<td>
+					<%= @user.user_name %>
+				</td>
+				<td>
+					Email:
+				</td>
+				<td>
+					<%= @user.email %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Venue ID:
+				</td>
+				<td>
+					<%= @venue.id %>
+				</td>
+				<td>
+					Venue Name:
+				</td>
+				<td>
+					<%= @venue.name %>
+				</td>
+			</tr>
+		</table>
+
+		<h2>Complaint:</h2>
+		<p><%= @complaint %></p>
+
+		<p>Want to see if we have updated our info? Check out the venue at <%= @venue_url %>.</p>
+	</body>
+</html>

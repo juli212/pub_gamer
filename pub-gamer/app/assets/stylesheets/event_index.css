@@ -16,6 +16,10 @@
 	padding: 10px 15px 0px;
 }
 
+.event-status form input {
+	margin-bottom: 0px;
+}
+
 .index-bottom-info div {
 	display: inline-block;
 }

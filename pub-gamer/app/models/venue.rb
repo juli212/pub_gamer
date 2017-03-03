@@ -8,9 +8,11 @@ class Venue < ActiveRecord::Base
 	has_many :games, through: :venue_games
 	has_many :events
 	has_many :user_venues
+	has_many :user_reports
 
 	validates :name, :address, presence: true
 	validates :address, uniqueness: true
+	validates_length_of :name, :address, maximum: 150, message: "over character limit"
 
 	def game
 	end

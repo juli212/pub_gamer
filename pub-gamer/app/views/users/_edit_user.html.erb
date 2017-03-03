@@ -1,38 +1,10 @@
 <div id="edit-user-box">
   <%=form_for @user, id: 'edit-user-form', html: { multipart: true } do  |f| %>
   	<h4>Update</h4>
-    <div class="row align-spaced">
-      <div class="small-6 columns">
-        <%= f.text_field :first_name, placeholder: "First Name", required: true, title: "First Name" %>
-      </div>
-      <div class="small-6 columns">
-        <%= f.text_field :last_name, placeholder: "Last Name", required: true, title: "Last Name" %>
-      </div>
-    </div>
-    <div class="row align-spaced">
-      <div class="small-12 medium-4 columns">
-        <%= f.text_field :user_name, placeholder: "User Name", required: true, title: "User Name" %>
-      </div>
-      <div class="small-12 medium-8 columns" id="user-birthday">
-        <div id="user-birthday-label">
-          <span>Birthday:</span>
-        </div>
-        <%= f.date_select :birthday, start_year: 1900, end_year: 2000, title: "Birthday", required: true %>
-      </div>
-    </div>
-    <div class="row align-spaced">
-      <div class="small-12 medium-6 columns">
-        <%= f.file_field :photo, placeholder: "photo", title: "photo" %>
-        <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$", required: true, title: "Email"%>
-        <%= f.password_field :password, placeholder: "Password", required: true, title: "Password" %>
-      </div>
-      <div class="small-12 medium-6 columns">
-        <%= f.text_area :bio, placeholder: "Bio", title: "Bio" %>
-      </div>
-    </div>
+    <%= render partial: 'user_form', locals: { f: f, user: @user } %>
     <div class="row align-spaced">
       <div class="columns">
-        <%= f.submit "Update", class: 'button', id: "edit-user-button" %>
+        <%= f.submit "Update", class: 'button submit-button', id: "edit-user-button" %>
       </div>
       <div class="columns">
         <%= link_to "change password", user_edit_password_path(@user), id: "edit-password-link" %>

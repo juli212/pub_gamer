@@ -18,11 +18,15 @@
 				<%= render partial: 'venue_rating', locals: { current_rating: 0 } %>
 			<% end %>
 		</div>
+
+		<div id='user-report-box'>
+		</div>
+
 		<div class="row algin-spaced">
 			<div class="small-7 columns show-for-small-only">
-				<ul id="venue-show-list">
+				<ul id="venue-show-list" class="has-dropdown">
 				<li>
-					<%= link_to "Venue <span class='arrow'>&#9660;</span>".html_safe, nil, id: "venue-show-dropdown-arrow", class: "button" %>
+					<%= link_to "Venue <span class='arrow'>&#9660;</span>".html_safe, nil, id: "venue-show-dropdown-arrow", class: "button dropdown-arrow" %>
 					<ul id="venue-show-dropdown">
 						<li>
 							<%= link_to "Create Event", new_event_path, id: "venue-event-create-link"  %>
@@ -34,7 +38,7 @@
 							<%= link_to "Review!", new_venue_review_path(@venue.id), class: "new-review-button" %>
 						</li>
 						<li>
-							<%= link_to "Report Inaccurate", nil, id: "report-inaccurate-button" %>
+							<%= link_to "Report Inaccurate", new_venue_user_report_path(@venue.id), class: "report-inaccurate-button" %>
 						</li>
 					</ul>
 				</li>
@@ -57,8 +61,6 @@
 					<% if @venue.has_games? %>
 						<%= image_tag("icons/dice/brown.png", size: '30', title: "games" ) %>
 						<%= render partial: 'shared/games', locals: { games: @venue.games } %>
-					<% else %>
-						<%= render partial: 'no_games' %>
 					<% end %>
 					<%= link_to "Add Games!", nil, id: "add-game-link" %>
 				</div>
@@ -83,7 +85,7 @@
 	<input id="place-id" type="hidden" value="<%=@venue.place %>" />
 	<div id="show-map">
 	</div>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKbw_KdUjv9tX0YJFvT1AOe3nI82-Osvw&amp;libraries=places">
+	<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMaps_key'] %>&libraries=places">
   </script>
 </div>
 
@@ -103,6 +105,6 @@
 		<%= link_to "Review!", new_venue_review_path(@venue.id), class: "button new-review-button" %>
 	</div>
 	<div class="small-9 medium-4 large-3 columns" >
-		<%= link_to "Report Inaccurate", nil, class: "button", id: "report-inaccurate-button" %>
+		<%= link_to "Report Inaccurate", new_venue_user_report_path(@venue.id), class: "button report-inaccurate-button" %>
 	</div>
 </div>

@@ -2,18 +2,20 @@
 	<% events.each do |event| %>
 		<% if event.deleted %> 
 			<div class="user-event text-center deleted-event">
+		<% elsif event.in_past? %>
+			<div class="user-event text-center past-event-fade">
 		<% else %>
 			<div class="user-event text-center">
 		<% end %>
 			<h4><%= link_to event.title, event_path(event) %></h4>
 			<div>
-				<%= image_tag("icons/calendars/calendar1.1Purple.png", size: '20', title: "date") %>
+				<%= image_tag("icons/calendars/purple.png", size: '20', title: "date") %>
 	      <%= event.date.strftime("%B #{event.date.day.ordinalize}") %>
 	    </div>
 	    <div>
-	      <%= image_tag("icons/clocks/clock1.1Purple.png", size: '20', title: "time") %>
+	      <%= image_tag("icons/clocks/purple.png", size: '20', title: "time") %>
 	      <%= event.time.strftime('%-I:%M%p') %>
-	      <%= image_tag("icons/people/person1.1Purple0.3.png", width: '10', title: "attendees") %> 
+	      <%= image_tag("icons/people/purple0.3.png", width: '10', title: "attendees") %> 
 	      <%= event.guests.length %>
 	    </div>
 		</div>

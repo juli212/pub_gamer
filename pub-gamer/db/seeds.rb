@@ -13,8 +13,35 @@ users = User.create([
   {user_name: "julia", first_name: "Julia", last_name: "Giraldi", password: "password", birthday: '26 Jan 1990', bio: "i am pretty awesome. I play all of the soccer. Hike lots. And eat things pretty often.", email: "julia@julia.com"}, 
   {user_name: "alex", first_name: "Alex", last_name: "Forger", password: "password", birthday: '26 Jan 1987', bio: "i am alex. i play guitar. I also do other things...", email: "alex@alex.com"}])
 
-neighborhoods = Neighborhood.create([
-  { name: 'Lower Manhattan'}, { name: 'Williamsburg'}, { name: 'Midtown'}, { name: 'Alphabet City'}, { name: 'Astoria'}, { name: 'Bay Ridge'}, { name: 'Bedford Stuyvesant'}, { name: 'Boerum Hill'}, { name: 'Bowery'}, { name: 'Brooklyn Heights'}, { name: 'Bushwick'}, { name: 'Carroll Gardens'}, { name: 'Chelsea'}, { name: 'Chinatown'}, { name: 'Clinton Hill'}, { name: 'Cobble Hill'}, { name: 'Crown Heights'}, { name: 'Ditmas Park'}, { name: 'Dumbo'}, { name: 'East Harlem'}, { name: 'East Village'}, { name: 'Financial District'}, { name: 'Flatbush'}, { name: 'Flatiron'}, { name: 'Fort Green'}, { name: 'Gowanus'}, { name: 'Gramercy'}, { name: 'Greenwich Village'}, { name: 'Greenpoint'}, { name: 'Hamilton Heights'}, { name: 'Harlem'}, { name: 'Hells Kitchen'}, { name: 'Inwood'}, { name: 'Kips Bay'}, { name: 'Lenox Hill'}, { name: 'Long Island City'}, { name: 'Lower East Side'}, { name: 'Manhattan Valley'}, { name: 'Meatpacking'}, { name: 'Midtown'}, { name: 'Morningside Heights'}, { name: 'Murray Hill'}, { name: 'NoHo'}, { name: 'Park Slope'}, { name: 'Prospect Heights'}, { name: 'Prospect Park'}, { name: 'Prospect Park South'}, { name: 'Red Hook'}, { name: 'Upper East Side'}, { name: 'Upper West Side'}, { name: 'Sunnyside'}, { name: 'Sunset Park'}, { name: 'SoHo'}, { name: 'Tribecca'}, { name: 'Washington Heights'}, { name: 'West Village'}, { name: 'Yorkville'}
+neighborhoods = Neighborhood.create([ 
+  { name: 'Williamsburg'},        { name: 'Midtown'}, 
+  { name: 'Alphabet City'},       { name: 'Astoria'}, 
+  { name: 'Bay Ridge'},           { name: 'Bedford Stuyvesant'}, 
+  { name: 'Boerum Hill'},         { name: 'Bowery'}, 
+  { name: 'Brooklyn Heights'},    { name: 'Bushwick'}, 
+  { name: 'Carroll Gardens'},     { name: 'Chelsea'}, 
+  { name: 'Chinatown'},           { name: 'Clinton Hill'}, 
+  { name: 'Cobble Hill'},         { name: 'Crown Heights'}, 
+  { name: 'Ditmas Park'},         { name: 'Dumbo'}, 
+  { name: 'East Harlem'},         { name: 'East Village'}, 
+  { name: 'Financial District'},  { name: 'Flatbush'}, 
+  { name: 'Flatiron'},            { name: 'Fort Green'}, 
+  { name: 'Gowanus'},             { name: 'Gramercy'}, 
+  { name: 'Greenwich Village'},   { name: 'Greenpoint'}, 
+  { name: 'Hamilton Heights'},    { name: 'Harlem'}, 
+  { name: 'Hells Kitchen'},       { name: 'Inwood'}, 
+  { name: 'Kips Bay'},            { name: 'Lenox Hill'}, 
+  { name: 'Long Island City'},    { name: 'Lower East Side'}, 
+  { name: 'Manhattan Valley'},    { name: 'Meatpacking'}, 
+  { name: 'Midtown'},             { name: 'Morningside Heights'}, 
+  { name: 'Murray Hill'},         { name: 'NoHo'}, 
+  { name: 'Park Slope'},          { name: 'Prospect Heights'}, 
+  { name: 'Prospect Park'},       { name: 'Prospect Park South'}, 
+  { name: 'Red Hook'},            { name: 'Upper East Side'}, 
+  { name: 'Upper West Side'},     { name: 'Sunnyside'}, 
+  { name: 'Sunset Park'},         { name: 'SoHo'}, 
+  { name: 'Tribecca'},            { name: 'Washington Heights'}, 
+  { name: 'West Village'},        { name: 'Yorkville'}
 ])
 
 venues = Venue.create([
@@ -109,7 +136,7 @@ venues = Venue.create([
     lng: "-73.99773930000003",
     neighborhood_id: Neighborhood.find_or_create_by(name: "Carroll Gardens").id },
   {name: "Ace Bar",
-    address: "531 E 5th St, New York, NY 10009q",
+    address: "531 E 5th St, New York, NY 10009",
     place: "ChIJuddLo4JZwokRdm_oW8FoWN4",
     lat: "40.7244201",
     lng: "-73.98284710000001",

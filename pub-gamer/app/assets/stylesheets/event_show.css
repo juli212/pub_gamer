@@ -10,7 +10,7 @@
 }
 
 .event-attendee-container {
-	width: 33%;
+	min-width: 33%;
 	float: left;
 }
 
@@ -105,10 +105,6 @@
 		width: 60%;
 		padding-bottom: 60%;
 	}
-
-/*	 .event-show-side .leave-event, .event-show-side .join-event {
-	 	
-	 }*/
 }
 
 .event-show-side .your-event{
@@ -230,10 +226,19 @@
 	background-color: #FBEBD4;
 	background-size: 100% 100%;
 }
+
 .edit-event {
 	background-image: url(icons/edit/brown.png);
 }
 
 .delete-event {
 	background-image: url(icons/delete/brown.png);
+}
+
+.past-edit-event {
+	background-image: url(icons/edit/orange.png);
+}
+
+.past-delete-event {
+	background-image: url(icons/delete/orange.png);
 }

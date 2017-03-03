@@ -9,7 +9,6 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
-<!--     <script src="/vendor/assets/javascripts/dragscroll/dragscroll.js"></script> -->
   </head>
 
   <body>
@@ -19,6 +18,7 @@
       <div id="main">
         <%= render 'shared/no_script' %>
         <div id ="scripts">
+          <%= render partial: 'shared/error_display', locals: { errors: @errors } %>
           <%= yield %>
           <script type="text/javascript">
             showScript();

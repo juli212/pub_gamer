@@ -13,14 +13,14 @@ class SessionsController < ApplicationController
     if !request.xhr?
       user = User.find_by(email: params[:email])
       if user && user.deleted == true
-        @errors = ['Invalid Email or Password']
-        redirect_to root_path, :flash => { :notice => @errors }
+        login_error = ['Inactive User']
+        redirect_to root_path, :flash => { :error => login_error }
       elsif user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to user_path(user)
       else
-        @errors = ['Invalid Email or Password']
-        redirect_to root_path, :flash => { :notice => @errors }
+        login_error = ['Invalid Email or Password']
+        redirect_to root_path, :flash => { :error => login_error }
       end
     end
   end

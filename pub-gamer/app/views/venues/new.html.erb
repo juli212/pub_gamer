@@ -1,23 +1,32 @@
+<%- title "Venues" %>
 <div class="row columns">
   <h2 class="text-center">Add a venue!</h2>
 
   <p class="text-center">Use the search box or naviagate the map to locate the venue you wish to add.</p>
 </div>
-<div class="row align-center">
 
-<div class="columns" id="map-wrapper">
-
-  <div id="google-map">
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map">
-    </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKbw_KdUjv9tX0YJFvT1AOe3nI82-Osvw&libraries=places&callback=initMap"
-           async defer>
-    </script>
-  </div>
-
-  <div id="venue-create-form-container">
-    <%= render partial: 'venue_create_form' %>
-  </div>
+<div class="row columns text-center errors-box">
+  <% if @errors %>
+      <% @errors.each do |error| %>
+        <p><%= error %></p>
+      <% end%>
+  <% end%>
 </div>
+
+<div class="row align-center">
+  <div class="columns" id="map-wrapper">
+
+    <div id="google-map">
+      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+      <div id="map">
+      </div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMaps_key']%>&libraries=places&callback=initMap"
+             async defer>
+      </script>
+    </div>
+
+    <div id="venue-create-form-container">
+      <%= render partial: 'venue_create_form' %>
+    </div>
+  </div>
 </div>

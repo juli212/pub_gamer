@@ -27,8 +27,4 @@ $(window).on("load resize",function(event){
 			$('#user-events .inside-user-scroll').css('width', newWidth)
 		})	
 	})
-	$('#venue-show-dropdown-arrow').on('click', function(event){
-		event.preventDefault();
-		$('#venue-show-dropdown').toggle();
-	})
 });

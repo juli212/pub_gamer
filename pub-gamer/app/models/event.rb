@@ -11,6 +11,8 @@ class Event < ActiveRecord::Base
 
 	validates :title, :description, :date, :time, :limit, :venue_id, :user_id, presence: true
 	validates_inclusion_of :limit, in: 0..40
+	validates_length_of :title, maximum: 100, message: "over character limit"
+	validates_length_of :description, maximum: 500, message: "over character limit"
 
 	def game
 	end
@@ -65,17 +67,17 @@ class Event < ActiveRecord::Base
 		where("title ILIKE :term OR description ILIKE :term", term: "%#{term.downcase}%").uniq
 	end
 
-	def self.event_index_events
-		where("deleted = 'false'" && 'date >= ?', Date.today).order(:date)
+	def self.future_events
+		where("deleted = ? AND date >= ?", :false, Date.today).order(:date, :time)
 	end
 
-	def self.venue_event_index_events(venue_id)
-		Event.event_index_events.where('venue_id = ?', venue_id)
+	def self.past_events
+		where("date < ?", DateTime.now).order('date DESC, time DESC')
 	end
 
-	# def self.neighborhood_search(term)
-	# 	joins(:venue).joins('JOIN neighborhoods ON neighborhoods.id = venues.neighborhood_id').where("neighborhoods.name ILIKE :term", term: "%#{term.downcase}%")
-	# end
+	def self.venue_events(venue_id)
+		Event.future_events.where('venue_id = ?', venue_id)
+	end
 
 	def full?
 		self.guests.length >= self.limit
@@ -85,18 +87,12 @@ class Event < ActiveRecord::Base
 		self.limit - self.guests.length
 	end
 
+	def in_past?
+		self.date < Date.today
+	end
+
 	def in_future?
-		self.date > Date.today ||
-		(self.date == Date.today && self.time.strftime('%-I').to_i > Time.now.strftime('%-I').to_i) ||
-		(self.date == Date.today && self.time.strftime('%-I').to_i == Time.now.strftime('%-I').to_i && self.time.strftime('%-M').to_i > Time.now.strftime('%-M').to_i)
-	end
-
-	def self.future_events
-		where("date >= ?", DateTime.now).order('date ASC, time ASC')
-	end
-
-	def self.past_events
-		where("date < ?", DateTime.now).order('date DESC, time DESC')
+		self.date >= Date.today
 	end
 
   def attending_event?(user)

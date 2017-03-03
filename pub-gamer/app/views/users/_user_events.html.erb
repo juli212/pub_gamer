@@ -19,26 +19,6 @@
 		</div>
 	</div>
 	<div class="outside-user-scroll horizontal dragscroll">
-		<div class="inside-user-scroll">
-			<% events.each do |event| %>
-				<% if event.deleted %> 
-					<div class="user-event text-center deleted-event">
-				<% else %>
-					<div class="user-event text-center">
-				<% end %>
-					<h4><%= link_to event.title, event_path(event) %></h4>
-					<div>
-						<%= image_tag("icons/calendars/purple.png", size: '20', title: "date") %>
-			      <%= event.date.strftime("%B #{event.date.day.ordinalize}") %>
-			    </div>
-			    <div>
-			      <%= image_tag("icons/clocks/purple.png", size: '20', title: "time") %>
-			      <%= event.time.strftime('%-I:%M%p') %>
-			      <%= image_tag("icons/people/purple0.3.png", width: '10', title: "attendees") %> 
-			      <%= event.guests.length %>
-			    </div>
-				</div>
-			<% end %>
-		</div>
+		<%= render partial: 'display_user_events', locals: { events: events } %>
 	</div>
 </div>

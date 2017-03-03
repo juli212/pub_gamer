@@ -13,7 +13,7 @@ $(document).ready(function() {
 	  rotatePiece(this)
 	  if ($('.puzzle-box .rotate-0').length == 9 ) {
 	  	$('.puzzle-piece').removeClass('rotate-0 rotate-90 rotate-180 rotate-270')
-      $('.win-message').toggle()
+      $('.win-message').toggle().delay(1500).fadeOut(3000)
 	  	$('.puzzle-piece').addClass('solved')
 		}
 	})
@@ -45,4 +45,8 @@ rotatePiece = function(piece){
   	$this.removeClass("rotate-270");
   	$this.addClass("rotate-0");
   }
+}
+
+changeImage = function(url) {
+  $('.piece').css("background-image", "url("+ url +")")
 }

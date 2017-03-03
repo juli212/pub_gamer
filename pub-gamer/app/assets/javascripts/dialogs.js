@@ -21,17 +21,12 @@ var setFormHeight = setHeight()
 
 // default dialog close function:
 var closeDialogWindow = function(){
-	debugger;
   $(this).find('form')[0].reset()
 }
 
 // alternate dialog close function, empties dialog box:
 var emptyDialogBox = function() {
-    $(this).html("");
-  }
-
-var openFunction = function(){
-  $('.ui-button, .ui-dialog .ui-button').blur()
+  $(this).html("");
 }
 
 var reviewShowWidth = function(){
@@ -57,7 +52,6 @@ var dialogOptions = {
   autoOpen: false,
   maxHeight: setFormHeight,
   width: setFormWidth,
-  position: ({ my: 'top', at: 'middle', of: '.top-bar'}),
-  open: openFunction,
+  position: ({ my: 'middle top', at: 'middle center-200', of: window, collision: 'fit' }),
 	close: closeDialogWindow
 }

@@ -1,33 +1,3 @@
-#event-new-box form {
-  /*padding: 3%;*/
-  /*border-top-left-radius: 10px;*/
-  /*border-top-right-radius: 10px;*/
-}
-
-#event-create-form {
-  /*border-bottom-left-radius: 10px;*/
-  /*border-bottom-right-radius: 10px;*/
-  /*text-align: center;*/
-  /*font-size: 30px;*/
-}
-
-/*#event-create-form label {*/
-  /*color: #FBEBD4;*/
-  /*font-weight: bold;*/
-/*}*/
-
-#event-create-form input, #event-create-form textarea {
-  /*height: 25px;*/
-  /*border-radius: 5px;*/
-}
-
-@media only screen and (min-width: 640px) {
-  #event-create-form input, #event-create-form textarea {
-    /*border-radius: 10px;*/
-    /*height: 35px;*/
-  }
-}
-
 #event-venue-results ul {
   font-size: 15px;
 }
@@ -72,19 +42,16 @@
 }
 
 .game-button {
-  /*position: fixed;*/
   opacity: 0;
 }
 
 
 .event-game {
   border: 1px solid #A893FF;
-  /*border: 1px solid #FBEBD4;*/
   border-right: none;
   float: center;
   min-width: 20%;
   display: inline-block;
-  /*border-radius: 40%/45%;*/
   border-radius: 7px;
   padding: 0px 3px;
   margin: 2px 1px;
@@ -115,16 +82,15 @@
 }
 
 #event-create-submit-button {
-  /*background-color: #FFFFF0;*/
-  /*border-radius: 10px;*/
-  /*font-weight: bold;*/
-  /*font-size: 20px;*/
-  /*padding: 10px 20px;*/
   margin-top: 10px;
 }
 
 .event-create-game-input {
   position: absolute;
   display: none;
-  /*visibility: hidden;  */
+}
+
+.event-date-time-row input {
+  padding: 4px;
+  font-size: 14px;
 }

@@ -12,7 +12,7 @@ function IndexOctopusRating() {
 	})
 }
 
-function updateOctopusRating() { 
+function updateOctopusRating() {
 	var width = 250;
 	var rating = ($('#octopus-avg-rating').attr('value')) / (0.05);
 	var opaque = $('#opaque')

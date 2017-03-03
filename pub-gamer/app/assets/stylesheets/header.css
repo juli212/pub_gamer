@@ -43,12 +43,22 @@
 
 #octopus-head-image {
   max-width: 18.5%;
-  /*max-width: 17.212%;*/
+  position: relative;
+}
+
+#octopus-1, #octopus-2 {
+  position: absolute;
+}
+
+#octopus-1 {
+}
+
+#octopus-2 {
+  display: none;
 }
 
 #head-image-text {
   max-width: 81.5%;
-  /*max-width: 82.788%;*/
 }
 
 .top-bar a {
@@ -73,13 +83,28 @@
   border: none;
   font-size: 15px;
   text-align: center;
-  /*border-right: 1px solid;*/
 }
-
-
 
 #nav li a {
   padding: 20px 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+#nav .arrow {
+  position: absolute;
+  margin: auto;
+  right: 0;
+  top: calc(50% - 8px);
+  bottom: 0;
+  background-color: #FBEBD4;
+}
+
+@media only screen and (min-width: 640px) {
+  #nav .arrow {
+    top: 0;
+    right: 0;
+  }
 }
 
 #topbar-row-three {
@@ -120,9 +145,10 @@
   margin: 0;
   /*background-color: rgba(0, 255, 0. 0.2);*/
 }
-
-#nav li:hover .header-dropdown {
-  display: block;
+@media only screen and (min-width: 640px) {
+  #nav li:hover .header-dropdown {
+    display: block;
+  }
 }
 
 .header-dropdown {

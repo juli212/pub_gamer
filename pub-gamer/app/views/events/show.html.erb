@@ -1,3 +1,6 @@
+<%- title "Events" %>
+<%= render partial: 'shared/error_display', locals: { errors: @errors } %>
+
 <% if @event.deleted %> 
 	<div class="row align-center show-box deleted-event">
 <% else %>
@@ -98,7 +101,7 @@
 				<p><%= line %></p>
 			<% end %>
 		</div>
-		<p>event hosted by: <%= link_to @event.user.user_name, user_path(@event.user) %></p>
+		<p>hosted by: <%= link_to @event.user.user_name, user_profile_path(@event.user) %></p>
 	</div>
 
 	<div id="event-right">

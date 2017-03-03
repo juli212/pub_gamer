@@ -13,8 +13,6 @@ var spotsLeft = limit - guests
 	$('.event-show-side .event-status form').replaceWith("<%= j render partial: 'join_event_button', locals: { event: @event } %>");
 	$('.side-2 .spots-left').text(spotsLeft);
 	$('.side-2 .taken-guest').last().replaceWith("<%= j render partial: 'open_spot' %>")
-	$('.event-attendee-container a[value="<%= @user.id %>"').closest('.event-attendee-container').remove()
+	$(".event-attendee-container[value='<%= @user.id %>']").remove()
 	$('#event-right').html("")
 <% end %>
-
-// add/remove chat

@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	$('#view-venue-on-map').dialog(dialogOptions, {
 		open: showMap,
+		height: 350,
+		width: 310,
 		close: null
 	})
 	$('#view-map').on('click', function(event){

@@ -1,0 +1,7 @@
+#new_report h4 {
+	margin-top: 25px;
+}
+
+#new_report textarea {
+	min-height: 150px;
+}

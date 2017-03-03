@@ -11,9 +11,9 @@
   </div>
 
   <div class="columns welcome-button-box">
-    <a class="button" id="register" href="/users/new">Register</a>
+    <a class="button" id="register" href="/users/new">Join</a>
     <div class="welcome-form-box">
-      <%= render partial: '/users/registration_form' %>
+      <%= render partial: '/users/registration_form', locals: { user: @user } %>
     </div>
   </div>
 </div>

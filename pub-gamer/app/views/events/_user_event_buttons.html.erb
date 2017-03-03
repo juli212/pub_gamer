@@ -1,4 +1,11 @@
-<div class="user-event-buttons text-center">
-<%= button_to "", event_cancel_path(event), title: "Cancel Event", class: "delete-event" %>
-<%= button_to "", edit_event_path(event), title: "Edit", class: "edit-event" %>
-</div>
+<% if event.in_past? %>
+	<div class="user-event-buttons text-center .past-event-fade">
+	<%= button_to "", event_cancel_path(event), title: "Cancel Event", class: "delete-event past-delete-event", disabled: true %>
+	<%= button_to "", edit_event_path(event), title: "Edit", class: "edit-event past-edit-event", disabled: true %>
+	</div>
+<% else %>
+	<div class="user-event-buttons text-center">
+	<%= button_to "", event_cancel_path(event), title: "Cancel Event", class: "delete-event" %>
+	<%= button_to "", edit_event_path(event), title: "Edit", class: "edit-event" %>
+	</div>
+<% end %>

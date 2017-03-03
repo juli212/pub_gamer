@@ -6,9 +6,9 @@ class EventsController < ApplicationController
       @event = Event.new
       @games = Game.all
       if params[:venue_id]
-        events = Event.venue_event_index_events(params[:venue_id])
+        events = Event.venue_events(params[:venue_id])
       else
-        events = Event.event_index_events
+        events = Event.future_events
       end
       @events = events.paginate(:page => params[:page], :per_page => 12)
     end
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
 
   def results
     if request.xhr? && params[:term]
-      events = Event.search(params[:term])
+      events = Event.future_events.search(params[:term])
     else
       events = Event.future_events.sample(15)
     end
@@ -79,8 +79,10 @@ class EventsController < ApplicationController
         @errors = @event.errors.full_messages
         @games = Game.all
         @events = Event.paginate(:page => params[:page], :per_page => 12)
-        redirect_to :back
+        redirect_to :back, flash: { error: @errors }
       end
+    else
+      redirect_to events_path
     end
   end
 
@@ -120,7 +122,7 @@ class EventsController < ApplicationController
   def cancel
     @event = Event.find_by(id: params[:event_id])
     if request.xhr?
-      if current_user == @event.user
+      if current_user == @event.user && @event.in_future?
         @event.update_attribute('deleted', true)
         render partial: 'cancelled'
       end
@@ -131,18 +133,18 @@ class EventsController < ApplicationController
     @event = Event.find_by(id: params[:id])
     if !request.xhr?
       if @event.deleted == "true"
-        @errors = ["Event has been cancelled, it cannot be modified"]
-        redirect_to event_path(@event)
+        errors = ["Event has been cancelled, it cannot be modified"]
+        # redirect_to event_path(@event)
       elsif !@event.in_future?
-        @errors = ["Event date has already passed, it cannot be modified"]
+        errors = ["Event date has already passed, it cannot be modified"]
       else
         games = params[:games]
         venue = Venue.find_by(name: params[:event][:location])
         @event.update_attributes(event_params)
         @event.games = Game.find(games)
         @event.venue = venue if @event.venue != venue 
-        redirect_to event_path(@event)
       end
+      redirect_to event_path(@event), flash: { error: errors }
     end
   end
 

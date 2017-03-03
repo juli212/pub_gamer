@@ -2,6 +2,7 @@ class Comment < ActiveRecord::Base
 	belongs_to :event
 
 	validates :body, :event_id, :user_id, presence: true
+  validates_length_of :body, maximum: 300, message: "over character limit"
 	
 	def username
 		user = User.find_by(id: self.user_id)

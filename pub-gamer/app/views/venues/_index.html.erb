@@ -17,7 +17,7 @@
 
 
 <div class="row align-spaced" >
-	<div class="small-10 medium-3 columns">
+	<div class="small-8 medium-4 columns">
 		<%=link_to("+ Venue", new_venue_path, class: "button", id: "venue-create-link") %>
 	</div>
 </div>
@@ -27,6 +27,8 @@
 		<p><%= link_to "List View", nil, id: "list" %> | <%= link_to "Map View", nil, id: "map" %></p>
 	</div>
 </div>
+
+<%= render partial: 'shared/error_display', locals: { errors: @errors } %>
 
 <div id="list-map">
 	<div class="view-box" id ="list-box">

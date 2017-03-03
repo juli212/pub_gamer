@@ -20,9 +20,8 @@ function initMap() {
   google.maps.InfoWindow.prototype.setContent = function (content) {
     //argument is a node
     if (content.querySelector) {
-      var structureContent = "<div><div class='info-window-line-1'></div><div class='info-window-line-2'></div><div class='info-window-line-3'></div><div class='info-window-line-4'><button id=createVenue class=button type=button>Select Venue!</button></div></div>"
+      var structureContent = "<div><div class='info-window-line-1'></div><div class='info-window-line-2'></div><div class='info-window-line-3'></div><div class='info-window-line-4'><button class='button create-venue' type='button'>Select Venue!</button></div></div>"
       $(content).html(structureContent);
-      // debugger;
     }
       //run the original setContent-method
     sC.apply(this, arguments);
@@ -43,8 +42,18 @@ function initMap() {
   };
 
   google.maps.event.addListener(map,'click',function(e){
+
     var lat = e.latLng.lat().toString()
     var lng = e.latLng.lng().toString()
+    // var dateNow = Date.
+
+    $.ajax({
+      url:"https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + lng + "&timestamp="+(Math.round((new Date().getTime())/1000)).toString()+"&sensor=false",
+    }).done(function(response){
+       if(response.timeZoneId != null){
+         //do something
+       }
+    });
     $('#venue_place').val(e.placeId)
     $('#venue_lat').val(lat)
     $('#venue_lng').val(lng)
@@ -102,16 +111,15 @@ function initMap() {
       location: place.geometry.location
     });
     var reFormatAddress = place.formatted_address.slice(0, -5)
-    var venueNeighborhood = place.address_components[2].long_name
     var lat = place.geometry.location.lat().toString()
     var lng = place.geometry.location.lng().toString()
+    // var zoneOffset = place.utc_offset / 0
 
     marker.setVisible(true);
     $('#venue_name').val(place.name)
     $('#venue_name').prop('readonly', true);
     $('#venue_address').val(reFormatAddress)
     $('#venue_address').prop('readonly', true);
-    $('#venue_neighborhood').val(venueNeighborhood)
     $('#venue_place').val(place.place_id)
     $('#venue_lat').val(lat)
     $('#venue_lng').val(lng)
@@ -122,7 +130,7 @@ function initMap() {
     var venueAddressLine2 = place.address_components[4].short_name + ', ' + place.address_components[6].short_name + ' ' + place.address_components[8].short_name
 
     infowindow.setContent(
-      "<div><div class='info-window-line-1'>" + place.name + "</div><div class='info-window-line-2'>" + venueAddressLine1 + "</div><div class='info-window-line-3'>" + venueAddressLine2 + "</div><div class='info-window-line-4'><button id=createVenue class=button type=button>Select Venue!</button></div></div>"
+      "<div><div class='info-window-line-1'>" + place.name + "</div><div class='info-window-line-2'>" + venueAddressLine1 + "</div><div class='info-window-line-3'>" + venueAddressLine2 + "</div><div class='info-window-line-4'><button class='button create-enue' type='button'>Select Venue!</button></div></div>"
     );
     infowindow.open(map, marker);
   });

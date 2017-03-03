@@ -27,9 +27,9 @@ Rails.application.routes.draw do
     get :add_neighborhood, :on => :collection
     post :results, :on => :collection
     get :dropdown, :on => :collection
-    # get :inaccurate
     resources :reviews, only: [:new, :create, :update, :show]
     resources :events, only: [:index]
+    resources :user_report, only: [:new, :create]
   end
 
   resources :users, except: [:index, :new] do
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     put :update_password
     put :update_favorite
   end
+  get 'profile/:user_name', to: 'users#show', as: :user_profile
 
   post "/games/add_game" => "games#add_game", as: "add_game"
 

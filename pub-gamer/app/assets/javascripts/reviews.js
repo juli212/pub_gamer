@@ -28,7 +28,7 @@ $(document).ready(function() {
     close: emptyDialogBox
   })
 
-  $('.read-more-review').on('click', function(event){
+  $('#reviews').on('click', '.read-more-review', function(event){
     event.preventDefault();
     $('#full-review-content').dialog('open')
     $.ajax({

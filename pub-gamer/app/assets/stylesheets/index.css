@@ -216,3 +216,67 @@
 .time-background {
   background-image: url(icons/clocks/purple);
 }
+
+.infowindow-events {
+  border-top: 1px dashed #2C1B13;
+  margin-top: 14px;
+  position: relative;
+}
+
+.infowindow-events img {
+  position: absolute;
+  top: 9px;
+  height: 20px;
+  width: 20px;
+}
+
+.infowindow-events .left {
+  left: 0px;
+}
+
+.infowindow-events .right {
+  right: 0px;
+}
+
+.infowindow-event {
+  display: none;
+}
+
+.not-hidden {
+  display: block;
+}
+
+.infowindow-event h5 {
+  margin: 4px 24px;
+  max-width: 210px;
+  overflow: hidden;
+}
+
+.infowindow-event p {
+  clear: both;
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.event-map-infowindow {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-map-infowindow .header h6 {
+  margin: 0px;
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+.event-map-infowindow .location-icon {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+}
+
+.location-icon .location-background {
+  margin: 0px;
+}
+

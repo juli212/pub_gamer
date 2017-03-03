@@ -1,3 +1,4 @@
+<%- title "#{current_user.user_name}" %>
 <div class="row align-spaced">
 	<% if @user == current_user %>
 		<div class="small-8 medium-10 large-6 columns text-center">
@@ -11,19 +12,21 @@
 	
 </div>
 
-<div class="row align-spaced">
-	<div class="columns text-center" id="profile-pic">
+<div class="row columns align-spaced user-show-top">
+	<div class="text-center" id="profile-pic">
 		<% if @user.photo.file? %>
-			<%= image_tag @user.photo.url(:medium) %>
+			<%= image_tag @user.photo.url(:small), size: "100x100" %>
 		<% else %>
 			<%= render partial: 'shared/no_photo_added' %>
 		<% end %>
 		<% if @user == current_user %>
-		<p><%= link_to "Edit Profile", edit_user_path(current_user), id: "edit-own-profile", name: "#{current_user.id}" %></p>
+		<p><%= link_to "Edit Profile", edit_user_path(current_user.id), id: "edit-own-profile", name: "#{current_user.id}" %></p>
 		<% end %>
 	</div>
-	<div class="columns">
-		<p><%=@user.bio%></p>
+	<div class="user-bio">
+		<% @user.display_bio.each do |line| %>
+			<div><p><%= line %></p></div>
+		<% end %>
 	</div>
 </div>
 

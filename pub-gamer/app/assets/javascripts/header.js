@@ -8,7 +8,7 @@ $(window).load(function() {
 	} else if ($path.includes("venue")) {
 		$('#search-form').attr("action", "/venues/search").attr('name', 'venues');
 		$('#venues').addClass('header-underline')
-	} else if ($path.includes("user")){
+	} else if ($path.includes("profile")){
 		$('#topbar-row-three').remove()
 		$('#user').addClass('header-underline')
 	} else if ($path.includes("contact")){
@@ -19,10 +19,10 @@ $(window).load(function() {
 		$('#about').addClass('header-underline')
 	}
 	$('#header-images').mouseover(function(event){
-		$('#octopus-head-image img').attr('src', '/assets/octopusHeaderGlassesOffBrownOutline.png')
+		$('#octopus-head-image a').toggle()
 	})
 	$('#header-images').mouseout(function(event){
-		$('#octopus-head-image img').attr('src', '/assets/octopusHeaderWithGlassesBrown.png')
+		$('#octopus-head-image a').toggle()
 	})
 });
 

@@ -1,20 +1,21 @@
 <div class="top-bar">
   <div class="row small-up-1 small-collapse expanded" id="header-images">
     <div class="columns header-image" id="octopus-head-image">
-      <%= link_to image_tag("octopusHeaderWithGlassesBrown.png"), method: "get", action: "index", controller: "welcome" %>
+      <%= link_to image_tag("octopusHeaderWithGlassesBrown.png"), {method: "get", action: "index", controller: "welcome"}, id: 'octopus-1' %>
+      <%= link_to image_tag("octopusHeaderGlassesOffBrownOutline.png"), {method: "get", action: "index", controller: "welcome"}, id: 'octopus-2' %>
     </div> 
     <div class="columns header-image" id="head-image-text">
-      <%= link_to image_tag("headerImageNoOctopus.png"), method: "get", action: "index", controller: "welcome"%>
+      <%= link_to image_tag("headerImageNoOctopus.png"), method: "get", action: "index", controller: "welcome" %>
     </div>
   </div>
 
   <div class="row small-up-1 medium-up-2 small-collapse align-spaced expanded" id="header-bottom">
     <div class="medium-order-2 columns" id="topbar-row-two">
-      <ul class="menu horizontal align-self-center" id="nav">
+      <ul class="menu horizontal align-self-center has-dropdown" id="nav">
         <% if logged_in? %>
-          <li><%= link_to "#{current_user.user_name}<span class='arrow'>&#9660;</span>".html_safe, nil, id: "user" %>
+          <li><%= link_to "#{current_user.user_name}<span class='arrow'>&#9660;</span>".html_safe, nil, id: "user", class: "dropdown-arrow" %>
             <ul class="header-dropdown">
-              <li><%= link_to "Profile", user_path(current_user.id) %></li>
+              <li><%= link_to "Profile", user_profile_path(current_user) %></li>
               <% if @show %>
                 <li><%= link_to "Edit Profile", edit_user_path(current_user), id: "edit-user-profile", name: "#{current_user.id}" %></li>
               <% end %>

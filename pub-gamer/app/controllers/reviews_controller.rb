@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
 			else
 				@errors = @review.errors.full_messages
 				@vibes = Vibe.all
-				redirect_to venue_path(@venue), :flash => { notice: @errors }
+				redirect_to venue_path(@venue), :flash => { error: @errors }
 			end
 		end
 	end

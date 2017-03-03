@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 				render partial: '/shared/empty'
 			else
 				@errors = @comment.errors.full_messages
-				redirect_to event_path(@event)
+				redirect_to event_path(@event), flash: { error: @errors }
 			end
 		end
 	end
