@@ -2,8 +2,7 @@
 <div id="venue-show">
 
 <%- title "Venues" %>
-	<%= render partial: 'venue' %>
-	
+	<%= render partial: 'venue', locals: { venue: @venue, vibes: @vibes } %>
 
 	<div class="row align-spaced" >
 		<div class="small-12 medium-4 text-center columns" >

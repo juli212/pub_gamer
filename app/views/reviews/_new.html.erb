@@ -1,17 +1,17 @@
 <%= form_for [ @venue, @review ] do |f| %>
   <div class="row align-middle align-center">
   	<div class="small-12 medium-8 colums" >
- 	    <%= render 'reviews/rating' %>
+ 	    <%= render partial: 'reviews/rating' %>
     </div>
     <div class="small-4 show-for-small-only">
       <h5>When:</h5>
     </div>
     <div class="small-8 medium-4 columns" >
       <h5 class="hide-for-small-only">When:</h5>
-     	<%= render 'reviews/week' %>
+     	<%= render partial: 'reviews/week' %>
     </div>
-    <div class="small-12 large-8 columns" >
-      <%= render 'reviews/vibe' %>
+    <div class="small-12 medium-6 columns" >
+      <%= render partial: 'reviews/vibe', locals: { vibes: vibes } %>
     </div>
   </div>
 
