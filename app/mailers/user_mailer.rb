@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
 		@user = report.user
 		@venue = report.venue
 		@complaint = report.content
-		@venue_url = 'pub-gamer.herokuapp.com/venues/' + @venue.id.to_s
+		@venue_url = 'http://pub-gamer.herokuapp.com/venues/' + @venue.id.to_s
 		mail(to: 'pubgamerteam@gmail.com', subject: "INACCURATE VENUE INFO", from: @user.email)
 	end
 
