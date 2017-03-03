@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
 	def welcome_email(user)
 		@user = user
 		@url = "http://pub-gamer.herokuapp.com"
-		mail(to: @user.email, subject: "Welcome To PubGamer!")
+		mail(to: @user.email, subject: "Welcome To PubGamer!", from: 'pubgamerteam@gmail.com')
 	end
 
 	def report_venue_inaccurate(report)
@@ -19,6 +19,6 @@ class UserMailer < ApplicationMailer
 		@user = report.user
 		@message = report.content
 		@date = DateTime.now
-		mail(to: 'pubgamerteam@gmail.com' subject: "GENERAL CONTACT", from @user.email)
+		mail(to: 'pubgamerteam@gmail.com', subject: "GENERAL CONTACT", from: @user.email)
 	end
 end
