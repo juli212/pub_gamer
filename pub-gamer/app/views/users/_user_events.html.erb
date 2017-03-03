@@ -1,0 +1,24 @@
+<div class="user-scroll-box">
+	<div class="row align-spaced small-collapse user-button-row">
+		<div>
+			<h4 class="columns text-center">Events</h4>
+		</div>
+	</div>
+	<div class="row align-spaced small-collapse user-button-row">
+		<div class="columns text-center">
+			<%= link_to "Upcoming", user_events_path(@user, event: "upcoming"), name: "upcoming", class: "button", id: "upcoming" %>
+		</div>
+		<div class="columns text-center">
+			<%= link_to "Created", user_events_path(@user, event: "created"), name: "created", class: "button", id: "created" %>
+		</div>
+		<div class="columns text-center">
+			<%= link_to "Attending", user_events_path(@user, event: "attending"), name: "attending", class: "button", id: "attending" %>
+		</div>
+		<div class="columns text-center">
+			<%= link_to "Past", user_events_path(@user, event: "past"), name: "past", class: "button", id: "past" %>
+		</div>
+	</div>
+	<div class="outside-user-scroll horizontal dragscroll">
+		<%= render partial: 'display_user_events', locals: { events: events } %>
+	</div>
+</div>

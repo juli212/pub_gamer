@@ -5,24 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Pub Gamer" %></title>
-
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
   <body>
 
-  <%= render 'shared/navbar' %>
-    <!-- <div class="align-left" id="wrap"> -->
-  <div id="main">
+    <div id="content">
       <%= render 'shared/header' %>
-      <!-- <div id="content"> -->
-        <%= yield %>
-      <!-- </div> -->
-    <!-- </div> -->
-  </div>
-    <%= render 'shared/footer' %>
-
+      <div id="main">
+        <%= render 'shared/no_script' %>
+        <div id ="scripts">
+          <%= render partial: 'shared/error_display', locals: { errors: @errors } %>
+          <%= yield %>
+          <script type="text/javascript">
+            showScript();
+          </script>
+        </div>
+      </div>
+    </div>
+    <div id="foot">
+      <%= render 'shared/footer' %>
+    </div>
+    
   </body>
 </html>

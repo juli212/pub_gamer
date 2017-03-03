@@ -1,43 +1,65 @@
 <% events.each do |event| %>
-  <div class="row index-box">
-    <div class="small-3 columns">
+  <% if event.deleted %> 
+    <div class="columns index-box deleted-event">
+  <% else %>
+    <div class="columns index-box">
+  <% end %>
+    <div class="user-status">
+      <% if event.user == current_user %>
+          <%= image_tag("icons/mine/creme.png", size: '40', title: 'my event') %>
+        <% elsif event.attending_event?(current_user) %>
+          <%= render partial: 'attending_event_check' %>
+        <% else %>
+          <%= render partial: 'not_attending_event_check' %>
+        <% end %>
+    </div>
+    <div class="index-left">
       <div class="index-pic">
-        <p>No Photo Added</p>
+      	<%= render partial: 'shared/no_photo_added' %>
       </div>
+      <div class="event-status">
+        <% if event.deleted == false %>
+    		<%= render partial: 'event_attending_status', locals: { event: event } %>
+        <% end %>
+    	</div>
     </div>
 
-    <div class="small-9 columns">
-      <div class="row" >
-        <div class="small-12 columns text-center">
-          <h5 class="index-title"><%= link_to event.title, event_path(event) %></h5>
-          <div class="row">
-            <div class="small-9 columns">
-              <p><%= event.venue.address %></p>
-            </div>
-            <div class="small-3 columns event-index-join">
-              <!-- <div class="event-index-join"> -->
-                <%= link_to "Join Event!", event_path(event), method: :put, class: "button" %>
-              <!-- </div> -->
-            </div>
+    <div class="index-right">
+    	<div class="index-title text-center">
+    		<h5><%= link_to event.title, event_path(event) %></h5>
+        <p>Created by: <%= link_to event.user.user_name, user_profile_path(event.user) %></p>
+    	</div>
+    	<div class="text-left index-games">
+    		<%= image_tag("icons/dice/green.png", size: '30', title: "games" ) %>
+        <%= render partial: 'shared/games', locals: { games: event.games }%>
+    	</div>
+    </div>
+
+    <div class="index-bottom align-bottom">
+    	<div>
+      	<p class="index-place">
+      		<%= image_tag("icons/shops/purple.png", size: '30', title: "place" ) %>
+        	<%= link_to event.venue.name, venue_path(event.venue) %>
+      	</p>
+    	</div>
+    	<div class="index-bottom-info">
+        <div>
+  	      <%= image_tag("icons/calendars/purple.png", size: '25', title: "date") %>
+          <%= event.date.strftime("%B #{event.date.day.ordinalize}") %>
           </div>
-        </div>
-        <!-- <div class="small-1 columns"></div> -->
+          <div>
+  	      <%= image_tag("icons/clocks/purple.png", size: '25', title: "time") %>
+  	      <%= event.time.strftime('%-I:%M%p') %>
+  	      </div>
+          <div>
+          <%= image_tag("icons/people/purple0.3.png", width: '15', title: "attendees") %> 
+  	      <span class="event-guest-number"><%= event.guests.length %></span>
+      	</div>
       </div>
-
-      <div class="row" >
-        <div class="small-3 columns event-first-column">
-          <p><%= event.date.strftime("%B #{event.date.day.ordinalize}") %></p>
-          <p><%= event.time.strftime('%-I:%M%p') %></p>
-        </div>
-        <div class="small-6 columns">
-          <%= render partial: 'shared/games', locals: { games: event.games }%>
-
-        </div>
-        <div class="small-3 columns">
-          <p class="">Created by: <%= link_to User.find(event.user_id).user_name, user_path(event.user_id) %></p>
-          <p><%= event.limit %></p>
-        </div>
+      <div class="index-bottom-notice">
+        <p></p>
       </div>
     </div>
+   
   </div>
 <% end %>

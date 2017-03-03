@@ -1,0 +1,12 @@
+<%= form_for [event, comment] do |f| %>
+	<% if event.deleted %>
+		<%= f.text_area :body, disabled: true, class: "cancel-fade" %>
+		<%= f.submit "Comment!", class: "button", id: "comment-button", disabled: true %>
+	<% elsif event.in_past? %>
+		<%= f.text_area :body, disabled: true, class: "past-event-fade" %>
+		<%= f.submit "Comment!", class: "button", id: "comment-button", disabled: true %>
+	<% else %>
+		<%= f.text_area :body %>
+		<%= f.submit "Comment!", class: "button", id: "comment-button" %>
+	<% end %>
+<% end %>

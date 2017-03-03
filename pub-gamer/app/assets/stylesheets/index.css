@@ -1,57 +1,282 @@
+
 .index-box {
-  color: #2B2936;
-  background-color: #EDD0AF;
-  border-radius: 7px;
-  min-width: 700px;
-  min-height: 200px;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
+  width: 30%;
+  margin: 2% 0px;
+  padding: 5px;
+  background-color: #FBEBD4;
+  opacity: 0.9;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  z-index: 1;
 }
 
-.index-box h5 {
+.index-left {
+  min-width: 110px;
+  max-width: 40%;
+  float: left;
+}
+
+.index-right {
+  /*position: relative;*/
+  max-height: 206px;
+  width: 59%;
+  float: left;
+  padding-top: 10px;
+  padding-right: 3px;
+}
+
+.index-middle {
+  clear: both;
+  width: 100%;
+  padding: 5px;
+  max-height: 90px;
+}
+
+.index-bottom {
+  clear: both;
+  width: 100%;
+  text-align: center;
+}
+
+.index-bottom p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px 0px 0px;
+}
+
+.index-location a {
+  color: #A893FF;
+  font-weight: bold;
+}
+
+.index-title {
+  font-size: 12px;
+  height: 100px;
+  margin-right: 20px;
+  padding: 0px 0px 3px 5px;
+}
+
+.index-title a {
+  color: #A893FF;
+}
+.index-title h5 {
+  z-index: 3;
   margin: 0px;
 }
 
-.index-box p {
-  margin: 0;
+.index-title h5 a {
+  line-height: 90%;
+  margin: 0px;
+  color: #2C1B13;
   font-weight: bold;
-}
-
-.index-pic {
-  background-color: #FFFFF0;
-  border-radius: 5px;
-  height: 155px;
-  width: 155px;
-  margin: 20px 0px 0px 15px;
-  background-image: url("octopus0.3opacity.png");
-  background-size: 100%;
-  text-align: center;
-}
-
-.index-box .button:hover {
-	 background-color: #827AA4;
-  color: #FFFFF0;
-}
-/*
-.index-pic {
-  background-color: #FFFFF0;
-  border-radius: 5px;
-  height: 155px;
-  width: 155px;
-  margin: 10px 0px 0px 5px;
-  background-image: url("octopus0.3opacity.png");
-  background-size: 100%;
-  text-align: center;
-  padding-top: 80%;
-}*/
-
-.index-title a {
-  color: #2B2936;
-  font-weight: bold;
-  font-size: 30px;
+  font-size: 26px;
 }
 
 .index-title a:hover {
-  color: #827AA4;
   text-decoration: underline;
 }
+
+.index-pic {
+  font-weight: bold;
+  margin: 0 auto;
+  background-color: #FFFFF0;
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
+  text-align: center;
+}
+
+.index-location {
+  padding-left: 5px;
+}
+
+@media only screen and (min-width: 640px) {
+  .index-main {
+    padding: 0px 20px;
+  }
+}
+
+.index-games {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.index-bottom-notice {
+  margin: 0px;
+  padding: 0px;
+  height: 26px;
+}
+
+.index-bottom-notice p {
+  margin: 0px;
+  padding: 0px;
+}
+
+.user-status {
+  position: absolute;
+  top: 10;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-size: 40px;
+  background-color: transparent;
+  z-index: 2;
+}
+
+.positive, .high-opacity {
+  opacity: 1;
+}
+
+.positive:hover {
+  opacity: 0.3;
+}
+
+.negative, .low-opacity {
+  opacity: 0.1;
+}
+
+.negative:hover {
+  opacity: 0.7;
+}
+
+.index-map-infowindow >* {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shop-background, .location-background {
+  display: inline-block;
+}
+
+.index-map-infowindow p {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+.index-map-infowindow h5 {
+  font-size: 20px;
+}
+
+.date-box {
+  width: 65%;
+  border-right: 1px solid rgba(44, 27, 19, 0.6);
+  padding-right: 5px;
+}
+.time-box {
+  width: 35%;
+  padding-left: 5px;
+}
+.date-box, .time-box {
+  margin: 0 auto;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 640px) {
+  .index-map-infowindow {
+    font-size: 24px;
+  }
+  .date-background, .time-background {
+    display: inline-block;
+  }
+  .date-box, .time-box {
+    border: none;
+    float: none;
+    padding: 0px;
+    display: inline-block;
+    text-align: left;
+    width: auto;
+  }
+}
+
+.shop-background, .location-background, .date-background, .time-background {
+  width: 20px;
+  height: 20px;
+  margin: 0px 5px 0px 10px;
+  background-size: contain;
+}
+.shop-background {
+  background-image: url(icons/shops/purple.png);
+}
+.location-background {
+  background-image: url(icons/location/purple.png);
+}
+.date-background {
+  background-image: url(icons/calendars/purple);
+}
+.time-background {
+  background-image: url(icons/clocks/purple);
+}
+
+.infowindow-events {
+  border-top: 1px dashed #2C1B13;
+  margin-top: 14px;
+  position: relative;
+}
+
+.infowindow-events img {
+  position: absolute;
+  top: 9px;
+  height: 20px;
+  width: 20px;
+}
+
+.infowindow-events .left {
+  left: 0px;
+}
+
+.infowindow-events .right {
+  right: 0px;
+}
+
+.infowindow-event {
+  display: none;
+}
+
+.not-hidden {
+  display: block;
+}
+
+.infowindow-event h5 {
+  margin: 4px 24px;
+  max-width: 210px;
+  overflow: hidden;
+}
+
+.infowindow-event p {
+  clear: both;
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.event-map-infowindow {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-map-infowindow .header h6 {
+  margin: 0px;
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+.event-map-infowindow .location-icon {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+}
+
+.location-icon .location-background {
+  margin: 0px;
+}
+

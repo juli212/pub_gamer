@@ -1,0 +1,38 @@
+
+/*.event-game, venue-create-game*/
+.update-game {
+	border: 1px solid #A893FF;
+	border-right: none;
+	float: center;
+	min-width: 20%;
+	display: inline-block;
+	border-radius: 7px;
+	padding: 0px 3px;
+	margin: 2px 1px;
+	height: 35px;
+}
+
+.update-game div {
+	height: 25px;
+	margin-top: -10px;
+}
+
+.update-game p, .update-game a {
+	font-size: 16px;
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+}
+
+.update-game a {
+	font-size: 12px;
+	font-weight: bold;
+	border: 1px solid;
+	padding: 0px 3px;
+	border-radius: 1px;
+}
+
+.update-game-input {
+	position: absolute;
+	display: none;
+}

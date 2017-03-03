@@ -4,6 +4,7 @@ class Neighborhood < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :name, uniqueness: true
+	validates_length_of :name, maximum: 30, message: "over character limit"
 
 	def self.neighborhood_search(term)
 		where("name ILIKE :term", term: "%#{term.downcase}%")

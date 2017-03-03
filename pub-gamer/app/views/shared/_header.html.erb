@@ -1,43 +1,41 @@
-<div class="row small-up-2 medium-up-4" id="header-row" >
-  <div class="small-2 medium-2 columns">
-    <% if current_user %>
-      <h2 id="page-header"><%= link_to "#{current_user.user_name}", user_path(current_user), id: "user" %></h2>
-    <% end %>
-  </div>
-  <div class="small-2 medium-2 center-align columns">
-    <% if current_user %>
-      <%= link_to "Logout", logout_path, method: :delete, class: "button", id: "logout-button" %>
-    <% else %>
-      <%= link_to "login", root_path %>
-    <% end %>
+<div class="top-bar">
+  <div class="row small-up-1 small-collapse expanded" id="header-images">
+    <div class="columns header-image" id="octopus-head-image">
+      <%= link_to image_tag("octopusHeaderWithGlassesBrown.png"), {method: "get", action: "index", controller: "welcome"}, id: 'octopus-1' %>
+      <%= link_to image_tag("octopusHeaderGlassesOffBrownOutline.png"), {method: "get", action: "index", controller: "welcome"}, id: 'octopus-2' %>
+    </div> 
+    <div class="columns header-image" id="head-image-text">
+      <%= link_to image_tag("headerImageNoOctopus.png"), method: "get", action: "index", controller: "welcome" %>
+    </div>
   </div>
 
-  <div class="small-10 medium-6 columns" >
-    <form id="search-form">
-      <div class="search">
+  <div class="row small-up-1 medium-up-2 small-collapse align-spaced expanded" id="header-bottom">
+    <div class="medium-order-2 columns" id="topbar-row-two">
+      <ul class="menu horizontal align-self-center has-dropdown" id="nav">
+        <% if logged_in? %>
+          <li><%= link_to "#{current_user.user_name}<span class='arrow'>&#9660;</span>".html_safe, nil, id: "user", class: "dropdown-arrow" %>
+            <ul class="header-dropdown">
+              <li><%= link_to "Profile", user_profile_path(current_user) %></li>
+              <% if @show %>
+                <li><%= link_to "Edit Profile", edit_user_path(current_user), id: "edit-user-profile", name: "#{current_user.id}" %></li>
+              <% end %>
+              <li><%= link_to "logout", logout_path(current_user), controller: "sessions", action: :destroy, method: :delete, id: "logout-link" %></li>
+              <li><%= link_to "delete profile", user_path(current_user), method: :delete, id: "delete-user-profile" %></li>
+            </ul>
+          </li>
+        <% end %>
+        <li><%= link_to "Venues", venues_path, id: "venues" %></li>
+        <li><%= link_to "Events", events_path, id: "events" %></li>
+        <li><%= link_to "About", about_index_path, id: "about" %></li>
+        <li><%= link_to "Contact", contact_index_path, id: "contact" %></li>
+        <% if !logged_in? %>
+          <li><%= link_to "Login", login_path, id: "user" %></li>
+        <% end %>
+      </ul>
+    </div>
 
-        <input id="search-txt" class="index-head" name="term" placeholder="game, address, name" autofocus autocomplete="on">
-
-        <div class="results" id="search-results"></div>
-      </div>
-      <%= submit_tag 'Search', class: "button index-head", id: "search-button" %>
-    </form>
+    <div class="medium-order-1 columns" id="topbar-row-three">
+      <%= render partial: '/shared/search_form' %>
+    </div>
   </div>
-  <div class="small-1 medium-1 columns" >
-  </div>
-<!--   <div class="small-2 columns center-align align-self-bottom" >
-  </div> -->
 </div>
-
-
-<!-- <div class="row align-spaced header-row" >
-	<div class="small-12 columns" id="page-header-bottom">
-	</div>
-</div>
-
-
-<div class="row">
-  <div class="small-12 columns">
-  <span id="side-bar-linebreak"></span>
-  </div>
-</div> -->

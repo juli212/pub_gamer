@@ -1,81 +1,96 @@
-#event-new-box form {
-  padding: 3%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-#event-create-form {
-  background-color: #2B2936;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  text-align: center;
-  font-size: 30px;
-  color: #FFFFF0;
-  max-width: 500px;
-}
-
-#event-create-form label {
-  color: #EDD0AF;
-  font-weight: bold;
-}
-
-#event-create-form input, #event-create-form textarea {
-  height: 35px;
-  border-radius: 10px;
-  background-color: #FFFFF0;
-  text-align: center;
+#event-venue-results ul {
+  font-size: 15px;
 }
 
 #event-create-form textarea {
-  height: 120px;
+  height: 60px;
+}
+
+#event-create-games {
+  height: 130px;
+  overflow-y: scroll;
+  border-bottom: 3px solid rgba(244, 174, 53, 0.3);
+}
+
+#event-add-game {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  margin-top: -10px;
+  border-bottom: 3px solid rgba(244, 174, 53, 0.3);
+}
+
+#event-add-game >* {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+
+#event-add-game button {
+  padding: 5px;
+  margin: 0px;
+}
+
+@media only screen and (min-width: 640px) {
+  #event-create-form textarea {
+    height: 120px;
+  }
+
+  #event-create-games {
+    min-height: 25%;
+  }
 }
 
 .game-button {
-  position: fixed;
   opacity: 0;
 }
 
+
 .event-game {
-  border: 2px solid #2B2936;
+  border: 1px solid #A893FF;
+  border-right: none;
   float: center;
-  min-width: 24%;
+  min-width: 20%;
   display: inline-block;
-  border-radius: 40%/45%;
-  padding: 0px 0px 20px;
+  border-radius: 7px;
+  padding: 0px 3px;
   margin: 2px 1px;
 }
-
-.event-game input {
-  height: 15px;
+.event-game div {
+  margin-top: -12px;
+  margin-bottom: -2px;
 }
 
-
-.event-game-label {
-  margin: 0px;
+.event-game p, .event-game a {
+  font-size: 16px;
+  display: inline-block;
   padding: 0px;
-  margin-top: -25px;
-  background-color: blue
-  color: green;
+  margin: 0px;
+  /*margin-top: -10px;*/
 }
 
-.event-game:hover {
-  border: 2px solid #FFFFF0;
-  background-color: #827AA4;
+.event-game a {
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid;
+  padding: 0px 3px;
+  border-radius: 1px;
 }
 
-.select-game {
-  background-color: #827AA4;
-  border: 2px solid #827AA4;
-}
-#event-create-button-div {
-  padding-top: 15px;
+#event-create-button-div, #event-edit-button-div {
   clear: left;
 }
 
 #event-create-submit-button {
-  background-color: #FFFFF0;
-  color: #2B2936;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 20px;
+  margin-top: 10px;
+}
+
+.event-create-game-input {
+  position: absolute;
+  display: none;
+}
+
+.event-date-time-row input {
+  padding: 4px;
+  font-size: 14px;
 }

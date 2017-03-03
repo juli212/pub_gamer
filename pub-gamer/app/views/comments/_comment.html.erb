@@ -1,0 +1,4 @@
+	<div class="event-comment">
+		<p class="text-center"><%= comment.body %></p>
+		<h6 class="text-center">-<%= link_to comment.username, user_path(comment.user_id) %><span class="comment-date text-right"><%= comment.comment_date %></span></h6>
+	</div>

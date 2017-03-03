@@ -1,26 +1,30 @@
-<!-- <div class="row align-center hide-for-small-only">
-	<div class="small-12 medium-10 columns">
-		<h1>Pub Gamer</h1>
-	</div>
-</div> -->
-<div class="row" id="welcome-box">
-	<div class="small-12 columns welcome-column">
-    <div class="welcome-button-box">
-      <a id="login" href="/login">Login</a>
-    </div>
+
+<%= render partial: 'shared/error_display', locals: { errors: @errors } %>
+
+<div class="row small-up-1 medium-up-2" id="welcome-box align-spaced">
+
+  <div class="columns welcome-button-box">
+    <a class="button" id="login" href="/login">Login</a>
     <div class="welcome-form-box">
       <%= render partial: '/sessions/login_form' %>
     </div>
-<!--   </div>
-  <div class="small-12 columns welcome-column"> -->
-    <div class="welcome-button-box">
-      <a id="register" href="/users/new">Register</a>
-    </div>
+  </div>
+
+  <div class="columns welcome-button-box">
+    <a class="button" id="register" href="/users/new">Join</a>
     <div class="welcome-form-box">
-      <%= render partial: '/users/registration_form' %>
+      <%= render partial: '/users/registration_form', locals: { user: @user } %>
     </div>
   </div>
 </div>
 
 <div id="form-box">
 </div>
+
+<div class="row columns text-center">
+  <%= render partial: '/shared/octopuzzle' %>
+</div>
+
+<script type="text/javascript">
+  welcomePage()  
+</script>

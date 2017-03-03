@@ -1,0 +1,202 @@
+#profile-pic {
+	width: 130px;
+	float: left;
+}
+
+#profile-pic img {
+	border-radius: 2px;
+	border: 5px solid #FBEBD4;
+}
+
+.user-bio {
+	width: auto;
+	min-height: 135px;
+	max-height: 150px;
+	overflow-y: scroll;
+	margin-left: 130px;
+	border-bottom: 1px dotted;
+	background-color: rgba(251, 235, 212, 0.3);
+}
+
+@media only screen and (min-width: 640px) {
+	.user-bio {
+		max-height: 200px;
+	}
+}
+
+.user-bio::-webkit-scrollbar { 
+    display: none; 
+}
+
+.user-bio div {
+	display: flex;
+	padding: 0px;
+	margin: 0px;
+}
+
+.user-bio div p {
+	/*background-color: white;*/
+	display: inline;
+	line-height: 16px;
+	border-radius: 3px;
+	padding: 2px 5px;
+	margin: 1px 2px 0px;
+	background-color: rgba(251, 235, 212, 0.7);
+}
+
+.user-show-top {
+	border-radius: 5%;
+	border-bottom: 8px solid rgba(251, 235, 212, 0.4);
+	margin-bottom: 8px;
+}
+
+.user-show-bottom {
+	clear: both;
+}
+
+.user-scroll-box {
+	width: 100%;
+	height: 150px;
+	margin-bottom: 70px;
+}
+
+.user-button-row {
+	height: 28px;
+	padding: 0px 10px;
+}
+
+.user-button-row .button {
+	padding: 5px;
+	display: inline-block;
+}
+
+.user-button-row h4 {
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+@media only screen and (min-width: 640px) {
+	.user-button-row {
+		max-width: 450px;
+		height: 42px;
+		padding: 0px;
+		padding-left: 25%;
+		padding-right: 5%;
+	}
+	.user-button-row .button {
+		padding: 10px 15px;
+	}
+}
+@media only screen and (min-width: 1024px) {
+	.user-button-row {
+		padding-left: 29%;
+		padding-right: 20%;
+	}
+}
+
+.outside-user-scroll {
+	min-width: 250px;
+	max-width: 1150px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+	border-radius: 5px;
+	margin: 0 auto;
+	border-bottom: 5px solid #2C1B13;
+	border-top: 5px solid #2C1B13;
+	margin-bottom: 40px;
+}
+
+.inside-user-scroll {
+	height: 150px;
+	min-width: 200px;
+}
+
+.inside-user-scroll::-webkit-scrollbar {
+ display: none;
+}
+
+.user-event {
+	background: rgba(251, 235, 212, 0.7);
+	display: inline;
+	float: left;
+	overflow: hidden;
+	width: 200px;
+	height: 150px;
+	max-height: 150px;
+	padding: 5px 10px;
+	margin: 0px 10px;
+}
+
+.user-event h4 {
+	border-bottom: 1px solid #2C1B13;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.deleted-event {
+	opacity: 0.6;
+	background-image: url("cancelledLowOpacity.png");
+	background-size: 100% 100%;
+}
+
+.game-img {
+	float:left;
+}
+
+#profile-bottom-space {
+	height: 30px;
+}
+
+@media only screen and (min-width: 640px) {
+	.user-scroll-box {
+		height: 200px;
+	}
+
+	.outside-user-scroll::-webkit-scrollbar {
+ 		display: none;
+	}
+
+	.inside-user-scroll {
+		height: 200px;
+	}
+	.user-event {
+		width: 300px;
+		min-height: 200px;
+	}
+
+	#profile-bottom-space {
+		height: 50px;
+	}
+}
+
+.user-show-game {
+	display: inline-block;
+	float: left;
+	/*border-radius: 5px;*/
+	margin: 3px;
+	padding: 4px 8px;
+	/*height: 35px;*/
+	color: #FFFFF0;
+	border-top-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-bottom: 1px solid #F4AE35;
+	background-color: #2C1B13;
+}
+
+#user-favorites .outside-user-scroll {
+	margin-top: 0px;
+}
+#user-favorites .user-button-row {
+	margin-top: 40px;
+}
+
+#edit-user-profile-box {
+	/*clear: both;*/
+}
+
+#edit-password-link {
+	font-size: 14px;
+	font-weight: normal;
+}

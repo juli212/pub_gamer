@@ -4,24 +4,51 @@
   border-radius: 20px;
   display: block;
   text-align: center;
+  max-width: 180px;
+  margin: 0 auto;
+  margin-bottom: 5px;
 }
 
-#venue-create-link:hover {
-	color: #FFFFF0;
-  background-color: #827AA4;
+.venue-index-rating-box {
+	display: inline-block;
+	width: 75%;
 }
 
-.favorited-venue {
-	border-bottom: 2px solid white;
-	margin-bottom: 10px;
-	padding-bottom: 5px;
+.fav-button-div {
+	display: inline-block;
 }
 
-.venue-index-content {
-	padding-top: 10px;
+.venue-index-remove-button, .venue-index-fav-button {
+	padding: 0px;
+	margin: 0px;
+	width: 50px;
+	height: 50px;
+	background-size: 50px;
+	/*border: 2px solid #2C1B13;*/
+	background-color: transparent;
 }
 
-.venue-index-bottom {
-	padding-right: 40px;
+#toggle-venue-view-links p {
+	font-size: 17px;
+	font-weight: normal;
+	color: #2C1B13;
+	text-decoration: none;
+}
+#toggle-venue-view-links a {
+	color: #2C1B13;
+	font-weight: bold;
+	text-decoration: underline;
+	padding: 4px 5px;
+	border-radius: 4px;
+}
+
+.view-box {
+	display: none;
+}
+
+.selected-view {
+	font-weight: normal;
+	background-color: rgba(168, 147, 255, 0.6);
+	text-decoration: none;
 }
 

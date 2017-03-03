@@ -1,10 +1,30 @@
+#welcome-box {
+	margin: 5% 7% 0px;
+}
 
 .welcome-button-box {
 	border-radius: 20px;
-	background-color: #2B2936;
-	/*margin: 200px 20%;*/
-	margin: 15%;
+	margin: 10% 0px 0px;
 	text-align: center;
+}
+
+.welcome-button-box a {
+	max-width: 240px;
+	height: 110px;
+	margin: 0 auto;
+	padding: 30px 0px 25px;
+	font-size: 40px;
+	font-weight: bold;
+	display: block;	
+	/*color: #2C1B13;*/
+	background-color: rgba(44, 27, 19, 1);
+	color: #A893FF;
+}
+
+.welcome-button-box a:hover {
+	color: #A893FF;
+	background-color: rgba(44, 27, 19, 0.7);
+	text-decoration: none;
 }
 
 .welcome-form-box {
@@ -12,98 +32,92 @@
 	position: fixed;
 }
 
-#new-login form {
-	margin-top: 30%;
-	padding: 30px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+@media only screen and (min-width: 640px) {
+	#welcome-button-box {
+		margin-top: 15%;
+	}
 }
 
-.welcome-column a {
-	padding: 10px 0px;
-	color: #EDD0AF;
-	font-size: 46px;
-	font-weight: bold;
-	display: block;
-}
-
-
-#form-box {
-	width: 20%;
-	min-width: 180px;
-	margin: 0px 40%;
-	/*position: fixed;*/
-	top: 10%;
-	text-align: center;
-	max-width: 300px;
-}
-
-#login-form, #new_user {
-	min-width: 150px;
-	margin: 0 auto;
-	padding: 30px 30px;
-	background-color: #2B2936;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	font-size: 30px;
-	text-align: center;
-}
-
-#login-form h4, #new_user h4 {
-	color: #FFFFF0;
-	text-align: center;
-}
-
-#login-form input, #new_user input {
-	height: 35px;
-	border-radius: 10px;
-	background-color: #FFFFF0;
-}
-
-#login-button, #register-button {
-	padding: 10px;
-	margin: 15px 0px 0px;
-	background-color: #FFFFF0;
-	color: #2B2936;
-}
-
-.ui-dialog-titlebar {
-	min-height: 30px;
-	background-color: #2B2936;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-}
-.ui-dialog-titlebar > * {
-	position: absolute;
-	right: 10px;
-	top: 7px;
+#choose-pic-text {
+	font-size: 16px;
 	color: white;
-	height: 15px;
-	margin: 0 auto;
+}
+#user_photo {
+	color: #2C1B13;
+	/*border-radius: 3px;*/
+	font-size: 16px;
 }
 
-.ui-dialog-titlebar > *:hover {
-	background-color: transparent;
+#user-birthday {
+	color: #FFFFF0;
+	font-size: 16px;
+	height: 35px;
+	padding: 0px;
+	margin: 0px;
 }
 
 @media only screen and (min-width: 640px) {
-
-/*}*/
-
-/*@media only screen and (min-width: 40.0em) { */
-	#welcome-box {
-		/*margin-left: 200px;*/
-	}
-	.welcome-button-box {
-		width: 40%;
-		padding: 0px;
-		margin: 0;
-		/*display: block;*/
-		float: left;
-		margin: 15% 5%;
-	}
-	.welcome-button-box a {
-		/*padding: 0px 20px;*/
-		font-size: 36px;
+	#login-form input, #new_user input, .edit_user input {
+		height: 35px;
 	}
 }
+
+#new_user select, .edit_user select {
+	height: 35px;
+	background-color: #FFFFF0;
+	/*padding: 0;*/
+	border-radius: 10px;
+	/*width: 30%;*/
+	margin: 0px;
+	position: relative;
+	top: 0;
+	/*margin-top: -30px;*/
+}
+
+.edit_user .submit-button {
+	margin-top: 0px;
+}
+
+#user_bio {
+	background-color: #FFFFF0;
+	border-radius: 10px;
+	font-size: 12px;
+}
+
+@media only screen and (min-width: 640px) {
+	#user_bio {
+		min-height: 140px;
+		max-height: 190px;
+		margin-top: 20px;
+		font-size: 16px;
+		margin-top: 0px;
+	}
+
+	.up-16 {
+		margin-top: -16px;
+	}
+}
+
+#user-birthday-label {
+	display: inline-block;
+	margin: 0px;
+	width: 25%;
+}
+
+#user_birthday_1i, #user_birthday_2i, #user_birthday_3i {
+	padding: 4px 16px 4px 6px;
+	font-size: 14px;
+}
+
+#user_birthday_1i {
+	margin-top: -10px;
+	width: 20%;
+}
+
+#user_birthday_2i {
+	width: 30%;
+}
+#user_birthday_3i {
+	width: 15%;
+}
+

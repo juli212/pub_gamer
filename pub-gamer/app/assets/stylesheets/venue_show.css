@@ -1,5 +1,66 @@
-#venue-show h2{
+#venue-show {
+	position: relative;
+}
+
+#venue-show h2 {
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
 	/*color: white;*/
+}
+
+#venue-show p {
+	text-align: center;
+}
+
+@media only screen and (min-width: 640px) {
+	#venue-show h2 {
+		font-size: 40px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	#venue-show h2 {
+		font-size: 60px;
+		/*font-weight: bold;*/
+		text-align: left;
+	}
+	#venue-show p {
+		text-align: left;
+	}
+}
+
+.show-favorite-notice p {
+	background: #F4AE35;
+	border-radius: 5px;
+}
+
+#view-map, #add-game-link, #add-game-button {
+	padding: 2px 8px;
+	border-radius: 10px;
+	background-color: #FBEBD4;
+	border: 1px solid #A893FF;
+}
+
+#add-game-link {
+	display: inline-block;
+}
+
+#add-games, #cancel-add-game-link {
+	display: none;
+}
+
+#add-game-input {
+	width: 80%;
+	margin: 0 10%;
+	border-radius: 10px;
+}
+
+@media only screen and (min-width: 640px){
+	#add-game-input {
+		width: 30%;
+		margin: 0 35%;
+	}
 }
 
 #venue-show-button-row .button {
@@ -13,87 +74,99 @@
   background-color: #827AA4;
 }
 
-/*#new-review-button {
-	padding: 20px;
-	font-size: 25px;
-	border-radius: 20px;
-	display: block;
-	text-align: center;
-}
-
-#venue-event-create-link {
-	margin-top: 15px;
-  padding: 20px;
-  font-size: 25px;
-  border-radius: 20px;
-  display: block;
-  text-align: center;
-  width: 70%;
-}
-
-#venue-event-create-link:hover, #new-review-button:hover {
-}
-
-#fav {
-	width: 100px;
-	height: 60px;
-	margin: 25px 0px 0px 10px;
-	white-space: normal;
-	border-radius: 10px;
-	font-weight: bold;
-}*/
-
-.review-show-row {
-	color: #2B2936;
-  background-color: #EDD0AF;
-  border-radius: 7px;
-  min-width: 400px;
-  min-height: 120px;
-  padding: 0px 30px 10px 0px;
-  margin-bottom: 15px;
+#review-index {
+  width: 90%;	
+	margin: 0px 5%;
 }
 
 .review-show-bottom-row {
 	border-top: 2px solid #FFFFF0;
 }
 
-#reviews {
-/*	border-left: 2px solid;
-	padding-left: 10px;*/
+.review-info-row {
+	border-top: 1px solid #2C1B13;
+	/*border-bottom-left-radius: 10px;*/
+	/*border-bottom-right-radius: 10px;*/
 }
 
-#review-index {
-/*	padding: 5px 0px 15px 0px;
-	margin-bottom: 30px;*/
+#review-content {
+	text-align: center;
+	padding: 10px;
+	height: 250px;
+	overflow-y: scroll;
+	color: #2C1B13;
+	border-top: 5px solid rgba(44, 27, 19, 0.7);
+	border-left: 1px solid rgba(44, 27, 19, 0.5);
+	border-right: 1px solid rgba(44, 27, 19, 0.5);
+	/*border-top: 3px solid #2C1B13;*/
+	background-color: #FFFFF0;
+}
+
+#review-content p {
+	line-height: 10px;
+}
+
+/*@media only screen and (min-width: 640px){
+	#full-review-content {}
+}*/
+
+.review-info-box {
+	padding: 10px 0px 0px 1%;
+	border-right: 7px solid rgba(44, 27, 19, 0.9);
+	border-bottom: 3px solid rgba(44, 27, 19, 0.9);
+	/*border-bottom: 3px solid #31AB3C;*/
+	/*border-right: 7px solid #31AB3C;*/
+	border-left: 5px solid transparent;
+	background-clip: padding-box;
+	border-bottom-right-radius: 30px;
+	/*background-color: #FBEBD4;*/
+	/*opacity: 0.9;*/
+	background-color: rgba(251, 235, 212, 0.8);
+	margin: 10px 0px;
+}
+
+@media only screen and (min-width: 640px){
+	.review-info-box {
+		padding-left: 8px;
+	}
+}
+
+.review-info-row {
+	background-color: #FBEBD4;
+	margin: 0px;
+	padding: 10px;
+	border-bottom: #31AB3C;
+}
+
+.review-bottom-row {
+	position: relative;
+	bottom: 0;
+	background-color: #FBEBD4;
+	border: none;
+	border-top: 1px solid #31AB3C;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.reviewed-by {
+	 border-top: 3px solid rgba(251, 235, 212, 1.0);
+	/*border-top: 3px solid green;*/
+}
+
+.delete-review {
+	font-size: 12px;
 }
 
 .review-date {
-/*	font-size: 13px;
-	font-weight: bold;
-	margin: 0px;
-	border-bottom: 1px solid;
-	margin-right: 30px;*/
-}
-
-.review-rating {
-	/*padding-top: 10px;*/
-}
-
-.review-content {
-	padding-top: 30px;
-}
-
-.review-info-box {
-	padding-top: 10px;
-	border-bottom: 1px solid #FFFFF0;
-	border-right: 7px solid #FFFFF0;
-	border-bottom-right-radius: 30px;
+	font-size: 11px;
 }
 
 #avg-rating {
 	font-size: 20px;
-	width: 260px;
-	height: 170px;
+	width: 250px;
+	height: 80px;
+	/*height: 170px;*/
+	margin: 0 auto;
 }
 
 #rate-avg-rating {
@@ -109,37 +182,25 @@
 
 #venue-games {
 	padding-bottom: 30px;
-	/*margin-bottom: 40px;*/
-	border-bottom: 5px solid #EDD0AF;
 }
 
-.display-game {
-	/*text-align: center;*/
-	display: inline-block;
-	font-weight: bold;
-	color: #FFFFF0;
-	background-color: #827AA4;
-	border-radius: 30%;
-	/*border: 1px solid;*/
-	padding: 4px 8px;
-	min-width: 60px;
-	height: 35px;
-	margin: 0px 10px 5px 0px;
-	/*float: center;*/
+#show-map {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+#view-venue-on-map {
+	margin-top: 30px;
 }
 
 #submit-review {
 	font-weight: bold;
-	/*background-color: white;*/
 }
 
 #submit-review button {
 	padding: 15px 20px;
 	border-radius: 10px;
-}
-
-.formatted-review {
-	/*line-height: .3;*/
 }
 
 #octopus-avg-rating {
@@ -155,8 +216,11 @@
 }
 
 #dimmed {
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
   opacity: .3;
   background: url("octopus.png") right;
+  background-color: #FBEBD4;
   background-size: 50px 50px;
   width: 250px;
   height: 50px;
@@ -164,9 +228,81 @@
 }
 
 #opaque {
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
   background: url("octopus.png") left;
+	background-color: #FBEBD4;
   background-size: 50px 50px;
   width: 0px;
   height: 50px;
   float: left;
+}
+
+#venue-show-list li a {
+	margin: 0;
+	width: 120px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+#venue-show-list li {
+	border: none;
+	margin: 0;
+}
+
+#venue-show-dropdown {
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding: 0;
+	margin: 0;
+	width: 160px;
+	position: absolute;
+	z-index: 7;
+	border: none;
+	background-color: #A893FF;
+	display: none;
+}
+
+#venue-show-dropdown li {
+	display: block;
+	border: none;
+	height: 40px;
+}
+
+#venue-show-dropdown li a {
+	color: #2C1B13;
+}
+
+.show-title {
+	position: relative;
+}
+
+#venue-show {
+	z-index: 1;
+}
+
+#venue-show h2 {
+	display: inline;
+	position: relative;
+	z-index: 3;
+}
+
+#get-venue-address {
+	/*display: inline;*/
+	position: relative;
+	z-index: 3;
+}
+
+#venue-show .user-status {
+	right: 10px;
+	width: 90px;
+	height: 90px;
+	/*z-index: 2;*/
+}
+
+@media only screen and (min-width: 640px){
+	#venue-show .user-status {
+		right: 5px;
+	}
 }

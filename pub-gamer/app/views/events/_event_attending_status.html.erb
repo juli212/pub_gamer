@@ -1,0 +1,7 @@
+<% if event.user == current_user %>
+  <%= render partial: 'user_event_buttons', locals: { event: event } %>
+<% elsif event.attending_event?(current_user) %>
+  <%= render partial: 'leave_event_button', locals: { event: event } %>
+<% else %>
+  <%= render partial: 'join_event_button', locals: { event: event } %>
+<% end %>

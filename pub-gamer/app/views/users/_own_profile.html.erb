@@ -1,0 +1,10 @@
+<div class="row align-spaced user-show-bottom">
+	<div class="columns" id="user-events">
+		<%= render partial: 'user_events', locals: { user: user, events: user.upcoming_events } %>
+	</div>
+</div>
+<div class="row align-spaced user-show-bottom">
+	<div class="columns" id="user-favorites">
+		<%= render partial: 'user_favorites', locals: { user: user, venues: user.favorites } %>
+	</div>
+</div>

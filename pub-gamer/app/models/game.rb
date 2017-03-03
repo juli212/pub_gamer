@@ -1,4 +1,6 @@
 class Game < ActiveRecord::Base
+	# include FormUpdater
+
 	has_many :venue_games
 	has_many :venues, through: :venue_games
 	has_many :event_games
@@ -7,11 +9,14 @@ class Game < ActiveRecord::Base
 	validates :name, presence: true
 	validates :name, uniqueness: true
 
+	validates_length_of :name, maximum: 25, message: "over character limit"
+
+
 	def self.game_search(term)
 		where("name ILIKE :term", term: "%#{term.downcase}%")
 	end
 
-	def self.add_to_venue(term)
+	def self.add_game(term)
 		where("name ILIKE :term", term: "#{term.downcase}%")
 	end
 

@@ -1,30 +1,28 @@
-$(document).ready(function() {
-	$header = $('#page-header')
+$(window).load(function() {
 	$path = window.location.pathname
 	if ($path == "/" || $path == "") {
-		$('#header-row').remove();
+		$('#header-bottom').remove();
 	}	else if ($path.includes("event")) {
-		$('#events').css('color','#EDD0AF');
-		$('#events').css('background-color', '#635A8E');
-		// $header.text("Events");
-		$('#search-form').attr("action", "/events/search");
+		$('#search-form').attr("action", "/events/search").attr('name', 'events');
+		$('#events').addClass('header-underline')
 	} else if ($path.includes("venue")) {
-		$('#venues').css('color','#EDD0AF');
-		$('#venues').css('background-color', '#635A8E');
-		// $header.text("Venues");
-		$('#search-form').attr("action", "/venues/search");
-	} else if ($path.includes("user")){
-		$('#user').css('color','#EDD0AF');
-		$('#user').css('background-color', '#635A8E');
-		// $header.text("Profile");
+		$('#search-form').attr("action", "/venues/search").attr('name', 'venues');
+		$('#venues').addClass('header-underline')
+	} else if ($path.includes("profile")){
+		$('#topbar-row-three').remove()
+		$('#user').addClass('header-underline')
 	} else if ($path.includes("contact")){
-		$('#contact').css('color','#EDD0AF');
-		$('#contact').css('background-color', '#635A8E');
-		// $header.text("Contact");
+		$('#topbar-row-three').remove()
+		$('#contact').addClass('header-underline')
 	} else if ($path.includes("about")){
-		$('#about').css('color','#EDD0AF');
-		$('#about').css('background-color', '#635A8E');
-		// $header.text("About Us");
+		$('#topbar-row-three').remove()
+		$('#about').addClass('header-underline')
 	}
+	$('#header-images').mouseover(function(event){
+		$('#octopus-head-image a').toggle()
+	})
+	$('#header-images').mouseout(function(event){
+		$('#octopus-head-image a').toggle()
+	})
 });
 

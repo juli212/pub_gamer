@@ -7,14 +7,19 @@
   text-align: center;
 }
 
-#event-create-link:hover {
-  color: #FFFFF0;
-  background-color: #827AA4;
-}
-
 #event-create-box {
   visibility: hidden;
   position: fixed;
 }
 
+.event-status {
+	padding: 10px 15px 0px;
+}
 
+.event-status form input {
+	margin-bottom: 0px;
+}
+
+.index-bottom-info div {
+	display: inline-block;
+}

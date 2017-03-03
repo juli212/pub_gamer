@@ -1,69 +1,61 @@
-// $(document).ready(function() {
-// });
-
 $(document).ready(function() {
-  $('.event-game').on('click', function(event){
-    clicked_div = event.target.closest('.event-game')
-    $(clicked_div).toggleClass('select-game');
-    $(clicked_div).find('input').prop('checked', !$(clicked_div).find('input').prop('checked'));
-  })
-  $("#event-create-container").dialog({
-    modal: true,
-    autoOpen: false,
-    minHeight: 500,
-    width: 500,
-    // appendTo: '#event-create-ajax-div',
-    position: ({ my:"top", at: "bottom", of: "#header-row"}),
-    show: {
-        effect: "blind",
-        duration: 1000
-    },
-    hide: {
-        effect: "explode",
-        duration: 1000
-    }
-  });
 
-  $('#event-create-link').on('click', function(event){
-    event.preventDefault()
+  var openEventForm = function() {
+    resetEventForm();
+    // openFunction();
     if (window.location.pathname.includes("venue") ) {
       barName = $('#venue-name').text()
-      barAddress = $('#venue-address').text()
+      barAddress = $('#get-venue-address').text()
       $('#event_location').val(barName);
       $('#event_location').prop('readonly', true);
       $('#event_address').val(barAddress);
       $('#event_address').prop('readonly', true);
     }
+  }
+
+  var resetEventForm = function() {
+    $('#event-create-form')[0].reset();
+    $('.select-game').removeClass('select-game');
+  }
+  $("#event-create-container").dialog(dialogOptions, {
+    open: openEventForm,
+    position: ({ my: 'middle top', at: 'middle top+50', of: window, collision: 'fit' }),
+    close: resetEventForm
+  })
+
+  $('#event-create-container, #edit-event-box').on('click', '#add-new-game', function(event){
+    event.preventDefault();
+    $target = $(this).closest('#event-add-game').find('#new-game-field')
+    $.ajax({
+      url: "/games/add_game",
+      method: "post",
+      data: $target.serialize()
+    }).done(function(response){
+      $('#event-create-games').append(response)
+      $('#new-game-field').val("")
+    })
+  })
+
+  $('#event-create-container, #edit-event-box').on('click', '.remove-game-button', function(event){
+    event.preventDefault(); 
+    $(this).closest('.update-game').remove()
+  })
+
+  $('#venue-event-create-link, #event-create-link').on('click', function(event){
+    event.preventDefault();
     $("#event-create-container").dialog('open');
   })
 
-  $('#venue-event-create-link').on('click', function(event){
-    event.preventDefault()
-    if (window.location.pathname.includes("venue") ) {
-      barName = $('#venue-name').text()
-      barAddress = $('#venue-address').text()
-      $('#event_location').val(barName);
-      $('#event_location').prop('readonly', true);
-      $('#event_address').val(barAddress);
-      $('#event_address').prop('readonly', true);
+  var noGames = function() {
+    var go = confirm("You have not added any games. Do you want to continue without adding any?");
+    if (go == false) {
+      event.preventDefault();
     }
-    $("#event-create-container").dialog('open');
-  })
-  // $('#event-create-form').on('submit', function(event){
-  //   $target = $(event.target)
-  //   $.ajax({
-  //     url: $target.attr('action'),
-  //     method: $target.attr('method'),
-  //     data: $target.serialize()
-  //   })
-  //   .done(function(){
-  //   })
-  //   .fail(function(response){
-  //     event.preventDefault()
-  //     // debugger;
-  //     $('#event-create-container').html(response);
-  //     // $('#event-create-container').prepend(response);
-  //   })
-  // })
+  }
 
+  $('#event-create-form').on('submit', function(event){
+    if ( $('#event-create-games').find('.update-game').length <= 0 ) {
+      noGames()
+    }
+  })
 });

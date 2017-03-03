@@ -1,0 +1,14 @@
+var notice = $target.closest('.fav-holder').find('.fav-notice')
+
+<% if @user.favorite_added?(@old_fav_num) %>
+	var note = "Favorite Added"
+	$target.closest('.index-box').find('.user-status img').switchClass('negative', 'positive');
+	$target.replaceWith("<%= j render partial: 'venues/remove_favorite_heart', locals: { venue: @venue } %>");
+<% else %>
+	var note = "Favorite Removed"
+	$target.closest('.index-box').find('.user-status img').switchClass('positive', 'negative');
+	$target.replaceWith("<%= j render partial: 'venues/add_favorite_heart', locals: { venue: @venue } %>");
+<% end %>
+
+// in venue_favorite.js
+favTimer(notice, note);

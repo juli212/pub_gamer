@@ -4,7 +4,11 @@ class Review < ActiveRecord::Base
   has_many :review_vibes
   has_many :vibes, through: :review_vibes
 
-  validates :content, :venue_id, :user_id, presence: true
+  validates :content, :venue_id, :user_id, :rating, presence: true
+  validates_inclusion_of :rating, in: 1..5
+  validates_length_of :content, maximum: 500, message: "over character limit"
+  validates_length_of :week, maximum: 15, message: "over character limit"
+
 
   def review_date
   	# date = self.created_at.strftime("%a, %B %d, %Y")
@@ -14,7 +18,8 @@ class Review < ActiveRecord::Base
   end
 
   def split_full_content
-    self.content.split("\r\n").join
+    self.content.split("\r\n")
+    # self.content.split("\r\n").join
   end
 
   def split_content

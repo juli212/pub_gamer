@@ -1,8 +1,5 @@
-<!-- <div id="rate-avg-rating" class="text-center">
-	<p class="text-center" id="avg-rating-multiplier" value="<%= current_rating %>"></p>
-</div> -->
 <div id="octopus-avg-rating" value="<%= current_rating %>">
   <div id="dimmed"></div>
   <div id="opaque"></div>
-	<p><%= current_rating %> avg from <%= @venue.reviews.length %> reviews</p>
+	<p><%= current_rating %> avg from <%= @venue.not_deleted_reviews.length %> reviews</p>
 </div>

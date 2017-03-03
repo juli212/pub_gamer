@@ -1,31 +1,38 @@
-<h3>Welcome, <%=@user.user_name%>!</h3>
-
-<div><%=link_to("Venues", venues_path)%></div>
-<div><%=link_to("Events", events_path)%></div>
-
-<h4>Favorites<h4>
-<% if @user.has_favorites? %>
-	<% @favorites.each do |favorite| %>
-		<%= link_to(favorite.name, venue_path(favorite)) %>
+<%- title "#{current_user.user_name}" %>
+<div class="row align-spaced">
+	<% if @user == current_user %>
+		<div class="small-8 medium-10 large-6 columns text-center">
+			<h2>Welcome</h2>
+		</div>
+	<% else %>
+		<div class="small-10 large-6 columns text-center">
+			<h2><%= @user.user_name%>'s profile!</h2>
+		</div>
 	<% end %>
-<% else %>
-	<p>You have no favorites :(</p>
-<% end %>
+	
+</div>
 
-<h4>Upcoming Events</h4>
-<% if @user.has_upcoming_events? %>
-	<% @upcoming_events.each do |event| %>
-		<%= link_to(event.title, event_path(event)) %>
-	<% end %>
-<% else %>
-	<p>You have no upcoming events :(</p>
-<% end %>
+<div class="row columns align-spaced user-show-top">
+	<div class="text-center" id="profile-pic">
+		<% if @user.photo.file? %>
+			<%= image_tag @user.photo.url(:small), size: "100x100" %>
+		<% else %>
+			<%= render partial: 'shared/no_photo_added' %>
+		<% end %>
+		<% if @user == current_user %>
+		<p><%= link_to "Edit Profile", edit_user_path(current_user.id), id: "edit-own-profile", name: "#{current_user.id}" %></p>
+		<% end %>
+	</div>
+	<div class="user-bio">
+		<% @user.display_bio.each do |line| %>
+			<div><p><%= line %></p></div>
+		<% end %>
+	</div>
+</div>
 
-<h4>Your Events</h4>
-<% if @user.has_created_events? %>
-	<% @created_events.each do |event| %>
-		<%= link_to(event.title, event_path(event)) %>
-	<% end %>
-<% else %>
-	<p>You have not created events :(</p>
-<% end %>
+<div id="edit-user-profile-box"></div>
+	<% if @user == current_user %>
+		<%= render partial: 'own_profile', locals: { user: @user } %>
+	<% elsif logged_in? %>
+		<%= render partial: 'other_profile', locals: { user: @user } %>
+<% end%>

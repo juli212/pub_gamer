@@ -1,0 +1,5 @@
+<% if current_user.has_favorited?(venue) %>
+  <%= render partial: 'venues/index_remove_favorite', locals: { venue: venue } %>
+<% else %>
+	<%= render partial: 'venues/index_add_favorite', locals: { venue: venue } %>
+<% end %>

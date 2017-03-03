@@ -1,25 +1,258 @@
-#header-row {
-  color: #FFFFF0;
-  background-color: #EDD0AF;
-  border-bottom: 6px solid #2B2936;
-  padding-bottom: 35px;
-  margin-bottom: 10px;
+
+.top-bar {
+  margin: 0px;
+  padding: 0px;
+  min-width: 100%;
+  width: 100%;
+  background-color: transparent;
+  /*background-color: #FBEBD4;*/
+  color: #F4AE35;
+  border-bottom: 2px solid #31AB3C;
 }
 
-#page-header {
-  padding: 50px 0px 0px 15px;
-  color: #2B2936;
+/*.top-bar img {*/
+#header-images {
+  width: 100%;
+  background-color: rgba(44, 27, 19, 0.8);
+  /*background-color: rgba(72, 0, 0, 0.4);*/
+  padding: 10px 5px;
+  background: radial-gradient(
+    at 60% 35%,
+    rgba(44, 27, 19, 0.3), 
+    rgba(44, 27, 19, 0.8),
+    rgba(44, 27, 19, 0.9),
+    rgba(44, 27, 19, 1.0),
+    rgba(44, 27, 19, 1.0)
+  );
+}
+
+.header-image{
+  display: inline-block;
+}
+
+.header-image a {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.header-image a img {
+  margin: 0px;
+  padding: 0px;
+}
+
+#octopus-head-image {
+  max-width: 18.5%;
+  position: relative;
+}
+
+#octopus-1, #octopus-2 {
+  position: absolute;
+}
+
+#octopus-1 {
+}
+
+#octopus-2 {
+  display: none;
+}
+
+#head-image-text {
+  max-width: 81.5%;
+}
+
+.top-bar a {
+  color: #2C1B13;
   font-weight: bold;
 }
 
-#logout-button {
-  margin-top: 52px;
-/*  position: relative;
-  margin: 0px;*/
+#header-bottom {
+  background-color: #FBEBD4;
+}
+
+#nav {
+  background-color: #FBEBD4;
+  width: 100%;
+  display: flex;
+}
+
+#nav li {
+  width: 20%;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  font-size: 15px;
+  text-align: center;
+}
+
+#nav li a {
+  padding: 20px 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+#nav .arrow {
+  position: absolute;
+  margin: auto;
+  right: 0;
+  top: calc(50% - 8px);
+  bottom: 0;
+  background-color: #FBEBD4;
 }
 
 @media only screen and (min-width: 640px) {
-  #page-header {
-    padding: 0px;
+  #nav .arrow {
+    top: 0;
+    right: 0;
   }
+}
+
+#topbar-row-three {
+  display: flex;
+}
+
+@media only screen and (min-width: 640px) {
+  .top-bar img {
+    padding: 10px 40px;
+  }
+
+  #nav {
+    margin: 20px 0px;
+  }
+  #nav li {
+    font-size: 16px;
+  }
+
+  #nav li+li {
+    border-left: 2px solid #2C1B13;
+    /*border-left: 2px solid #480000;*/
+  }
+
+  #nav li a {
+    padding: 0px 0px;
+  }
+
+  #topbar-row-three {
+    padding-top: 10px;
+  }
+}
+
+#user-prof-menu >* {
+  width: 100%;
+  background-color: #FBEBD4;
+  border: none;
+  padding: 0;
+  margin: 0;
+  /*background-color: rgba(0, 255, 0. 0.2);*/
+}
+@media only screen and (min-width: 640px) {
+  #nav li:hover .header-dropdown {
+    display: block;
+  }
+}
+
+.header-dropdown {
+  padding: 0;
+  margin: 0;
+  width: 40%;
+  background-color: #FBEBD4;
+  display: none;
+  position: absolute;
+  z-index: 999;
+  /*left: 0;*/
+  border: none;
+}
+
+.header-dropdown >* {
+  /*background-color: #FBEBD4;*/
+}
+
+.header-dropdown li {
+  /*opacity: 0.7;*/
+  border: none;
+  padding: 0px;
+  margin: 0;
+  min-width: 100%;
+  display: block;
+}
+
+.header-dropdown li+li {
+  border-bottom: 1px solid #2C1B13;
+  /*border-bottom: 1px solid #480000;*/
+}
+
+#nav li ul {
+  border: 1px solid #2C1B13;
+  /*border: 1px solid #480000;*/
+  border-top: none;
+}
+
+#nav li ul li {
+  /*background-color: rgba(251, 235, 212, 0.7);*/
+  border: none;
+}
+#nav li ul li a {
+  padding: 15px 0px;
+}
+
+.header-dropdown li a {
+  border: none;
+  display: block;
+  font-style: none;
+  text-decoration: none;
+}
+
+.header-dropdown li:hover {
+  background-color: rgba(251, 235, 212, 1.0);
+  padding: 0;
+  margin: 0;
+  font-style: none;
+  border: none;
+  border-bottom: 1px solid #2C1B13;
+  /*border-bottom: 1px solid #480000;*/
+}
+
+@media only screen and (min-width: 640px) {
+  .header-dropdown {
+    width: 15%;
+  }
+}
+
+
+#search-form {
+  width: 100%;
+}
+
+.search {
+  width: 100%;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+
+#search-txt {
+  background-color: #FFFFF0;
+  color: #480000;
+  height: 40px;
+  font-weight: bold;
+  border: medium #2C1B13;
+  /*border: medium #480000;*/
+  margin: 0px;
+  margin-left: 3px;
+  padding-left: 7px;
+  min-width: 70%;
+}
+
+#search-button{
+  display: inline-block;
+  margin: 0px;
+  background-color: #A893FF;
+  color: #FFFFF0;
+  font-size: 20px;
+  padding: 5px 2%;
+  font-weight: bolder;
+}
+
+.header-underline {
+  text-decoration: underline;
 }

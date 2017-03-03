@@ -55,7 +55,7 @@ $foundation-palette: (
   warning: #ffae00,
   alert: #ec5840,
 );
-$light-gray: #e6e6e6;
+$light-gray: rgba(251, 235, 212, 0.9);
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
@@ -236,9 +236,9 @@ $breadcrumbs-item-slash: true;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: #2B2936;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
-$button-color: #EDD0AF;
+$button-background: #A893FF;
+$button-background-hover: $button-background;
+$button-color: #2C1B13;
 $button-color-alt: $black;
 $button-radius: 10px;
 $button-sizes: (

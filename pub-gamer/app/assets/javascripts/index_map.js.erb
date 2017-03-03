@@ -1,0 +1,232 @@
+$(document).ready(function() {
+  var mapNotVisible = true
+  $('.view-box').first().toggle()
+  $('#toggle-venue-view-links a').first().css('text-decoration', 'none').addClass('selected-view')
+  $('#toggle-venue-view-links').on('click', 'a', function(event){
+    event.preventDefault();
+    var mapStatus = mapNotVisible
+    mapNotVisible = toggleViewVisibility(this, mapNotVisible)
+    if ( $(this).is('#map') && mapStatus ){
+      if (typeof VenuesFound !== 'undefined'){
+        allVenuesMap(venuesFound)
+      } else if (typeof eventsFound !== 'undefined'){
+        allEventsMap(eventsFound)
+      }
+    }
+  })
+})
+
+function toggleViewVisibility(link, visibility) {
+	if (!$(link).hasClass('selected-view')) {
+		$('.view-box').toggle()
+		$('.selected-view').css('text-decoration', 'underline').removeClass('selected-view')
+		$(link).addClass('selected-view')
+		$(link).css('text-decoration', 'none')
+		return !visibility
+	} else {
+		return visibility
+	}
+}
+
+function getUserLocation(map){
+  navigator.geolocation.getCurrentPosition(function(position) {
+    // console.log('Got position');
+  var orangeMarker = new google.maps.MarkerImage(
+    "<%= asset_path('icons/people/brown0.3.png') %>",
+    null,
+    null,
+    null,
+    new google.maps.Size(15, 45)
+    )
+    userMarker = new google.maps.Marker({
+      position: { lat: position.coords.latitude, lng: position.coords.longitude },
+      map: map,
+      icon: orangeMarker
+    });
+
+    google.maps.event.addListener(userMarker, 'click', function(){
+      var userWindow = new google.maps.InfoWindow({
+        content: "<div class='index-map-infowindow'><p>Current Location</p></div>",
+        position: this.getPosition()
+      })
+      userWindow.open(map);
+    })
+  });
+}
+
+function allEventsMap(events) {
+  var events = events
+  var eventVenues = []
+  for (var i = 0; i < events.length; i++){
+    var v
+    eventVenues.forEach(function(venue){
+      if (venue.id == events[i].venue.id){
+        v = venue
+      } else {
+        v = null
+      }
+    })
+    if ( v != null ) {
+      var newE = {
+        id: events[i].id,
+        title: events[i].title,
+        startdate: events[i].startdate,
+        starttime: events[i].starttime
+      }
+      v.events.push(newE)
+    } else {
+      var newV = {
+        id: events[i].venue.id,
+        name: events[i].venue.name,
+        address: events[i].venue.address,
+        lat: events[i].venue.lat,
+        lng: events[i].venue.lng,
+        events: [
+          {
+            id: events[i].id,
+            title: events[i].title,
+            startdate: events[i].startdate,
+            starttime: events[i].starttime
+          }
+        ]
+      }
+      eventVenues[eventVenues.length] = newV
+    }
+  }
+  allVenuesMap(eventVenues, eventArray = events);
+}
+
+function allVenuesMap(venues){
+  var markers = [];
+  var allVenues = venues
+  var mapElement = document.getElementById('all-venues-map');
+  var mapOptions = {
+    center: { lat: 40.72, lng: -73.96 },
+    zoom: 11,
+    mapTypeId: 'roadmap'
+  }
+  var map = new google.maps.Map(mapElement, mapOptions);
+  
+  var purpleMarker = new google.maps.MarkerImage(
+    "<%= asset_path('icons/location/purple.png') %>",
+    null,
+    null,
+    null,
+    new google.maps.Size(25, 25)
+    )
+
+  getUserLocation(map)
+
+  if (typeof eventArray == "undefined") {
+    venueMarkers(markers, allVenues, map, markerIcon = purpleMarker);
+  } else {
+    eventVenueMarkers(markers, allVenues, map, markerIcon = purpleMarker);
+  }
+}
+
+function venueMarkers(markers, venues, map) {
+  for (var i = 0; i < venues.length; i++) {
+    var link = "/venues/" + venues[i].id
+    markers[i] = new google.maps.Marker({
+      position: { lat: parseFloat(venues[i].lat), lng: parseFloat(venues[i].lng) },
+      id: i,
+      map: map,
+      icon: markerIcon,
+      link: "<a href=" + link + ">" + venues[i].name + "</a>",
+      address: venues[i].address,
+      name: venues[i].name
+    });
+      
+    google.maps.event.addListener(markers[i], 'click', function(){
+      var infowindow = new google.maps.InfoWindow({
+        content: createVenueWindow(this.link, this.address),
+        position:this.getPosition()
+      });
+      infowindow.open(map);
+    });
+  }
+}
+
+function eventVenueMarkers(markers, eventsVenues, map) {
+  for (var i = 0; i < eventsVenues.length; i++) {
+    markers[i] = new google.maps.Marker({
+      position: { lat: parseFloat(eventsVenues[i].lat), lng: parseFloat(eventsVenues[i].lng) },
+      id: i,
+      map: map,
+      icon: markerIcon,
+      venueNameLink: "<a href=/venues/" + eventsVenues[i].id + ">" + eventsVenues[i].name + "</a>",
+      address: eventsVenues[i].address,
+      events: eventsVenues[i].events
+    })
+    var infowindow = null;    
+    google.maps.event.addListener(markers[i], 'click', function(){
+      if (infowindow) {
+         infowindow.close();
+        }
+      infowindow = new google.maps.InfoWindow({
+        content: createEventWindow(this.venueNameLink, this.address, this.events),
+        position: this.getPosition()
+      });
+      infowindow.open(map);
+      google.maps.event.addListener(infowindow, 'domready', function(e){
+        var events = $('.infowindow-event')
+        windowSlide(events)
+      });
+    });
+  }
+}
+
+var windowSlide = function(eventBoxes){
+  $(eventBoxes[0]).addClass('not-hidden')
+  if ( eventBoxes.length < 2 ) {
+    $('.right, .left').parent().css('opacity', '0.2')
+  }
+  $('.infowindow-events').on('click', '.right, .left', function(event){
+    event.preventDefault()
+    var $current = $(event.target.closest('.infowindow-events')).find('.not-hidden')
+    var $clicked = $(this)
+    if ($clicked.hasClass('right') && $current.next().length > 0 ) {
+      $current.next().addClass('not-hidden');
+      $current.removeClass('not-hidden');
+    } else if ($clicked.hasClass('left') && $current.prev('.infowindow-event').length > 0 ) {
+      $current.prev().addClass('not-hidden');
+      $current.removeClass('not-hidden');
+    }
+  })
+}
+
+var createVenueWindow = function(venueName, address) {
+  var box = "<div class='index-map-infowindow'>" +
+    "<div class='header text-center'><h5>" + venueName + "</h5></div>"
+    + "<div class='row-1'><div class='location-background'></div>" + 
+    "<p>" + address + "</p></div></div>"
+  return box
+}
+var createEventWindow = function(venueName, address, events) {
+  var eventsBox = ""
+  for (var i = 0; i < events.length; i++) {
+    var eventNumber = i + 1 
+    var date = "<div class='date-background'></div>" + events[i].startdate
+    var time = "<div class='time-background'></div>" + events[i].starttime
+
+    eventsBox += "<div class='infowindow-event text-center'><h5><a href=/events/" + events[i].id + ">" + events[i].title + "</a></h5>" + "<div><div class='date-box'>" + date + "</div><div class='time-box'>" + time + "</div></div><div><p>Event " + eventNumber + " of " + events.length + "</p></div></div>" 
+  }
+  var box = "<div class='index-map-infowindow event-map-infowindow'>" +
+    "<div class='header'><h6>" + venueName + "</h6></div>"
+    + "<div class='location-icon'><div class='location-background'></div>" + 
+    "<p>" + address + "</p></div><div class='infowindow-events'>" + "<a href='#'><img src='/assets/icons/leftScrollBrown.png' class='left' title='previous'></a>" + "<a href='#'><img src='/assets/icons/rightScrollBrown.png' class='right' title='next'></a>" + eventsBox + "</div>"
+  return box
+}
+
+// var createEventWindow = function(eventTitle, date, time, venueName, address) {
+//   var box = "<div class='index-map-infowindow'>" +
+//     "<div class='header text-center'><h5>" + eventTitle + "</h5></div>"
+//     + "<div class='row-1'><div class='date-box text-center'>" + 
+//     "<div class='date-background'></div><p>" + date + "</p></div>" + 
+//     "<div class='time-box text-center'><div class='time-background'></div><p>" + time + "</p></div></div>" +
+//     "<div class='row-2'>" +
+//     "<div class='shop-background'></div><p>" + venueName + "</p></div>" +
+//     "<div class='row-3'>" +
+//     "<div class='location-background'></div><p>" + address + "</p></div></div>"
+//   return box
+// }

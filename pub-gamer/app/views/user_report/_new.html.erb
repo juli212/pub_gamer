@@ -1,0 +1,36 @@
+<div>
+
+	<%= form_for @report, as: :report, url: venue_user_report_index_path, method: :post do |f| %>
+		<h4>Report Incorrect Venue Details</h4>
+		<table>
+			<tr>
+				<td>
+					Venue:
+				</td>
+				<td>
+					<%= @report.venue.name %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Location:
+				</td>
+				<td>
+					<%= @report.venue.address %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Games:
+				</td>
+				<td>
+					<% @report.venue.games.each do |game| %>
+						<div class='table-div'><%= game.name %></div>
+					<% end %>
+				</td>
+			</tr>
+		</table>
+		<%= f.text_area :content, placeholder: "Please enter incorrect details...", required: true, title: "inaccuracy", maxlength: "100" %>
+		<%= f.submit "Send", class: 'button submit-button', id: "" %>
+	<% end %>
+</div>

@@ -1,0 +1,14 @@
+<% if event.user == current_user || event.guests.include?(current_user) %>
+	<% if event.deleted %>
+		<div class="cancel-fade" id="event-show-comments">
+	<% elsif event.in_past? %>
+		<div class="past-event-fade" id="event-show-comments">
+	<% else %>
+		<div id="event-show-comments">
+	<% end %>
+	<%= render partial: 'comments/index', locals: { comments: event.comments } %>
+		</div>
+		<div class="text-center" id="event-comment-new">
+		<%= render partial: 'comments/new', locals: { event: event, comment: comment } %>
+		</div>
+<% end %>

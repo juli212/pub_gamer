@@ -1,0 +1,18 @@
+var guests = <%= @guests %>
+var limit = <%= @event.limit %>
+var spotsLeft = limit - guests
+<% if @event.attending_event?(@user) %>
+	$('.event-show-side .event-status p').text("Attending!");
+	$('.event-show-side .event-status form').replaceWith("<%= j render partial: 'leave_event_button', locals: { event: @event } %>");
+	$('.side-2 .spots-left').text(spotsLeft);
+	$('.side-2 .empty-guest').first().replaceWith("<%= j render partial: 'taken_spot' %>")
+	$('.side-2').append("<%= j render partial: 'event_attendee', locals: { guest: @user } %>")
+	$('#event-right').html("<%= j render partial: 'event_show_right', locals: { event: @event, comment: @comment } %>")
+<% elsif !(@event.user == @user) %>
+	$('.event-show-side .event-status p').text("Not Attending");
+	$('.event-show-side .event-status form').replaceWith("<%= j render partial: 'join_event_button', locals: { event: @event } %>");
+	$('.side-2 .spots-left').text(spotsLeft);
+	$('.side-2 .taken-guest').last().replaceWith("<%= j render partial: 'open_spot' %>")
+	$(".event-attendee-container[value='<%= @user.id %>']").remove()
+	$('#event-right').html("")
+<% end %>

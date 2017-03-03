@@ -1,23 +1,40 @@
+<script type="text/javascript" charset="utf-8">
+  var venuesFound = []
 
-<div class="row" >
-	<div class="small-1 columns">
-	</div>
-	<div class="small-4 columns">
-			<%=link_to("Add New Venue!", new_venue_path, class: "button", id: "venue-create-link") %>
-	</div>
-	<div class="small-7 columns">
-	</div>
+  $(document).ready(function(){
+    target = window.location.search
+    serialized = target.substring(1, target.length)
+    $.ajax({
+    	url: "/venues/results",
+    	type: "post",
+    	data: serialized,
+    	dataType: "json"
+    }).done(function(response){
+    	venuesFound = response
+    })
+  });
+</script>
 
+
+<div class="row align-spaced" >
+	<div class="small-8 medium-4 columns">
+		<%=link_to("+ Venue", new_venue_path, class: "button", id: "venue-create-link") %>
+	</div>
 </div>
-<div class="row">
-	<div class="small-1 columns">
+
+<div class="row align-spaced" >
+	<div class="small-12 columns text-center" id="toggle-venue-view-links">
+		<p><%= link_to "List View", nil, id: "list" %> | <%= link_to "Map View", nil, id: "map" %></p>
 	</div>
-	<div class="small-9 columns index-main">
-		<% if @venues && @venues.length > 0 %>
-  		<%= render partial: 'index_main', locals: { venues: @venues } %>
-  	<% else %>
-  		<p>No Venues</p>
-		<% end %>
-  		<%= will_paginate @venues %>
-	</div	>
+</div>
+
+<%= render partial: 'shared/error_display', locals: { errors: @errors } %>
+
+<div id="list-map">
+	<div class="view-box" id ="list-box">
+		<%= render partial: 'list' %>
+	</div>
+	<div class="view-box" id="map-box">
+		<%= render partial: 'map' %>
+	</div>
 </div>

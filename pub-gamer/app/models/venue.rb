@@ -8,9 +8,11 @@ class Venue < ActiveRecord::Base
 	has_many :games, through: :venue_games
 	has_many :events
 	has_many :user_venues
+	has_many :user_reports
 
 	validates :name, :address, presence: true
 	validates :address, uniqueness: true
+	validates_length_of :name, :address, maximum: 150, message: "over character limit"
 
 	def game
 	end
@@ -51,34 +53,10 @@ class Venue < ActiveRecord::Base
 	def self.venue_name_search(term)
 		where("name ILIKE :term", term: "%#{term.downcase}%")
 	end
-	
-	# def self.build_search(term)
-	# 	search_string = ""
-	# 	words = term.split[1..-1]
-	# 	words.each do |word|
-	# 		search_string += "AND (name ILIKE '%#{word}%' OR neighborhood ILIKE '%#{word}%' OR address ILIKE '%#{word}%')"
-	# 	end
-	# 	search_string
-	# end
-
-	# def self.multi_word_search(term)
-	# 	first_term = term.split[0]
-	# 	search = "(name ILIKE '%#{first_term}%' OR neighborhood ILIKE '%#{first_term}%' OR address ILIKE '%#{first_term}%')"
-	# 	venues = []
-	# 	if term.split.length > 1
-	# 		more_search = build_search(term)
-	# 		venues << Venue.where(search + more_search)
-	# 	else
-	# 		venues << Venue.where(search)
-	# 	end
-	# 	venues.flatten.uniq
-	# end
-
 
 	def search_address
 		" - " + self.address
 	end
-
 
 	def make_new(game_name)
 		if !Game.find_by(name: game_name)
@@ -101,6 +79,14 @@ class Venue < ActiveRecord::Base
 		self.reviews.last(10).reverse
 	end
 
+	def show_reviews
+		self.sorted_reviews.reject { |review| review.deleted == true }
+	end
+
+	def not_deleted_reviews
+		self.reviews.where(deleted: false)
+	end
+
 	def sorted_reviews
 		self.reviews.order(:created_at).reverse
 	end
@@ -109,14 +95,14 @@ class Venue < ActiveRecord::Base
 		rating = 0
 		self.reviews.each do |review|
 			if review.rating
-				rating += review.rating
+				rating += review.rating unless review.deleted == true
 			end
 		end
 		rating
 	end
 
 	def avg_rating
-		rated_reviews = self.reviews.where(rating: 1..5)
+		rated_reviews = self.reviews.where(rating: 1..5, deleted: false)
 		avg_rating = self.sum_reviews/rated_reviews.length.to_f
 		avg_rating.round(2)
 	end

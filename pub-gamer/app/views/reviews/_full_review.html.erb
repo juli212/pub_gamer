@@ -1,1 +1,50 @@
-<p><%= review.content %></p>
+<div class="row small-collapse review-info-row">
+	<div class="small-12 align-center columns">
+		<div class="review-rating">
+			<% if review.rating %>
+				<% review.rating.times do %>
+					<%= image_tag("octopus.png", size: '30', title: "#{review.rating}") %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<div class="small-5 medium-4 text-center self-align-bottom columns">
+		<div class="review-week">
+			<%= review.week %>
+		</div>
+	</div>
+	<div class="small-5 text-center columns">
+		<div class="review-vibes">
+			<% review.vibes.each do |vibe| %>
+				<%= image_tag("#{vibe.pic}", size: '30', title: "#{vibe.name}") %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 columns" id="review-content">
+		<% review.split_full_content.each do |line| %>
+			<p><%= line %></p>
+		<% end %>
+	</div>
+</div>
+
+<div class="row align-bottom review-bottom-row">
+	<div class="small-12 medium-7 align-self-bottom columns">
+		<div class="row align-spaced reviewed-by">
+			<div class="small-7 text-center align-self-bottom columns">
+			<p>Reviewed by 
+				<%= link_to "#{review.author}", user_path(review.user_id) %></p>
+			</div>
+			<div class="small-3 text-center columns">
+			<% if review.user_id == current_user.id && !review.deleted %>
+				<%= link_to "delete", venue_review_path(@venue, review, "review[deleted]" => true), method: :put, class: "delete-review" %>
+			<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="small-12 medium-5 align-self-bottom columns">
+		<p class="review-date text-center"><%= review.review_date %></p>
+	</div>
+</div>

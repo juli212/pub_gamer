@@ -17,21 +17,70 @@
 
  */
 
+html {
+  height: 100%;
+}
+
 body {
   min-height: 100%;
-  height: auto;
-  background-color: #FFFFF0;
+  background-color: rgba(44, 27, 19, 0.4);
+}
+
+body > * {
+  color: #2C1B13;
+  outline: none;
+}
+
+#content {
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 100%;
+  background-image: url(backgroundPoolPic);
+  background-size: 100% 100%;
+  background-position: cover;
+  background-attachment: fixed;
 }
 
 #main {
-  min-height: 100%;
-  padding-bottom: 80px;
+  padding-top: 5px;
+  overflow: auto;
+  padding-bottom: 100px;
+}
+
+#foot {
+  border-top: 1px solid #31AB3C;
+  text-align: center;
+  background-color: #FBEBD4;
+  position: relative;
+  margin-top: -100px;
+  height: 100px;
+  width: 100%;
+  clear: both;
+}
+
+#foot p {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px 0px;
+}
+
+.submit-button {
+  font-weight: bold;
+  outline: none;
+  padding: 5px 10px;
 }
 
 @media only screen and (min-width: 640px) {
   #main {
-    padding-left: 200px;
+    padding-top: 10px;
   }
+  .submit-button {
+    /*height: 36px;*/
+  }
+}
+
+.dragscroll {
+  cursor: url('mouseArrow.png'), all-scroll;
 }
 
 body ul{
@@ -54,14 +103,16 @@ body ul a {
   text-decoration: none;
 }
 
-
-/*#wrap {
+a {
+  color: #A893FF;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-#content {
-  overflow: auto;
-  padding-bottom: 80px;
-}*/
+a:hover {
+  color: #A893FF;
+  text-decoration: underline;
+}
 
 h1 {
   text-align: center;
@@ -71,28 +122,59 @@ h1 {
   color: #2b2936;
 }
 
-.button {
-  font-weight: bold;
-  outline: none;
-}
-
 input:focus {
   outline: none;
 }
 
-/*@media  screen and (max-device-width: 480px) (max-width: 1000px) {
-    #venue-create-form {
-      position: absolute; bottom: 109px; left: 150px; z-index: 99;
-      display: none;
-      background: rgba(200, 117, 40,0.9);
-      border: 1px;
-      width: 650px;
-      height: 150px;
-      border-top-right-radius: 0.6em;
-      border-top-left-radius: 0.6em;
-    }
-}*/
+input:invalid {
+  border: 3px solid #F4AE35;
+}
 
+input:valid {
+  /*border: 3px solid #31AB3C;*/
+}
+
+input:valid[type="submit"] {
+  border: none;
+}
+
+.errors-box {
+  font-weight: bold;
+  color: red;
+  font-size: 12px;
+  margin-top: -5px;
+}
+.errors-box p {
+  padding: 0px;
+  margin: 0px 0px 3px;
+}
+
+@media only screen and (min-width: 640px) {
+  .errors-box {
+    font-size: 14px;
+  }
+  .errors-box p {
+    margin: 0px 0px 5px;
+  }
+}
+
+.display-game {
+  display: inline-block;
+  font-weight: bold;
+  color: #FFFFF0;
+  background-color: #2C1B13;
+  /*background-color: rgba(44, 27, 19, 0.9);
+  /*background-color: #31AB3C;*/
+  /*border-radius: 10px;*/
+  border-top-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-bottom: 1px solid #F4AE35;
+  padding: 4px 8px;
+  min-width: 60px;
+  height: 35px;
+  margin: 0px 10px 5px 0px;
+  /*float: center;*/
+}
 
 .pagination > * {
   float: left;
@@ -105,10 +187,127 @@ input:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #2B2936;
-  opacity: 0.7;
+  background: #939393;
+  opacity: 0.9;
 }
 .ui-front {
   z-index: 100;
   position: fixed;
+}
+
+.ui-dialog {
+  color: #2C1B13;
+  background-color: #2C1B13;
+  border-radius: 10px
+}
+
+.ui-dialog #view-venue-on-map {
+  padding: 3%;
+}
+
+.ui-dialog form {
+  padding: 3%;
+  font-size: 30px;
+  text-align: center;
+  color: #FBEBD4;
+  background-color: #2C1B13;
+  border-radius: 10px;
+}
+
+.ui-dialog form label {
+  color: #FBEBD4;
+}
+
+.ui-dialog form input,
+.ui-dialog form textarea {
+  text-align: center;
+  background-color: #FFFFF0;
+  height: 25px;
+  border-radius: 5px;
+}
+
+.ui-dialog form .button {
+  margin-top: 10px;
+  color: #2C1B13;
+  background-color: #FBEBD4; 
+}
+
+@media only screen and (min-width: 640px) {
+  .ui-dialog form input,
+  .ui-dialog form textarea {
+    height: 35px;
+    border-radius: 10px;
+  }
+}
+
+.ui-dialog form tbody {
+border: none;
+}
+
+.ui-dialog form table tr {
+  text-align: left;
+  border: none;
+  font-size: 14px;
+  /*height: 36px;*/
+  background-color: #2C1B13;
+  /*padding: 0;*/
+}
+.ui-dialog form table td {
+  padding: 5px 0px 3px 10px;
+}
+
+.ui-dialog form table td:first-child {
+  text-align: right;
+  padding: 5px 5px 3px 0px;
+}
+
+.ui-dialog .table-div {
+  display: inline-block;
+  padding: 1px 5px;
+  margin: 0px 5px 0px 0px;
+  border: 1px solid #FBEBD4;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 4px;
+}
+
+.ui-dialog-titlebar {
+  height: 0px;
+  z-index: 99;
+}
+
+.ui-dialog-titlebar-close, .ui-dialog-titlebar-close:hover, .ui-dialog-titlebar-close:focus {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  color: #2C1B13;
+  padding: 5px;
+  font-weight: bold;
+  background-color: #FBEBD4;
+  /*background-color: #FFFFF0;*/
+  border-radius: 10px;
+}
+
+.ui-dialog-titlebar-close:hover, .ui-dialog-titlebar-close:focus {
+  text-decoration: underline;
+}
+
+.ui-state-focus {
+  font-weight: bold;
+  color: #2C1B13;
+}
+
+* {
+  outline: none;
+}
+
+.past-event-fade {
+  opacity: 0.4;
+}
+
+.past-event-fade >* {
+  opacity: 0.4;
+}
+
+.cancel-fade {
+  opacity: 0.5;
 }

@@ -1,87 +1,48 @@
 $(document).ready(function() {
-  // $('#new_review').on('submit', function(event){
-  //   event.preventDefault();
-  //   $target = $(event.target)
-  //   $rating = $target.children('#rating').children('.rated').last().children('input').attr('value')
-  //   $.ajax({
-  //     url: $target.attr('action'),
-  //     method: $target.attr('method'),
-  //     data: $target.serialize()
-  //   }).done(function(response){
-  //     if ($(response).hasClass('venue-show-left')) {
-  //       $('.rated').removeClass('rated')
-  //       if ($('#no-reviews')) {
-  //         $('#no-reviews').remove()
-  //       }
-  //       $('#reviews').prepend(response);
-  //       $('.selected').removeClass('selected')
-  //       $('.time-of-week').removeClass('time-of-week');
-  //       $('#new-review-errors').html("");
-  //       $('#new_review').each(function(){
-  //         this.reset();
-  //       });
-  //     } else {
-  //       $('#new-review-errors').html(response);
-  //     }
-  //   })
-  //   $.ajax({
-  //     url: $target.children('#rating').attr('action'),
-  //     method: 'put',
-  //     data: $rating
-  //   }).done(function(response){
-  //     $('#avg-rating').html(response);
-  //     UpdateOctopusRating();
-  //   })
-  // })
-  $('#new-review-form').dialog({
-    modal: true,
-    autoOpen: false,
-    minHeight: 500,
-    width: 500,
-    // appendTo: ,
-    position: ({ my:"top", at: "bottom", of: "#header-row"}),
-    show: {
-      effect: "bounce",
-      duration: 1500
-    },
-    hide: {
-      effect: "explode",
-      duration: 2000
-    }
-  });
-  $('#new-review-button').on('click', function(event){
+  // sets new review form as dialog
+  $('#new-review-form').dialog(dialogOptions)
+
+  // opens form for new venue review
+  $('.new-review-button').on('click', function(event){
     event.preventDefault()
     $('#new-review-form').dialog('open');
   })
 
-  var emptyReviewConent = function() {
-    $('#full-review-content').html("");
-  }
+  // submits new review form and updates venue rating
+  $('#new_review').on('submit', function(event){
+    event.preventDefault();
+    target = this
+    $.ajax({
+      url: target.action,
+      type: target.method,
+      data: $(target).serialize()
+    }).done()
+    $('#new-review-form').dialog('close');
+  })
 
-  $('#full-review-content').dialog({
-    modal: true,
-    autoOpen: false,
-    minHeight: 300,
-    width: 400,
-    // appendTo: ,
-    position: ({ my:"top", at: "bottom", of: "#header-row"}),
-    show: {
-      effect: "bounce",
-      duration: 1500
-    },
-    hide: {
-      effect: "explode",
-      duration: 2000
-    },
-    close: emptyReviewConent
-  });
-  $('.read-more-review').on('click', function(event){
-    event.preventDefault()
+  // displays written review content
+  $('#full-review-content').dialog(dialogOptions, {
+    width: reviewShowWidth,
+    height: reviewShowHeight,
+    position: ({ my: 'top', at: 'top+17%', of: window}),
+    close: emptyDialogBox
+  })
+
+  $('#reviews').on('click', '.read-more-review', function(event){
+    event.preventDefault();
     $('#full-review-content').dialog('open')
     $.ajax({
       url: this.href
     }).done(function(response){
       $('#full-review-content').html(response);
     })
+  })
+
+  $('#full-review-content').on('click', '.delete-review', function(event){
+    var sure = confirm("Are you sure you want to delete this review?");
+    if (sure == false ) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
   })
 });

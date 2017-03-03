@@ -10,17 +10,23 @@ class Event < ActiveRecord::Base
 	has_many :guests, through: :user_events, source: :user
 
 	validates :title, :description, :date, :time, :limit, :venue_id, :user_id, presence: true
+	validates_inclusion_of :limit, in: 0..40
+	validates_length_of :title, maximum: 100, message: "over character limit"
+	validates_length_of :description, maximum: 500, message: "over character limit"
+
+	def game
+	end
 
 	def name
 		self.title
 	end
 
 	def location
-		# self.venue.name
+		self.venue ? self.venue.name : ""
 	end
 
 	def address
-		# self.venue.address
+		self.venue ? self.venue.address : ""
 	end
 
 	def search_location
@@ -30,6 +36,18 @@ class Event < ActiveRecord::Base
 	def self.search(term)
 		events = Event.event_search(term) + Event.event_venue_search(term) + Event.game_search(term) + Event.multi_word_search(term)
 		events.uniq
+	end
+
+	def startdate
+		self.date.strftime('%a %b %d, %Y')
+	end
+
+	def starttime
+		self.time.strftime('%-I:%M%p')
+	end
+
+	def place
+		self.venue.place
 	end
 
 	def self.multi_word_search(term)
@@ -49,36 +67,60 @@ class Event < ActiveRecord::Base
 		where("title ILIKE :term OR description ILIKE :term", term: "%#{term.downcase}%").uniq
 	end
 
-	# def self.neighborhood_search(term)
-	# 	joins(:venue).joins('JOIN neighborhoods ON neighborhoods.id = venues.neighborhood_id').where("neighborhoods.name ILIKE :term", term: "%#{term.downcase}%")
-	# end
+	def self.future_events
+		where("deleted = ? AND date >= ?", :false, Date.today).order(:date, :time)
+	end
+
+	def self.past_events
+		where("date < ?", DateTime.now).order('date DESC, time DESC')
+	end
+
+	def self.venue_events(venue_id)
+		Event.future_events.where('venue_id = ?', venue_id)
+	end
 
 	def full?
 		self.guests.length >= self.limit
 	end
 
+	def open_spots
+		self.limit - self.guests.length
+	end
+
+	def in_past?
+		self.date < Date.today
+	end
+
 	def in_future?
-		self.date > Date.today ||
-		(self.date == Date.today && self.time.strftime('%-I').to_i > Time.now.strftime('%-I').to_i) ||
-		(self.date == Date.today && self.time.strftime('%-I').to_i == Time.now.strftime('%-I').to_i && self.time.strftime('%-M').to_i > Time.now.strftime('%-M').to_i)
+		self.date >= Date.today
 	end
 
-	def sort_events_by_time
-		# method to sort by time
-	end
-
-
-  def attending_event?(current_user)
-    if self.guests.length == 0
+  def attending_event?(user)
+    if ( self.guests.empty? ) || ( !self.guests.include?(user) )
       return false
+    else
+    	return true
     end
-    self.guests.each do |guest|
-      if guest.id == current_user.id
-        return true
-      end
-    end
-    return false
   end
 
+  def update_guest_status(user)
+  	if attending_event?(user)
+  		leave(user)
+  	else
+  		join(user)
+  	end
+  end
+
+  def leave(user)
+  	guests.delete(user)
+  end
+
+  def join(user)
+  	guests << user unless self.user == user
+  end
+
+  def split_description
+  	self.description.split(/\r\n/)
+  end
 
 end
