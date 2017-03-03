@@ -343,4 +343,4 @@ vibes = Vibe.create([
   # {game_id: 1, venue_id: 2},
   # {game_id: 1, venue_id: 3},
   # {game_id: 1, venue_id: 4},
-])
+# ])
