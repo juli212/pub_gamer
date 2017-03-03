@@ -18,10 +18,8 @@ class UserReportController < ApplicationController
 		@report.content = params[:report][:content]
 		@report.venue_id = venue.id
 		@report.user_id = current_user.id
-		binding.pry
 		if @report.save
-			binding.pry
-			# UserMailer.report_venue_inaccurate(@report).deliver_now
+			UserMailer.report_venue_inaccurate(@report).deliver_now
 		end
 		redirect_to venue_path(venue)
 	end

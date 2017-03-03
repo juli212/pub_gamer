@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	</head>
+	<body>
+		<h1>Contact!</h1>
+		<p>from: <%= @user.first_name %> <%= @user.last_name %> </p>
+		<h2>Message:</h2>
+		<p><%= @message %></p>
+
+		<p>Date: <%= @date %></p>
+		<p>Reply to: <%= @user.email %></p>
+	</body>
+</html>

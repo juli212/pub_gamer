@@ -128,11 +128,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    
     if !request.xhr?
       if @user.save
         session[:user_id] = @user.id
         UserMailer.welcome_email(@user).deliver_now
-        redirect_to user_path(@user)
+        redirect_to user_profile_path(@user)
       else
         user_errors = @user.errors.full_messages
         redirect_to root_path, :flash => { :error => user_errors }
