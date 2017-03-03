@@ -35,7 +35,7 @@ body > * {
   margin: 0 auto;
   max-width: 1200px;
   min-height: 100%;
-  background-image: url(backgroundPoolPic);
+  background-image: url(backgroundPoolPic.jpg);
   background-size: 100% 100%;
   background-position: cover;
   background-attachment: fixed;

@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
+ruby '2.3.1'
 
+group :production do
+	gem 'pg', '~> 0.15'
+	gem "rails_12factor"
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,7 +43,6 @@ gem "paperclip", "~> 5.0.0"
 
 gem "figaro"
 
-gem "rails_12factor"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
