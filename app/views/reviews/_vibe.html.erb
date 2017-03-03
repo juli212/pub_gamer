@@ -1,7 +1,7 @@
 <div id="faces">
   <h5>Vibe?</h5>
   <div id="face-background">
-  <% @vibes.each do |vibe| %>
+  <% vibes.each do |vibe| %>
     <div class="face" >
       <%= image_tag("#{vibe.pic}") %>
  	    <%= check_box_tag "review[vibes][]", "#{vibe.id}", false, class: "vibe-button" %>
