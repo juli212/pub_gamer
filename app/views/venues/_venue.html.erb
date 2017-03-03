@@ -78,7 +78,6 @@
 			</div>
 		</div>
 	</div>
-
 </div>
 
 <div id="view-venue-on-map">
@@ -90,7 +89,7 @@
 </div>
 
 <div id="new-review-form" >
-	<%= render partial: 'reviews/new'%>
+	<%= render partial: 'reviews/new', locals: { vibes: @vibes } %>
 </div>
 <%= render partial: 'events/event_create' %>
 
