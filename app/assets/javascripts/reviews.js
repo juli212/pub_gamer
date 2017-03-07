@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // sets new review form as dialog
-  $('#new-review-form').dialog(dialogOptions)
+  $('#new-review-form').dialog(dialogOptions).parent().draggable();
 
   // opens form for new venue review
   $('.new-review-button').on('click', function(event){
@@ -26,7 +26,7 @@ $(document).ready(function() {
     height: reviewShowHeight,
     position: ({ my: 'top', at: 'top+17%', of: window}),
     close: emptyDialogBox
-  })
+  }).parent().draggable();
 
   $('#reviews').on('click', '.read-more-review', function(event){
     event.preventDefault();

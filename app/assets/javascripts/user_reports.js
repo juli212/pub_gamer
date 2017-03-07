@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('#user-report-box').dialog(dialogOptions)
+	$('#user-report-box').dialog(dialogOptions).parent().draggable();
 
 	$('#venue-show').on('click', '.report-inaccurate-button', function(event){
 		event.preventDefault();

@@ -51,6 +51,6 @@ $(document).ready(function() {
 
   $("#venue-create-form-container").dialog(dialogOptions, {
     close: resetVenueForm
-  })
+  }).parent().draggable();
 
 });

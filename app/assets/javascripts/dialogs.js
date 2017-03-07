@@ -52,6 +52,7 @@ var dialogOptions = {
   autoOpen: false,
   maxHeight: setFormHeight,
   width: setFormWidth,
+  draggable: false,
   position: ({ my: 'middle top', at: 'middle center-200', of: window, collision: 'fit' }),
 	close: closeDialogWindow
 }
