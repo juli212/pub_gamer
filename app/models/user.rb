@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   	default_url: "/images/:style/octopus0.3opacity.png"
   validates_attachment :photo, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
+  validates :user_name, format: {
+  	with: /\A[a-zA-Z0-9_\-\.]+\z/,
+  	message: "Invalid characters: Acceptable characters are A-Z, a-z, 0-9, _, -, ."}
+
   has_many :reviews
   has_many :user_venues
   has_many :favorites, through: :user_venues, source: :venue
@@ -102,7 +106,8 @@ class User < ActiveRecord::Base
 	end
 
   def slug
-    user_name.parameterize
+    # user_name.parameterize
+    user_name.gsub(" ", "-")  
   end
 
   def to_param

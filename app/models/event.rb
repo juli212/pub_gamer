@@ -68,7 +68,8 @@ class Event < ActiveRecord::Base
 	end
 
 	def self.future_events
-		where("deleted = ? AND date >= ?", :false, Date.today).order(:date, :time)
+		where("events.deleted = ? AND date >= ?", :false, Date.today).order(:date, :time)
+		# where("deleted = ? AND date >= ?", :false, Date.today).order(:date, :time)
 	end
 
 	def self.past_events
