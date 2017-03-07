@@ -31,4 +31,3 @@ var welcomeWidth = function() {
   })
 };
 // });
-// elem.dialog({draggable: false}).parent().draggable();
