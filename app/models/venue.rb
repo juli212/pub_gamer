@@ -21,11 +21,6 @@ class Venue < ActiveRecord::Base
 		Neighborhood.find_or_create_by(name: hood.titleize)
 	end
 
-	# def self.single_phrase_search(term)
-	# 	venues = Venue.venue_search(term) + Venue.game_search(term)
-	# 	venues.uniq
-	# end
-
 	def self.search(term)
 		venues = Venue.venue_search(term) + Venue.multi_word_search(term) + Venue.game_search(term) + Venue.search_neighborhood(term)
 		venues.uniq
@@ -46,7 +41,6 @@ class Venue < ActiveRecord::Base
 
 	def self.search_neighborhood(term)
 		joins(:neighborhood).where("neighborhoods.name ILIKE :term", term: "%#{term.downcase}%").uniq
-		# where("neighborhood ILIKE :term", term: "%#{term.downcase}%").pluck(:neighborhood).uniq
 	end
 
 #used in add_venue, events controller:

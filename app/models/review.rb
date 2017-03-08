@@ -19,7 +19,6 @@ class Review < ActiveRecord::Base
 
   def split_full_content
     self.content.split("\r\n")
-    # self.content.split("\r\n").join
   end
 
   def split_content
