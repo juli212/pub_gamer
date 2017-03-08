@@ -57,6 +57,18 @@ ActiveRecord::Schema.define(version: 20170215010840) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.text     "content",                null: false
+    t.string   "name"
+    t.string   "email"
+    t.integer  "topic",      default: 1, null: false
+    t.integer  "status",     default: 0, null: false
+    t.integer  "user_id"
+    t.integer  "venue_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "review_vibes", force: :cascade do |t|
     t.integer  "review_id",  null: false
     t.integer  "vibe_id",    null: false
@@ -80,16 +92,6 @@ ActiveRecord::Schema.define(version: 20170215010840) do
     t.integer  "event_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "user_reports", force: :cascade do |t|
-    t.integer  "topic",      default: 1, null: false
-    t.text     "content",                null: false
-    t.integer  "status",     default: 0, null: false
-    t.integer  "venue_id",               null: false
-    t.integer  "user_id",                null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
   end
 
   create_table "user_venues", force: :cascade do |t|
