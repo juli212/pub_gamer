@@ -1,12 +1,15 @@
 <% if flash[:error] %>
-<div class="row columns text-center errors-box">
-	<% flash[:error].each do |error| %>
-		<p><%= error %></p>
-	<% end%>
-<% elsif flash[:notice] %>
+	<div class="row columns text-center errors-box">
+		<% flash[:error].each do |error| %>
+			<p><%= error %></p>
+		<% end%>
+	</div>
+<% end %>
+
+<% if flash[:notice] %>
 	<div class="row columns text-center notice-box">
-	<% flash[:notice].each do |notice| %>
-		<p><%= notice %></p>
-	<% end%>
+		<% flash[:notice].each do |notice| %>
+			<p><%= notice %></p>
+		<% end%>
+	</div>
 <% end%>
-</div>
