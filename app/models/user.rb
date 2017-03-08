@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
   has_many :events, through: :user_events
   has_many :user_reports
 
+  def full_name
+  	self.first_name + " " + self.last_name
+  end
+
   def has_favorited?(venue)
   	self.favorites.include?(venue)
   end
