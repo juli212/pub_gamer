@@ -15,10 +15,9 @@ class UserMailer < ApplicationMailer
 		mail(to: 'pubgamerteam@gmail.com', subject: "INACCURATE VENUE INFO", from: @user.email)
 	end
 
-	def contact_us(user, report)
-		@user = report.user
+	def contact_us(report)
 		@message = report.content
 		@date = DateTime.now
-		mail(to: 'pubgamerteam@gmail.com', subject: "GENERAL CONTACT", from: @user.email)
+		mail(to: 'pubgamerteam@gmail.com', subject: "GENERAL CONTACT", from: @report.email)
 	end
 end
