@@ -1,3 +1,21 @@
+imageURLs = [
+  "hatoctopus.png",
+  "octopus1.png",
+  "octopusFinalHighOpacity.png",
+  "octopusLightPurpleHighOpacity.png",
+  "octopusarmscrossedoutline.jpg",
+  "octopuscrossingarms.png",
+  "octopuseyes.png",
+  "octopushatmouth.png",
+  "octopusknottedtentacle.png"
+]
+
+
+function randomFrom(arr){
+    var randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+}
+
 $(document).ready(function() {
   $('#octopuzzle-start-button').on('click', function() {
     $(this).prop('disabled', true)
@@ -7,6 +25,13 @@ $(document).ready(function() {
 
   $('#octopuzzle-reset-button').on('click', function() {
     startReset();
+  })
+
+  $('#octopuzzle-random-button').on('click', function() {
+    var photo = randomFrom(imageURLs)
+    var photoUrl = "url('assets/octoPuzzle/" + photo +"')"
+    console.log(photoUrl)
+    $('.puzzle-piece').css('background-image', photoUrl)
   })
 
 	$('.puzzle-box').on('click', '.puzzle-piece', function(){

@@ -25,7 +25,7 @@
 	border: none;
 }
 
-#octopuzzle-start-button, #octopuzzle-reset-button {
+#octopuzzle-start-button, #octopuzzle-reset-button, #octopuzzle-random-button {
 	border: 2px solid rgb(44, 27, 19);
 	margin: 5px 2px;
 }
@@ -55,31 +55,31 @@
 }
 
 #a {
-	background: url(hatoctopus.png) 0 0;
+	background: url(octoPuzzle/hatoctopus.png) 0 0;
 }
 #b {
-	background: url(hatoctopus.png) -80px 0;
+	background: url(octoPuzzle/hatoctopus.png) -80px 0;
 }
 #c {
-	background: url(hatoctopus.png) -160px 0;
+	background: url(octoPuzzle/hatoctopus.png) -160px 0;
 }
 #d {
-	background: url(hatoctopus.png) 0 -80px;
+	background: url(octoPuzzle/hatoctopus.png) 0 -80px;
 }
 #e {
-	background: url(hatoctopus.png) -80px -80px;
+	background: url(octoPuzzle/hatoctopus.png) -80px -80px;
 }
 #f {
-	background: url(hatoctopus.png) -160px -80px;
+	background: url(octoPuzzle/hatoctopus.png) -160px -80px;
 }
 #g {
-	background: url(hatoctopus.png) 0 -160px;
+	background: url(octoPuzzle/hatoctopus.png) 0 -160px;
 }
 #h {
-	background: url(hatoctopus.png) -80px -160px;
+	background: url(octoPuzzle/hatoctopus.png) -80px -160px;
 }
 #i {
-	background: url(hatoctopus.png) -160px -160px;
+	background: url(octoPuzzle/hatoctopus.png) -160px -160px;
 }
 #a, #b, #c, #d, #e, #f, #g, #h, #i {
 	width: 80px;
