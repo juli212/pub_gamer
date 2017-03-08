@@ -24,19 +24,19 @@ class ReportController < ApplicationController
 		binding.pry
 		if @report.save && @report.topic == "inquiry"
 			UserMailer.contact_us(@report).deliver_now
-			redirect_to contact_index_path, flash: { notice: "Message sent"}
+			redirect_to contact_index_path, flash: { notice: [ "Message sent"] }
 		elsif @report.save && @report.topic == "inaccuracy"
 			UserMailer.report_venue_inaccurate(@report).deliver_now
-			redirect_to venue_path(@report.venue), flash: { notice: "Message sent"}
+			redirect_to venue_path(@report.venue), flash: { notice: [ "Message sent"] }
 		else
-			redirect_to root_path, flash: { error: "Error sending message" }
+			redirect_to root_path, flash: { error: [ "Error sending message"] }
 		end
 	end
 
 private
 	
 	def report_params
-		params.require(:report).permit(:topic, :content, :venue_id)
+		params.require(:report).permit(:topic, :content, :name, :email, :venue_id)
 	end
 
 end
