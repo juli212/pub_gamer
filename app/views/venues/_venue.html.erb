@@ -38,7 +38,7 @@
 							<%= link_to "Review!", new_venue_review_path(venue.id), class: "new-review-button" %>
 						</li>
 						<li>
-							<%= link_to "Report Inaccurate", new_venue_user_report_path(venue.id), class: "report-inaccurate-button" %>
+							<%= link_to "Report Inaccurate", user_report_inaccuracy_path(current_user.id, venue), class: "report-inaccurate-button" %>
 						</li>
 					</ul>
 				</li>
@@ -105,6 +105,6 @@
 		<%= link_to "Review!", new_venue_review_path(venue.id), class: "button new-review-button" %>
 	</div>
 	<div class="small-9 medium-4 large-3 columns" >
-		<%= link_to "Report Inaccurate", new_venue_user_report_path(venue.id), class: "button report-inaccurate-button" %>
+		<%= link_to "Report Inaccurate", user_report_inaccuracy_path(current_user.id, venue), class: "button report-inaccurate-button" %>
 	</div>
 </div>
