@@ -16,6 +16,7 @@ class UserMailer < ApplicationMailer
 	end
 
 	def contact_us(report)
+		@report = report
 		@message = report.content
 		@date = DateTime.now
 		mail(to: 'pubgamerteam@gmail.com', subject: "GENERAL CONTACT", from: @report.email)
