@@ -19,6 +19,7 @@ function randomFrom(arr){
 $(document).ready(function() {
   $('#octopuzzle-start-button').on('click', function() {
     $(this).prop('disabled', true)
+    $('#octopuzzle-random-button').prop('disabled', true)
     $('#octopuzzle-reset-button').prop('disabled', false)
   	startReset();
   })
@@ -30,7 +31,6 @@ $(document).ready(function() {
   $('#octopuzzle-random-button').on('click', function() {
     var photo = randomFrom(imageURLs)
     var photoUrl = "url('assets/octoPuzzle/" + photo +"')"
-    console.log(photoUrl)
     $('.puzzle-piece').css('background-image', photoUrl)
   })
 
@@ -40,6 +40,7 @@ $(document).ready(function() {
 	  	$('.puzzle-piece').removeClass('rotate-0 rotate-90 rotate-180 rotate-270')
       $('.win-message').toggle().delay(1500).fadeOut(3000)
 	  	$('.puzzle-piece').addClass('solved')
+      $('#octopuzzle-random-button').prop('disabled', false)
 		}
 	})
 })
