@@ -30,8 +30,8 @@
 	/*width: auto;*/
 	font-size: 12px;
 	/*min-height: 135px;*/
-	/*max-height: 150px;*/
-	/*overflow-y: scroll;*/
+	max-height: 140px;
+	overflow-y: scroll;
 	/*margin-left: 130px;*/
 	border-bottom: 1px dotted;
 	background-color: rgba(251, 235, 212, 0.3);
