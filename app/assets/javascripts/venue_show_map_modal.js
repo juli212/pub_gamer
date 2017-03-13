@@ -4,7 +4,7 @@ $(document).ready(function() {
 		height: 350,
 		width: 310,
 		close: null
-	})
+	}).parent().draggable();
 	$('#view-map').on('click', function(event){
 		event.preventDefault();
 		$('#view-venue-on-map').dialog('open');

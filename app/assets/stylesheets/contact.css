@@ -1,0 +1,28 @@
+#new_report {
+	width: 90%;
+	margin: 0 auto;
+	background-color: rgba(44, 27, 19, 0.6);
+	padding: 6%;
+	padding-top: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+#new_report h3 {
+	font-weight: bold;
+}
+
+@media only screen and (min-width: 640px){
+	#new_report {
+		width: 50%;
+		padding: 3%;
+	}
+}
+
+#new_report input, #new_report textarea {
+	border-radius: 10px;
+}
+
+#new_report input {
+	height: 30px;
+}

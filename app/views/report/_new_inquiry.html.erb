@@ -1,0 +1,18 @@
+<div>
+	<%= form_for @report, as: :report, url: report_index_path, method: :post do |f| %>
+		<h3>Contact</h3>
+		<div class="row align-center">
+			<div class="small-9 medium-6 columns">
+				<%= f.text_field :name, placeholder: "Name", required: true, id: "" %>
+			</div>
+			<div class="small-9 medium-6 columns">
+				<%= f.text_field :email, placeholder: "Email", required: true, id: "" %>		
+			</div>
+		</div>
+		<div class="row columns">
+			<%= f.text_area :content, placeholder: "Enter questions or comments here!", required: true, title: "Contact PubGamer", maxlength: "200" %>
+			<%= f.text_field :topic, type: 'hidden', value: "#{@report.topic}" %>
+			<%= f.submit "send", class: 'button submit-button', id: "" %>
+		</div>
+	<% end %>
+</div>

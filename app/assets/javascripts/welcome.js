@@ -9,10 +9,10 @@ var welcomeWidth = function() {
   }
 }
   function welcomePage(){
-    $("#register-box").dialog(dialogOptions)
+    $("#register-box").dialog(dialogOptions).parent().draggable();
     $("#login-box").dialog(dialogOptions, {
       width: welcomeWidth
-    })
+    }).parent().draggable();
   // }
 
   $('#login').on('click', function(event){

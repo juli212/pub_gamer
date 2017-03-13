@@ -1,6 +1,5 @@
 <div>
-
-	<%= form_for @report, as: :report, url: venue_user_report_index_path, method: :post do |f| %>
+	<%= form_for @report, as: :report, url: report_index_path(@report), method: :post do |f| %>
 		<h4>Report Incorrect Venue Details</h4>
 		<table>
 			<tr>
@@ -31,6 +30,8 @@
 			</tr>
 		</table>
 		<%= f.text_area :content, placeholder: "Please enter incorrect details...", required: true, title: "inaccuracy", maxlength: "100" %>
+		<%= f.text_field :topic, type: 'hidden', value: "#{@report.topic}" %>
+		<%= f.text_field :venue_id, type: 'hidden', value: "#{@report.venue.id}" %>
 		<%= f.submit "Send", class: 'button submit-button', id: "" %>
 	<% end %>
 </div>

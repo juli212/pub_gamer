@@ -21,7 +21,7 @@ $(document).ready(function() {
     open: openEventForm,
     position: ({ my: 'middle top', at: 'middle top+50', of: window, collision: 'fit' }),
     close: resetEventForm
-  })
+  }).parent().draggable();
 
   $('#event-create-container, #edit-event-box').on('click', '#add-new-game', function(event){
     event.preventDefault();

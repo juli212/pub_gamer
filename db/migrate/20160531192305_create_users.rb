@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string	:password_digest, null: false
       t.string	:email, null: false, unique: true, length: 100
       t.date    :birthday, null: false
-      t.text		:bio, length: 500
+      t.text		:bio, length: 200
       t.boolean :deleted, null: false, default: false
 
       t.timestamps null: false

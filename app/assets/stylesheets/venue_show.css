@@ -22,7 +22,6 @@
 @media only screen and (min-width: 1024px) {
 	#venue-show h2 {
 		font-size: 60px;
-		/*font-weight: bold;*/
 		text-align: left;
 	}
 	#venue-show p {
@@ -288,8 +287,7 @@
 	z-index: 3;
 }
 
-#get-venue-address {
-	/*display: inline;*/
+#get-venue-address, #view-map {
 	position: relative;
 	z-index: 3;
 }
@@ -300,6 +298,8 @@
 	height: 90px;
 	/*z-index: 2;*/
 }
+
+
 
 @media only screen and (min-width: 640px){
 	#venue-show .user-status {

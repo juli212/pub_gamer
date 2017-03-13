@@ -1,19 +1,38 @@
 #profile-pic {
-	width: 130px;
-	float: left;
+	min-width: 100px;
+	max-width: 130px;
 }
 
 #profile-pic img {
-	border-radius: 2px;
-	border: 5px solid #FBEBD4;
+	border-radius: 50%;
+	border: 5px solid rgba(251, 235, 212, 0.3);
+}
+
+
+#edit-own-profile {
+	padding: 0px 1px;
+	border-radius: 4px;
+	background-color: rgba(251, 235, 212, 0.3);
+	/*margin: 0 auto;*/
+}
+
+.top-1 {
+	min-width: 110px;
+	width: 20%;
+	max-width: 150px;
+}
+
+.top-1 h2 {
+	font-size: 20px;
 }
 
 .user-bio {
-	width: auto;
-	min-height: 135px;
-	max-height: 150px;
+	/*width: auto;*/
+	font-size: 12px;
+	/*min-height: 135px;*/
+	max-height: 140px;
 	overflow-y: scroll;
-	margin-left: 130px;
+	/*margin-left: 130px;*/
 	border-bottom: 1px dotted;
 	background-color: rgba(251, 235, 212, 0.3);
 }
