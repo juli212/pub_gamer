@@ -1,29 +1,16 @@
 <%- title "#{current_user.user_name}" %>
-<div class="row align-spaced">
-	<% if @user == current_user %>
-		<div class="small-8 medium-10 large-6 columns text-center">
-			<h2>Welcome</h2>
-		</div>
-	<% else %>
-		<div class="small-10 large-6 columns text-center">
-			<h2><%= @user.user_name %>'s profile!</h2>
-		</div>
-	<% end %>
-	
-</div>
-
-<div class="row columns align-spaced user-show-top">
-	<div class="text-center" id="profile-pic">
-		<% if @user.photo.file? %>
-			<%= image_tag @user.photo.url(:small), size: "100x100" %>
-		<% else %>
-			<%= render partial: 'shared/no_photo_added' %>
-		<% end %>
+<div class="row align-spaced user-show-top">
+	<div class="columns top-1">
+		<h2 class="text-center"><%= @user.user_name %></h2>
 		<% if @user == current_user %>
-		<p><%= link_to "Edit Profile", edit_user_path(current_user.id), id: "edit-own-profile", name: "#{current_user.id}" %></p>
+		<p class="text-center"><%= link_to "Edit Profile", edit_user_path(current_user.id), id: "edit-own-profile", name: "#{current_user.id}" %></p>
 		<% end %>
 	</div>
-	<div class="user-bio">
+
+	<div class="columns text-center self-align-bottom" id="profile-pic">
+			<%= image_tag @user.photo.url(:small) %>
+	</div>
+	<div class="columns user-bio">
 		<% @user.display_bio.each do |line| %>
 			<div><p><%= line %></p></div>
 		<% end %>
