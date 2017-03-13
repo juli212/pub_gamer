@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
   validates_length_of :email, maximum: 100, message: "over character limit"
   validates_length_of :bio, maximum: 500, message: "over character limit"
   has_attached_file :photo,
-  	styles: { medium: "200x200>", small: "100x100>", thumb: "60x60>" },
-  	default_url: "/images/:style/octopus0.3opacity.png"
+  	styles: { small: "100x100>", thumb: "60x60>" },
+  	convert_options: { thumb: "-quality 75 -strip", small: "-quality 75 -strip" },
+  	default_url: "missing_:style.png"
   validates_attachment :photo, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
   validates :user_name, format: {
