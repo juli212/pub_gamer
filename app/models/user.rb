@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates_length_of :last_name, maximum: 50, message: "50 character max"
   validates_length_of :user_name, maximum: 50, message: "50 character max"
   validates_length_of :email, maximum: 100, message: "over character limit"
-  validates_length_of :bio, maximum: 500, message: "over character limit"
+  validates_length_of :bio, maximum: 200, message: "over character limit"
   has_attached_file :photo,
   	styles: { small: "100x100>", thumb: "60x60>" },
   	convert_options: { thumb: "-quality 75 -strip", small: "-quality 75 -strip" },
