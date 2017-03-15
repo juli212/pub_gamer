@@ -11,6 +11,9 @@ $(window).load(function() {
 	} else if ($path.includes("profile")){
 		$('#topbar-row-three').remove()
 		$('#user').addClass('header-underline')
+	} else if ($path.includes("user")){
+		$('#topbar-row-three').remove()
+		$('#user').addClass('header-underline')
 	} else if ($path.includes("contact")){
 		$('#topbar-row-three').remove()
 		$('#contact').addClass('header-underline')

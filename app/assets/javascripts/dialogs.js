@@ -47,6 +47,8 @@ var reviewShowHeight = function(){
   }
 }
 
+var userFormPosition = ({ my: 'middle top', at: 'middle top+10', of: window, collision: 'fit' })
+
 var dialogOptions = {
 	modal: true,
   autoOpen: false,
