@@ -22,7 +22,9 @@
     <%= f.file_field :photo, placeholder: "photo", title: "photo" %>
     <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$", required: true, title: "Email", maxlength: "100" %>
     <%= f.password_field :password, placeholder: "Password", required: true, title: "Password", minlength: "7", maxlength: "50" %>
+  <% if new_user %>
     <%= f.password_field :password_confirmation, placeholder: "confirm password", required: true, title: "confirm password", minlength: "7", maxlength: "50" %>
+  <% end %>
   </div>
   <div class="small-12 medium-6 columns">
     <%= f.text_area :bio, placeholder: "Bio", title: "Bio", maxlength: "200" %>

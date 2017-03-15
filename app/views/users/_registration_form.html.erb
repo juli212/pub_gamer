@@ -1,7 +1,7 @@
 <div id="register-box">
   <%=form_for @user, id: 'register-form', html: { multipart: true } do  |f| %>
   	<h4>Register</h4>
-    <%= render partial: '/users/user_form', locals: { f: f, user: user } %>
+    <%= render partial: '/users/user_form', locals: { f: f, user: user, new_user: true } %>
     <div class="row columns">
       <%= f.submit "Register", class: 'button submit-button', id: "register-button" %>
     </div>
