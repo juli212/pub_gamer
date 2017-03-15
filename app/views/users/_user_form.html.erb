@@ -7,26 +7,32 @@
   </div>
 </div>
 <div class="row align-spaced">
-  <div class="small-12 medium-4 columns">
+  <div class="small-6 medium-4 columns">
     <%= f.text_field :user_name, placeholder: "User Name", required: true, title: "User Name", maxlength: "50" %>
   </div>
-  <div class="small-12 medium-8 columns" id="user-birthday">
+  <div class="small-6 columns small-order-2 medium-order-3">
+    <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$", required: true, title: "Email", maxlength: "100" %>
+    </div>
+  <div class="small-12 medium-8 columns small-order-3 medium-order-2" id="user-birthday">
     <div id="user-birthday-label">
       <span>Birthday:</span>
     </div>
     <%= f.date_select :birthday, prompt: { day: "Day", month: "Month", year: "Year" }, start_year: Date.today.year - 16, end_year: Date.today.year - 100, title: "Birthday", required: true %>
   </div>
+  <div class="small-12 medium-6 columns up-16 small-order-4">
+    <%= f.file_field :photo, placeholder: "photo", title: "photo" %>
+  </div>
 </div>
 <div class="row align-spaced">
-  <div class="small-12 medium-6 columns up-16">
-    <%= f.file_field :photo, placeholder: "photo", title: "photo" %>
-    <%= f.email_field :email, placeholder: "Email", pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$", required: true, title: "Email", maxlength: "100" %>
-    <%= f.password_field :password, placeholder: "Password", required: true, title: "Password", minlength: "7", maxlength: "50" %>
-  <% if new_user %>
-    <%= f.password_field :password_confirmation, placeholder: "confirm password", required: true, title: "confirm password", minlength: "7", maxlength: "50" %>
-  <% end %>
-  </div>
-  <div class="small-12 medium-6 columns">
+  <div class="small-12 medium-10 columns">
     <%= f.text_area :bio, placeholder: "Bio", title: "Bio", maxlength: "200" %>
   </div>
+  <div class="small-6 columns">
+  <%= f.password_field :password, placeholder: "Password", required: true, title: "Password", minlength: "7", maxlength: "50" %>
+  </div>
+  <% if new_user %>
+    <div class="small-6 columns">
+      <%= f.password_field :password_confirmation, placeholder: "confirm password", required: true, title: "confirm password", minlength: "7", maxlength: "50" %>
+    </div>
+  <% end %>
 </div>
