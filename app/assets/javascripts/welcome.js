@@ -9,7 +9,9 @@ var welcomeWidth = function() {
   }
 }
   function welcomePage(){
-    $("#register-box").dialog(dialogOptions).parent().draggable();
+    $("#register-box").dialog(dialogOptions, {
+      position: userFormPosition
+    }).parent().draggable();
     $("#login-box").dialog(dialogOptions, {
       width: welcomeWidth
     }).parent().draggable();
