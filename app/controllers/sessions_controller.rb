@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         redirect_to root_path, :flash => { :error => login_error }
       elsif user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect_to user_path(user)
+        redirect_to user_profile_path(user)
       else
         login_error = ['Invalid Email or Password']
         redirect_to root_path, :flash => { :error => login_error }
