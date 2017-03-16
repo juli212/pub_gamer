@@ -14,10 +14,26 @@ $(document).ready(function() {
 var showMap = function venueShowMap() {
   var map = new google.maps.Map(document.getElementById('show-map'), {
     zoom: 8,
-    center: {lat: 40.72, lng: -73.96}
+    center: {lat: 40.72, lng: -73.96},
+    clickableIcons: false,
+    mapTypeControl: false,
+    streetViewControl: false
   });
+
+  var purpleMarker = new google.maps.MarkerImage(
+    "<%= asset_path('icons/location/purple.png') %>",
+    null,
+    null,
+    null,
+    new google.maps.Size(30, 30)
+    )
+
   var geocoder = new google.maps.Geocoder;
   var infowindow = new google.maps.InfoWindow;
+
+  google.maps.event.addListener(infowindow, 'domready', function(){
+		$('.gm-style-iw').parent().find('img').remove()
+	}); 
 
   geocodePlaceId(geocoder, map, infowindow);
 
@@ -30,7 +46,8 @@ var showMap = function venueShowMap() {
 	        map.setCenter(results[0].geometry.location);
 	        var marker = new google.maps.Marker({
 	          map: map,
-	          position: results[0].geometry.location
+	          position: results[0].geometry.location,
+	          icon: purpleMarker
 	        });
 	        infowindow.setContent(results[0].formatted_address);
 	        infowindow.open(map, marker);
@@ -41,6 +58,14 @@ var showMap = function venueShowMap() {
 	      window.alert('Geocoder failed due to: ' + status);
 	    }
 	  });
+
 	}
 
+	var $dialogBox = $('#view-venue-on-map').parent()
+	$dialogBox.on('mousedown', '#show-map', function(event){
+		$dialogBox.draggable('disable');
+	})
+	$dialogBox.on('mouseup', '#show-map', function(event){
+		$dialogBox.draggable('enable');
+	})
 }

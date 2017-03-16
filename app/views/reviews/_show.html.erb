@@ -16,9 +16,8 @@
 		Visited: <%= review.week %>
 	</div>
 	<div class="reviewed-by">
-		<p>Reviewed by 
-			<%= link_to "#{review.author}", user_path(review.user_id) %>
-		</p>
+		<p>Reviewed by<span>
+			<%= link_to "#{review.author}", user_profile_path(review.user) %></span></p>
 		<%= link_to "Read Review!", venue_review_path(review.venue.id, review.id), class: "read-more-review button" %>
 	</div>
 </div>
