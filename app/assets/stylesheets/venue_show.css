@@ -149,7 +149,11 @@
 
 .reviewed-by {
 	 border-top: 3px solid rgba(251, 235, 212, 1.0);
-	/*border-top: 3px solid green;*/
+}
+
+.reviewed-by p {
+	display: inline-block;
+	font-size: 11px;
 }
 
 .delete-review {
