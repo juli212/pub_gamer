@@ -108,6 +108,10 @@
   }
 }
 
+#topbar-row-two {
+  background-color: rgba(251, 235, 212, 1.0);
+}
+
 #topbar-row-three {
   display: flex;
 }
