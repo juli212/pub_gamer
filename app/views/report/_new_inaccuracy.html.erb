@@ -1,5 +1,5 @@
 <div>
-	<%= form_for @report, as: :report, url: report_index_path(@report), method: :post do |f| %>
+	<%= form_for @report, as: :report, url: report_index_path(@report), html: {id: "new-inaccurate-report" }, method: :post do |f| %>
 		<h4>Report Incorrect Venue Details</h4>
 		<table>
 			<tr>
