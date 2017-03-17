@@ -4,14 +4,10 @@
 <%- title "Venues" %>
 	<%= render partial: 'venue', locals: { venue: @venue, vibes: @vibes } %>
 
-	<div class="row align-spaced" >
-		<div class="small-12 medium-4 text-center columns" >
-			<h2>Reviews</h2>
-			<% if notice %>
-				<% notice.each do |error| %>
-					<p><%= error %></p>
-				<% end %>
-			<% end %>
+	<div class="row align-spaced review-header" >
+		<div class="small-12 medium-6 text-center columns" >
+			<h3>Reviews</h3>
+			<%= link_to "+ Review", new_venue_review_path(@venue.id), class: "button new-review-button" %>
 		</div>
 	</div>
 
@@ -30,5 +26,9 @@
 			<% end %>
 				</div>
 		</div>
+	</div>
+		<div class="row columns text-center venue-show-bottom" >
+		<p>Inaccurate information about this venue?</p>
+		<%= link_to "Report Venue", user_report_inaccuracy_path(current_user.id, @venue), class: "report-inaccurate-button" %>
 	</div>
 </div>

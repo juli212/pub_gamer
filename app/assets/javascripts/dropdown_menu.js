@@ -11,4 +11,15 @@ $(document).ready(function() {
 		event.preventDefault();
 		$(this).closest('li').find('ul').toggle()
 	})
+
+	
+// venue_show dropdown highlighting header
+	$venueDropdown = $('#venue-show-dropdown')
+	$('#venue-name').on('click', function(){
+		if ($venueDropdown.css('display') != 'none'){
+			$(this).addClass('purple-background')
+		} else {
+			$(this).removeClass('purple-background')
+		}
+	})
 });

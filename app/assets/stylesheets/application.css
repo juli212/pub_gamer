@@ -311,3 +311,7 @@ border: none;
 .cancel-fade {
   opacity: 0.5;
 }
+
+.button {
+  border-radius: 2px;
+}

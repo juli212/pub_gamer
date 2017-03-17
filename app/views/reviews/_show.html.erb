@@ -18,6 +18,6 @@
 	<div class="reviewed-by">
 		<p>Reviewed by<span>
 			<%= link_to "#{review.author}", user_profile_path(review.user) %></span></p>
-		<%= link_to "Read Review!", venue_review_path(review.venue.id, review.id), class: "read-more-review button" %>
+		<%= link_to "Read!", venue_review_path(review.venue.id, review.id), class: "read-more-review button" %>
 	</div>
 </div>
