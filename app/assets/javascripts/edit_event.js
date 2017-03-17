@@ -5,7 +5,7 @@ $(document).ready(function() {
 		+ "</div"
 
 	$('#edit-event-box').dialog(dialogOptions, {
-		position: ({ my: 'middle top', at: 'middle top+50', of: window, collision: 'fit' }),
+		// position: ({ my: 'middle top', at: 'middle top+50', of: window, collision: 'fit' }),
 		close: emptyDialogBox
 	}).parent().draggable();
 	$('.edit-event').on('click', function(event){

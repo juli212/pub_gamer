@@ -19,7 +19,7 @@ $(document).ready(function() {
   }
   $("#event-create-container").dialog(dialogOptions, {
     open: openEventForm,
-    position: ({ my: 'middle top', at: 'middle top+50', of: window, collision: 'fit' }),
+    // position: ({ my: 'middle top', at: 'middle top+50', of: window, collision: 'fit' }),
     close: resetEventForm
   }).parent().draggable();
 

@@ -7,7 +7,7 @@ var setFormWidth = function() {
   } else if (width >= 640) {
     return width * 0.7
   } else {
-    return width
+    return width * 0.95
   }
 }
 var setHeight = function() {
@@ -35,7 +35,7 @@ var reviewShowWidth = function(){
   } else if (width >= 640 ) {
     return width * 0.5
   } else {
-    return width
+    return width * 0.95
   }
 }
 
@@ -55,6 +55,7 @@ var dialogOptions = {
   maxHeight: setFormHeight,
   width: setFormWidth,
   draggable: false,
-  position: ({ my: 'middle top', at: 'middle center-200', of: window, collision: 'fit' }),
+  position: userFormPosition,
+  // position: ({ my: 'middle top', at: 'middle top', of: window, collision: 'fit' }),
 	close: closeDialogWindow
 }
