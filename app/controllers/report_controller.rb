@@ -21,7 +21,6 @@ class ReportController < ApplicationController
 	def create
 		@report = Report.new(report_params)
 		@report.user_id = current_user.id if current_user
-		binding.pry
 		if @report.save && @report.topic == "inquiry"
 			UserMailer.contact_us(@report).deliver_now
 			redirect_to contact_index_path, flash: { notice: [ "Message sent"] }
