@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :user_name, :email, :password, :birthday, presence: true
   validates :user_name, :email, uniqueness: true
+  validates_length_of :password, in: 7..30, message: "Password must be between 7 and 30 characters"
   validates_length_of :first_name, maximum: 50, message: "50 character max"
   validates_length_of :last_name, maximum: 50, message: "50 character max"
   validates_length_of :user_name, maximum: 50, message: "50 character max"
