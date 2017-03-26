@@ -1,4 +1,17 @@
 $(document).ready(function() {
+  var removeGames = function() {
+    $('#venue-create-games').html("<p class='no-games-p'>No Games Added</p>")
+  }
+  var resetVenueForm = function() {
+    $('#venue-create-form')[0].reset();
+    $('#venue-create-form').find("input[type=hidden][id^='venue']")
+    removeGames()
+  }
+  $("#venue-create-form-container").dialog(dialogOptions, {
+    width: setFormWidth,
+    maxHeight: setFormHeight,
+    close: resetVenueForm
+  }).parent().draggable();
 
   $('.venue-create-game').on('click', function(event){
     clicked_div = event.target.closest('.venue-create-game')
@@ -32,15 +45,6 @@ $(document).ready(function() {
     })
   })
 
-  var removeGames = function() {
-    $('#venue-create-games').html("<p class='no-games-p'>No Games Added</p>")
-  }
-  var resetVenueForm = function() {
-    document.getElementById('venue-create-form').reset()
-    $('#venue-create-form').find("input[type=hidden][id^='venue']")
-    removeGames()
-  }
-
   $('#venue-create-games').on('click', '.remove-game-button', function(event){
     event.preventDefault()
     $(this).closest('.update-game').remove()
@@ -48,9 +52,5 @@ $(document).ready(function() {
       removeGames()
     }
   })
-
-  $("#venue-create-form-container").dialog(dialogOptions, {
-    close: resetVenueForm
-  }).parent().draggable();
 
 });

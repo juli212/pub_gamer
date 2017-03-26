@@ -1,8 +1,8 @@
 
 // $(document).ready(function() {
     // debugger;
-var welcomeWidth = function() {
-  if (width >= 640) {
+var loginWidth = function() {
+  if ($width >= 640) {
     return 350
   } else {
     return 300
@@ -13,7 +13,7 @@ var welcomeWidth = function() {
       position: userFormPosition
     }).parent().draggable();
     $("#login-box").dialog(dialogOptions, {
-      width: welcomeWidth
+      width: loginWidth
     }).parent().draggable();
   // }
 
