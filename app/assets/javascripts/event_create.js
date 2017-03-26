@@ -13,14 +13,25 @@ $(document).ready(function() {
     }
   }
 
-  var resetEventForm = function() {
-    $('#event-create-form')[0].reset();
+var resetEventForm = function() {
+  debugger;
+  // $('#event-create-form')[0].reset()
+}
+
+  var resetCreateForm = function() {
+    debugger;
+    var $formBox
+    if ($('#event-create-form').length > 0) {
+      $formBox = $('#event-create-form')[0]
+    } else if ($('#venue-create-form').length > 0) {
+      $formBox = $('#venue-create-form')[0]
+    }
+    $formBox.reset()
     $('.select-game').removeClass('select-game');
   }
   $("#event-create-container").dialog(dialogOptions, {
     open: openEventForm,
-    // position: ({ my: 'middle top', at: 'middle top+50', of: window, collision: 'fit' }),
-    close: resetEventForm
+    close: resetCreateForm
   }).parent().draggable();
 
   $('#event-create-container, #edit-event-box').on('click', '#add-new-game', function(event){

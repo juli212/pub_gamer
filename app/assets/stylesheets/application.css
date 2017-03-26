@@ -232,7 +232,7 @@ input:valid[type="submit"] {
   background-color: #FBEBD4; 
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 640px) and (min-height: 500px) {
   .ui-dialog form input,
   .ui-dialog form textarea {
     height: 35px;
