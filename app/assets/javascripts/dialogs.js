@@ -46,6 +46,7 @@ function dialogHeight(w, h) {
 // default dialog close function:
 var closeDialogWindow = function(){
   $(this).find('form')[0].reset()
+  // startScroll()
 }
 
 // alternate dialog close function, empties dialog box:
@@ -71,17 +72,31 @@ var reviewShowHeight = function(){
   }
 }
 
+function stopScroll() {
+  $('body').css('overflow', 'hidden')
+}
+
+var stopScrolling = stopScroll($('body'))
+
+function startScroll() {
+  $('body').css('overflow', 'visible')
+}
+
 var userFormPosition = ({ my: 'middle top', at: 'middle top+10', of: window, collision: 'fit' })
 
 var dialogOptions = {
   modal: true,
   autoOpen: false,
-  // width: dialogWidth($width, $height),
-  // maxHeight: dialogHeight($width, $height),
+  open: function (event, ui) {
+    $("body").css('overflow', 'hidden' )
+  },
   maxHeight: setFormHeight,
   width: setFormWidth,
   draggable: false,
   position: userFormPosition,
+  beforeClose: function(event, ui) {
+    $('body').css('overflow', 'inherit')
+  },
   close: closeDialogWindow
 }
 

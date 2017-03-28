@@ -141,7 +141,7 @@ input:valid[type="submit"] {
 .errors-box {
   font-weight: bold;
   color: red;
-  font-size: 12px;
+  font-size: 14px;
   margin-top: -5px;
 }
 .errors-box p {
