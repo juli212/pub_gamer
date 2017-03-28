@@ -136,7 +136,8 @@
     // If the touch interaction did not move, it should trigger a click
     if (!this._touchMoved) {
       $target = $(event.target)
-      if ($target.is("button") || ($target.val('close').is('span') && $target.parent().is('button')) ) {
+      if ($target.is("button") || ( $target.text() == 'Close' && $target.is('span') && $target.parent().is('button')) ) {
+      debugger;
         // ignore click on button to prevent form submitting twice
         return
       } else {
