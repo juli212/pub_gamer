@@ -25,7 +25,6 @@ function dialogWidth(w, h) {
   } else {
     width = w * 0.9
   }
-  console.log(width)
   return width
 }
 
