@@ -135,9 +135,14 @@
 
     // If the touch interaction did not move, it should trigger a click
     if (!this._touchMoved) {
-
-      // Simulate the click event
-      simulateMouseEvent(event, 'click');
+      $target = $(event.target)
+      if ($target.is("button")) {
+        // ignore click on button to prevent form submitting twice
+        return
+      } else {
+        // Simulate the click event
+        simulateMouseEvent(event, 'click');
+      }
     }
 
     // Unset the flag to allow other widgets to inherit the touch event
