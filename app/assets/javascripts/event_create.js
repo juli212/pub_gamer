@@ -13,13 +13,10 @@ $(document).ready(function() {
     }
   }
 
-var resetEventForm = function() {
-  debugger;
-  // $('#event-create-form')[0].reset()
-}
+  var resetEventForm = function() {
+  }
 
   var resetCreateForm = function() {
-    debugger;
     var $formBox
     if ($('#event-create-form').length > 0) {
       $formBox = $('#event-create-form')[0]
