@@ -137,7 +137,6 @@
     if (!this._touchMoved) {
       $target = $(event.target)
       if ($target.is("button") || ( $target.text() == 'Close' && $target.is('span') && $target.parent().is('button')) ) {
-      debugger;
         // ignore click on button to prevent form submitting twice
         return
       } else {
