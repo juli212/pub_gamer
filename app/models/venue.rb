@@ -101,4 +101,12 @@ class Venue < ActiveRecord::Base
 		avg_rating.round(2)
 	end
 
+	def slug
+		self.name.gsub(" ", "-")
+	end
+
+	def to_param
+		"#{id}-#{slug}"
+	end
+
 end
