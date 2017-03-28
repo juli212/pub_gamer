@@ -72,8 +72,8 @@ var reviewShowHeight = function(){
   }
 }
 
-function stopScroll(body) {
-  body.css('overflow', 'hidden')
+function stopScroll() {
+  $('body').css('overflow', 'hidden')
 }
 
 var stopScrolling = stopScroll($('body'))

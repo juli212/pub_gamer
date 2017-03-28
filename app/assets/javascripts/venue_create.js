@@ -2,15 +2,15 @@ $(document).ready(function() {
   var removeGames = function() {
     $('#venue-create-games').html("<p class='no-games-p'>No Games Added</p>")
   }
-  var resetVenueForm = function() {
-    $('#venue-create-form')[0].reset();
-    $('#venue-create-form').find("input[type=hidden][id^='venue']")
-    removeGames()
-  }
+
   $("#venue-create-form-container").dialog(dialogOptions, {
     width: setFormWidth,
     maxHeight: setFormHeight,
-    close: resetVenueForm
+    close: function() {
+      $('#venue-create-form')[0].reset();
+      $('#venue-create-form').find("input[type=hidden][id^='venue_']")
+      removeGames()
+    },
   }).parent().draggable();
 
   $('.venue-create-game').on('click', function(event){
