@@ -4,7 +4,7 @@ $(document).ready(function() {
     resetEventForm();
     stopScroll();
     if (window.location.pathname.includes("venue") ) {
-      barName = $('#venue-name').text()
+      barName = $('#venue-name').text().substring(2)
       barAddress = $('#get-venue-address').text()
       $('#event_location').val(barName);
       $('#event_location').prop('readonly', true);
