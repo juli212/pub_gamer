@@ -90,8 +90,6 @@ var dialogOptions = {
   open: function (event, ui) {
     $("body").css('overflow', 'hidden' )
   },
-  // width: dialogWidth($width, $height),
-  // maxHeight: dialogHeight($width, $height),
   maxHeight: setFormHeight,
   width: setFormWidth,
   draggable: false,
