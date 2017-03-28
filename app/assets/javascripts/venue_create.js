@@ -4,6 +4,9 @@ $(document).ready(function() {
   }
 
   $("#venue-create-form-container").dialog(dialogOptions, {
+    open: function (event, ui) {
+      $("body").css('overflow', 'hidden' )
+    },
     width: setFormWidth,
     maxHeight: setFormHeight,
     close: function() {
