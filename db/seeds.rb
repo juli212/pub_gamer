@@ -162,12 +162,13 @@ venues = Venue.create([
     lat: "40.6760744",
     lng: "-73.98008229999999",
     neighborhood_id: Neighborhood.find_or_create_by(name: "Park Slope").id },
-  {name: "The Carriage House",
-    address: "219 E 59th St, New York, NY 10022",
-    place: "ChIJp18_3uVYwokRMEDmAlz_GYo",
-    lat: "40.7613728",
-    lng: "-73.96561120000001",
-    neighborhood_id: Neighborhood.find_or_create_by(name: "Lenox Hill").id },
+# PERMANENTLY CLOSED
+  # {name: "The Carriage House",
+  #   address: "219 E 59th St, New York, NY 10022",
+  #   place: "ChIJp18_3uVYwokRMEDmAlz_GYo",
+  #   lat: "40.7613728",
+  #   lng: "-73.96561120000001",
+  #   neighborhood_id: Neighborhood.find_or_create_by(name: "Lenox Hill").id },
   {name: "Fat Black Pussycat",
     address: "130 W 3rd St, New York, NY 10012",
     place: "ChIJUzSA1pNZwokRXIM_Ln81TZc",
@@ -216,12 +217,12 @@ venues = Venue.create([
     lat: "40.729045",
     lng: "-73.98830800000002",
     neighborhood_id: Neighborhood.find_or_create_by(name: "East Village").id },
-  {name: "Canal Bar",
-    address: "270 3rd Ave # A, Brooklyn, NY 11215",
-    place: "ChIJN7FyClVawokRsq3fIOUBa9s",
-    lat: "40.677907",
-    lng: "-73.98588059999997",
-    neighborhood_id: Neighborhood.find_or_create_by(name: "Gowanus").id },
+  # {name: "Canal Bar",
+  #   address: "270 3rd Ave # A, Brooklyn, NY 11215",
+  #   place: "ChIJN7FyClVawokRsq3fIOUBa9s",
+  #   lat: "40.677907",
+  #   lng: "-73.98588059999997",
+  #   neighborhood_id: Neighborhood.find_or_create_by(name: "Gowanus").id },
   {name: "Dave's Tavern",
     address: "574 9th Ave, New York, NY 10036",
     place: "ChIJTXpP7lJYwokRniLvHyM0IWk",
@@ -235,18 +236,6 @@ venues = Venue.create([
     lng: "-73.98298999999997",
     deleted: false,
     neighborhood_id: Neighborhood.find_or_create_by(name: "East Village").id }
-  # {name: "",
-  #   address: "",
-  #   place: "",
-  #   lat: "",
-  #   lng: "",
-  #   neighborhood_id: },
-  # {name: "",
-  #   address: "",
-  #   place: "",
-  #   lat: "",
-  #   lng: "",
-  #   neighborhood_id: }
 ])
 
 
@@ -280,7 +269,7 @@ venues = Venue.create([
 # hi-fi: pool
 # jakes dilemma: pool
 # josie wood's pub: pool/darts
-# kelly's: pool
+######## kelly's: pool
 # landsdowne road: pool/darts
 # legends: pool/darts
 # lucky jacks: pool
@@ -291,18 +280,16 @@ venues = Venue.create([
 # mona's: pool
 # montero's bar and grill: pool/karaoke
 # nancy whiskey: shuffle puck
-# nowhere: pool
+# nowhere: downtown-pool
 # O'hanlons: pool/darts
 # paddy maguires ale house: pool/darts
 # peter dillons: pool
 # ryan's daughter: pool
 # royal palms: shuffleboard
-# sixth ward: pool
 # slate: pingpong/pool/etc
 # snafu: pool
 # sophie's: pool
 # tempest bar: pool
-# the carriage house: pool/karaoke/darts *
 # the duck: pool/mortal kombat
 # the hog pit nyc: pool
 # the levee: pool
@@ -311,9 +298,63 @@ venues = Venue.create([
 # the whiskey ward: pool
 # turkey's nest tavern: pool
 # tropical 128: pool
+
 # union hall: bocce ball *
+
 # walter's bar: pool/darts
 # zablozki's: pool
+
+## CLOSED VENUES:
+# Edge Bar: pool
+# sixth ward: pool
+# the carriage house: pool/karaoke/darts *
+
+# Break Bar and Billiards: pool | astoria
+# Veronica's Bar: pool | astoria
+# The Jar Bar: pool | sunnyside
+# Cue Bar: pool | bayside
+# Dominie's: pool | astoria
+# The Globe Tavern: pool | woodside
+# Paradise Alley: pool | flushing
+# Ready Penny Inn: pool | jackson heights
+# Acey Ducey's: pool | forest hills
+# Maggie Mae's: pool | sunnyside
+# McCanns Pub and Grill: pool, darts | astoria
+# Cosy Corner Tavern, pool | ridgewood
+# Cheap Shots: pool, basketball shooting game | FLushing
+# Station Cafe: pool | woodside
+# BQE Billiards and Bar: pool | Jackson Heights
+# Tippin Inn, pool | astoria
+# Alewife NYC, pool? | LIC
+# the billiard company: pool, hookah | forest hills
+# Recovery Room: pool, darts | Flushing
+# Play Lounge: pool, bowling | ELmhurst
+# Doyle's Corner: pool | astoria
+# Bonus Room: pool, pinball | Flushing
+# McLoughlin Astoria Bar: pool | astoria
+# L. I. C. Bar: pool | LIC
+# Mike's Pub: pool, darts | woodhaven
+# Albatross Bar: pool, karaoke | astoria
+
+
+# Aunt Ginny's: pool, photobooth | Ridgewood
+# Dominie's Hoek: pool, boardgames | LIC
+# CJ's Pub: pool | College Point
+# Library Bar at Hudson: pool, chess | midtown
+# Sissy McGinty's: pool, Wii | Astoria
+# McCaffrey and Burke Bar and Grill: pool | astoria
+# Gotham City Lounge: pool | bushwick
+# Tacos Mexico: pool | astoria
+# Bierleichen: pool, fooseball | ridgewood
+# Olympia Sportsbar: pool | astoria
+# No Partners Bar: pool, arcade | astoria
+# Zbar Astoria: pool, boardgames, darts | astoria
+# K and A: pool, shuffleboard, darts, pacman | glendale
+# Louise and Jerry's: pool | hoboken
+#  Raven's Head Public House: beerpong | astoria
+# Bearded Lady: pool | prospect heights
+
+
 
 # vibes = Vibe.create([  
 #   {name: 'Chill', pic: 'icons/vibe/chill.png'},
@@ -342,20 +383,4 @@ venues = Venue.create([
 #   {game_id: 4, venue_id: 11},
 #   {game_id: 1, venue_id: 11},
 #   {game_id: 1, venue_id: 12}
-
-  # {game_id: 1, venue_id: 2},
-  # {game_id: 1, venue_id: 3},
-  # {game_id: 1, venue_id: 4},
-  # {game_id: 1, venue_id: 2},
-  # {game_id: 1, venue_id: 3},
-  # {game_id: 1, venue_id: 4},
-  # {game_id: 1, venue_id: 2},
-  # {game_id: 1, venue_id: 3},
-  # {game_id: 1, venue_id: 4},
-  # {game_id: 1, venue_id: 2},
-  # {game_id: 1, venue_id: 3},
-  # {game_id: 1, venue_id: 4},
-  # {game_id: 1, venue_id: 2},
-  # {game_id: 1, venue_id: 3},
-  # {game_id: 1, venue_id: 4},
 # ])
