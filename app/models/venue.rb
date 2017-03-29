@@ -14,7 +14,7 @@ class Venue < ActiveRecord::Base
 	validates :address, uniqueness: true
 	validates_length_of :name, :address, maximum: 150, message: "over character limit"
 	validates :name, format: {
-		with: /\A[\d\sa-zA-Z_\.\,\-\+]+\z/,
+		with: /\A[\d\sa-zA-Z_\.\,\-\+\!\?]+\z/,
 		message: "Invalid characters: Acceptable characters are A-Z, a-z, 0-9"
 	}
 
@@ -26,7 +26,7 @@ class Venue < ActiveRecord::Base
 	end
 
 	def self.search(term)
-		term = term.gsub(/[^\d\sa-zA-Z_\.\,\-\+]/, "")
+		term = term.gsub(/[^\d\sa-zA-Z_\.\,\-\+\!\?]/, "")
 		# term = term.gsub(/[\'s\o']/,'')
 		# term = term.gsub(/[^0-9a-zA-Z_\,\.\+\-\?]/,'')
 		# term = term.gsub("'","").gsub("&", "")

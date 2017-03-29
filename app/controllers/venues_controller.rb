@@ -71,7 +71,7 @@ class VenuesController < ApplicationController
     @venue = Venue.new(venue_params)
     if !request.xhr?
       @venue.neighborhood = Neighborhood.find_or_create_by(name: params[:venue][:neighborhood].titleize)
-      @venue.name = @venue.name.gsub("&","and").gsub(/[^\d\sa-zA-Z_\.\,\-\+]/,'')
+      @venue.name = @venue.name.gsub("&","and").gsub(/[^\d\sa-zA-Z_\.\,\-\+\!\?]/,'')
       if @venue.save
         if params[:games]
           @venue.games << Game.find(params[:games])

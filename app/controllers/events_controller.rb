@@ -72,7 +72,7 @@ class EventsController < ApplicationController
       @event = Event.new(event_params)
       @event.user_id = current_user.id
       games = params[:games]
-      @event.title.gsub("&","and").gsub(/[^\d\sa-zA-Z_\.\,\-\+]/, "")
+      @event.title.gsub("&","and").gsub(/[^\d\sa-zA-Z_\.\,\-\+\!\?]/, "")
       if @event.in_future? && @event.save
         games != nil ? @event.games << Game.find(games) : @event.games = @event.games
         redirect_to event_path(@event)
