@@ -13,6 +13,11 @@ class Event < ActiveRecord::Base
 	validates_inclusion_of :limit, in: 0..40
 	validates_length_of :title, maximum: 100, message: "over character limit"
 	validates_length_of :description, maximum: 500, message: "over character limit"
+	validates :title, format: {
+		with: /\A[\d\sa-zA-Z_\.\,\-\+]+\z/,
+		message: "Invalid characters: Acceptable characters are A-Z, a-z, 0-9"
+	}
+
 
 	def game
 	end
@@ -34,6 +39,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def self.search(term)
+		term = term.gsub(/[^\d\sa-zA-Z_\.\,\-\+]/, "")
 		events = Event.event_search(term) + Event.event_venue_search(term) + Event.game_search(term) + Event.multi_word_search(term)
 		events.uniq
 	end

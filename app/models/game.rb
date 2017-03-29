@@ -13,10 +13,12 @@ class Game < ActiveRecord::Base
 
 
 	def self.game_search(term)
+		term = term.gsub(/[^\d\sa-zA-Z_\.\,\-\+]/, "")
 		where("name ILIKE :term", term: "%#{term.downcase}%")
 	end
 
 	def self.add_game(term)
+		term = term.gsub(/[^\d\sa-zA-Z_\.\,\-\+]/, "")
 		where("name ILIKE :term", term: "#{term.downcase}%")
 	end
 
