@@ -31,6 +31,10 @@ body > * {
   outline: none;
 }
 
+body div {
+  position: relative;
+}
+
 #content {
   margin: 0 auto;
   max-width: 1200px;
