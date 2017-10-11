@@ -1,6 +1,6 @@
 require 'will_paginate/array'
 class VenuesController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login, except: [:index, :dropdown, :results, :search]
 # skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
