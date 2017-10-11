@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login, except: [:index, :dropdown, :results, :search]
+
 
   def index
     if !request.xhr?
@@ -14,12 +15,14 @@ class EventsController < ApplicationController
     end
   end
 
+
   def update_games
     games = Venue.find_by(id: params[:event][:venue_id]).games
     if request.xhr?
       render partial: 'events/event_create_games', locals: { games: games }
     end
   end
+
 
   def dropdown
     @search_term = params[:term] if params[:term]
@@ -29,6 +32,7 @@ class EventsController < ApplicationController
       }
     end
   end
+
 
   def results
     if request.xhr? && params[:term]
@@ -44,6 +48,7 @@ class EventsController < ApplicationController
     end
   end
 
+
   def search
     @event = Event.new
     if params[:term]
@@ -56,16 +61,19 @@ class EventsController < ApplicationController
     end
   end
 
+
   def add_venue
     respond_to do |format|
       format.json { @results = Venue.venue_name_search(params[:term]) }
     end
   end
 
+
   def new
     @event = Event.new
     @games = Game.all.sample(10)
   end
+
 
   def create
     if !request.xhr?
@@ -87,6 +95,7 @@ class EventsController < ApplicationController
     end
   end
 
+
   def edit
     @event = Event.find_by(id: params[:id])
     @games = @event.games
@@ -98,6 +107,7 @@ class EventsController < ApplicationController
       redirect_to event_path(@event)
     end
   end
+
 
   def guests
     @event = Event.find_by(id: params[:event_id])
@@ -120,6 +130,7 @@ class EventsController < ApplicationController
     end
   end
 
+
   def cancel
     @event = Event.find_by(id: params[:event_id])
     if request.xhr?
@@ -130,6 +141,7 @@ class EventsController < ApplicationController
     end
   end
 
+  
   def update
     @event = Event.find_by(id: params[:id])
     if !request.xhr?
@@ -148,6 +160,7 @@ class EventsController < ApplicationController
       redirect_to event_path(@event), flash: { error: errors }
     end
   end
+
 
   def show
     @event = Event.find_by(id: params[:id])

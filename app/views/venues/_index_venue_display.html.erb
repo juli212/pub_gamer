@@ -1,9 +1,11 @@
 <div class="columns index-box fav-holder">
 		<div class="user-status">
-			<% if current_user.has_favorited?(venue) %>
-				<%= render partial: 'remove_favorite_heart', locals: { venue: venue } %>
-			<% else %>
-				<%= render partial: 'add_favorite_heart', locals: { venue: venue } %>
+			<% if current_user %>
+				<% if current_user.has_favorited?(venue) %>
+					<%= render partial: 'remove_favorite_heart', locals: { venue: venue } %>
+				<% else %>
+					<%= render partial: 'add_favorite_heart', locals: { venue: venue } %>
+				<% end %>
 			<% end %>
 		</div>
 	<div class="index-left">

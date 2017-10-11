@@ -129,7 +129,7 @@ class UsersController < ApplicationController
     if !request.xhr?
       if @user.save
         session[:user_id] = @user.id
-        UserMailer.welcome_email(@user).deliver_now
+        # UserMailer.welcome_email(@user).deliver_now
         redirect_to user_profile_path(@user)
       else
         user_errors = @user.errors.full_messages
