@@ -5,8 +5,6 @@ class ContactController < ApplicationController
 		if logged_in?
 			@report.email = current_user.email
 			@report.name = current_user.full_name
-		else
-			
 		end
 	end
 end
