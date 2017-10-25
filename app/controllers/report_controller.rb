@@ -1,5 +1,5 @@
 class ReportController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login, except: [:new_inquiry, :create]
 
 	def new_inaccuracy
 		if request.xhr?
