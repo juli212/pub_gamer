@@ -28,7 +28,9 @@ class ReportController < ApplicationController
 			UserMailer.report_venue_inaccurate(@report).deliver_now
 			redirect_to venue_path(@report.venue), flash: { notice: [ "Message sent"] }
 		else
-			redirect_to root_path, flash: { error: [ "Error sending message"] }
+			@report = @report
+			flash[:error] = ["Error sending message"]
+			render 'contact/index'
 		end
 	end
 
