@@ -14,7 +14,7 @@ View live: http://pub-gamer.herokuapp.com
 ## 2. Create database user.
 
 #### On OSX
-If you're on OSX then you can run the following bootstrap task to setup your system with postgresql, npm, bundler and gulp. It will then create an admin user. If you need help installing ruby, or more detail on installing the dependencies, please read [Setup Environment](setup_environment.md)
+If you're on OSX then you can run the following bootstrap task to setup your system with postgresql, npm, bundler and gulp. It will then create an admin user.
 
 If you are setting up with PostgreSQL for the first time, you would have to create a superuser.
 
