@@ -83,9 +83,6 @@ body div {
   #main {
     padding-top: 10px;
   }
-  .submit-button {
-    /*height: 36px;*/
-  }
 }
 
 .dragscroll {
@@ -139,10 +136,6 @@ input:invalid {
   border: 3px solid #F4AE35;
 }
 
-input:valid {
-  /*border: 3px solid #31AB3C;*/
-}
-
 input:valid[type="submit"] {
   border: none;
 }
@@ -172,9 +165,6 @@ input:valid[type="submit"] {
   font-weight: bold;
   color: #FFFFF0;
   background-color: #2C1B13;
-  /*background-color: rgba(44, 27, 19, 0.9);
-  /*background-color: #31AB3C;*/
-  /*border-radius: 10px;*/
   border-top-right-radius: 7px;
   border-bottom-left-radius: 7px;
   border-bottom: 1px solid #F4AE35;
@@ -182,7 +172,6 @@ input:valid[type="submit"] {
   min-width: 60px;
   height: 35px;
   margin: 0px 10px 5px 0px;
-  /*float: center;*/
 }
 
 .pagination > * {
@@ -207,7 +196,7 @@ input:valid[type="submit"] {
 .ui-dialog {
   color: #2C1B13;
   background-color: #2C1B13;
-  border-radius: 10px
+  border-radius: 2px
 }
 
 .ui-dialog #view-venue-on-map {
@@ -257,9 +246,7 @@ border: none;
   text-align: left;
   border: none;
   font-size: 14px;
-  /*height: 36px;*/
   background-color: #2C1B13;
-  /*padding: 0;*/
 }
 .ui-dialog form table td {
   padding: 5px 0px 3px 10px;
@@ -292,7 +279,6 @@ border: none;
   padding: 5px;
   font-weight: bold;
   background-color: #FBEBD4;
-  /*background-color: #FFFFF0;*/
   border-radius: 10px;
 }
 

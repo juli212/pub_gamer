@@ -6,7 +6,9 @@
   display: block;
   width: 100px;
   background-color: #FBEBD4;
-  border-radius: 50%/40%;
+  border-radius: 2px;
+  margin: 5px 0;
+  border: 1px solid #FBEBD4;
 }
 
 .week:hover{
@@ -25,5 +27,7 @@
 
 /*highlights selected time of week*/
 .time-of-week {
-  background-color: #FFFFF0;
+  border: 1px solid #FFFFF0;
+  background-color: #A893FF;
+  /*background-color: #FFFFF0;*/
 }
