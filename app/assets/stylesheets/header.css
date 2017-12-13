@@ -151,15 +151,19 @@
   }
 }
 
+.has-dropdown li {
+  position: relative;
+}
+
 .header-dropdown {
   padding: 0;
   margin: 0;
-  width: 40%;
   background-color: #FBEBD4;
   display: none;
   position: absolute;
   z-index: 999;
   border: none;
+  width: 100%;
 }
 
 .header-dropdown li {
@@ -172,6 +176,10 @@
 
 .header-dropdown li+li {
   border-bottom: 1px solid #2C1B13;
+}
+
+#nav li {
+  position: relative;
 }
 
 #nav li ul {
@@ -201,13 +209,6 @@
   border: none;
   border-bottom: 1px solid #2C1B13;
 }
-
-@media only screen and (min-width: 640px) {
-  .header-dropdown {
-    width: 15%;
-  }
-}
-
 
 #search-form {
   width: 100%;
