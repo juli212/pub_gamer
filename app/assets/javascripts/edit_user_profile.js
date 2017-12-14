@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	$('#edit-user-profile-box').dialog(dialogOptions, {
-		// position: userFormPosition
 	}).parent().draggable();
 
 	$('#edit-user-profile, #edit-own-profile').on('click', function(event){

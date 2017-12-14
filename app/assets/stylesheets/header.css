@@ -164,6 +164,7 @@
   z-index: 999;
   border: none;
   width: 100%;
+  min-width: 100px;
 }
 
 .header-dropdown li {

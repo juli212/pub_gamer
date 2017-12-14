@@ -9,15 +9,12 @@ $(document).ready(function() {
 			} else {
 				serializedData = $target.serialize() + '&partial=guest_show'
 			}
-		// }
-		// debugger;
 		if ( $target.children('join-leave-event') ) {
 			$('.index-bottom-notice p').text("");
 			$.ajax({
 				url: action,
 				type: "put",
 				data: serializedData
-				// data: $target.serialize()
 			}).done()
 		} else {
 			$.ajax({
