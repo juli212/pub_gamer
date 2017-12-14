@@ -3,7 +3,7 @@
 }
 #face-background {
   background-color: #FBEBD4;
-  border-radius: 20px;
+  border-radius: 2px;
   padding-bottom: 10px;
 
 }
@@ -18,10 +18,8 @@
   width: 60px;
   height: 60px;
   padding: 3px 6px;
-  /*padding: 15px;*/
   margin: 0px 5px;
   display: inline-block;
-  text-align: left;
   border-radius: 50%;
 }
 
@@ -43,7 +41,7 @@
 }
 
 .selected {
-  background-color: #FFFFF0;
+  background-color: #A893FF;
 }
 
 .selected:hover {
@@ -53,7 +51,6 @@
 .vibe-button {
   position: fixed;
   opacity: 0;
-  /*top: 0;*/
 }
 
 .vibe-name {
@@ -61,11 +58,24 @@
   font-size: 12px;
   font-weight: bold;
   position: absolute;
-  /*left: 15px;*/
-  /*margin-top: -105px;*/
-  opacity: 0;
+  opacity: 0.3;
+  top: 50px;
+  left: 0;
+  right: 0;
 }
 
 .show-vibe {
   opacity: 1;
+}
+
+.face.selected span {
+  opacity: 1;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@media only screen and (min-width: 640px) {
+  .vibe-name {
+    top: 60px;
+  }
 }

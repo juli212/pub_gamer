@@ -11,8 +11,9 @@ $(function(){
   $(document).foundation();
 });
 
-// $(document).ready(function() {
-//     $('#main').on('load', function(event){
-//         debugger;
-//     })
-// })
+$(document).ready(function() {
+	// reviewAction()
+	timeOfWeek()
+	reviewRating()
+	reviewVibe()
+})

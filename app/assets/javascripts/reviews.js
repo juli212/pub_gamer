@@ -54,3 +54,52 @@ $(document).ready(function() {
     }
   })
 });
+
+function reviewRating() {
+  $('.octopus').on('click', function(event){
+    selected_div = event.target.closest('.octopus')
+    rating_value = $(selected_div).children('input').attr('value')
+    $('.rated').removeClass('rated')
+    $(selected_div).addClass('rated')
+    $(selected_div).find('input').prop('checked', true)
+    $(selected_div).prevAll('.octopus').addClass('rated')
+  })
+  $('.octopus').on('mouseover', function(event){
+    selected_div = event.target.closest('.octopus')
+    $(selected_div).addClass('rate')
+    $(selected_div).nextAll('.octopus').removeClass('rate')
+    $(selected_div).prevAll('.octopus').addClass('rate')
+  })
+  $('#rating').on('mouseout', function(event){
+    $('.rate').removeClass('rate')
+  });
+}
+
+function reviewVibe() {
+  $('.face').on('touchstart click', function(event){
+    selected_div = event.target.closest('.face')
+    if (event.type == "touchstart" || event.type == "click") {
+      $(selected_div).toggleClass('selected');
+      $(selected_div).find('input').prop('checked', !$(selected_div).find('input').prop('checked'));
+      return false
+    }
+    return false
+  })
+  $('.face').hover(function(event){
+    selected_div = event.target.closest('.face')
+    $(selected_div).children('.vibe-name').toggleClass('show-vibe');
+  })
+}
+
+function timeOfWeek() {
+  $('.week').on('touchstart click', function(event){
+    selected_div = event.target.closest('.week');
+    if (event.type == "touchstart" || event.type == "click") {
+      $('.time-of-week').not(selected_div).removeClass('time-of-week');
+      $(selected_div).toggleClass('time-of-week');
+      $(selected_div).find('input').prop('checked', !$(selected_div).find('input').prop('checked'));
+      return false
+    }
+    return false
+  })
+}
