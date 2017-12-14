@@ -12,7 +12,6 @@ $(function(){
 });
 
 $(document).ready(function() {
-	// reviewAction()
 	timeOfWeek()
 	reviewRating()
 	reviewVibe()
