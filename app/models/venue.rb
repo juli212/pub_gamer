@@ -27,9 +27,6 @@ class Venue < ActiveRecord::Base
 
 	def self.search(term)
 		term = term.gsub(/[^\d\sa-zA-Z_\.\,\-\+\!\?]/, "")
-		# term = term.gsub(/[\'s\o']/,'')
-		# term = term.gsub(/[^0-9a-zA-Z_\,\.\+\-\?]/,'')
-		# term = term.gsub("'","").gsub("&", "")
 		venues = Venue.venue_search(term) + Venue.multi_word_search(term) + Venue.game_search(term) + Venue.search_neighborhood(term)
 		venues.uniq
 	end
@@ -109,19 +106,6 @@ class Venue < ActiveRecord::Base
 		avg_rating.round(2)
 	end
 
-	# def replaceAnd
-	# 	name.gsub!("&","\&")
-	# end
-
-	# def removeCharacters
-	# 	name.gsub!("'", "")
-	# end
-
-	# def replaceCharacters
-	# 	self.replaceAnd
-	# 	self.removeCharacters
-	# end
-
 	def slug
 		self.name.gsub(" ", "-")
 	end
@@ -131,6 +115,3 @@ class Venue < ActiveRecord::Base
 	end
 
 end
-
-# & ' ( )
-# - _ + , . 

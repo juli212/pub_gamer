@@ -7,7 +7,7 @@ class EventsController < ApplicationController
       @event = Event.new
       @games = Game.all
       if params[:venue_id]
-        events = Event.venue_events(params[:venue_id])
+        events = Event.venue_events(params[:venue_id].to_i)
       else
         events = Event.future_events
       end
@@ -147,7 +147,6 @@ class EventsController < ApplicationController
     if !request.xhr?
       if @event.deleted == "true"
         errors = ["Event has been cancelled, it cannot be modified"]
-        # redirect_to event_path(@event)
       elsif !@event.in_future?
         errors = ["Event date has already passed, it cannot be modified"]
       else
