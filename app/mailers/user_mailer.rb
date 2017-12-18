@@ -21,4 +21,8 @@ class UserMailer < ApplicationMailer
 		@date = DateTime.now
 		mail(to: 'pubgamerteam@gmail.com', subject: "GENERAL CONTACT", from: @report.email)
 	end
+
+	def test_email()
+		@date = DateTime.now
+		mail(to: 'pubgamerteam@gmail.com', subject: 'MORNING TEST', from: 'PubGamer')
 end
