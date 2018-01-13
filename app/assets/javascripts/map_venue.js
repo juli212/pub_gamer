@@ -67,7 +67,7 @@ function initMap() {
 
     function callback(place, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        debugger;
+        
         var venueAddressLine1 = place.address_components[0].short_name + ' ' + place.address_components[1].short_name
         var venueAddressLine2 = place.address_components[3].short_name + ', ' + place.address_components[5].short_name + ' ' + place.address_components[7].short_name
           $('.info-window-line-1').text(place.name)
