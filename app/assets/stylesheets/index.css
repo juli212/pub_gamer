@@ -1,6 +1,5 @@
 .index-create-button {
   margin-bottom: 5px;
-  /*max-width: 150px;*/
   display: inline-block;
   font-size: 20px;
   padding: 10px;
@@ -14,7 +13,8 @@
   width: 30%;
   margin: 2% 0px;
   padding: 5px;
-  background-color: #FBEBD4;
+  background-image: url('woodTable2570.png');
+  background-color: rgba(251, 235, 212, 0.4);
   opacity: 0.9;
   border-right: 10px solid transparent;
   border-left: 10px solid transparent;
@@ -30,7 +30,6 @@
 }
 
 .index-right {
-  /*position: relative;*/
   max-height: 206px;
   width: 59%;
   float: left;

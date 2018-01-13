@@ -35,12 +35,12 @@
       return;
     }
 
-    // event.preventDefault();
-
     var touch = event.originalEvent.changedTouches[0],
         simulatedEvent = document.createEvent('MouseEvents');
-    
-    if ($(touch.target).is("input") || $(touch.target).is("textarea") || $(touch.target).is("select") || $(touch.target).is("button") || $(touch.target).has('#event-create-games')) {
+
+    if ( $(touch.target).is('#venue-create-submit-button') ) {
+      return false
+    } else if ( $(touch.target).is("input") || $(touch.target).is("textarea") || $(touch.target).is("select") || $(touch.target).is("button") || $(touch.target).has('#event-create-games') ) {
       event.stopPropagation();
     } else {
       event.preventDefault();
